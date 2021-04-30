@@ -73,6 +73,32 @@ int main() {
         for (int i = 0; i < 2; i++)
             for (int j = 0; j < 2; j++)
                 printf("%3i", valCmp("%p", &ptrs[i], &ptrs[j]));
+        printf("\n");
+
+        for (int i = 0; i < 2; i++)
+            for (int j = 0; j < 2; j++)
+                printf("%3i", cmp(bytes[i], bytes[j]));
+        printf("\n");
+        for (int i = 0; i < 2; i++)
+            for (int j = 0; j < 2; j++)
+                printf("%3i", cmp(chars[i], chars[j]));
+        printf("\n");
+        for (int i = 0; i < 2; i++)
+            for (int j = 0; j < 2; j++)
+                printf("%3i", cmp(ints[i], ints[j]));
+        printf("\n");
+        for (int i = 0; i < 2; i++)
+            for (int j = 0; j < 2; j++)
+                printf("%3i", cmp(floats[i], floats[j]));
+        printf("\n");
+        for (int i = 0; i < 2; i++)
+            for (int j = 0; j < 2; j++)
+                printf("%3i", cmp(doubles[i], doubles[j]));
+        printf("\n");
+        for (int i = 0; i < 2; i++)
+            for (int j = 0; j < 2; j++)
+                printf("%3i", cmp(ptrs[i], ptrs[j]));
+        printf("\n");
 
         printf("\n\n");
         for (int i = 0; i < 2; i++)
