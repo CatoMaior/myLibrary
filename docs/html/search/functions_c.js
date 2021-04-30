@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['trueiffalse_69',['trueIfFalse',['../utility_8h.html#a2b2f8c3cb23987b0d24da1a04e1feab9',1,'utility.h']]]
+  ['valcmp_68',['valCmp',['../utility_8h.html#aa19d93fd89941becdd2b07c31cd83a5f',1,'utility.h']]]
 ];

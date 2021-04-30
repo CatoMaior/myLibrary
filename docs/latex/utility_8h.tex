@@ -2,18 +2,20 @@
 \label{utility_8h}\index{utility.h@{utility.h}}
 
 
-Common tasks such as comparing variables and swap bools when necessay.  
+Common tasks such as comparing variables, swap bools, allocate memory.  
 
 
 {\ttfamily \#include \char`\"{}types.\+h\char`\"{}}\newline
-Include dependency graph for utility.\+h\+:\nopagebreak
+Include dependency graph for utility.\+h\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=126pt]{utility_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:\nopagebreak
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -23,6 +25,8 @@ This graph shows which files directly or indirectly include this file\+:\nopageb
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\hyperlink{types_8h_a2b7e7856b48ec3327148ac994ad95cd5}{byte}} \mbox{\hyperlink{utility_8h_aa19d93fd89941becdd2b07c31cd83a5f}{val\+Cmp}} (const \mbox{\hyperlink{types_8h_a12a67a7129240fa955c096deb10cdd6e}{spec\+\_\+t}} spec, const void $\ast$a, const void $\ast$b)
+\begin{DoxyCompactList}\small\item\em Compare two chars. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{types_8h_a2b7e7856b48ec3327148ac994ad95cd5}{byte}} \mbox{\hyperlink{utility_8h_a6617abe8dcee554e16d01965050c6011}{char\+Cmp}} (const void $\ast$a, const void $\ast$b)
 \begin{DoxyCompactList}\small\item\em Compare two chars. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{types_8h_a2b7e7856b48ec3327148ac994ad95cd5}{byte}} \mbox{\hyperlink{utility_8h_acc8c97c95b8bfe6eba88cc46480d2b45}{byte\+Cmp}} (const void $\ast$a, const void $\ast$b)
@@ -35,7 +39,7 @@ This graph shows which files directly or indirectly include this file\+:\nopageb
 \begin{DoxyCompactList}\small\item\em Compare two doubles. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{types_8h_a2b7e7856b48ec3327148ac994ad95cd5}{byte}} \mbox{\hyperlink{utility_8h_a3a26e3c3ede0beca95ea69c8372bbda5}{ptr\+Cmp}} (const void $\ast$a, const void $\ast$b)
 \begin{DoxyCompactList}\small\item\em Compare two pointers. \end{DoxyCompactList}\item 
-void $\ast$ \mbox{\hyperlink{utility_8h_ae66368e7c6dba40dd44c78d980a63292}{choose\+Cmp}} (const char $\ast$id)
+void $\ast$ \mbox{\hyperlink{utility_8h_a0c1f09381c2d65a89f598debd188f368}{choose\+Cmp}} (const \mbox{\hyperlink{types_8h_a12a67a7129240fa955c096deb10cdd6e}{spec\+\_\+t}} spec)
 \begin{DoxyCompactList}\small\item\em Choose comparison function based on given identifier. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{types_8h_a2b7e7856b48ec3327148ac994ad95cd5}{byte}} \mbox{\hyperlink{utility_8h_a2b2f8c3cb23987b0d24da1a04e1feab9}{true\+If\+False}} (\mbox{\hyperlink{types_8h_a2b7e7856b48ec3327148ac994ad95cd5}{byte}} $\ast$value)
 \begin{DoxyCompactList}\small\item\em Set variable to {\ttfamily T\+R\+UE} if variable at provided address is 0. \end{DoxyCompactList}\item 
@@ -48,7 +52,7 @@ void $\ast$ \mbox{\hyperlink{utility_8h_aadeeccab529e344cc74407333840fb73}{safer
 
 
 \doxysubsection{Detailed Description}
-Common tasks such as comparing variables and swap bools when necessay. 
+Common tasks such as comparing variables, swap bools, allocate memory. 
 
 \begin{DoxyAuthor}{Author}
 Pietro Firpo (\href{mailto:pietro.firpo@pm.me}{\texttt{ pietro.\+firpo@pm.\+me}}) 
@@ -66,7 +70,7 @@ Pietro Firpo (\href{mailto:pietro.firpo@pm.me}{\texttt{ pietro.\+firpo@pm.\+me}}
 
 Compare two bytes. 
 
-The call is equivalent to {\ttfamily char\+Cmp(a, b)}. Refer to \mbox{\hyperlink{utility_8h_a6617abe8dcee554e16d01965050c6011}{char\+Cmp()}}. \mbox{\Hypertarget{utility_8h_a6617abe8dcee554e16d01965050c6011}\label{utility_8h_a6617abe8dcee554e16d01965050c6011}} 
+Equivalent to {\ttfamily char\+Cmp(a, b)}. Refer to \mbox{\hyperlink{utility_8h_a6617abe8dcee554e16d01965050c6011}{char\+Cmp()}}. \mbox{\Hypertarget{utility_8h_a6617abe8dcee554e16d01965050c6011}\label{utility_8h_a6617abe8dcee554e16d01965050c6011}} 
 \index{utility.h@{utility.h}!charCmp@{charCmp}}
 \index{charCmp@{charCmp}!utility.h@{utility.h}}
 \doxysubsubsection{\texorpdfstring{charCmp()}{charCmp()}}
@@ -76,32 +80,11 @@ The call is equivalent to {\ttfamily char\+Cmp(a, b)}. Refer to \mbox{\hyperlink
 
 Compare two chars. 
 
-
-\begin{DoxyParams}{Parameters}
-{\em a} & Pointer to the first element to be compared \\
-\hline
-{\em b} & Pointer to the second element to be compared \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Constant for the corresponding comparation result or the return code of the function 
-\end{DoxyReturn}
-
-\begin{DoxyRetVals}{Return values}
-{\em G\+R\+E\+A\+T\+ER} & First element is grater than the second \\
-\hline
-{\em E\+Q\+U\+AL} & First element is equal to the second \\
-\hline
-{\em S\+M\+A\+L\+L\+ER} & First element is smaller than the second \\
-\hline
-{\em N\+U\+L\+L\+\_\+\+P\+O\+I\+N\+T\+E\+R\+\_\+\+G\+I\+V\+EN} & At least one among given pointers was N\+U\+LL \\
-\hline
-\end{DoxyRetVals}
-\mbox{\Hypertarget{utility_8h_ae66368e7c6dba40dd44c78d980a63292}\label{utility_8h_ae66368e7c6dba40dd44c78d980a63292}} 
+Equivalent to {\ttfamily val\+Cmp(\char`\"{}\%c\char`\"{}, a, b)}. Refer to \mbox{\hyperlink{utility_8h_aa19d93fd89941becdd2b07c31cd83a5f}{val\+Cmp()}} \mbox{\Hypertarget{utility_8h_a0c1f09381c2d65a89f598debd188f368}\label{utility_8h_a0c1f09381c2d65a89f598debd188f368}} 
 \index{utility.h@{utility.h}!chooseCmp@{chooseCmp}}
 \index{chooseCmp@{chooseCmp}!utility.h@{utility.h}}
 \doxysubsubsection{\texorpdfstring{chooseCmp()}{chooseCmp()}}
-{\footnotesize\ttfamily void$\ast$ choose\+Cmp (\begin{DoxyParamCaption}\item[{const char $\ast$}]{id }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void$\ast$ choose\+Cmp (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{types_8h_a12a67a7129240fa955c096deb10cdd6e}{spec\+\_\+t}}}]{spec }\end{DoxyParamCaption})}
 
 
 
@@ -125,28 +108,7 @@ Pointer to the right comparison function, {\ttfamily N\+U\+LL} if identifier is 
 
 Compare two doubles. 
 
-
-\begin{DoxyParams}{Parameters}
-{\em a} & Pointer to the first element to be compared \\
-\hline
-{\em b} & Pointer to the second element to be compared \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Constant for the corresponding comparation result or the return code of the function 
-\end{DoxyReturn}
-
-\begin{DoxyRetVals}{Return values}
-{\em G\+R\+E\+A\+T\+ER} & First element is grater than the second \\
-\hline
-{\em E\+Q\+U\+AL} & First element is equal to the second \\
-\hline
-{\em S\+M\+A\+L\+L\+ER} & First element is smaller than the second \\
-\hline
-{\em N\+U\+L\+L\+\_\+\+P\+O\+I\+N\+T\+E\+R\+\_\+\+G\+I\+V\+EN} & At least one among given pointers was N\+U\+LL \\
-\hline
-\end{DoxyRetVals}
-\mbox{\Hypertarget{utility_8h_abff545c25e773c91f1d7adb803eedc5e}\label{utility_8h_abff545c25e773c91f1d7adb803eedc5e}} 
+Equivalent to {\ttfamily val\+Cmp(\char`\"{}\%lf\char`\"{}, a, b)}. Refer to \mbox{\hyperlink{utility_8h_aa19d93fd89941becdd2b07c31cd83a5f}{val\+Cmp()}} \mbox{\Hypertarget{utility_8h_abff545c25e773c91f1d7adb803eedc5e}\label{utility_8h_abff545c25e773c91f1d7adb803eedc5e}} 
 \index{utility.h@{utility.h}!falseIfTrue@{falseIfTrue}}
 \index{falseIfTrue@{falseIfTrue}!utility.h@{utility.h}}
 \doxysubsubsection{\texorpdfstring{falseIfTrue()}{falseIfTrue()}}
@@ -181,28 +143,7 @@ Return code of the function
 
 Compare two floats. 
 
-
-\begin{DoxyParams}{Parameters}
-{\em a} & Pointer to the first element to be compared \\
-\hline
-{\em b} & Pointer to the second element to be compared \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Constant for the corresponding comparation result or the return code of the function 
-\end{DoxyReturn}
-
-\begin{DoxyRetVals}{Return values}
-{\em G\+R\+E\+A\+T\+ER} & First element is grater than the second \\
-\hline
-{\em E\+Q\+U\+AL} & First element is equal to the second \\
-\hline
-{\em S\+M\+A\+L\+L\+ER} & First element is smaller than the second \\
-\hline
-{\em N\+U\+L\+L\+\_\+\+P\+O\+I\+N\+T\+E\+R\+\_\+\+G\+I\+V\+EN} & At least one among given pointers was N\+U\+LL \\
-\hline
-\end{DoxyRetVals}
-\mbox{\Hypertarget{utility_8h_aebc7b095cdd90551a58295a17ce16dfd}\label{utility_8h_aebc7b095cdd90551a58295a17ce16dfd}} 
+Equivalent to {\ttfamily val\+Cmp(\char`\"{}\%f\char`\"{}, a, b)}. Refer to \mbox{\hyperlink{utility_8h_aa19d93fd89941becdd2b07c31cd83a5f}{val\+Cmp()}} \mbox{\Hypertarget{utility_8h_aebc7b095cdd90551a58295a17ce16dfd}\label{utility_8h_aebc7b095cdd90551a58295a17ce16dfd}} 
 \index{utility.h@{utility.h}!intCmp@{intCmp}}
 \index{intCmp@{intCmp}!utility.h@{utility.h}}
 \doxysubsubsection{\texorpdfstring{intCmp()}{intCmp()}}
@@ -212,28 +153,7 @@ Constant for the corresponding comparation result or the return code of the func
 
 Compare two ints. 
 
-
-\begin{DoxyParams}{Parameters}
-{\em a} & Pointer to the first element to be compared \\
-\hline
-{\em b} & Pointer to the second element to be compared \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Constant for the corresponding comparation result or the return code of the function 
-\end{DoxyReturn}
-
-\begin{DoxyRetVals}{Return values}
-{\em G\+R\+E\+A\+T\+ER} & First element is grater than the second \\
-\hline
-{\em E\+Q\+U\+AL} & First element is equal to the second \\
-\hline
-{\em S\+M\+A\+L\+L\+ER} & First element is smaller than the second \\
-\hline
-{\em N\+U\+L\+L\+\_\+\+P\+O\+I\+N\+T\+E\+R\+\_\+\+G\+I\+V\+EN} & At least one among given pointers was N\+U\+LL \\
-\hline
-\end{DoxyRetVals}
-\mbox{\Hypertarget{utility_8h_a3a26e3c3ede0beca95ea69c8372bbda5}\label{utility_8h_a3a26e3c3ede0beca95ea69c8372bbda5}} 
+Equivalent to {\ttfamily val\+Cmp(\char`\"{}\%i\char`\"{}, a, b)}. Refer to \mbox{\hyperlink{utility_8h_aa19d93fd89941becdd2b07c31cd83a5f}{val\+Cmp()}} \mbox{\Hypertarget{utility_8h_a3a26e3c3ede0beca95ea69c8372bbda5}\label{utility_8h_a3a26e3c3ede0beca95ea69c8372bbda5}} 
 \index{utility.h@{utility.h}!ptrCmp@{ptrCmp}}
 \index{ptrCmp@{ptrCmp}!utility.h@{utility.h}}
 \doxysubsubsection{\texorpdfstring{ptrCmp()}{ptrCmp()}}
@@ -243,28 +163,7 @@ Constant for the corresponding comparation result or the return code of the func
 
 Compare two pointers. 
 
-
-\begin{DoxyParams}{Parameters}
-{\em a} & Pointer to the first element to be compared \\
-\hline
-{\em b} & Pointer to the second element to be compared \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Constant for the corresponding comparation result or the return code of the function 
-\end{DoxyReturn}
-
-\begin{DoxyRetVals}{Return values}
-{\em G\+R\+E\+A\+T\+ER} & First element is grater than the second \\
-\hline
-{\em E\+Q\+U\+AL} & First element is equal to the second \\
-\hline
-{\em S\+M\+A\+L\+L\+ER} & First element is smaller than the second \\
-\hline
-{\em N\+U\+L\+L\+\_\+\+P\+O\+I\+N\+T\+E\+R\+\_\+\+G\+I\+V\+EN} & At least one among given pointers was N\+U\+LL \\
-\hline
-\end{DoxyRetVals}
-\mbox{\Hypertarget{utility_8h_aa7da8f49b718cedad9e787580432709b}\label{utility_8h_aa7da8f49b718cedad9e787580432709b}} 
+Equivalent to {\ttfamily val\+Cmp(\char`\"{}\%p\char`\"{}, a, b)}. Refer to \mbox{\hyperlink{utility_8h_aa19d93fd89941becdd2b07c31cd83a5f}{val\+Cmp()}} \mbox{\Hypertarget{utility_8h_aa7da8f49b718cedad9e787580432709b}\label{utility_8h_aa7da8f49b718cedad9e787580432709b}} 
 \index{utility.h@{utility.h}!saferMalloc@{saferMalloc}}
 \index{saferMalloc@{saferMalloc}!utility.h@{utility.h}}
 \doxysubsubsection{\texorpdfstring{saferMalloc()}{saferMalloc()}}
@@ -333,6 +232,39 @@ Return code of the function
 
 \begin{DoxyRetVals}{Return values}
 {\em S\+U\+C\+C\+E\+SS} & Function executed correctly \\
+\hline
+{\em N\+U\+L\+L\+\_\+\+P\+O\+I\+N\+T\+E\+R\+\_\+\+G\+I\+V\+EN} & At least one among given pointers was N\+U\+LL \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{utility_8h_aa19d93fd89941becdd2b07c31cd83a5f}\label{utility_8h_aa19d93fd89941becdd2b07c31cd83a5f}} 
+\index{utility.h@{utility.h}!valCmp@{valCmp}}
+\index{valCmp@{valCmp}!utility.h@{utility.h}}
+\doxysubsubsection{\texorpdfstring{valCmp()}{valCmp()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a2b7e7856b48ec3327148ac994ad95cd5}{byte}} val\+Cmp (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{types_8h_a12a67a7129240fa955c096deb10cdd6e}{spec\+\_\+t}}}]{spec,  }\item[{const void $\ast$}]{a,  }\item[{const void $\ast$}]{b }\end{DoxyParamCaption})}
+
+
+
+Compare two chars. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em spec} & Type specifier of the values to be sorted. Refer to \mbox{\hyperlink{types_8h_a12a67a7129240fa955c096deb10cdd6e}{spec\+\_\+t}} for supported types. \\
+\hline
+{\em a} & Pointer to the first element to be compared \\
+\hline
+{\em b} & Pointer to the second element to be compared \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Constant for the corresponding comparation result or the return code of the function 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em G\+R\+E\+A\+T\+ER} & First element is grater than the second \\
+\hline
+{\em E\+Q\+U\+AL} & First element is equal to the second \\
+\hline
+{\em S\+M\+A\+L\+L\+ER} & First element is smaller than the second \\
 \hline
 {\em N\+U\+L\+L\+\_\+\+P\+O\+I\+N\+T\+E\+R\+\_\+\+G\+I\+V\+EN} & At least one among given pointers was N\+U\+LL \\
 \hline

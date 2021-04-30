@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['unknown_5fspec_35',['UNKNOWN_SPEC',['../constants_8h.html#a2e7b54758861af710f00866d9b71f717',1,'constants.h']]],
-  ['unsupported_5farchitecture_36',['UNSUPPORTED_ARCHITECTURE',['../constants_8h.html#aaf0e0fcdf1f618e3278d5edced9ad25a',1,'constants.h']]],
-  ['utility_2eh_37',['utility.h',['../utility_8h.html',1,'']]]
+  ['true_34',['TRUE',['../constants_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d',1,'constants.h']]],
+  ['trueiffalse_35',['trueIfFalse',['../utility_8h.html#a2b2f8c3cb23987b0d24da1a04e1feab9',1,'utility.h']]],
+  ['types_2eh_36',['types.h',['../types_8h.html',1,'']]]
 ];
