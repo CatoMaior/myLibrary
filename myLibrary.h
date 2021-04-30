@@ -6,7 +6,8 @@
 
 /**
  * @mainpage myLibrary homepage
- * @section intro_section Hi! Actually I don't know what I should put here, so at the moment I just suggest you to go to the <a href="files.html">files</a> section
+ * @section intro_section Hi!
+ * Actually I don't know what I should put here, so at the moment I just suggest you to go to the <a href="files.html">files</a> section
  */
 
 #include "constants.h"
