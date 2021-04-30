@@ -1,13 +1,14 @@
 /**
  * @file utility.h
  * @author Pietro Firpo (pietro.firpo@pm.me)
- * @brief Common tasks such as comparing variables and swap bools when necessay
+ * @brief Common tasks such as comparing variables, swap bools, allocate memory
  */
 
 #include "types.h"
 
 /**
  * @brief Compare two chars
+ * @param spec Type specifier of the values to be sorted. Refer to ::spec_t for supported types.
  * @param a Pointer to the first element to be compared
  * @param b Pointer to the second element to be compared
  * @return Constant for the corresponding comparation result or the return code of the function
@@ -15,60 +16,42 @@
  * @retval EQUAL First element is equal to the second
  * @retval SMALLER First element is smaller than the second
  * @retval NULL_POINTER_GIVEN At least one among given pointers was NULL
+ */
+byte valCmp(const spec_t spec, const void *a, const void *b);
+
+/**
+ * @brief Compare two chars
+ * @details Equivalent to `valCmp("%c", a, b)`. Refer to valCmp()
  */
 byte charCmp(const void *a, const void *b);
 
 /**
  * @brief Compare two bytes
- * @details The call is equivalent to `charCmp(a, b)`. Refer to charCmp(). 
+ * @details Equivalent to `charCmp(a, b)`. Refer to charCmp(). 
  */
 byte byteCmp(const void *a, const void *b);
 
 /**
  * @brief Compare two ints
- * @param a Pointer to the first element to be compared
- * @param b Pointer to the second element to be compared
- * @return Constant for the corresponding comparation result or the return code of the function
- * @retval GREATER First element is grater than the second
- * @retval EQUAL First element is equal to the second
- * @retval SMALLER First element is smaller than the second
- * @retval NULL_POINTER_GIVEN At least one among given pointers was NULL
+ * @details Equivalent to `valCmp("%i", a, b)`. Refer to valCmp()
  */
 byte intCmp(const void *a, const void *b);
 
 /**
  * @brief Compare two floats
- * @param a Pointer to the first element to be compared
- * @param b Pointer to the second element to be compared
- * @return Constant for the corresponding comparation result or the return code of the function
- * @retval GREATER First element is grater than the second
- * @retval EQUAL First element is equal to the second
- * @retval SMALLER First element is smaller than the second
- * @retval NULL_POINTER_GIVEN At least one among given pointers was NULL
+ * @details Equivalent to `valCmp("%f", a, b)`. Refer to valCmp()
  */
 byte floatCmp(const void *a, const void *b);
 
 /**
  * @brief Compare two doubles
- * @param a Pointer to the first element to be compared
- * @param b Pointer to the second element to be compared
- * @return Constant for the corresponding comparation result or the return code of the function
- * @retval GREATER First element is grater than the second
- * @retval EQUAL First element is equal to the second
- * @retval SMALLER First element is smaller than the second
- * @retval NULL_POINTER_GIVEN At least one among given pointers was NULL
+ * @details Equivalent to `valCmp("%lf", a, b)`. Refer to valCmp()
  */
 byte doubleCmp(const void *a, const void *b);
 
 /**
  * @brief Compare two pointers
- * @param a Pointer to the first element to be compared
- * @param b Pointer to the second element to be compared
- * @return Constant for the corresponding comparation result or the return code of the function
- * @retval GREATER First element is grater than the second
- * @retval EQUAL First element is equal to the second
- * @retval SMALLER First element is smaller than the second
- * @retval NULL_POINTER_GIVEN At least one among given pointers was NULL
+ * @details Equivalent to `valCmp("%p", a, b)`. Refer to valCmp()
  */
 byte ptrCmp(const void *a, const void *b);
 
@@ -77,7 +60,7 @@ byte ptrCmp(const void *a, const void *b);
  * @param id Identifier of the type of the data. Refer to ::spec_t 
  * @return Pointer to the right comparison function, `NULL` if identifier is not recognized or given pointer was NULL
  */
-void *chooseCmp(const char *id);
+void *chooseCmp(const spec_t spec);
 
 /**
  * @brief Set variable to `TRUE` if variable at provided address is 0
