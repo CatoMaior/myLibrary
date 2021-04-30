@@ -17,7 +17,7 @@ int main() {
         for (int i = 0; i < 2; i++) 
             ptrs[i] = saferMalloc(sizeof(char));
             
-        byte (*cmpFunc)(void *a, void *b);
+        byte (*cmpFunc)(const void *a, const void *b);
 
         cmpFunc = chooseCmp("%c");
         for (int i = 0; i < 2; i++)
@@ -48,8 +48,33 @@ int main() {
         for (int i = 0; i < 2; i++)
             for (int j = 0; j < 2; j++)
                 printf("%3i", (*cmpFunc)(&ptrs[i], &ptrs[j]));
-        printf("\n\n");
+        printf("\n");
 
+        for (int i = 0; i < 2; i++)
+            for (int j = 0; j < 2; j++)
+                printf("%3i", valCmp("%c", &bytes[i], &bytes[j]));
+        printf("\n");
+        for (int i = 0; i < 2; i++)
+            for (int j = 0; j < 2; j++)
+                printf("%3i", valCmp("%c", &chars[i], &chars[j]));
+        printf("\n");
+        for (int i = 0; i < 2; i++)
+            for (int j = 0; j < 2; j++)
+                printf("%3i", valCmp("%i", &ints[i], &ints[j]));
+        printf("\n");
+        for (int i = 0; i < 2; i++)
+            for (int j = 0; j < 2; j++)
+                printf("%3i", valCmp("%f", &floats[i], &floats[j]));
+        printf("\n");
+        for (int i = 0; i < 2; i++)
+            for (int j = 0; j < 2; j++)
+                printf("%3i", valCmp("%lf", &doubles[i], &doubles[j]));
+        printf("\n");
+        for (int i = 0; i < 2; i++)
+            for (int j = 0; j < 2; j++)
+                printf("%3i", valCmp("%p", &ptrs[i], &ptrs[j]));
+
+        printf("\n\n");
         for (int i = 0; i < 2; i++)
             free(ptrs[i]);
     }
