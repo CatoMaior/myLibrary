@@ -1,0 +1,151 @@
+\hypertarget{strings_8h}{}\doxysection{strings.\+h File Reference}
+\label{strings_8h}\index{strings.h@{strings.h}}
+
+
+Common tasks with strings.  
+
+
+{\ttfamily \#include \char`\"{}types.\+h\char`\"{}}\newline
+Include dependency graph for strings.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=130pt]{strings_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=143pt]{strings_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \mbox{\hyperlink{strings_8h_a07fe93f1edbc9d815058eca59e9b2636}{get\+String}} ()
+\begin{DoxyCompactList}\small\item\em Reads from terminal a string of arbitrary length. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_a2b7e7856b48ec3327148ac994ad95cd5}{byte}} \mbox{\hyperlink{strings_8h_ae2d2518b7d79536b53f6b590b5de2efc}{ends\+With}} (const char $\ast$string, const char $\ast$suffix)
+\begin{DoxyCompactList}\small\item\em Check if a string ends with the specified substring. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{strings_8h_aa2af9f4f6ecbe3950741db2e19ec604e}{change\+Last\+Character}} (char $\ast$string, char new\+Character)
+\begin{DoxyCompactList}\small\item\em Get string with different last character. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{strings_8h_a8e9948ec41d425e3831795c9a24a55a9}{get\+Length}} (const char $\ast$string)
+\begin{DoxyCompactList}\small\item\em Get the lenght of a string. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{strings_8h_a899c069743717f0b01fd9dffdaa3404b}{copy\+Of}} (const char $\ast$src)
+\begin{DoxyCompactList}\small\item\em Get a copy of the given string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Common tasks with strings. 
+
+\begin{DoxyAuthor}{Author}
+Pietro Firpo (\href{mailto:pietro.firpo@pm.me}{\texttt{ pietro.\+firpo@pm.\+me}}) 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{strings_8h_aa2af9f4f6ecbe3950741db2e19ec604e}\label{strings_8h_aa2af9f4f6ecbe3950741db2e19ec604e}} 
+\index{strings.h@{strings.h}!changeLastCharacter@{changeLastCharacter}}
+\index{changeLastCharacter@{changeLastCharacter}!strings.h@{strings.h}}
+\doxysubsubsection{\texorpdfstring{changeLastCharacter()}{changeLastCharacter()}}
+{\footnotesize\ttfamily char$\ast$ change\+Last\+Character (\begin{DoxyParamCaption}\item[{char $\ast$}]{string,  }\item[{char}]{new\+Character }\end{DoxyParamCaption})}
+
+
+
+Get string with different last character. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & The string you want to change the last character \\
+\hline
+{\em new\+Character} & The character you want to set as last character \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to a string with the same characters of {\ttfamily string} and new\+Character as last character or a null pointer in case of errors 
+\end{DoxyReturn}
+\mbox{\Hypertarget{strings_8h_a899c069743717f0b01fd9dffdaa3404b}\label{strings_8h_a899c069743717f0b01fd9dffdaa3404b}} 
+\index{strings.h@{strings.h}!copyOf@{copyOf}}
+\index{copyOf@{copyOf}!strings.h@{strings.h}}
+\doxysubsubsection{\texorpdfstring{copyOf()}{copyOf()}}
+{\footnotesize\ttfamily char$\ast$ copy\+Of (\begin{DoxyParamCaption}\item[{const char $\ast$}]{src }\end{DoxyParamCaption})}
+
+
+
+Get a copy of the given string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & The string to be copied \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the copy of the given string or or a null pointer in case of errors 
+\end{DoxyReturn}
+\mbox{\Hypertarget{strings_8h_ae2d2518b7d79536b53f6b590b5de2efc}\label{strings_8h_ae2d2518b7d79536b53f6b590b5de2efc}} 
+\index{strings.h@{strings.h}!endsWith@{endsWith}}
+\index{endsWith@{endsWith}!strings.h@{strings.h}}
+\doxysubsubsection{\texorpdfstring{endsWith()}{endsWith()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a2b7e7856b48ec3327148ac994ad95cd5}{byte}} ends\+With (\begin{DoxyParamCaption}\item[{const char $\ast$}]{string,  }\item[{const char $\ast$}]{suffix }\end{DoxyParamCaption})}
+
+
+
+Check if a string ends with the specified substring. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & The string to be inspected \\
+\hline
+{\em suffix} & The string you want to check if {\ttfamily string}ends with \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A boolean value 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em T\+R\+UE} & {\ttfamily string} ends with {\ttfamily suffix} \\
+\hline
+{\em F\+A\+L\+SE} & {\ttfamily string} does not end with {\ttfamily suffix} \\
+\hline
+{\em N\+U\+L\+L\+\_\+\+P\+O\+I\+N\+T\+E\+R\+\_\+\+G\+I\+V\+EN} & At least one among given pointers was N\+U\+LL \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{strings_8h_a8e9948ec41d425e3831795c9a24a55a9}\label{strings_8h_a8e9948ec41d425e3831795c9a24a55a9}} 
+\index{strings.h@{strings.h}!getLength@{getLength}}
+\index{getLength@{getLength}!strings.h@{strings.h}}
+\doxysubsubsection{\texorpdfstring{getLength()}{getLength()}}
+{\footnotesize\ttfamily unsigned int get\+Length (\begin{DoxyParamCaption}\item[{const char $\ast$}]{string }\end{DoxyParamCaption})}
+
+
+
+Get the lenght of a string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & pointer to the first element of the string to be evaluated \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The lenght of the given string or the error code of the function 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em N\+U\+L\+L\+\_\+\+P\+O\+I\+N\+T\+E\+R\+\_\+\+G\+I\+V\+EN} & At least one among given pointers was N\+U\+LL \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{strings_8h_a07fe93f1edbc9d815058eca59e9b2636}\label{strings_8h_a07fe93f1edbc9d815058eca59e9b2636}} 
+\index{strings.h@{strings.h}!getString@{getString}}
+\index{getString@{getString}!strings.h@{strings.h}}
+\doxysubsubsection{\texorpdfstring{getString()}{getString()}}
+{\footnotesize\ttfamily char$\ast$ get\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Reads from terminal a string of arbitrary length. 
+
+\begin{DoxyReturn}{Returns}
+A char pointer to the first element of the string or a null pointer in case of errors 
+\end{DoxyReturn}
