@@ -6,22 +6,25 @@ Common tasks such as comparing variables, swap bools, allocate memory.
 
 
 {\ttfamily \#include \char`\"{}types.\+h\char`\"{}}\newline
-Include dependency graph for utility.\+h\+:
-\nopagebreak
+Include dependency graph for utility.\+h\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=126pt]{utility_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:
-\nopagebreak
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=143pt]{utility_8h__dep__incl}
 \end{center}
 \end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{utility_8h_a795a8d54876a4363815217ccbf17e2e1}{cmp}}(a,  b)~\+\_\+\+Generic((a, b), char\+: \mbox{\hyperlink{utility_8h_a6617abe8dcee554e16d01965050c6011}{char\+Cmp}}, int\+: \mbox{\hyperlink{utility_8h_aebc7b095cdd90551a58295a17ce16dfd}{int\+Cmp}}, float\+: \mbox{\hyperlink{utility_8h_a55042291f308fda752817077c2aab57f}{float\+Cmp}}, double\+: \mbox{\hyperlink{utility_8h_af0fc0c42b6a41f593a63535ca5352309}{double\+Cmp}}, void $\ast$\+: \mbox{\hyperlink{utility_8h_a3a26e3c3ede0beca95ea69c8372bbda5}{ptr\+Cmp}}) (\&a, \&b)
+\begin{DoxyCompactList}\small\item\em Compare two values. Calls the right {\itshape type}Cmp() function. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -59,6 +62,34 @@ Pietro Firpo (\href{mailto:pietro.firpo@pm.me}{\texttt{ pietro.\+firpo@pm.\+me}}
 \end{DoxyAuthor}
 
 
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{utility_8h_a795a8d54876a4363815217ccbf17e2e1}\label{utility_8h_a795a8d54876a4363815217ccbf17e2e1}} 
+\index{utility.h@{utility.h}!cmp@{cmp}}
+\index{cmp@{cmp}!utility.h@{utility.h}}
+\doxysubsubsection{\texorpdfstring{cmp}{cmp}}
+{\footnotesize\ttfamily \#define cmp(\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{b }\end{DoxyParamCaption})~\+\_\+\+Generic((a, b), char\+: \mbox{\hyperlink{utility_8h_a6617abe8dcee554e16d01965050c6011}{char\+Cmp}}, int\+: \mbox{\hyperlink{utility_8h_aebc7b095cdd90551a58295a17ce16dfd}{int\+Cmp}}, float\+: \mbox{\hyperlink{utility_8h_a55042291f308fda752817077c2aab57f}{float\+Cmp}}, double\+: \mbox{\hyperlink{utility_8h_af0fc0c42b6a41f593a63535ca5352309}{double\+Cmp}}, void $\ast$\+: \mbox{\hyperlink{utility_8h_a3a26e3c3ede0beca95ea69c8372bbda5}{ptr\+Cmp}}) (\&a, \&b)}
+
+
+
+Compare two values. Calls the right {\itshape type}Cmp() function. 
+
+\begin{DoxyNote}{Note}
+Works only on C11 or newer compilers 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+The return code of the function code 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em G\+R\+E\+A\+T\+ER} & First element is grater than the second \\
+\hline
+{\em E\+Q\+U\+AL} & First element is equal to the second \\
+\hline
+{\em S\+M\+A\+L\+L\+ER} & First element is smaller than the second \\
+\hline
+\end{DoxyRetVals}
+
+
 \doxysubsection{Function Documentation}
 \mbox{\Hypertarget{utility_8h_acc8c97c95b8bfe6eba88cc46480d2b45}\label{utility_8h_acc8c97c95b8bfe6eba88cc46480d2b45}} 
 \index{utility.h@{utility.h}!byteCmp@{byteCmp}}
@@ -92,7 +123,7 @@ Choose comparison function based on given identifier.
 
 
 \begin{DoxyParams}{Parameters}
-{\em id} & Identifier of the type of the data. Refer to \mbox{\hyperlink{types_8h_a12a67a7129240fa955c096deb10cdd6e}{spec\+\_\+t}} \\
+{\em spec} & Specifier of the type of the data. Refer to \mbox{\hyperlink{types_8h_a12a67a7129240fa955c096deb10cdd6e}{spec\+\_\+t}} \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}

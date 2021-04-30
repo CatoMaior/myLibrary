@@ -63,6 +63,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">utility.h File Reference</div>  </div>
@@ -93,6 +94,12 @@ This graph shows which files directly or indirectly include this file:</div>
 </div>
 <p><a href="utility_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a795a8d54876a4363815217ccbf17e2e1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utility_8h.html#a795a8d54876a4363815217ccbf17e2e1">cmp</a>(a,  b)&#160;&#160;&#160;_Generic((a, b), char: <a class="el" href="utility_8h.html#a6617abe8dcee554e16d01965050c6011">charCmp</a>, int: <a class="el" href="utility_8h.html#aebc7b095cdd90551a58295a17ce16dfd">intCmp</a>, float: <a class="el" href="utility_8h.html#a55042291f308fda752817077c2aab57f">floatCmp</a>, double: <a class="el" href="utility_8h.html#af0fc0c42b6a41f593a63535ca5352309">doubleCmp</a>, void *: <a class="el" href="utility_8h.html#a3a26e3c3ede0beca95ea69c8372bbda5">ptrCmp</a>) (&amp;a, &amp;b)</td></tr>
+<tr class="memdesc:a795a8d54876a4363815217ccbf17e2e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare two values. Calls the right <em>type</em>Cmp() function.  <a href="utility_8h.html#a795a8d54876a4363815217ccbf17e2e1">More...</a><br /></td></tr>
+<tr class="separator:a795a8d54876a4363815217ccbf17e2e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:aa19d93fd89941becdd2b07c31cd83a5f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#a2b7e7856b48ec3327148ac994ad95cd5">byte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utility_8h.html#aa19d93fd89941becdd2b07c31cd83a5f">valCmp</a> (const <a class="el" href="types_8h.html#a12a67a7129240fa955c096deb10cdd6e">spec_t</a> spec, const void *a, const void *b)</td></tr>
@@ -135,7 +142,48 @@ Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Common tasks such as comparing variables, swap bools, allocate memory. </p>
 <dl class="section author"><dt>Author</dt><dd>Pietro Firpo (<a href="#" onclick="location.href='mai'+'lto:'+'pie'+'tr'+'o.f'+'ir'+'po@'+'pm'+'.me'; return false;">pietr<span style="display: none;">.nosp@m.</span>o.fi<span style="display: none;">.nosp@m.</span>rpo@p<span style="display: none;">.nosp@m.</span>m.me</a>) </dd></dl>
-</div><h2 class="groupheader">Function Documentation</h2>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a795a8d54876a4363815217ccbf17e2e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a795a8d54876a4363815217ccbf17e2e1">&#9670;&nbsp;</a></span>cmp</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define cmp</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">a, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">b&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;_Generic((a, b), char: <a class="el" href="utility_8h.html#a6617abe8dcee554e16d01965050c6011">charCmp</a>, int: <a class="el" href="utility_8h.html#aebc7b095cdd90551a58295a17ce16dfd">intCmp</a>, float: <a class="el" href="utility_8h.html#a55042291f308fda752817077c2aab57f">floatCmp</a>, double: <a class="el" href="utility_8h.html#af0fc0c42b6a41f593a63535ca5352309">doubleCmp</a>, void *: <a class="el" href="utility_8h.html#a3a26e3c3ede0beca95ea69c8372bbda5">ptrCmp</a>) (&amp;a, &amp;b)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compare two values. Calls the right <em>type</em>Cmp() function. </p>
+<dl class="section note"><dt>Note</dt><dd>Works only on C11 or newer compilers </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The return code of the function code </dd></dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">GREATER</td><td>First element is grater than the second </td></tr>
+    <tr><td class="paramname">EQUAL</td><td>First element is equal to the second </td></tr>
+    <tr><td class="paramname">SMALLER</td><td>First element is smaller than the second </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
 <a id="acc8c97c95b8bfe6eba88cc46480d2b45"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acc8c97c95b8bfe6eba88cc46480d2b45">&#9670;&nbsp;</a></span>byteCmp()</h2>
 
@@ -217,7 +265,7 @@ Functions</h2></td></tr>
 <p>Choose comparison function based on given identifier. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">id</td><td>Identifier of the type of the data. Refer to <a class="el" href="types_8h.html#a12a67a7129240fa955c096deb10cdd6e" title="Used to specify type of argument passed in functions that require a type specifier.">spec_t</a> </td></tr>
+    <tr><td class="paramname">spec</td><td>Specifier of the type of the data. Refer to <a class="el" href="types_8h.html#a12a67a7129240fa955c096deb10cdd6e" title="Used to specify type of argument passed in functions that require a type specifier.">spec_t</a> </td></tr>
   </table>
   </dd>
 </dl>
