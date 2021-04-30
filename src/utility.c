@@ -5,18 +5,25 @@
 #include "../constants.h"
 #include "../strings.h"
 
-void *chooseCmp(const char *id) {
-    if (!id)
+byte valCmp(const spec_t spec, const void *a, const void *b) {
+    if (!spec || !a || !b)
+        return NULL_POINTER_GIVEN;
+    char (*cmpFun)(const void *a, const void *b) = chooseCmp(spec);
+    return (*cmpFun)(a, b);
+}
+
+void *chooseCmp(const spec_t spec) {
+    if (!spec)
         return NULL;
-    if (strcmp("%c", id) == 0)
+    if (strcmp("%c", spec) == 0)
         return charCmp;
-    if (strcmp("%i", id) == 0)
+    if (strcmp("%i", spec) == 0)
         return intCmp;
-    if (strcmp("%f", id) == 0)
+    if (strcmp("%f", spec) == 0)
         return floatCmp;
-    if (strcmp("%lf", id) == 0)
+    if (strcmp("%lf", spec) == 0)
         return doubleCmp;
-    if (strcmp("%p", id) == 0)
+    if (strcmp("%p", spec) == 0)
         return ptrCmp;
     return NULL;
 }
