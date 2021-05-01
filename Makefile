@@ -14,6 +14,9 @@ docs: $(DOCS_HTML)
 
 pdf: $(DOCS_PDF)
 
+examples: examples.c
+	$(CC) $^ -o bin/$@ $(LIB)
+
 bin/%.o: src/%.c
 	$(CC) -c $^ -o $@
 
