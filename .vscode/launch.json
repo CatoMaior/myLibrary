@@ -8,7 +8,7 @@
             "name": "Make project and launch examples",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/bin/examples",
+            "program": "${workspaceFolder}/bin/examples.o",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
