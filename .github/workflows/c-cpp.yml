@@ -13,5 +13,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: make lib
-      run: make lib
+      with:
+        additional-packages: doxygen
+    - name: make lib docs
+      run: make lib docs
