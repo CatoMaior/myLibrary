@@ -13,6 +13,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - uses: doxygen/doxygen@latest
+    - uses: doxygen/doxygen@Release_1_9_1
     - name: make
       run: make
