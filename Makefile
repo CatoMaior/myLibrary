@@ -6,7 +6,11 @@ OBJS=$(patsubst src/%.c,bin/%.o,$(SRCS))
 HEADS=$(wildcard *.h)
 LIB=bin/myLibrary.lib
 
-all: $(OBJS) $(LIB) $(DOCS_HTML)
+all: $(OBJS) $(LIB) $(DOCS_HTML) $(DOCS_PDF)
+
+lib: $(OBJS) $(LIB)
+
+docs: $(DOCS_HTML)
 
 pdf: $(DOCS_PDF)
 
