@@ -15,5 +15,4 @@ jobs:
     # This workflow contains a single job called "build"
     steps:
       - uses: mattnotmitt/doxygen-action@v1.3.0
-      - name: make docs
-        run: make docs
+      - name: doxygen
