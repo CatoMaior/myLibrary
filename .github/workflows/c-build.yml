@@ -13,5 +13,5 @@ jobs:
     
     steps:
     - uses: actions/checkout@v2
-    - name: make lib
-      run: make lib
+    - name: make lib examples
+      run: make lib examples
