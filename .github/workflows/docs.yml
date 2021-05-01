@@ -16,3 +16,4 @@ jobs:
     steps:
       - uses: mattnotmitt/doxygen-action@v1.3.0
       - name: doxygen
+        run: doxygen
