@@ -19,5 +19,5 @@ jobs:
       uses: tsunematsu21/actions-publish-gh-pages@v1.0.1
       with:
         dir: docs/html
-        branch: main
+        branch: gh-pages
         token: ${{ secrets.ACCESS_TOKEN }}
