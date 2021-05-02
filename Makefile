@@ -6,7 +6,7 @@ OBJS=$(patsubst src/%.c,bin/%.o,$(SRCS))
 HEADS=$(wildcard *.h)
 LIB=bin/myLibrary.lib
 
-all: $(OBJS) $(LIB) $(DOCS_HTML) $(DOCS_PDF)
+all: $(OBJS) $(LIB) $(DOCS_HTML) $(DOCS_PDF) examples
 
 lib: $(OBJS) $(LIB)
 
@@ -15,7 +15,7 @@ docs: $(DOCS_HTML)
 pdf: $(DOCS_PDF)
 
 examples: examples.c
-	$(CC) $^ -o bin/$@.o $(LIB)
+	$(CC) $^ -o bin/$@ $(LIB)
 
 bin/%.o: src/%.c
 	$(CC) -c $^ -o $@
