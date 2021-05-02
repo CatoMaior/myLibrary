@@ -16,7 +16,7 @@ pdf: $(DOCS_PDF)
 
 bin/examples: examples.c
 	mkdir -p bin
-	$(CC) $^ -o bin/$@ $(LIB)
+	$(CC) $^ -o $@ $(LIB)
 
 bin/%.o: src/%.c
 	mkdir -p bin
