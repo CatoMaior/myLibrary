@@ -14,25 +14,27 @@ jobs:
     - uses: actions/checkout@v2
     
     - name: Compile library and examples
-      run: |
-        make lib build/examples
-        zip release.zip *.h examples.c build/myLibrary.lib
+      run: make lib build/examples
         
     - name: Compile docs
       uses: mattnotmitt/doxygen-action@v1.3.0
     
     - name: Compile PDF docs
-      uses: xu-cheng/texlive-action/full@v1
+      uses: xu-cheng/texlive-action/small@v1
       with:
         run: |
             apk add make
             make pdf
+            mv docs/docs.pdf docs/html
       
     - name: Publish docs to github pages
       uses: JamesIves/github-pages-deploy-action@4.1.1
       with:
         folder: docs/html
         branch: gh-pages
+    
+    - name: Create release zip file
+      run: zip release.zip *.h examples.c build/myLibrary.lib docs/html/docs.pdf
         
     - name: Publish build
       uses: "marvinpinto/action-automatic-releases@latest"
