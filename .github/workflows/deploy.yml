@@ -12,6 +12,7 @@ jobs:
     steps:
     
     - uses: actions/checkout@v2
+    
     - name: Compile library and examples
       run: |
         make lib build/examples
@@ -19,6 +20,10 @@ jobs:
         
     - name: Compile docs
       uses: mattnotmitt/doxygen-action@v1.3.0
+      
+    - uses: xu-cheng/texlive-action/full@v1
+      with:
+        run: make pdf
       
     - name: Publish docs to github pages
       uses: JamesIves/github-pages-deploy-action@4.1.1
