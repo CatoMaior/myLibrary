@@ -1,7 +1,7 @@
 /**
  * @file arrays.h
  * @author Pietro Firpo (pietro.firpo@pm.me)
- * @brief Common tasks with arrays: sorting
+ * @brief Common tasks with arrays: sorting, searching, printing etc
  */
 
 #include "types.h"
