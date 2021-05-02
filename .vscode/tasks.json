@@ -3,7 +3,7 @@
         {
             "label": "Build library and examples",
             "type": "shell",
-            "command": "make lib examples",
+            "command": "make lib build/examples",
             "presentation": {
                 "reveal": "silent",
                 "clear": true
