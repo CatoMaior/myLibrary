@@ -6,7 +6,7 @@ OBJS=$(patsubst src/%.c,bin/%.o,$(SRCS))
 HEADS=$(wildcard *.h)
 LIB=bin/myLibrary.lib
 
-all: $(OBJS) $(LIB) $(DOCS_HTML) $(DOCS_PDF) examples
+all: $(OBJS) $(LIB) $(DOCS_HTML) $(DOCS_PDF) bin/examples
 
 lib: $(OBJS) $(LIB)
 
@@ -14,7 +14,7 @@ docs: $(DOCS_HTML)
 
 pdf: $(DOCS_PDF)
 
-examples: examples.c
+bin/examples: examples.c
 	mkdir -p bin
 	$(CC) $^ -o bin/$@ $(LIB)
 
