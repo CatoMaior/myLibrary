@@ -6,14 +6,16 @@ Common tasks such as comparing variables, swap bools, allocate memory.
 
 
 {\ttfamily \#include \char`\"{}types.\+h\char`\"{}}\newline
-Include dependency graph for utility.\+h\+:\nopagebreak
+Include dependency graph for utility.\+h\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=126pt]{utility_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:\nopagebreak
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -45,9 +47,9 @@ This graph shows which files directly or indirectly include this file\+:\nopageb
 void $\ast$ \mbox{\hyperlink{utility_8h_a0c1f09381c2d65a89f598debd188f368}{choose\+Cmp}} (const \mbox{\hyperlink{types_8h_a12a67a7129240fa955c096deb10cdd6e}{spec\+\_\+t}} spec)
 \begin{DoxyCompactList}\small\item\em Choose comparison function based on given identifier. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{types_8h_a2b7e7856b48ec3327148ac994ad95cd5}{byte}} \mbox{\hyperlink{utility_8h_a2b2f8c3cb23987b0d24da1a04e1feab9}{true\+If\+False}} (\mbox{\hyperlink{types_8h_a2b7e7856b48ec3327148ac994ad95cd5}{byte}} $\ast$value)
-\begin{DoxyCompactList}\small\item\em Set variable to {\ttfamily T\+R\+UE} if variable at provided address is 0. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Set variable to {\ttfamily TRUE} if variable at provided address is 0. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{types_8h_a2b7e7856b48ec3327148ac994ad95cd5}{byte}} \mbox{\hyperlink{utility_8h_abff545c25e773c91f1d7adb803eedc5e}{false\+If\+True}} (\mbox{\hyperlink{types_8h_a2b7e7856b48ec3327148ac994ad95cd5}{byte}} $\ast$value)
-\begin{DoxyCompactList}\small\item\em Set variable to {\ttfamily F\+A\+L\+SE} if variable at provided address is not 0. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Set variable to {\ttfamily FALSE} if variable at provided address is not 0. \end{DoxyCompactList}\item 
 void $\ast$ \mbox{\hyperlink{utility_8h_aa7da8f49b718cedad9e787580432709b}{safer\+Malloc}} (unsigned int bytes)
 \begin{DoxyCompactList}\small\item\em Return a pointer to a space in memory of specified size. \end{DoxyCompactList}\item 
 void $\ast$ \mbox{\hyperlink{utility_8h_aadeeccab529e344cc74407333840fb73}{safer\+Realloc}} (void $\ast$pointer, unsigned int bytes)
@@ -81,11 +83,11 @@ The return code of the function code
 \end{DoxyReturn}
 
 \begin{DoxyRetVals}{Return values}
-{\em G\+R\+E\+A\+T\+ER} & First element is grater than the second \\
+{\em GREATER} & First element is grater than the second \\
 \hline
-{\em E\+Q\+U\+AL} & First element is equal to the second \\
+{\em EQUAL} & First element is equal to the second \\
 \hline
-{\em S\+M\+A\+L\+L\+ER} & First element is smaller than the second \\
+{\em SMALLER} & First element is smaller than the second \\
 \hline
 \end{DoxyRetVals}
 
@@ -127,7 +129,7 @@ Choose comparison function based on given identifier.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Pointer to the right comparison function, {\ttfamily N\+U\+LL} if identifier is not recognized or given pointer was N\+U\+LL 
+Pointer to the right comparison function, {\ttfamily NULL} if identifier is not recognized or given pointer was NULL 
 \end{DoxyReturn}
 \mbox{\Hypertarget{utility_8h_af0fc0c42b6a41f593a63535ca5352309}\label{utility_8h_af0fc0c42b6a41f593a63535ca5352309}} 
 \index{utility.h@{utility.h}!doubleCmp@{doubleCmp}}
@@ -147,7 +149,7 @@ Equivalent to {\ttfamily val\+Cmp(\char`\"{}\%lf\char`\"{}, a, b)}. Refer to \mb
 
 
 
-Set variable to {\ttfamily F\+A\+L\+SE} if variable at provided address is not 0. 
+Set variable to {\ttfamily FALSE} if variable at provided address is not 0. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -159,9 +161,9 @@ Return code of the function
 \end{DoxyReturn}
 
 \begin{DoxyRetVals}{Return values}
-{\em S\+U\+C\+C\+E\+SS} & Function executed correctly \\
+{\em SUCCESS} & Function executed correctly \\
 \hline
-{\em N\+U\+L\+L\+\_\+\+P\+O\+I\+N\+T\+E\+R\+\_\+\+G\+I\+V\+EN} & At least one among given pointers was N\+U\+LL \\
+{\em NULL\+\_\+\+POINTER\+\_\+\+GIVEN} & At least one among given pointers was NULL \\
 \hline
 \end{DoxyRetVals}
 \mbox{\Hypertarget{utility_8h_a55042291f308fda752817077c2aab57f}\label{utility_8h_a55042291f308fda752817077c2aab57f}} 
@@ -214,7 +216,7 @@ A pointer to the allocated memory or the return code of the function
 \end{DoxyReturn}
 
 \begin{DoxyRetVals}{Return values}
-{\em N\+U\+LL} & Could not allocate memory \\
+{\em NULL} & Could not allocate memory \\
 \hline
 \end{DoxyRetVals}
 \mbox{\Hypertarget{utility_8h_aadeeccab529e344cc74407333840fb73}\label{utility_8h_aadeeccab529e344cc74407333840fb73}} 
@@ -239,7 +241,7 @@ A pointer to the allocated memory or the return code of the function
 \end{DoxyReturn}
 
 \begin{DoxyRetVals}{Return values}
-{\em N\+U\+LL} & Could not allocate memory \\
+{\em NULL} & Could not allocate memory \\
 \hline
 \end{DoxyRetVals}
 \mbox{\Hypertarget{utility_8h_a2b2f8c3cb23987b0d24da1a04e1feab9}\label{utility_8h_a2b2f8c3cb23987b0d24da1a04e1feab9}} 
@@ -250,7 +252,7 @@ A pointer to the allocated memory or the return code of the function
 
 
 
-Set variable to {\ttfamily T\+R\+UE} if variable at provided address is 0. 
+Set variable to {\ttfamily TRUE} if variable at provided address is 0. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -262,9 +264,9 @@ Return code of the function
 \end{DoxyReturn}
 
 \begin{DoxyRetVals}{Return values}
-{\em S\+U\+C\+C\+E\+SS} & Function executed correctly \\
+{\em SUCCESS} & Function executed correctly \\
 \hline
-{\em N\+U\+L\+L\+\_\+\+P\+O\+I\+N\+T\+E\+R\+\_\+\+G\+I\+V\+EN} & At least one among given pointers was N\+U\+LL \\
+{\em NULL\+\_\+\+POINTER\+\_\+\+GIVEN} & At least one among given pointers was NULL \\
 \hline
 \end{DoxyRetVals}
 \mbox{\Hypertarget{utility_8h_aa19d93fd89941becdd2b07c31cd83a5f}\label{utility_8h_aa19d93fd89941becdd2b07c31cd83a5f}} 
@@ -291,12 +293,12 @@ Constant for the corresponding comparation result or the return code of the func
 \end{DoxyReturn}
 
 \begin{DoxyRetVals}{Return values}
-{\em G\+R\+E\+A\+T\+ER} & First element is grater than the second \\
+{\em GREATER} & First element is grater than the second \\
 \hline
-{\em E\+Q\+U\+AL} & First element is equal to the second \\
+{\em EQUAL} & First element is equal to the second \\
 \hline
-{\em S\+M\+A\+L\+L\+ER} & First element is smaller than the second \\
+{\em SMALLER} & First element is smaller than the second \\
 \hline
-{\em N\+U\+L\+L\+\_\+\+P\+O\+I\+N\+T\+E\+R\+\_\+\+G\+I\+V\+EN} & At least one among given pointers was N\+U\+LL \\
+{\em NULL\+\_\+\+POINTER\+\_\+\+GIVEN} & At least one among given pointers was NULL \\
 \hline
 \end{DoxyRetVals}
