@@ -1,0 +1,23 @@
+name: Library build and docs deployment
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    - name: Compile library and examples
+      run: make lib examples
+    - name: Publish generated content to GitHub Pages
+      uses: tsunematsu21/actions-publish-gh-pages@v1.0.1
+      with:
+        dir: docs/html
+        branch: main
+        token: ${{ secrets.ACCESS_TOKEN }}
