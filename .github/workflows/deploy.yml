@@ -33,3 +33,5 @@ jobs:
           myLibrary.lib
           *.h
           examples.c
+    - name: Search library
+      run: ls *
