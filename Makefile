@@ -15,9 +15,11 @@ docs: $(DOCS_HTML)
 pdf: $(DOCS_PDF)
 
 examples: examples.c
+	mkdir -p bin
 	$(CC) $^ -o bin/$@ $(LIB)
 
 bin/%.o: src/%.c
+	mkdir -p bin
 	$(CC) -c $^ -o $@
 
 $(LIB): $(OBJS)
