@@ -22,4 +22,14 @@ jobs:
       with:
         folder: docs/html
         branch: gh-pages
-        #token: ${{ secrets.ACCESS_TOKEN }}
+    - name: Deploy build
+      uses: "marvinpinto/action-automatic-releases@latest"
+      with:
+        repo_token: "${{ secrets.ACCESS_TOKEN }}"
+        automatic_release_tag: "latest"
+        prerelease: true
+        title: "Development Build"
+        files: |
+          myLibrary.lib
+          *.h
+          examples.c
