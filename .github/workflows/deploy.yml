@@ -24,7 +24,9 @@ jobs:
     - name: Compile PDF docs
       uses: xu-cheng/texlive-action/full@v1
       with:
-        run: make pdf
+        run: |
+            apk add make
+            make pdf
       
     - name: Publish docs to github pages
       uses: JamesIves/github-pages-deploy-action@4.1.1
