@@ -45,7 +45,7 @@ int linearSearch(const spec_t spec, const void *arr, const void *key, int size);
 /**
  * @brief Print matrix of specified size with specified formatting
  * @param spec Type and format specifier used to print a cell. The printf() identifier formatting convention is supported. See ::spec_t for details. Additional supported specifiers: `"%hi"` (numerical output for char)
- * @note The format specifier must end with the letter of the type specifier. For example, `%5.3lf` is supported, `"%5.3lf\n"` or `"%5.3lfTest"` is not supported and nothing is printed
+ * @note The format specifier must end with the letter of the type specifier. For example, `"%5.3lf"` is supported, `"%5.3lf\n"` or `"%5.3lfTest"` is not supported and nothing is printed
  * @param matrix Pointer to the first element of the matrix
  * @param nRows Number of rows of the matrix
  * @param nColumns Number of rows of the matrix
