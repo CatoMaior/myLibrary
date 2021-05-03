@@ -4,6 +4,9 @@
  * @brief Collection of useful types
  */
 
+#ifndef _SEEN_TYPES
+#define _SEEN_TYPES
+
 /**
  * @brief Alias for char, just to avoid confusion with 8 bit numbers and ASCII characters
  */
@@ -15,3 +18,10 @@ typedef char byte;
  * @note Some functions may not support some identifiers or may support additional identifiers. In those cases refer to that function documentation
  */
 typedef char *spec_t;
+
+typedef struct {
+    char *text;
+    unsigned int lenght;
+} String;
+
+#endif
