@@ -82,8 +82,6 @@ $(document).ready(function(){initNavTree('myLibrary_8h.html',''); initResizable(
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#define-members">Macros</a>  </div>
   <div class="headertitle">
 <div class="title">myLibrary.h File Reference</div>  </div>
 </div><!--header-->
@@ -113,85 +111,10 @@ Include dependency graph for myLibrary.h:</div>
 </div>
 </div>
 <p><a href="myLibrary_8h_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:a4d2335702ae577348b3d78df434e9674"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="myLibrary_8h.html#a4d2335702ae577348b3d78df434e9674">NULL_POINTER_GIVEN</a>&#160;&#160;&#160;-64</td></tr>
-<tr class="separator:a4d2335702ae577348b3d78df434e9674"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a795a8d54876a4363815217ccbf17e2e1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="myLibrary_8h.html#a795a8d54876a4363815217ccbf17e2e1">cmp</a>(a,  b)</td></tr>
-<tr class="memdesc:a795a8d54876a4363815217ccbf17e2e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare two values. Calls the right <em>type</em>Cmp() function.  <a href="myLibrary_8h.html#a795a8d54876a4363815217ccbf17e2e1">More...</a><br /></td></tr>
-<tr class="separator:a795a8d54876a4363815217ccbf17e2e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Includes all other headers. Useful for rapid import. </p>
 <dl class="section author"><dt>Author</dt><dd>Pietro Firpo (<a href="#" onclick="location.href='mai'+'lto:'+'pie'+'tr'+'o.f'+'ir'+'po@'+'pm'+'.me'; return false;">pietr<span style="display: none;">.nosp@m.</span>o.fi<span style="display: none;">.nosp@m.</span>rpo@p<span style="display: none;">.nosp@m.</span>m.me</a>) </dd></dl>
-</div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a795a8d54876a4363815217ccbf17e2e1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a795a8d54876a4363815217ccbf17e2e1">&#9670;&nbsp;</a></span>cmp</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define cmp</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">a, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">b&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">                            _Generic((a, b),                      \</div>
-<div class="line">                            <span class="keywordtype">char</span>: <a class="code" href="utility_8h.html#a6617abe8dcee554e16d01965050c6011">charCmp</a>,              \</div>
-<div class="line">                            <span class="keywordtype">int</span>: <a class="code" href="utility_8h.html#aebc7b095cdd90551a58295a17ce16dfd">intCmp</a>,                \</div>
-<div class="line">                            <span class="keywordtype">float</span>: <a class="code" href="utility_8h.html#a55042291f308fda752817077c2aab57f">floatCmp</a>,            \</div>
-<div class="line">                            <span class="keywordtype">double</span>: <a class="code" href="utility_8h.html#af0fc0c42b6a41f593a63535ca5352309">doubleCmp</a>,          \</div>
-<div class="line">                            <span class="keywordtype">void</span> *: <a class="code" href="utility_8h.html#a3a26e3c3ede0beca95ea69c8372bbda5">ptrCmp</a>)(&amp;a, &amp;b)</div>
-<div class="ttc" id="autility_8h_html_a3a26e3c3ede0beca95ea69c8372bbda5"><div class="ttname"><a href="utility_8h.html#a3a26e3c3ede0beca95ea69c8372bbda5">ptrCmp</a></div><div class="ttdeci">byte ptrCmp(const void *a, const void *b)</div><div class="ttdoc">Compare two pointers.</div></div>
-<div class="ttc" id="autility_8h_html_a55042291f308fda752817077c2aab57f"><div class="ttname"><a href="utility_8h.html#a55042291f308fda752817077c2aab57f">floatCmp</a></div><div class="ttdeci">byte floatCmp(const void *a, const void *b)</div><div class="ttdoc">Compare two floats.</div></div>
-<div class="ttc" id="autility_8h_html_a6617abe8dcee554e16d01965050c6011"><div class="ttname"><a href="utility_8h.html#a6617abe8dcee554e16d01965050c6011">charCmp</a></div><div class="ttdeci">byte charCmp(const void *a, const void *b)</div><div class="ttdoc">Compare two chars.</div></div>
-<div class="ttc" id="autility_8h_html_aebc7b095cdd90551a58295a17ce16dfd"><div class="ttname"><a href="utility_8h.html#aebc7b095cdd90551a58295a17ce16dfd">intCmp</a></div><div class="ttdeci">byte intCmp(const void *a, const void *b)</div><div class="ttdoc">Compare two ints.</div></div>
-<div class="ttc" id="autility_8h_html_af0fc0c42b6a41f593a63535ca5352309"><div class="ttname"><a href="utility_8h.html#af0fc0c42b6a41f593a63535ca5352309">doubleCmp</a></div><div class="ttdeci">byte doubleCmp(const void *a, const void *b)</div><div class="ttdoc">Compare two doubles.</div></div>
-</div><!-- fragment -->
-<p>Compare two values. Calls the right <em>type</em>Cmp() function. </p>
-<dl class="section note"><dt>Note</dt><dd>Works only on C11 or newer compilers </dd></dl>
-<dl class="section return"><dt>Returns</dt><dd>The return code of the function code </dd></dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">GREATER</td><td>First element is grater than the second </td></tr>
-    <tr><td class="paramname">EQUAL</td><td>First element is equal to the second </td></tr>
-    <tr><td class="paramname">SMALLER</td><td>First element is smaller than the second </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a4d2335702ae577348b3d78df434e9674"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4d2335702ae577348b3d78df434e9674">&#9670;&nbsp;</a></span>NULL_POINTER_GIVEN</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define NULL_POINTER_GIVEN&#160;&#160;&#160;-64</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-</div><!-- contents -->
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

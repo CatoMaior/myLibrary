@@ -1,8 +1,8 @@
 var strings_8h =
 [
-    [ "changeLastCharacter", "strings_8h.html#aa2af9f4f6ecbe3950741db2e19ec604e", null ],
-    [ "copyOf", "strings_8h.html#a899c069743717f0b01fd9dffdaa3404b", null ],
-    [ "endsWith", "strings_8h.html#ae2d2518b7d79536b53f6b590b5de2efc", null ],
-    [ "getLength", "strings_8h.html#a8e9948ec41d425e3831795c9a24a55a9", null ],
-    [ "getString", "strings_8h.html#a07fe93f1edbc9d815058eca59e9b2636", null ]
+    [ "changeLastCharacter", "strings_8h.html#a4294c8eaca923e8a25b6e87f59b88234", null ],
+    [ "copyOf", "strings_8h.html#a3a4ef40ecb4f7fb22f99f1b456a61076", null ],
+    [ "endsWith", "strings_8h.html#a5e0b2c5b1074d1556bf7e3268667b49d", null ],
+    [ "getLength", "strings_8h.html#a9ef4bcf04c8fd3ac3b1d0365aa4eb1b3", null ],
+    [ "getString", "strings_8h.html#af7827d71f6acc4e3d6b22b66a8c1f356", null ]
 ];
