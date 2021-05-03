@@ -34,7 +34,7 @@ char *changeLastCharacter(char *string, char newCharacter);
 /**
  * @brief Get the lenght of a string
  * @param string pointer to the first element of the string to be evaluated
- * @return The lenght of the given string or the error code of the function
+ * @return The lenght of the given string (terminator EXCLUDED) or the error code of the function
  * @retval NULL_POINTER_GIVEN At least one among given pointers was NULL
  */
 unsigned int getLength(const char *string);
