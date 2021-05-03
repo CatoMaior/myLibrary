@@ -6,147 +6,120 @@
 #define SKIP_STRING
 #define SKIP_ARRAY
 
-void utilityTesting();
-void stringTesting();
-void arrayTesting();
-
 int main() {
 
-    utilityTesting();
-
-    stringTesting();
-
-    arrayTesting();
-
-    return 0;
-}
-
 #ifndef SKIP_UTILITY
+    byte bytes[2] = {-1, 1};
+    char chars[] = {'A', 'a'};
+    int ints[] = {-128, 128};
+    float floats[] = {-1.1, 1.1};
+    double doubles[] = {-1.2, 1.2};
+    void *ptrs[2];
+    for (int i = 0; i < 2; i++)
+        ptrs[i] = saferMalloc(sizeof(char));
 
-void utilityTesting() {
-    if (UTILITY_TESTING) {
-        byte bytes[2] = {-1, 1};
-        char chars[] = {'A', 'a'};
-        int ints[] = {-128, 128};
-        float floats[] = {-1.1, 1.1};
-        double doubles[] = {-1.2, 1.2};
-        void *ptrs[2];
-        for (int i = 0; i < 2; i++)
-            ptrs[i] = saferMalloc(sizeof(char));
+    byte (*cmpFunc)(const void *a, const void *b);
 
-        byte (*cmpFunc)(const void *a, const void *b);
+    cmpFunc = chooseCmp("%c");
+    for (int i = 0; i < 2; i++)
+        for (int j = 0; j < 2; j++)
+            printf("%3i", (*cmpFunc)(&bytes[i], &bytes[j]));
+    printf("\n");
+    cmpFunc = chooseCmp("%c");
+    for (int i = 0; i < 2; i++)
+        for (int j = 0; j < 2; j++)
+            printf("%3i", (*cmpFunc)(&chars[i], &chars[j]));
+    printf("\n");
+    cmpFunc = chooseCmp("%i");
+    for (int i = 0; i < 2; i++)
+        for (int j = 0; j < 2; j++)
+            printf("%3i", (*cmpFunc)(&ints[i], &ints[j]));
+    printf("\n");
+    cmpFunc = chooseCmp("%f");
+    for (int i = 0; i < 2; i++)
+        for (int j = 0; j < 2; j++)
+            printf("%3i", (*cmpFunc)(&floats[i], &floats[j]));
+    printf("\n");
+    cmpFunc = chooseCmp("%lf");
+    for (int i = 0; i < 2; i++)
+        for (int j = 0; j < 2; j++)
+            printf("%3i", (*cmpFunc)(&doubles[i], &doubles[j]));
+    printf("\n");
+    cmpFunc = chooseCmp("%p");
+    for (int i = 0; i < 2; i++)
+        for (int j = 0; j < 2; j++)
+            printf("%3i", (*cmpFunc)(&ptrs[i], &ptrs[j]));
+    printf("\n");
 
-        cmpFunc = chooseCmp("%c");
-        for (int i = 0; i < 2; i++)
-            for (int j = 0; j < 2; j++)
-                printf("%3i", (*cmpFunc)(&bytes[i], &bytes[j]));
-        printf("\n");
-        cmpFunc = chooseCmp("%c");
-        for (int i = 0; i < 2; i++)
-            for (int j = 0; j < 2; j++)
-                printf("%3i", (*cmpFunc)(&chars[i], &chars[j]));
-        printf("\n");
-        cmpFunc = chooseCmp("%i");
-        for (int i = 0; i < 2; i++)
-            for (int j = 0; j < 2; j++)
-                printf("%3i", (*cmpFunc)(&ints[i], &ints[j]));
-        printf("\n");
-        cmpFunc = chooseCmp("%f");
-        for (int i = 0; i < 2; i++)
-            for (int j = 0; j < 2; j++)
-                printf("%3i", (*cmpFunc)(&floats[i], &floats[j]));
-        printf("\n");
-        cmpFunc = chooseCmp("%lf");
-        for (int i = 0; i < 2; i++)
-            for (int j = 0; j < 2; j++)
-                printf("%3i", (*cmpFunc)(&doubles[i], &doubles[j]));
-        printf("\n");
-        cmpFunc = chooseCmp("%p");
-        for (int i = 0; i < 2; i++)
-            for (int j = 0; j < 2; j++)
-                printf("%3i", (*cmpFunc)(&ptrs[i], &ptrs[j]));
-        printf("\n");
+    for (int i = 0; i < 2; i++)
+        for (int j = 0; j < 2; j++)
+            printf("%3i", valCmp("%c", &bytes[i], &bytes[j]));
+    printf("\n");
+    for (int i = 0; i < 2; i++)
+        for (int j = 0; j < 2; j++)
+            printf("%3i", valCmp("%c", &chars[i], &chars[j]));
+    printf("\n");
+    for (int i = 0; i < 2; i++)
+        for (int j = 0; j < 2; j++)
+            printf("%3i", valCmp("%i", &ints[i], &ints[j]));
+    printf("\n");
+    for (int i = 0; i < 2; i++)
+        for (int j = 0; j < 2; j++)
+            printf("%3i", valCmp("%f", &floats[i], &floats[j]));
+    printf("\n");
+    for (int i = 0; i < 2; i++)
+        for (int j = 0; j < 2; j++)
+            printf("%3i", valCmp("%lf", &doubles[i], &doubles[j]));
+    printf("\n");
+    for (int i = 0; i < 2; i++)
+        for (int j = 0; j < 2; j++)
+            printf("%3i", valCmp("%p", &ptrs[i], &ptrs[j]));
+    printf("\n");
 
-        for (int i = 0; i < 2; i++)
-            for (int j = 0; j < 2; j++)
-                printf("%3i", valCmp("%c", &bytes[i], &bytes[j]));
-        printf("\n");
-        for (int i = 0; i < 2; i++)
-            for (int j = 0; j < 2; j++)
-                printf("%3i", valCmp("%c", &chars[i], &chars[j]));
-        printf("\n");
-        for (int i = 0; i < 2; i++)
-            for (int j = 0; j < 2; j++)
-                printf("%3i", valCmp("%i", &ints[i], &ints[j]));
-        printf("\n");
-        for (int i = 0; i < 2; i++)
-            for (int j = 0; j < 2; j++)
-                printf("%3i", valCmp("%f", &floats[i], &floats[j]));
-        printf("\n");
-        for (int i = 0; i < 2; i++)
-            for (int j = 0; j < 2; j++)
-                printf("%3i", valCmp("%lf", &doubles[i], &doubles[j]));
-        printf("\n");
-        for (int i = 0; i < 2; i++)
-            for (int j = 0; j < 2; j++)
-                printf("%3i", valCmp("%p", &ptrs[i], &ptrs[j]));
-        printf("\n");
+    for (int i = 0; i < 2; i++)
+        for (int j = 0; j < 2; j++)
+            printf("%3i", cmp(bytes[i], bytes[j]));
+    printf("\n");
+    for (int i = 0; i < 2; i++)
+        for (int j = 0; j < 2; j++)
+            printf("%3i", cmp(chars[i], chars[j]));
+    printf("\n");
+    for (int i = 0; i < 2; i++)
+        for (int j = 0; j < 2; j++)
+            printf("%3i", cmp(ints[i], ints[j]));
+    printf("\n");
+    for (int i = 0; i < 2; i++)
+        for (int j = 0; j < 2; j++)
+            printf("%3i", cmp(floats[i], floats[j]));
+    printf("\n");
+    for (int i = 0; i < 2; i++)
+        for (int j = 0; j < 2; j++)
+            printf("%3i", cmp(doubles[i], doubles[j]));
+    printf("\n");
+    for (int i = 0; i < 2; i++)
+        for (int j = 0; j < 2; j++)
+            printf("%3i", cmp(ptrs[i], ptrs[j]));
+    printf("\n");
 
-        for (int i = 0; i < 2; i++)
-            for (int j = 0; j < 2; j++)
-                printf("%3i", cmp(bytes[i], bytes[j]));
-        printf("\n");
-        for (int i = 0; i < 2; i++)
-            for (int j = 0; j < 2; j++)
-                printf("%3i", cmp(chars[i], chars[j]));
-        printf("\n");
-        for (int i = 0; i < 2; i++)
-            for (int j = 0; j < 2; j++)
-                printf("%3i", cmp(ints[i], ints[j]));
-        printf("\n");
-        for (int i = 0; i < 2; i++)
-            for (int j = 0; j < 2; j++)
-                printf("%3i", cmp(floats[i], floats[j]));
-        printf("\n");
-        for (int i = 0; i < 2; i++)
-            for (int j = 0; j < 2; j++)
-                printf("%3i", cmp(doubles[i], doubles[j]));
-        printf("\n");
-        for (int i = 0; i < 2; i++)
-            for (int j = 0; j < 2; j++)
-                printf("%3i", cmp(ptrs[i], ptrs[j]));
-        printf("\n");
-
-        printf("\n\n");
-        for (int i = 0; i < 2; i++)
-            free(ptrs[i]);
-    }
-}
-
+    printf("\n\n");
+    for (int i = 0; i < 2; i++)
+        free(ptrs[i]);
 #endif
 
 #ifndef SKIP_STRING
-
-void stringTesting() {
-    if (STRING_TESTING) {
-        printf("Insert string: ");
-        char *myString = getString();
-        printf("String: %s\n", myString);
-        myString = changeLastCharacter(myString, 'X');
-        printf("Changed string: %s\n", myString);
-        printf("Changed string length: %i\n", getLength(myString));
-        myString = changeLastCharacter(myString, '\0');
-        printf("Shrinked string: %s\n", myString);
-        printf("Shrinked string length: %i\n", getLength(myString));
-        printf("\n\n");
-    }
-}
-
+    printf("Insert string: ");
+    String myString = getString();
+    printf("String: %s\n", myString.text);
+    myString.text = changeLastCharacter(myString.text, 'X');
+    printf("Changed string: %s\n", myString.text);
+    printf("Changed string length: %i\n", getLength(myString.text));
+    myString.text = changeLastCharacter(myString.text, '\0');
+    printf("Shrinked string: %s\n", myString.text);
+    printf("Shrinked string length: %i\n", getLength(myString.text));
+    printf("\n\n");
 #endif
 
 #ifndef SKIP_ARRAY
-
-if (ARRAY_TESTING) {
     byte byteArr[][8] = {
         {32, 43, 65, 12, 76, 75, 1, 2},
         {32, 43, 65, 12, 76, 75, 1, 2}};
@@ -225,6 +198,7 @@ if (ARRAY_TESTING) {
     for (int i = 0; i < 2; i++)
         for (int j = 0; j < 8; j++)
             free(ptrArr[i][j]);
-}
-
 #endif
+
+    return 0;
+}
