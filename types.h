@@ -19,9 +19,8 @@ typedef char byte;
  */
 typedef char *spec_t;
 
-typedef struct {
-    char *text;
-    unsigned int lenght;
-} String;
-
+/**
+ * @brief Alias for char *, used when an array of char is actually used as a string
+ */
+typedef char *string;
 #endif
