@@ -1,6 +1,5 @@
 var utility_8h =
 [
-    [ "cmp", "utility_8h.html#a795a8d54876a4363815217ccbf17e2e1", null ],
     [ "byteCmp", "utility_8h.html#acc8c97c95b8bfe6eba88cc46480d2b45", null ],
     [ "charCmp", "utility_8h.html#a6617abe8dcee554e16d01965050c6011", null ],
     [ "chooseCmp", "utility_8h.html#a0c1f09381c2d65a89f598debd188f368", null ],

@@ -1,7 +1,8 @@
 <map id="types.h" name="types.h">
-<area shape="rect" id="node1" title="Collection of useful types." alt="" coords="114,5,177,32"/>
+<area shape="rect" id="node1" title="Collection of useful types." alt="" coords="153,5,215,32"/>
 <area shape="rect" id="node2" href="$arrays_8h.html" title="Common tasks with arrays: sorting, searching, printing etc." alt="" coords="5,80,72,107"/>
-<area shape="rect" id="node3" href="$myLibrary_8h.html" title="Includes all other headers. Useful for rapid import." alt="" coords="101,155,189,181"/>
-<area shape="rect" id="node4" href="$strings_8h.html" title="Common tasks with strings." alt="" coords="147,80,218,107"/>
-<area shape="rect" id="node5" href="$utility_8h.html" title="Common tasks such as comparing variables, swap bools, allocate memory." alt="" coords="242,80,305,107"/>
+<area shape="rect" id="node3" href="$myLibrary_8h.html" title="Includes all other headers. Useful for rapid import." alt="" coords="140,155,228,181"/>
+<area shape="rect" id="node4" href="$macros_8h.html" title="Macros for emulated overloading." alt="" coords="147,80,221,107"/>
+<area shape="rect" id="node5" href="$strings_8h.html" title="Common tasks with strings." alt="" coords="246,80,317,107"/>
+<area shape="rect" id="node6" href="$utility_8h.html" title="Common tasks such as comparing variables, swap bools, allocate memory." alt="" coords="341,80,403,107"/>
 </map>
