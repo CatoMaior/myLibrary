@@ -4,6 +4,9 @@
  * @brief Definition of symbolic constants used by the library
  */
 
+#ifndef _SEEN_CONSTANTS
+#define _SEEN_CONSTANTS
+
 /**
  * @brief Returned by <i>type</i>Cmp() functions when first argument is grater than the second
  */
@@ -49,4 +52,9 @@
  */
 #define KEY_NOT_FOUND -1
 
+/**
+ * @brief Returned when a null pointer was given
+ */
 #define NULL_POINTER_GIVEN -64
+
+#endif

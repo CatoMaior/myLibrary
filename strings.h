@@ -4,13 +4,16 @@
  * @brief Common tasks with strings
  */
 
+#ifndef _SEEN_STRINGS
+#define _SEEN_STRINGS
+
 #include "types.h"
 
 /**
  * @brief Reads from terminal a string of arbitrary length
  * @return A char pointer to the first element of the string or a null pointer in case of errors 
  */
-char *getString();
+String getString();
 
 /**
  * @brief Check if a string ends with the specified substring
@@ -45,3 +48,5 @@ unsigned int getLength(const char *string);
  * @return A pointer to the copy of the given string or or a null pointer in case of errors 
  */
 char *copyOf(const char *src);
+
+#endif

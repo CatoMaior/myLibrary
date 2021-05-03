@@ -3,6 +3,10 @@
  * @author Pietro Firpo (pietro.firpo@pm.me)
  * @brief Macros for emulated overloading
  */
+
+#ifndef _SEEN_MACROS
+#define _SEEN_MACROS
+
 #include "types.h"
 
 /**
@@ -14,8 +18,10 @@
  * @retval SMALLER First element is smaller than the second
  */
 #define cmp(a, b) _Generic((a, b),                      \
-                            char: charCmp,              \
-                            int: intCmp,                \
-                            float: floatCmp,            \
+                            char:   charCmp,            \
+                            int:    intCmp,             \
+                            float:  floatCmp,           \
                             double: doubleCmp,          \
                             void *: ptrCmp)(&a, &b)
+
+#endif                            

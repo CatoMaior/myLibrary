@@ -4,6 +4,9 @@
  * @brief Common tasks with arrays: sorting, searching, printing etc
  */
 
+#ifndef _SEEN_ARRAYS
+#define _SEEN_ARRAYS
+
 #include "types.h"
 
 /**
@@ -55,3 +58,5 @@ int linearSearch(const spec_t spec, const void *arr, const void *key, int size);
  * @retval NULL_POINTER_GIVEN At least one among given pointer was NULL
  */
 byte printMatrix(const spec_t spec, const void *matrix, const unsigned int nRows, const unsigned int nColumns);
+
+#endif

@@ -4,6 +4,9 @@
  * @brief Common tasks such as comparing variables, swap bools, allocate memory
  */
 
+#ifndef _SEEN_UTILITY
+#define _SEEN_UTILITY
+
 #include "types.h"
 
 /**
@@ -98,3 +101,5 @@ void *saferMalloc(unsigned int bytes);
  * @retval NULL Could not allocate memory
  */
 void *saferRealloc(void *pointer, unsigned int bytes);
+
+#endif
