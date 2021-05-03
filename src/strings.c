@@ -5,46 +5,40 @@
 #include "../constants.h"
 #include "../utility.h"
 
-String getString() {
-    String string;
-    string.text = saferMalloc(sizeof(char));
-    if (!string.text) {
-        string.lenght = 0;
-        return string;
+string getString() {
+    string str;
+    unsigned int length = 0;
+    str = saferMalloc(sizeof(char));
+    if (!str)
+        return NULL;
+    length = 1;
+    while ((str[length - 1] = getchar()) != '\n') {
+        length++;
+        str = saferRealloc(str, length * sizeof(char));
+        if (!str)
+            return NULL;
     }
-    string.lenght = 1;
-    while ((string.text[string.lenght - 1] = getchar()) != '\n') {
-        string.lenght++;
-        string.text = saferRealloc(string.text, string.lenght * sizeof(char));
-        if (!string.text) {
-            string.lenght = 0;
-            return string;
-        }
-    }
-    string.text[string.lenght - 1] = '\0';
-    return string;
+    str[length - 1] = '\0';
+    return str;
 }
 
-byte endsWith(const char *string, const char *suffix) {
-    if (!string || !suffix )
+byte endsWith(const string str, const string suffix) {
+    if (!str || !suffix)
         return NULL_POINTER_GIVEN;
-    size_t lenstr = strlen(string);
-    size_t lensuffix = strlen(suffix);
+    unsigned int lenstr = strlen(str);
+    unsigned int lensuffix = strlen(suffix);
     if (lensuffix > lenstr)
         return 0;
-    return strncmp(string + lenstr - lensuffix, suffix, lensuffix) == 0;
+    return strncmp(str + lenstr - lensuffix, suffix, lensuffix) == 0;
 }
 
-unsigned int getLength(const char *string) {
-    if (!string)
+unsigned int getLength(const string str) {
+    if (!str)
         return NULL_POINTER_GIVEN;
-    unsigned int length = 0;
-    while (*(string + length * sizeof(char)) != '\0')
-        length++;
-    return length;
+    return strlen(str);
 }
 
-char *copyOf(const char *src) {
+string copyOf(const string src) {
     if (!src)
         return NULL;
     char *dest = (char *)saferMalloc(getLength(src) * sizeof(char));
@@ -54,12 +48,12 @@ char *copyOf(const char *src) {
     return dest;
 }
 
-char *changeLastCharacter(char *string, char newCharacter) {
-    if (!string)
+string changeLastCharacter(const string str, char newCharacter) {
+    if (!str)
         return NULL;
-    char *newString = copyOf(string);
+    string newString = copyOf(str);
     if (!newString)
         return NULL;
-    *(newString + (getLength(string) - 1) * sizeof(char)) = newCharacter;
+    *(newString + (getLength(str) - 1) * sizeof(char)) = newCharacter;
     return newString;
 }
