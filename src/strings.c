@@ -5,18 +5,23 @@
 #include "../constants.h"
 #include "../utility.h"
 
-char* getString() {
-    char *string = saferMalloc(sizeof(char));
-    if (!string)
-        return NULL;
-    int lenght = 1;
-    while ((string[lenght - 1] = getchar()) != '\n') {
-        lenght++;
-        string = saferRealloc(string, lenght * sizeof(char));
-        if (!string)
-            return NULL;
+String getString() {
+    String string;
+    string.text = saferMalloc(sizeof(char));
+    if (!string.text) {
+        string.lenght = 0;
+        return string;
     }
-    string[lenght - 1] = '\0';
+    string.lenght = 1;
+    while ((string.text[string.lenght - 1] = getchar()) != '\n') {
+        string.lenght++;
+        string.text = saferRealloc(string.text, string.lenght * sizeof(char));
+        if (!string.text) {
+            string.lenght = 0;
+            return string;
+        }
+    }
+    string.text[string.lenght - 1] = '\0';
     return string;
 }
 
