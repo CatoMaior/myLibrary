@@ -12,6 +12,8 @@
 
 #include "constants.h"
 
+#include "macros.h"
+
 #include "types.h"
 
 #include "strings.h"
