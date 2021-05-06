@@ -16,7 +16,7 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<link href="doxygen-theme.css" rel="stylesheet" type="text/css" />
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -92,21 +92,11 @@ $(document).ready(function(){initNavTree('macros_8h_source.html',''); initResiza
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="types_8h.html">types.h</a>&quot;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="macros_8h.html#a795a8d54876a4363815217ccbf17e2e1">   24</a></span>&#160;<span class="preprocessor">#define cmp(a, b) _Generic((a, b),                                \</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">                            char:       charCmp,                  \</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">                            int:        intCmp,                   \</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">                            float:      floatCmp,                 \</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">                            double:     doubleCmp,                \</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">                            void *:     ptrCmp)(&amp;a, &amp;b) </span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="macros_8h.html#aff328b984b58222a25e394eb166f015c">   39</a></span>&#160;<span class="preprocessor">#define bubbleSort(arr, size) _Generic(arr,                       \</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">                            char *:     charBubbleSort,           \</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">                            int *:      intBubbleSort,            \</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">                            float *:    floatBubbleSort,          \</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">                            double *:   doubleBubbleSort,         \</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">                            void **:    ptrBubbleSort)(arr, size)</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#endif                            </span></div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="macros_8h.html#a795a8d54876a4363815217ccbf17e2e1">   24</a></span>&#160;<span class="preprocessor">#define cmp(a, b) _Generic((a, b), char: charCmp, int:intCmp, float: floatCmp, double: doubleCmp, void *:ptrCmp)(&amp;a, &amp;b) </span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="macros_8h.html#aff328b984b58222a25e394eb166f015c">   34</a></span>&#160;<span class="preprocessor">#define bubbleSort(arr, size) _Generic(arr, char *: charBubbleSort, int *: intBubbleSort, float *:floatBubbleSort, double *: doubleBubbleSort, void **: ptrBubbleSort)(arr, size)</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#endif                            </span></div>
 <div class="ttc" id="atypes_8h_html"><div class="ttname"><a href="types_8h.html">types.h</a></div><div class="ttdoc">Collection of useful types.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
