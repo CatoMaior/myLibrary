@@ -60,15 +60,15 @@ byte ptrCmp(const void *a, const void *b) {
         return (diff == 0) ? EQUAL : ((diff > 0) ? GREATER : SMALLER);
     }
     if (sizeof(void *) == 4) {
-        unsigned int diff = *((unsigned int *)a) - *((unsigned int *)b);
+        int diff = *((unsigned int *)a) - *((unsigned int *)b);
         return (diff == 0) ? EQUAL : ((diff > 0) ? GREATER : SMALLER);
     }
     if (sizeof(void *) == 2) {
-        unsigned short diff = *((unsigned short *)a) - *((unsigned short *)b);
+        short diff = *((unsigned short *)a) - *((unsigned short *)b);
         return (diff == 0) ? EQUAL : ((diff > 0) ? GREATER : SMALLER);
     }
     if (sizeof(void *) == 1) {
-        unsigned char diff = *((unsigned char *)a) - *((unsigned char *)b);
+        char diff = *((unsigned char *)a) - *((unsigned char *)b);
         return (diff == 0) ? EQUAL : ((diff > 0) ? GREATER : SMALLER);
     }
     return UNSUPPORTED_ARCHITECTURE;
