@@ -87,6 +87,6 @@ byte doubleBubbleSort(double *arr, unsigned int size);
  * @brief Bubble sort for arrays of pointers
  * @details Equivalent to `chooseBubbleSort("%p", arr, size)`. Refer to chooseBubbleSort()
  */
-byte ptrBubbleSort(int *arr, unsigned int size);
+byte ptrBubbleSort(int **arr, unsigned int size);
 
 #endif

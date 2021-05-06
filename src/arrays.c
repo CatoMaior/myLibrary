@@ -227,7 +227,7 @@ byte doubleBubbleSort(double *arr, unsigned int size) {
     return SUCCESS;
 }
 
-byte ptrBubbleSort(int *arr, unsigned int size) {
+byte ptrBubbleSort(int **arr, unsigned int size) {
     if (!arr)
         return NULL_POINTER_GIVEN;
     byte isSorted;
