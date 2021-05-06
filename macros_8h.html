@@ -118,11 +118,73 @@ Macros</h2></td></tr>
 <tr class="memitem:a795a8d54876a4363815217ccbf17e2e1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.html#a795a8d54876a4363815217ccbf17e2e1">cmp</a>(a,  b)</td></tr>
 <tr class="memdesc:a795a8d54876a4363815217ccbf17e2e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare two values. Calls the right <em>type</em>Cmp() function.  <a href="macros_8h.html#a795a8d54876a4363815217ccbf17e2e1">More...</a><br /></td></tr>
 <tr class="separator:a795a8d54876a4363815217ccbf17e2e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff328b984b58222a25e394eb166f015c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.html#aff328b984b58222a25e394eb166f015c">bubbleSort</a>(arr,  size)</td></tr>
+<tr class="memdesc:aff328b984b58222a25e394eb166f015c"><td class="mdescLeft">&#160;</td><td class="mdescRight">BubbleSort for arrays.  <a href="macros_8h.html#aff328b984b58222a25e394eb166f015c">More...</a><br /></td></tr>
+<tr class="separator:aff328b984b58222a25e394eb166f015c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Macros for emulated overloading. </p>
 <dl class="section author"><dt>Author</dt><dd>Pietro Firpo (<a href="#" onclick="location.href='mai'+'lto:'+'pie'+'tr'+'o.f'+'ir'+'po@'+'pm'+'.me'; return false;">pietr<span style="display: none;">.nosp@m.</span>o.fi<span style="display: none;">.nosp@m.</span>rpo@p<span style="display: none;">.nosp@m.</span>m.me</a>) </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Many of these macros work on C11 or newer compilers only. If they are not supported by your compiler you have to use the function the macro expands to in your case. For example, if you want to bubblesort an array of floats and the macro <a class="el" href="macros_8h.html#aff328b984b58222a25e394eb166f015c" title="BubbleSort for arrays.">bubbleSort()</a> is not supported by your compiler, you have to call <a class="el" href="arrays_8h.html#ae04451f00f7d5649d6f75a0888819b6e" title="Bubble sort for arrays of floats.">floatBubbleSort()</a> or <a class="el" href="arrays_8h.html#a4713da1e17845758d3b94c2a843bd55d" title="Bubble sort for arrays.">chooseBubbleSort()</a> </dd>
+<dd>
+In some development environments, for example Vscode, calls to these macros can be reported as errors even if they are correct. If you use Vscode you have to set <code>"C_Cpp.default.cStandard": "c17"</code> in your <code>settings.json</code> file in order to avoid this error reportings </dd></dl>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="aff328b984b58222a25e394eb166f015c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff328b984b58222a25e394eb166f015c">&#9670;&nbsp;</a></span>bubbleSort</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define bubbleSort</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">arr, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">size&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">                            _Generic(arr,                       \</div>
+<div class="line">                            <span class="keywordtype">char</span> *:     <a class="code" href="arrays_8h.html#ab9643af75396a3aa99972432e95709eb">charBubbleSort</a>,           \</div>
+<div class="line">                            <span class="keywordtype">int</span> *:      <a class="code" href="arrays_8h.html#a94c2c39427912ee078495c0fc42ee49a">intBubbleSort</a>,            \</div>
+<div class="line">                            <span class="keywordtype">float</span> *:    <a class="code" href="arrays_8h.html#ae04451f00f7d5649d6f75a0888819b6e">floatBubbleSort</a>,          \</div>
+<div class="line">                            <span class="keywordtype">double</span> *:   <a class="code" href="arrays_8h.html#a74d8ec0b84c64c30f09f84510adb3be4">doubleBubbleSort</a>,         \</div>
+<div class="line">                            <span class="keywordtype">void</span> **:    <a class="code" href="arrays_8h.html#afa8e58a3844b46253edae1408c1a29c8">ptrBubbleSort</a>)(arr, size)</div>
+<div class="ttc" id="aarrays_8h_html_a74d8ec0b84c64c30f09f84510adb3be4"><div class="ttname"><a href="arrays_8h.html#a74d8ec0b84c64c30f09f84510adb3be4">doubleBubbleSort</a></div><div class="ttdeci">byte doubleBubbleSort(double *arr, unsigned int size)</div><div class="ttdoc">Bubble sort for arrays of doubles.</div></div>
+<div class="ttc" id="aarrays_8h_html_a94c2c39427912ee078495c0fc42ee49a"><div class="ttname"><a href="arrays_8h.html#a94c2c39427912ee078495c0fc42ee49a">intBubbleSort</a></div><div class="ttdeci">byte intBubbleSort(int *arr, unsigned int size)</div><div class="ttdoc">Bubble sort for arrays of ints.</div></div>
+<div class="ttc" id="aarrays_8h_html_ab9643af75396a3aa99972432e95709eb"><div class="ttname"><a href="arrays_8h.html#ab9643af75396a3aa99972432e95709eb">charBubbleSort</a></div><div class="ttdeci">byte charBubbleSort(char *arr, unsigned int size)</div><div class="ttdoc">Bubble sort for arrays of chars.</div></div>
+<div class="ttc" id="aarrays_8h_html_ae04451f00f7d5649d6f75a0888819b6e"><div class="ttname"><a href="arrays_8h.html#ae04451f00f7d5649d6f75a0888819b6e">floatBubbleSort</a></div><div class="ttdeci">byte floatBubbleSort(float *arr, unsigned int size)</div><div class="ttdoc">Bubble sort for arrays of floats.</div></div>
+<div class="ttc" id="aarrays_8h_html_afa8e58a3844b46253edae1408c1a29c8"><div class="ttname"><a href="arrays_8h.html#afa8e58a3844b46253edae1408c1a29c8">ptrBubbleSort</a></div><div class="ttdeci">byte ptrBubbleSort(int **arr, unsigned int size)</div><div class="ttdoc">Bubble sort for arrays of pointers.</div></div>
+</div><!-- fragment -->
+<p>BubbleSort for arrays. </p>
+<dl class="section return"><dt>Returns</dt><dd>The return code of the function called </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">arr</td><td>Pointer to the array to be sorted </td></tr>
+    <tr><td class="paramname">size</td><td>Number of elements in the array to be sorted </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">NULL_POINTER_GIVEN</td><td>Pointer to the array to be sorted </td></tr>
+    <tr><td class="paramname">SUCCESS</td><td>Array successfully sorted </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a795a8d54876a4363815217ccbf17e2e1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a795a8d54876a4363815217ccbf17e2e1">&#9670;&nbsp;</a></span>cmp</h2>
 
@@ -148,12 +210,12 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">                            _Generic((a, b),                      \</div>
-<div class="line">                            <span class="keywordtype">char</span>:   <a class="code" href="utility_8h.html#a6617abe8dcee554e16d01965050c6011">charCmp</a>,            \</div>
-<div class="line">                            <span class="keywordtype">int</span>:    <a class="code" href="utility_8h.html#aebc7b095cdd90551a58295a17ce16dfd">intCmp</a>,             \</div>
-<div class="line">                            <span class="keywordtype">float</span>:  <a class="code" href="utility_8h.html#a55042291f308fda752817077c2aab57f">floatCmp</a>,           \</div>
-<div class="line">                            <span class="keywordtype">double</span>: <a class="code" href="utility_8h.html#af0fc0c42b6a41f593a63535ca5352309">doubleCmp</a>,          \</div>
-<div class="line">                            <span class="keywordtype">void</span> *: <a class="code" href="utility_8h.html#a3a26e3c3ede0beca95ea69c8372bbda5">ptrCmp</a>)(&amp;a, &amp;b)</div>
+<b>Value:</b><div class="fragment"><div class="line">                            _Generic((a, b),                                \</div>
+<div class="line">                            <span class="keywordtype">char</span>:       <a class="code" href="utility_8h.html#a6617abe8dcee554e16d01965050c6011">charCmp</a>,                  \</div>
+<div class="line">                            <span class="keywordtype">int</span>:        <a class="code" href="utility_8h.html#aebc7b095cdd90551a58295a17ce16dfd">intCmp</a>,                   \</div>
+<div class="line">                            <span class="keywordtype">float</span>:      <a class="code" href="utility_8h.html#a55042291f308fda752817077c2aab57f">floatCmp</a>,                 \</div>
+<div class="line">                            <span class="keywordtype">double</span>:     <a class="code" href="utility_8h.html#af0fc0c42b6a41f593a63535ca5352309">doubleCmp</a>,                \</div>
+<div class="line">                            <span class="keywordtype">void</span> *:     <a class="code" href="utility_8h.html#a3a26e3c3ede0beca95ea69c8372bbda5">ptrCmp</a>)(&amp;a, &amp;b)</div>
 <div class="ttc" id="autility_8h_html_a3a26e3c3ede0beca95ea69c8372bbda5"><div class="ttname"><a href="utility_8h.html#a3a26e3c3ede0beca95ea69c8372bbda5">ptrCmp</a></div><div class="ttdeci">byte ptrCmp(const void *a, const void *b)</div><div class="ttdoc">Compare two pointers.</div></div>
 <div class="ttc" id="autility_8h_html_a55042291f308fda752817077c2aab57f"><div class="ttname"><a href="utility_8h.html#a55042291f308fda752817077c2aab57f">floatCmp</a></div><div class="ttdeci">byte floatCmp(const void *a, const void *b)</div><div class="ttdoc">Compare two floats.</div></div>
 <div class="ttc" id="autility_8h_html_a6617abe8dcee554e16d01965050c6011"><div class="ttname"><a href="utility_8h.html#a6617abe8dcee554e16d01965050c6011">charCmp</a></div><div class="ttdeci">byte charCmp(const void *a, const void *b)</div><div class="ttdoc">Compare two chars.</div></div>
@@ -161,8 +223,15 @@ Macros</h2></td></tr>
 <div class="ttc" id="autility_8h_html_af0fc0c42b6a41f593a63535ca5352309"><div class="ttname"><a href="utility_8h.html#af0fc0c42b6a41f593a63535ca5352309">doubleCmp</a></div><div class="ttdeci">byte doubleCmp(const void *a, const void *b)</div><div class="ttdoc">Compare two doubles.</div></div>
 </div><!-- fragment -->
 <p>Compare two values. Calls the right <em>type</em>Cmp() function. </p>
-<dl class="section note"><dt>Note</dt><dd>Works only on C11 or newer compilers </dd></dl>
-<dl class="section return"><dt>Returns</dt><dd>The return code of the function code </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This macro must be called on variables. For example, <code><a class="el" href="macros_8h.html#a795a8d54876a4363815217ccbf17e2e1" title="Compare two values. Calls the right typeCmp() function.">cmp(2, 3)</a></code> is not supported </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>First value to be compared </td></tr>
+    <tr><td class="paramname">b</td><td>Second value to be compared </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The return code of the function called </dd></dl>
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
     <tr><td class="paramname">GREATER</td><td>First element is grater than the second </td></tr>
