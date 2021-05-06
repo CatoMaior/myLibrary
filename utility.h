@@ -20,11 +20,11 @@
  * @retval SMALLER First element is smaller than the second
  * @retval NULL_POINTER_GIVEN At least one among given pointers was NULL
  */
-byte valCmp(const spec_t spec, const void *a, const void *b);
+byte chooseCmp(const spec_t spec, const void *a, const void *b);
 
 /**
  * @brief Compare two chars
- * @details Equivalent to `valCmp("%c", a, b)`. Refer to valCmp()
+ * @details Equivalent to `chooseCmp("%c", a, b)`. Refer to chooseCmp()
  */
 byte charCmp(const void *a, const void *b);
 
@@ -36,25 +36,25 @@ byte byteCmp(const void *a, const void *b);
 
 /**
  * @brief Compare two ints
- * @details Equivalent to `valCmp("%i", a, b)`. Refer to valCmp()
+ * @details Equivalent to `chooseCmp("%i", a, b)`. Refer to chooseCmp()
  */
 byte intCmp(const void *a, const void *b);
 
 /**
  * @brief Compare two floats
- * @details Equivalent to `valCmp("%f", a, b)`. Refer to valCmp()
+ * @details Equivalent to `chooseCmp("%f", a, b)`. Refer to chooseCmp()
  */
 byte floatCmp(const void *a, const void *b);
 
 /**
  * @brief Compare two doubles
- * @details Equivalent to `valCmp("%lf", a, b)`. Refer to valCmp()
+ * @details Equivalent to `chooseCmp("%lf", a, b)`. Refer to chooseCmp()
  */
 byte doubleCmp(const void *a, const void *b);
 
 /**
  * @brief Compare two pointers
- * @details Equivalent to `valCmp("%p", a, b)`. Refer to valCmp()
+ * @details Equivalent to `chooseCmp("%p", a, b)`. Refer to chooseCmp()
  */
 byte ptrCmp(const void *a, const void *b);
 

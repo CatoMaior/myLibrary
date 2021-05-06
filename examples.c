@@ -53,27 +53,27 @@ int main() {
 
     for (int i = 0; i < 2; i++)
         for (int j = 0; j < 2; j++)
-            printf("%3i", valCmp("%c", &bytes[i], &bytes[j]));
+            printf("%3i", chooseCmp("%c", &bytes[i], &bytes[j]));
     printf("\n");
     for (int i = 0; i < 2; i++)
         for (int j = 0; j < 2; j++)
-            printf("%3i", valCmp("%c", &chars[i], &chars[j]));
+            printf("%3i", chooseCmp("%c", &chars[i], &chars[j]));
     printf("\n");
     for (int i = 0; i < 2; i++)
         for (int j = 0; j < 2; j++)
-            printf("%3i", valCmp("%i", &ints[i], &ints[j]));
+            printf("%3i", chooseCmp("%i", &ints[i], &ints[j]));
     printf("\n");
     for (int i = 0; i < 2; i++)
         for (int j = 0; j < 2; j++)
-            printf("%3i", valCmp("%f", &floats[i], &floats[j]));
+            printf("%3i", chooseCmp("%f", &floats[i], &floats[j]));
     printf("\n");
     for (int i = 0; i < 2; i++)
         for (int j = 0; j < 2; j++)
-            printf("%3i", valCmp("%lf", &doubles[i], &doubles[j]));
+            printf("%3i", chooseCmp("%lf", &doubles[i], &doubles[j]));
     printf("\n");
     for (int i = 0; i < 2; i++)
         for (int j = 0; j < 2; j++)
-            printf("%3i", valCmp("%p", &ptrs[i], &ptrs[j]));
+            printf("%3i", chooseCmp("%p", &ptrs[i], &ptrs[j]));
     printf("\n");
 
     for (int i = 0; i < 2; i++)

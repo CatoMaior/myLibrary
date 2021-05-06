@@ -5,7 +5,7 @@
 #include "../constants.h"
 #include "../strings.h"
 
-byte valCmp(const spec_t spec, const void *a, const void *b) {
+byte chooseCmp(const spec_t spec, const void *a, const void *b) {
     if (!spec || !a || !b)
         return NULL_POINTER_GIVEN;
     char (*cmpFun)(const void *a, const void *b) = getCmp(spec);
