@@ -21,12 +21,7 @@
  * @retval EQUAL First element is equal to the second
  * @retval SMALLER First element is smaller than the second
  */
-#define cmp(a, b) _Generic((a, b),                                \
-                            char:       charCmp,                  \
-                            int:        intCmp,                   \
-                            float:      floatCmp,                 \
-                            double:     doubleCmp,                \
-                            void *:     ptrCmp)(&a, &b) 
+#define cmp(a, b) _Generic((a, b), char: charCmp, int:intCmp, float: floatCmp, double: doubleCmp, void *:ptrCmp)(&a, &b) 
 
 /**
  * @brief BubbleSort for arrays
@@ -36,11 +31,6 @@
  * @retval NULL_POINTER_GIVEN Pointer to the array to be sorted
  * @retval SUCCESS Array successfully sorted
  */
-#define bubbleSort(arr, size) _Generic(arr,                       \
-                            char *:     charBubbleSort,           \
-                            int *:      intBubbleSort,            \
-                            float *:    floatBubbleSort,          \
-                            double *:   doubleBubbleSort,         \
-                            void **:    ptrBubbleSort)(arr, size)
+#define bubbleSort(arr, size) _Generic(arr, char *: charBubbleSort, int *: intBubbleSort, float *:floatBubbleSort, double *: doubleBubbleSort, void **: ptrBubbleSort)(arr, size)
 
 #endif                            
