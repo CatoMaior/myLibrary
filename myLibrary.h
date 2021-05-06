@@ -21,7 +21,3 @@
 #include "arrays.h"
 
 #include "utility.h"
-
-/*
-file:///home/catomaior/Projects/myLibrary/docs/html/index.html
-*/
