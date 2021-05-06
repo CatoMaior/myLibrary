@@ -140,6 +140,7 @@ int main() {
         for (int j = 0; j < 8; j++)
             ptrArr[i][j] = (void *)saferMalloc(sizeof(char));
 
+    printf("MATRICES\n");
     printMatrix("%4hi", byteArr, 2, 8);
     printMatrix("%2c", charArr, 2, 8);
     printMatrix("%10.2f", floatArr, 2, 8);
@@ -153,29 +154,35 @@ int main() {
     quickSort("%lf", doubleArr[0], 8);
     quickSort("%p", ptrArr[0], 8);
 
+    printf("QUICKSORTED MATRICES\n");
     printMatrix("%4hi", byteArr, 1, 8);
     printMatrix("%2c", charArr, 1, 8);
+    printMatrix("%6i", intArr, 1, 8);
     printMatrix("%10.2f", floatArr, 1, 8);
     printMatrix("%10.2lf", doubleArr, 1, 8);
     for (int i = 0; i < 8; i++)
         printf("%16p", ptrArr[0][i]);
     printf("\n\n");
 
-    bubbleSort("%c", byteArr[1], 8);
-    bubbleSort("%c", charArr[1], 8);
-    bubbleSort("%i", intArr[1], 8);
-    bubbleSort("%f", floatArr[1], 8);
-    bubbleSort("%lf", doubleArr[1], 8);
-    bubbleSort("%p", ptrArr[1], 8);
+    chooseBubbleSort("%c", byteArr[1], 8);
+    chooseBubbleSort("%c", charArr[1], 8);
+    chooseBubbleSort("%i", intArr[1], 8);
+    chooseBubbleSort("%f", floatArr[1], 8);
+    chooseBubbleSort("%lf", doubleArr[1], 8);
+    chooseBubbleSort("%p", ptrArr[1], 8);
 
+    printf("BUBBLESORTED MATRICES\n");
     printMatrix("%4hi", byteArr[1], 1, 8);
     printMatrix("%2c", charArr[1], 1, 8);
+    printMatrix("%6i", intArr[1], 1, 8);
     printMatrix("%10.2f", floatArr[1], 1, 8);
     printMatrix("%10.2lf", doubleArr[1], 1, 8);
     for (int i = 0; i < 8; i++)
         printf("%16p", ptrArr[1][i]);
+    //no printMatrix("%p", ptrArr) beacause %p is not supported by printMatrix
     printf("\n\n");
 
+    printf("LINEAR SEARCH\n");
     for (int i = 0; i < 8; i++)
         printf("%2i", linearSearch("%c", byteArr, &byteArr[0][i], 8));
     printf("\n");

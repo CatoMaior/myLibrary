@@ -28,106 +28,21 @@ byte quickSort(const spec_t spec, void *arr, int size) {
     return SUCCESS;
 }
 
-byte bubbleSort(const spec_t spec, void *arr, unsigned int size) {
+byte chooseBubbleSort(const spec_t spec, void *arr, unsigned int size) {
     if (!arr || !spec)
         return NULL_POINTER_GIVEN;
     char isSorted;
     unsigned int sorted = 0;
-    if (strcmp("%c", spec) == 0) {
-        char temp;
-        char *castedArr = arr;
-        do {
-            isSorted = 1;
-            int i = -1;
-            while (++i < size - 1 - sorted) {
-                if (castedArr[i] > castedArr[i + 1]) {
-                    temp = castedArr[i + 1];
-                    castedArr[i + 1] = castedArr[i];
-                    castedArr[i] = temp;
-                    if (isSorted)
-                        isSorted = 0;
-                }
-            }
-            sorted++;
-        } while (!isSorted);
-        return SUCCESS;
-    }
-    if (strcmp("%i", spec) == 0) {
-        int temp;
-        int *castedArr = arr;
-        do {
-            isSorted = 1;
-            int i = -1;
-            while (++i < size - 1 - sorted) {
-                if (castedArr[i] > castedArr[i + 1]) {
-                    temp = castedArr[i + 1];
-                    castedArr[i + 1] = castedArr[i];
-                    castedArr[i] = temp;
-                    if (isSorted)
-                        isSorted = 0;
-                }
-            }
-            sorted++;
-        } while (!isSorted);
-        return SUCCESS;
-    }
-    if (strcmp("%f", spec) == 0) {
-        float temp;
-        float *castedArr = arr;
-        do {
-            isSorted = 1;
-            int i = -1;
-            while (++i < size - 1 - sorted) {
-                if (castedArr[i] > castedArr[i + 1]) {
-                    temp = castedArr[i + 1];
-                    castedArr[i + 1] = castedArr[i];
-                    castedArr[i] = temp;
-                    if (isSorted)
-                        isSorted = 0;
-                }
-            }
-            sorted++;
-        } while (!isSorted);
-        return SUCCESS;
-    }
-    if (strcmp("%lf", spec) == 0) {
-        double temp;
-        double *castedArr = arr;
-        do {
-            isSorted = 1;
-            int i = -1;
-            while (++i < size - 1 - sorted) {
-                if (castedArr[i] > castedArr[i + 1]) {
-                    temp = castedArr[i + 1];
-                    castedArr[i + 1] = castedArr[i];
-                    castedArr[i] = temp;
-                    if (isSorted)
-                        isSorted = 0;
-                }
-            }
-            sorted++;
-        } while (!isSorted);
-        return SUCCESS;
-    }
-    if (strcmp("%p", spec) == 0) {
-        void *temp;
-        void **castedArr = arr;
-        do {
-            isSorted = 1;
-            int i = -1;
-            while (++i < size - 1 - sorted) {
-                if (castedArr[i] > castedArr[i + 1]) {
-                    temp = castedArr[i + 1];
-                    castedArr[i + 1] = castedArr[i];
-                    castedArr[i] = temp;
-                    if (isSorted)
-                        isSorted = 0;
-                }
-            }
-            sorted++;
-        } while (!isSorted);
-        return SUCCESS;
-    }
+    if (strcmp("%c", spec) == 0)
+        return charBubbleSort(arr, size);
+    if (strcmp("%i", spec) == 0) 
+        return intBubbleSort(arr, size);
+    if (strcmp("%f", spec) == 0)
+        return floatBubbleSort(arr, size);
+    if (strcmp("%lf", spec) == 0) 
+        return doubleBubbleSort(arr, size);
+    if (strcmp("%p", spec) == 0) 
+        return ptrBubbleSort(arr, size);
     return UNKNOWN_SPEC;
 }
 
@@ -218,4 +133,119 @@ byte printMatrix(const spec_t spec, const void *matrix, const unsigned int nRows
         return SUCCESS;
     }
     return UNKNOWN_SPEC;
+}
+
+byte charBubbleSort(char *arr, unsigned int size) {
+    if (!arr)
+        return NULL_POINTER_GIVEN;
+    byte isSorted;
+    unsigned int sorted = 0;
+    char temp;
+    do {
+        isSorted = 1;
+        int i = -1;
+        while (++i < size - 1 - sorted) {
+            if (arr[i] > arr[i + 1]) {
+                temp = arr[i + 1];
+                arr[i + 1] = arr[i];
+                arr[i] = temp;
+                if (isSorted)
+                    isSorted = 0;
+            }
+        }
+        sorted++;
+    } while (!isSorted);
+    return SUCCESS;
+}
+
+byte intBubbleSort(int *arr, unsigned int size) {
+    if (!arr)
+        return NULL_POINTER_GIVEN;
+    byte isSorted;
+    unsigned int sorted = 0;
+    int temp;
+    do {
+        isSorted = 1;
+        int i = -1;
+        while (++i < size - 1 - sorted) {
+            if (arr[i] > arr[i + 1]) {
+                temp = arr[i + 1];
+                arr[i + 1] = arr[i];
+                arr[i] = temp;
+                if (isSorted)
+                    isSorted = 0;
+            }
+        }
+        sorted++;
+    } while (!isSorted);
+    return SUCCESS;
+}
+
+byte floatBubbleSort(float *arr, unsigned int size) {
+    if (!arr)
+        return NULL_POINTER_GIVEN;
+    byte isSorted;
+    unsigned int sorted = 0;
+    float temp;
+    do {
+        isSorted = 1;
+        int i = -1;
+        while (++i < size - 1 - sorted) {
+            if (arr[i] > arr[i + 1]) {
+                temp = arr[i + 1];
+                arr[i + 1] = arr[i];
+                arr[i] = temp;
+                if (isSorted)
+                    isSorted = 0;
+            }
+        }
+        sorted++;
+    } while (!isSorted);
+    return SUCCESS;
+}
+
+byte doubleBubbleSort(double *arr, unsigned int size) {
+    if (!arr)
+        return NULL_POINTER_GIVEN;
+    byte isSorted;
+    unsigned int sorted = 0;
+    double temp;
+    do {
+        isSorted = 1;
+        int i = -1;
+        while (++i < size - 1 - sorted) {
+            if (arr[i] > arr[i + 1]) {
+                temp = arr[i + 1];
+                arr[i + 1] = arr[i];
+                arr[i] = temp;
+                if (isSorted)
+                    isSorted = 0;
+            }
+        }
+        sorted++;
+    } while (!isSorted);
+    return SUCCESS;
+}
+
+byte ptrBubbleSort(int *arr, unsigned int size) {
+    if (!arr)
+        return NULL_POINTER_GIVEN;
+    byte isSorted;
+    unsigned int sorted = 0;
+    int *temp;
+    do {
+        isSorted = 1;
+        int i = -1;
+        while (++i < size - 1 - sorted) {
+            if (arr[i] > arr[i + 1]) {
+                temp = arr[i + 1];
+                arr[i + 1] = arr[i];
+                arr[i] = temp;
+                if (isSorted)
+                    isSorted = 0;
+            }
+        }
+        sorted++;
+    } while (!isSorted);
+    return SUCCESS;
 }

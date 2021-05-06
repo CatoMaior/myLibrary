@@ -19,7 +19,7 @@
  * @retval UNKNOWN_SPEC Unknown id provided. The array has not been changed
  * @retval NULL_POINTER_GIVEN At least one among given pointers was NULL
  */
-byte bubbleSort(const spec_t spec, void *arr, unsigned int size);
+byte chooseBubbleSort(const spec_t spec, void *arr, unsigned int size);
 
 /**
  * @brief Quick sort for arrays
@@ -58,5 +58,35 @@ int linearSearch(const spec_t spec, const void *arr, const void *key, int size);
  * @retval NULL_POINTER_GIVEN At least one among given pointer was NULL
  */
 byte printMatrix(const spec_t spec, const void *matrix, const unsigned int nRows, const unsigned int nColumns);
+
+/**
+ * @brief Bubble sort for arrays of chars
+ * @details Equivalent to `chooseBubbleSort("%c", arr, size)`. Refer to chooseBubbleSort()
+ */
+byte charBubbleSort(char *arr, unsigned int size);
+
+/**
+ * @brief Bubble sort for arrays of ints
+ * @details Equivalent to `chooseBubbleSort("%i", arr, size)`. Refer to chooseBubbleSort()
+ */
+byte intBubbleSort(int *arr, unsigned int size);
+
+/**
+ * @brief Bubble sort for arrays of floats
+ * @details Equivalent to `chooseBubbleSort("%f", arr, size)`. Refer to chooseBubbleSort()
+ */
+byte floatBubbleSort(float *arr, unsigned int size);
+
+/**
+ * @brief Bubble sort for arrays of doubles
+ * @details Equivalent to `chooseBubbleSort("%lf", arr, size)`. Refer to chooseBubbleSort()
+ */
+byte doubleBubbleSort(double *arr, unsigned int size);
+
+/**
+ * @brief Bubble sort for arrays of pointers
+ * @details Equivalent to `chooseBubbleSort("%p", arr, size)`. Refer to chooseBubbleSort()
+ */
+byte ptrBubbleSort(int *arr, unsigned int size);
 
 #endif
