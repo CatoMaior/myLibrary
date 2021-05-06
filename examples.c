@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include "myLibrary.h"
 
-//#define SKIP_UTILITY
-//#define SKIP_STRING
-//#define SKIP_ARRAY
+// #define SKIP_UTILITY
+// #define SKIP_STRING
+// #define SKIP_ARRAY
 
 int main() {
 
@@ -120,91 +120,91 @@ int main() {
 #endif
 
 #ifndef SKIP_ARRAY
-    byte byteArr[][8] = {
+    byte byteMatrix[][8] = {
         {32, 43, 65, 12, 76, 75, 1, 2},
         {32, 43, 65, 12, 76, 75, 1, 2}};
-    char charArr[][8] = {
+    char charMatrix[][8] = {
         {'F', 'Q', 'A', 'C', '3', '0', 'Z', 'R'},
         {'F', 'Q', 'A', 'C', '3', '0', 'Z', 'R'}};
-    int intArr[][8] = {
+    int intMatrix[][8] = {
         {3254, 433, 65554, 1223, 7665, 7600, 12, 254},
         {3254, 433, 65554, 1223, 7665, 7600, 12, 254}};
-    float floatArr[][8] = {
+    float floatMatrix[][8] = {
         {3254.2, 433.2, 65554.2, 1223.2, 7665.2, 7600.2, 12.2, 254.2},
         {3254.2, 433.2, 65554.2, 1223.2, 7665.2, 7600.2, 12.2, 254.2}};
-    double doubleArr[][8] = {
+    double doubleMatrix[][8] = {
         {3254.21, 433.21, 65554.21, 1223.21, 7665.21, 7600.21, 12.21, 254.21},
         {3254.21, 433.21, 65554.21, 1223.21, 7665.21, 7600.21, 12.21, 254.21}};
-    void *ptrArr[2][8];
+    void *ptrMatrix[2][8];
     for (int i = 0; i < 2; i++)
         for (int j = 0; j < 8; j++)
-            ptrArr[i][j] = (void *)saferMalloc(sizeof(char));
+            ptrMatrix[i][j] = (void *)saferMalloc(sizeof(char));
 
     printf("MATRICES\n");
-    printMatrix("%4hi", byteArr, 2, 8);
-    printMatrix("%2c", charArr, 2, 8);
-    printMatrix("%10.2f", floatArr, 2, 8);
-    printMatrix("%10.2lf", doubleArr, 2, 8);
-    //no printMatrix("%p", ptrArr) beacause %p is not supported by printMatrix
+    printMatrix("%4hi", byteMatrix, 2, 8);
+    printMatrix("%2c", charMatrix, 2, 8);
+    printMatrix("%10.2f", floatMatrix, 2, 8);
+    printMatrix("%10.2lf", doubleMatrix, 2, 8);
+    //no printMatrix("%p", ptrMatrix) beacause %p is not supported by printMatrix
 
-    quickSort("%c", byteArr[0], 8);
-    quickSort("%c", charArr[0], 8);
-    quickSort("%i", intArr[0], 8);
-    quickSort("%f", floatArr[0], 8);
-    quickSort("%lf", doubleArr[0], 8);
-    quickSort("%p", ptrArr[0], 8);
+    quickSort("%c", byteMatrix[0], 8);
+    quickSort("%c", charMatrix[0], 8);
+    quickSort("%i", intMatrix[0], 8);
+    quickSort("%f", floatMatrix[0], 8);
+    quickSort("%lf", doubleMatrix[0], 8);
+    quickSort("%p", ptrMatrix[0], 8);
 
     printf("QUICKSORTED MATRICES\n");
-    printMatrix("%4hi", byteArr, 1, 8);
-    printMatrix("%2c", charArr, 1, 8);
-    printMatrix("%6i", intArr, 1, 8);
-    printMatrix("%10.2f", floatArr, 1, 8);
-    printMatrix("%10.2lf", doubleArr, 1, 8);
+    printMatrix("%4hi", byteMatrix, 1, 8);
+    printMatrix("%2c", charMatrix, 1, 8);
+    printMatrix("%6i", intMatrix, 1, 8);
+    printMatrix("%10.2f", floatMatrix, 1, 8);
+    printMatrix("%10.2lf", doubleMatrix, 1, 8);
     for (int i = 0; i < 8; i++)
-        printf("%16p", ptrArr[0][i]);
+        printf("%16p", ptrMatrix[0][i]);
     printf("\n\n");
 
-    chooseBubbleSort("%c", byteArr[1], 8);
-    chooseBubbleSort("%c", charArr[1], 8);
-    chooseBubbleSort("%i", intArr[1], 8);
-    chooseBubbleSort("%f", floatArr[1], 8);
-    chooseBubbleSort("%lf", doubleArr[1], 8);
-    chooseBubbleSort("%p", ptrArr[1], 8);
+    bubbleSort(byteMatrix[1], 8);  //equivalent to chooseBubbleSort("%c", byteMatrix[1], 8);
+    bubbleSort(charMatrix[1], 8);  //equivalent to chooseBubbleSort("%c", charMatrix[1], 8);
+    bubbleSort(intMatrix[1], 8);   //equivalent to chooseBubbleSort("%i", intMatrix[1], 8);
+    bubbleSort(floatMatrix[1], 8); //equivalent to chooseBubbleSort("%f", floatMatrix[1], 8);
+    bubbleSort(doubleMatrix[1], 8);//equivalent to chooseBubbleSort("%lf", doubleMatrix[1], 8);
+    bubbleSort(ptrMatrix[1], 8);   //equivalent to chooseBubbleSort("%p", ptrMatrix[1], 8);
 
     printf("BUBBLESORTED MATRICES\n");
-    printMatrix("%4hi", byteArr[1], 1, 8);
-    printMatrix("%2c", charArr[1], 1, 8);
-    printMatrix("%6i", intArr[1], 1, 8);
-    printMatrix("%10.2f", floatArr[1], 1, 8);
-    printMatrix("%10.2lf", doubleArr[1], 1, 8);
+    printMatrix("%4hi", byteMatrix[1], 1, 8);
+    printMatrix("%2c", charMatrix[1], 1, 8);
+    printMatrix("%6i", intMatrix[1], 1, 8);
+    printMatrix("%10.2f", floatMatrix[1], 1, 8);
+    printMatrix("%10.2lf", doubleMatrix[1], 1, 8);
     for (int i = 0; i < 8; i++)
-        printf("%16p", ptrArr[1][i]);
-    //no printMatrix("%p", ptrArr) beacause %p is not supported by printMatrix
+        printf("%16p", ptrMatrix[1][i]);
+    //no printMatrix("%p", ptrMatrix) beacause %p is not supported by printMatrix
     printf("\n\n");
 
     printf("LINEAR SEARCH\n");
     for (int i = 0; i < 8; i++)
-        printf("%2i", linearSearch("%c", byteArr, &byteArr[0][i], 8));
+        printf("%2i", linearSearch("%c", byteMatrix, &byteMatrix[0][i], 8));
     printf("\n");
     for (int i = 0; i < 8; i++)
-        printf("%2i", linearSearch("%c", charArr, &charArr[0][i], 8));
+        printf("%2i", linearSearch("%c", charMatrix, &charMatrix[0][i], 8));
     printf("\n");
     for (int i = 0; i < 8; i++)
-        printf("%2i", linearSearch("%i", intArr, &intArr[0][i], 8));
+        printf("%2i", linearSearch("%i", intMatrix, &intMatrix[0][i], 8));
     printf("\n");
     for (int i = 0; i < 8; i++)
-        printf("%2i", linearSearch("%f", floatArr, &floatArr[0][i], 8));
+        printf("%2i", linearSearch("%f", floatMatrix, &floatMatrix[0][i], 8));
     printf("\n");
     for (int i = 0; i < 8; i++)
-        printf("%2i", linearSearch("%lf", doubleArr, &doubleArr[0][i], 8));
+        printf("%2i", linearSearch("%lf", doubleMatrix, &doubleMatrix[0][i], 8));
     printf("\n");
     for (int i = 0; i < 8; i++)
-        printf("%2i", linearSearch("%p", ptrArr, &ptrArr[0][i], 8));
+        printf("%2i", linearSearch("%p", ptrMatrix, &ptrMatrix[0][i], 8));
     printf("\n");
 
     for (int i = 0; i < 2; i++)
         for (int j = 0; j < 8; j++)
-            free(ptrArr[i][j]);
+            free(ptrMatrix[i][j]);
 #endif
 
     return 0;
