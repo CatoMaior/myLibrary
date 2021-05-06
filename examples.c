@@ -164,12 +164,12 @@ int main() {
         printf("%16p", ptrMatrix[0][i]);
     printf("\n\n");
 
-    bubbleSort(byteMatrix[1], 8);  //equivalent to chooseBubbleSort("%c", byteMatrix[1], 8);
-    bubbleSort(charMatrix[1], 8);  //equivalent to chooseBubbleSort("%c", charMatrix[1], 8);
-    bubbleSort(intMatrix[1], 8);   //equivalent to chooseBubbleSort("%i", intMatrix[1], 8);
-    bubbleSort(floatMatrix[1], 8); //equivalent to chooseBubbleSort("%f", floatMatrix[1], 8);
-    bubbleSort(doubleMatrix[1], 8);//equivalent to chooseBubbleSort("%lf", doubleMatrix[1], 8);
-    bubbleSort(ptrMatrix[1], 8);   //equivalent to chooseBubbleSort("%p", ptrMatrix[1], 8);
+    bubbleSort(byteMatrix[1], 8);  // equivalent to chooseBubbleSort("%c", byteMatrix[1], 8);
+    bubbleSort(charMatrix[1], 8);  // equivalent to chooseBubbleSort("%c", charMatrix[1], 8);
+    bubbleSort(intMatrix[1], 8);   // equivalent to chooseBubbleSort("%i", intMatrix[1], 8);
+    bubbleSort(floatMatrix[1], 8); // equivalent to chooseBubbleSort("%f", floatMatrix[1], 8);
+    bubbleSort(doubleMatrix[1], 8);// equivalent to chooseBubbleSort("%lf", doubleMatrix[1], 8);
+    bubbleSort(ptrMatrix[1], 8);   // equivalent to chooseBubbleSort("%p", ptrMatrix[1], 8);
 
     printf("BUBBLESORTED MATRICES\n");
     printMatrix("%4hi", byteMatrix[1], 1, 8);
