@@ -8,11 +8,11 @@
 byte valCmp(const spec_t spec, const void *a, const void *b) {
     if (!spec || !a || !b)
         return NULL_POINTER_GIVEN;
-    char (*cmpFun)(const void *a, const void *b) = chooseCmp(spec);
+    char (*cmpFun)(const void *a, const void *b) = getCmp(spec);
     return (*cmpFun)(a, b);
 }
 
-void *chooseCmp(const spec_t spec) {
+void *getCmp(const spec_t spec) {
     if (!spec)
         return NULL;
     if (strcmp("%c", spec) == 0)

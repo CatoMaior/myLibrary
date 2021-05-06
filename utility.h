@@ -63,7 +63,7 @@ byte ptrCmp(const void *a, const void *b);
  * @param spec Specifier of the type of the data. Refer to ::spec_t 
  * @return Pointer to the right comparison function, `NULL` if identifier is not recognized or given pointer was NULL
  */
-void *chooseCmp(const spec_t spec);
+void *getCmp(const spec_t spec);
 
 /**
  * @brief Set variable to `TRUE` if variable at provided address is 0

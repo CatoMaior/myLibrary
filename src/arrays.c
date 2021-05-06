@@ -23,7 +23,7 @@ byte quickSort(const spec_t spec, void *arr, int size) {
         typeSize = sizeof(void *);
     else
         return UNKNOWN_SPEC;
-    void *cmp = chooseCmp(spec);
+    void *cmp = getCmp(spec);
     qsort(arr, size, typeSize, cmp);
     return SUCCESS;
 }

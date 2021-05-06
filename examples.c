@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include "myLibrary.h"
 
-#define SKIP_UTILITY
-#define SKIP_STRING
-#define SKIP_ARRAY
+//#define SKIP_UTILITY
+//#define SKIP_STRING
+//#define SKIP_ARRAY
 
 int main() {
 
@@ -20,32 +20,32 @@ int main() {
 
     byte (*cmpFunc)(const void *a, const void *b);
 
-    cmpFunc = chooseCmp("%c");
+    cmpFunc = getCmp("%c");
     for (int i = 0; i < 2; i++)
         for (int j = 0; j < 2; j++)
             printf("%3i", (*cmpFunc)(&bytes[i], &bytes[j]));
     printf("\n");
-    cmpFunc = chooseCmp("%c");
+    cmpFunc = getCmp("%c");
     for (int i = 0; i < 2; i++)
         for (int j = 0; j < 2; j++)
             printf("%3i", (*cmpFunc)(&chars[i], &chars[j]));
     printf("\n");
-    cmpFunc = chooseCmp("%i");
+    cmpFunc = getCmp("%i");
     for (int i = 0; i < 2; i++)
         for (int j = 0; j < 2; j++)
             printf("%3i", (*cmpFunc)(&ints[i], &ints[j]));
     printf("\n");
-    cmpFunc = chooseCmp("%f");
+    cmpFunc = getCmp("%f");
     for (int i = 0; i < 2; i++)
         for (int j = 0; j < 2; j++)
             printf("%3i", (*cmpFunc)(&floats[i], &floats[j]));
     printf("\n");
-    cmpFunc = chooseCmp("%lf");
+    cmpFunc = getCmp("%lf");
     for (int i = 0; i < 2; i++)
         for (int j = 0; j < 2; j++)
             printf("%3i", (*cmpFunc)(&doubles[i], &doubles[j]));
     printf("\n");
-    cmpFunc = chooseCmp("%p");
+    cmpFunc = getCmp("%p");
     for (int i = 0; i < 2; i++)
         for (int j = 0; j < 2; j++)
             printf("%3i", (*cmpFunc)(&ptrs[i], &ptrs[j]));
@@ -108,14 +108,14 @@ int main() {
 
 #ifndef SKIP_STRING
     printf("Insert string: ");
-    String myString = getString();
-    printf("String: %s\n", myString.text);
-    myString.text = changeLastCharacter(myString.text, 'X');
-    printf("Changed string: %s\n", myString.text);
-    printf("Changed string length: %i\n", getLength(myString.text));
-    myString.text = changeLastCharacter(myString.text, '\0');
-    printf("Shrinked string: %s\n", myString.text);
-    printf("Shrinked string length: %i\n", getLength(myString.text));
+    string myString = getString();
+    printf("String: %s\n", myString);
+    myString = changeLastCharacter(myString, 'X');
+    printf("Changed string: %s\n", myString);
+    printf("Changed string length: %i\n", getLength(myString));
+    myString = changeLastCharacter(myString, '\0');
+    printf("Shrinked string: %s\n", myString);
+    printf("Shrinked string length: %i\n", getLength(myString));
     printf("\n\n");
 #endif
 
