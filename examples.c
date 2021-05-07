@@ -147,12 +147,12 @@ int main() {
     printMatrix("%10.2lf", doubleMatrix, 2, 8);
     //no printMatrix("%p", ptrMatrix) beacause %p is not supported by printMatrix
 
-    chooseQuickSort("%c", byteMatrix[0], 8);
-    chooseQuickSort("%c", charMatrix[0], 8);
-    chooseQuickSort("%i", intMatrix[0], 8);
-    chooseQuickSort("%f", floatMatrix[0], 8);
-    chooseQuickSort("%lf", doubleMatrix[0], 8);
-    chooseQuickSort("%p", ptrMatrix[0], 8);
+    quickSort(byteMatrix[0], 8);    // chooseQuickSort("%c", byteMatrix[0], 8);
+    quickSort(charMatrix[0], 8);    // chooseQuickSort("%c", charMatrix[0], 8);
+    quickSort(intMatrix[0], 8);     // chooseQuickSort("%i", intMatrix[0], 8);
+    quickSort(floatMatrix[0], 8);   // chooseQuickSort("%f", floatMatrix[0], 8);
+    quickSort(doubleMatrix[0], 8);  // chooseQuickSort("%lf", doubleMatrix[0], 8);
+    quickSort(ptrMatrix[0], 8);     // chooseQuickSort("%p", ptrMatrix[0], 8);
 
     printf("QUICKSORTED MATRICES\n");
     printMatrix("%4hi", byteMatrix, 1, 8);
