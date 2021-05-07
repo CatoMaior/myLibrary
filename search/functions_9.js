@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['quicksort_78',['quickSort',['../arrays_8h.html#af4dd02d3a81426f65ed9d246637bcd23',1,'arrays.h']]]
+  ['safermalloc_90',['saferMalloc',['../utility_8h.html#aa7da8f49b718cedad9e787580432709b',1,'utility.h']]],
+  ['saferrealloc_91',['saferRealloc',['../utility_8h.html#aadeeccab529e344cc74407333840fb73',1,'utility.h']]]
 ];
