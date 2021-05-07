@@ -54,7 +54,7 @@ byte doubleCmp(const void *a, const void *b) {
     return (diff == 0) ? EQUAL : ((diff > 0) ? GREATER : SMALLER);
 }
 
-byte ptrCmp(const void *a, const void *b) {
+byte ptrCmp(const void **a, const void **b) {
     if (sizeof(void *) == 8) {
         long long int diff = *((unsigned long long *)a) - *((unsigned long long *)b);
         return (diff == 0) ? EQUAL : ((diff > 0) ? GREATER : SMALLER);
