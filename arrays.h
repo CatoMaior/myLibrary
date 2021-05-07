@@ -31,7 +31,7 @@ byte chooseBubbleSort(const spec_t spec, void *arr, unsigned int size);
  * @retval UNKNOWN_SPEC Unknown id provided. The array has not been changed
  * @retval NULL_POINTER_GIVEN At least one among given pointers was NULL
  */
-byte quickSort(const spec_t spec, void *arr, int size);
+byte chooseQuickSort(const spec_t spec, void *arr, int size);
 
 /**
  * @brief Linear search for arrays

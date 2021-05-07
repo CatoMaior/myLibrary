@@ -6,7 +6,7 @@
 #include "../constants.h"
 #include "../strings.h"
 
-byte quickSort(const spec_t spec, void *arr, int size) {
+byte chooseQuickSort(const spec_t spec, void *arr, int size) {
     //size not unsigned int beacause qsort requires signed int
     if (!spec || !arr)
         return NULL_POINTER_GIVEN;
