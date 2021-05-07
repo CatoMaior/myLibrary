@@ -28,6 +28,36 @@ byte chooseQuickSort(const spec_t spec, void *arr, int size) {
     return SUCCESS;
 }
 
+byte charQuickSort(char *arr, unsigned int size) {
+    if (!arr)
+        return NULL_POINTER_GIVEN;
+    return chooseQuickSort("%c", arr, size);
+}
+
+byte intQuickSort(int *arr, unsigned int size) {
+    if (!arr)
+        return NULL_POINTER_GIVEN;
+    return chooseQuickSort("%i", arr, size);
+}
+
+byte floatQuickSort(float *arr, unsigned int size) {
+    if (!arr)
+        return NULL_POINTER_GIVEN;
+    return chooseQuickSort("%f", arr, size);
+}
+
+byte doubleQuickSort(double *arr, unsigned int size) {
+    if (!arr)
+        return NULL_POINTER_GIVEN;
+    return chooseQuickSort("%lf", arr, size);
+}
+
+byte ptrQuickSort(void **arr, unsigned int size) {
+    if (!arr)
+        return NULL_POINTER_GIVEN;
+    return chooseQuickSort("%p", arr, size);
+}
+
 byte chooseBubbleSort(const spec_t spec, void *arr, unsigned int size) {
     if (!arr || !spec)
         return NULL_POINTER_GIVEN;
@@ -227,7 +257,7 @@ byte doubleBubbleSort(double *arr, unsigned int size) {
     return SUCCESS;
 }
 
-byte ptrBubbleSort(int **arr, unsigned int size) {
+byte ptrBubbleSort(void **arr, unsigned int size) {
     if (!arr)
         return NULL_POINTER_GIVEN;
     byte isSorted;
