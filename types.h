@@ -24,7 +24,7 @@ typedef char *spec_t;
  */
 typedef char *string;
 
-typedef struct {
+typedef struct arrayList {
     spec_t type;
     void *body;
     unsigned int size;
