@@ -38,7 +38,7 @@
 #define FALSE 0
 
 /**
- * @brief Returned when a function ended successfully
+ * @brief Returned when a function of the library ended successfully
  */
 #define SUCCESS 0
 
@@ -48,7 +48,7 @@
 #define UNKNOWN_SPEC 101
 
 /**
- * @brief Returned by search algorithms when key was not found
+ * @brief Returned by search functions of the library when key was not found
  */
 #define KEY_NOT_FOUND -1
 
@@ -56,5 +56,20 @@
  * @brief Returned when a null pointer was given
  */
 #define NULL_POINTER_GIVEN -64
+
+/**
+ * @brief Returned when a function of the library could not allocate memory
+ */
+#define ALLOC_ERROR 37
+
+/**
+ * @brief Returned when given dynArrays have different types
+ */
+#define DIFFERENT_TYPES -13
+
+/**
+ * @brief Returned when a ::ArrayList was accessed out of its bounds
+ */
+#define OUT_OF_BOUNDS -2
 
 #endif
