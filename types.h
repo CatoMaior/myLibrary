@@ -23,4 +23,11 @@ typedef char *spec_t;
  * @brief Alias for char *, used when an array of char is actually used as a string
  */
 typedef char *string;
+
+typedef struct {
+    spec_t type;
+    void *body;
+    unsigned int size;
+} * ArrayList;
+
 #endif
