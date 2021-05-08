@@ -2,3 +2,5 @@ build/
 docs/
 examples
 links.txt
+testing.c
+testing
