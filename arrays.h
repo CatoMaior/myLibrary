@@ -17,7 +17,7 @@
  * @return The return code of the function
  * @retval SUCCESS The array was correctly sorted
  * @retval UNKNOWN_SPEC Unknown id provided. The array has not been changed
- * @retval NULL_POINTER_GIVEN At least one among given pointers was NULL
+ * @retval NULL_POINTER At least one among given pointers was null
  */
 byte chooseBubbleSort(const spec_t spec, void *arr, unsigned int size);
 
@@ -29,7 +29,7 @@ byte chooseBubbleSort(const spec_t spec, void *arr, unsigned int size);
  * @return The return code of the function
  * @retval SUCCESS The array was correctly sorted
  * @retval UNKNOWN_SPEC Unknown id provided. The array has not been changed
- * @retval NULL_POINTER_GIVEN At least one among given pointers was NULL
+ * @retval NULL_POINTER At least one among given pointers was null
  */
 byte chooseQuickSort(const spec_t spec, void *arr, int size);
 
@@ -41,7 +41,7 @@ byte chooseQuickSort(const spec_t spec, void *arr, int size);
  * @param size Number of elements of the array to be inspected
  * @return The index of the first occurence of the key in the array or the return code of the function
  * @retval KEY_NOT_FOUND The key was not found
- * @retval NULL_POINTER_GIVEN At least one among given pointers was NULL
+ * @retval NULL_POINTER At least one among given pointers was null
  */
 int linearSearch(const spec_t spec, const void *arr, const void *key, int size);
 
@@ -55,7 +55,7 @@ int linearSearch(const spec_t spec, const void *arr, const void *key, int size);
  * @return The return code of the function
  * @retval SUCCESS The matrix was correctly printed
  * @retval UNKNOWN_SPEC Give type specifier was not recognised
- * @retval NULL_POINTER_GIVEN At least one among given pointer was NULL
+ * @retval NULL_POINTER At least one among given pointer was null
  */
 byte printMatrix(const spec_t spec, const void *matrix, const unsigned int nRows, const unsigned int nColumns);
 

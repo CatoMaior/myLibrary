@@ -1,13 +1,21 @@
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 #include "../types.h"
 #include "../utility.h"
 #include "../constants.h"
 #include "../strings.h"
 
+void checkCondition(byte condition, string errorString) {
+    if (condition) {
+        printf("\n%s\nExiting\n", errorString);
+        exit(1);
+    }
+}
+
 byte chooseCmp(const spec_t spec, const void *a, const void *b) {
     if (!spec || !a || !b)
-        return NULL_POINTER_GIVEN;
+        return NULL_POINTER;
     char (*cmpFun)(const void *a, const void *b) = getCmp(spec);
     return (*cmpFun)(a, b);
 }
@@ -30,7 +38,7 @@ void *getCmp(const spec_t spec) {
 
 byte charCmp(const void *a, const void *b) {
     if (!a || !b)
-        NULL_POINTER_GIVEN;
+        NULL_POINTER;
     byte diff = *((char *)a) - *((char *)b);
     return (diff == 0) ? EQUAL : ((diff > 0) ? GREATER : SMALLER);
 }
@@ -76,7 +84,7 @@ byte ptrCmp(const void **a, const void **b) {
 
 byte trueIfFalse(byte *value) {
     if (!value)
-        return NULL_POINTER_GIVEN;
+        return NULL_POINTER;
     if (*value == FALSE)
         *value = TRUE;
     return SUCCESS;
@@ -84,7 +92,7 @@ byte trueIfFalse(byte *value) {
 
 byte falseIfTrue(byte *value) {
     if (!value)
-        return NULL_POINTER_GIVEN;
+        return NULL_POINTER;
     if (*value != FALSE)
         *value = FALSE;
     return SUCCESS;

@@ -24,7 +24,7 @@ string getString() {
 
 byte endsWith(const string str, const string suffix) {
     if (!str || !suffix)
-        return NULL_POINTER_GIVEN;
+        return NULL_POINTER;
     unsigned int lenstr = strlen(str);
     unsigned int lensuffix = strlen(suffix);
     if (lensuffix > lenstr)
@@ -34,7 +34,7 @@ byte endsWith(const string str, const string suffix) {
 
 unsigned int getLength(const string str) {
     if (!str)
-        return NULL_POINTER_GIVEN;
+        return NULL_POINTER;
     return strlen(str);
 }
 

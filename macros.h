@@ -28,7 +28,7 @@
  * @return The return code of the function called
  * @param arr Pointer to the array to be sorted
  * @param size Number of elements in the array to be sorted
- * @retval NULL_POINTER_GIVEN Pointer to the array to be sorted
+ * @retval NULL_POINTER Pointer to the array to be sorted
  * @retval SUCCESS Array successfully sorted
  */
 #define bubbleSort(arr, size) _Generic(arr, char *: charBubbleSort, int *: intBubbleSort, float *:floatBubbleSort, double *: doubleBubbleSort, void **: ptrBubbleSort)(arr, size)
@@ -38,7 +38,7 @@
  * @return The return code of the function called
  * @param arr Pointer to the array to be sorted
  * @param size Number of elements in the array to be sorted
- * @retval NULL_POINTER_GIVEN Pointer to the array to be sorted
+ * @retval NULL_POINTER Pointer to the array to be sorted
  * @retval SUCCESS Array successfully sorted
  */
 #define quickSort(arr, size) _Generic(arr, char *: charQuickSort, int *: intQuickSort, float *:floatQuickSort, double *: doubleQuickSort, void **: ptrQuickSort)(arr, size)

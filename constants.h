@@ -40,7 +40,7 @@
 /**
  * @brief Returned when a function of the library ended successfully
  */
-#define SUCCESS 0
+#define SUCCESS 27
 
 /**
  * @brief Returned when an unknown specifier was provided
@@ -55,7 +55,7 @@
 /**
  * @brief Returned when a null pointer was given
  */
-#define NULL_POINTER_GIVEN -64
+#define NULL_POINTER -64
 
 /**
  * @brief Returned when a function of the library could not allocate memory
@@ -68,8 +68,8 @@
 #define DIFFERENT_TYPES -13
 
 /**
- * @brief Returned when a ::ArrayList was accessed out of its bounds
+ * @brief Returned when both ::Arraylist elements have no defined type
  */
-#define OUT_OF_BOUNDS -2
+#define UNDEFINED_TYPES -3
 
 #endif

@@ -9,7 +9,7 @@
 byte chooseQuickSort(const spec_t spec, void *arr, int size) {
     //size not unsigned int beacause qsort requires signed int
     if (!spec || !arr)
-        return NULL_POINTER_GIVEN;
+        return NULL_POINTER;
     size_t typeSize;
     if (strcmp("%c", spec) == 0)
         typeSize = sizeof(char);
@@ -30,37 +30,37 @@ byte chooseQuickSort(const spec_t spec, void *arr, int size) {
 
 byte charQuickSort(char *arr, unsigned int size) {
     if (!arr)
-        return NULL_POINTER_GIVEN;
+        return NULL_POINTER;
     return chooseQuickSort("%c", arr, size);
 }
 
 byte intQuickSort(int *arr, unsigned int size) {
     if (!arr)
-        return NULL_POINTER_GIVEN;
+        return NULL_POINTER;
     return chooseQuickSort("%i", arr, size);
 }
 
 byte floatQuickSort(float *arr, unsigned int size) {
     if (!arr)
-        return NULL_POINTER_GIVEN;
+        return NULL_POINTER;
     return chooseQuickSort("%f", arr, size);
 }
 
 byte doubleQuickSort(double *arr, unsigned int size) {
     if (!arr)
-        return NULL_POINTER_GIVEN;
+        return NULL_POINTER;
     return chooseQuickSort("%lf", arr, size);
 }
 
 byte ptrQuickSort(void **arr, unsigned int size) {
     if (!arr)
-        return NULL_POINTER_GIVEN;
+        return NULL_POINTER;
     return chooseQuickSort("%p", arr, size);
 }
 
 byte chooseBubbleSort(const spec_t spec, void *arr, unsigned int size) {
     if (!arr || !spec)
-        return NULL_POINTER_GIVEN;
+        return NULL_POINTER;
     char isSorted;
     unsigned int sorted = 0;
     if (strcmp("%c", spec) == 0)
@@ -78,7 +78,7 @@ byte chooseBubbleSort(const spec_t spec, void *arr, unsigned int size) {
 
 int linearSearch(const spec_t spec, const void *arr, const void *key, int size) {
     if (!spec || !arr || !key)
-        return NULL_POINTER_GIVEN;
+        return NULL_POINTER;
     //int and not unsigned int because KEY_NOT_FOUND is -1
     //key pointer is void in order to be used with pointers of all types
     char typeSize;
@@ -114,7 +114,7 @@ int linearSearch(const spec_t spec, const void *arr, const void *key, int size) 
 
 byte printMatrix(const spec_t spec, const void *matrix, const unsigned int nRows, const unsigned int nColumns) {
     if (!spec || !matrix)
-        return NULL_POINTER_GIVEN;
+        return NULL_POINTER;
     if (endsWith(spec, "hhi"))
         return UNKNOWN_SPEC;
     if (endsWith(spec, "hi")) {
@@ -167,7 +167,7 @@ byte printMatrix(const spec_t spec, const void *matrix, const unsigned int nRows
 
 byte charBubbleSort(char *arr, unsigned int size) {
     if (!arr)
-        return NULL_POINTER_GIVEN;
+        return NULL_POINTER;
     byte isSorted;
     unsigned int sorted = 0;
     char temp;
@@ -190,7 +190,7 @@ byte charBubbleSort(char *arr, unsigned int size) {
 
 byte intBubbleSort(int *arr, unsigned int size) {
     if (!arr)
-        return NULL_POINTER_GIVEN;
+        return NULL_POINTER;
     byte isSorted;
     unsigned int sorted = 0;
     int temp;
@@ -213,7 +213,7 @@ byte intBubbleSort(int *arr, unsigned int size) {
 
 byte floatBubbleSort(float *arr, unsigned int size) {
     if (!arr)
-        return NULL_POINTER_GIVEN;
+        return NULL_POINTER;
     byte isSorted;
     unsigned int sorted = 0;
     float temp;
@@ -236,7 +236,7 @@ byte floatBubbleSort(float *arr, unsigned int size) {
 
 byte doubleBubbleSort(double *arr, unsigned int size) {
     if (!arr)
-        return NULL_POINTER_GIVEN;
+        return NULL_POINTER;
     byte isSorted;
     unsigned int sorted = 0;
     double temp;
@@ -259,7 +259,7 @@ byte doubleBubbleSort(double *arr, unsigned int size) {
 
 byte ptrBubbleSort(void **arr, unsigned int size) {
     if (!arr)
-        return NULL_POINTER_GIVEN;
+        return NULL_POINTER;
     byte isSorted;
     unsigned int sorted = 0;
     int *temp;
