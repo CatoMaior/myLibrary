@@ -24,10 +24,10 @@ typedef char *spec_t;
  */
 typedef char *string;
 
-typedef struct arrayList {
+typedef struct {
     spec_t type;
     void *body;
     unsigned int size;
-} * ArrayList;
+} * const ArrayList;
 
 #endif
