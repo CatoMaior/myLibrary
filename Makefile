@@ -23,8 +23,8 @@ $(BUILD_DIR):
 $(EXAMPLES): examples.c
 	$(CC) examples.c -o $(EXAMPLES) $(LIB)
 
-$(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
-	$(CC) -c $^ -o $@
+$(BUILD_DIR)/%.o: $(SRC_DIR)/%.c $(SRC_DIR)/errors.h
+	$(CC) -c $< -o $@
 
 $(LIB): $(OBJS) $(BUILD_DIR)
 	ar rcs $@ $(OBJS)
