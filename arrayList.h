@@ -13,6 +13,7 @@
  * @brief Append an element to an ::ArrayList
  * @param arr The ::ArrayList you want to append an item to
  * @param element The element you want to append to `arr`
+ * @note When you want to append something hardcoded that is not an `int` but the compiler treats as an `int` by default (a `byte`, a `char`, an integer `float` or `double`), you must specify a casting to that type. For example, if you want to append the number `42` to an ::ArrayList named `arr`, you must use `appendToAL(arr, (byte)42)`
  */
 #define appendToAL(arr, element) _Generic(element, char: appendCharToAL)(arr, element)
 
@@ -23,6 +24,23 @@
  * @return An ::ArrayList containing all the elements of `arr`void
  */
 #define newALFromArray(arr, size) _Generic(arr, char*: newALFromCharArray)(arr, size)
+
+/**
+ * @brief insert element into ::ArrayList
+ * @param arr The ::ArrayList you want to insert an element into
+ * @param element The element you want to insert into `arr`
+ * @param index The index you want to insert `element` to
+ * @note When you want to insert something hardcoded that is not an `int` but the compiler treats as an `int` by default (a `byte`, a `char`, an integer `float` or `double`), you must specify a casting to that type. For example, if you want to insert the number `42` at index `4` into an ::ArrayList named `arr`, you must use `insertToAl(arr, (byte)42, 4)`
+ */
+#define insertToAL(arr, element, index) _Generic(element, char: insertCharToAL)(arr, element, index)
+
+/**
+ * @brief Set an element of an ::ArrayList
+ * @param arr The :ArrayList you want to change an element
+ * @param element The element you want to set an item of `arr` to
+ * @param index The index of the element of the ::ArrayList you want to set to `element`
+ */
+#define setALElement(arr, element, index) _Generic(element, char: setALChar)(arr, element, index)
 
 // TYPE INDIPENDENT FUNCTIONS
 /**
@@ -89,7 +107,7 @@ void deleteAL(ArrayList arr);
  * @retval TRUE `arr1` and `arr2` have equal type, equal length and equal contents
  * @retval FALSE `arr1` and `arr2` do not have equal type, equal length or equal contents
  */
-byte compareAL(ArrayList arr1, ArrayList arr2);
+byte areALEqual(ArrayList arr1, ArrayList arr2);
 
 /**
  * @brief Reverse an ::ArrayList
@@ -105,6 +123,11 @@ void reverseAL(ArrayList arr);
  * @return An ::ArrayList of type char containing the elements in `arr` in the same order
  */
 ArrayList newALFromCharArray(const char arr[], unsigned int size);
+
+/**
+ * @brief Alias for newALFromCharArray(). Used to create ::ArrayList from byte array. Refer to newALFromCharArray()
+ */
+ArrayList newALFromByteArray(const char arr[], unsigned int size);
 
 /**
  * @brief Insert a char at the end of an ::ArrayList 
