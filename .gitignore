@@ -2,5 +2,6 @@ build/
 docs/
 examples
 links.txt
-testing.c
+development.c
+development
 testing
