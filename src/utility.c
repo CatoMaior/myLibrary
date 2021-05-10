@@ -5,6 +5,7 @@
 #include "../utility.h"
 #include "../constants.h"
 #include "../strings.h"
+#include "errors.h"
 
 void checkCondition(byte condition, string errorString) {
     if (condition) {
@@ -14,8 +15,7 @@ void checkCondition(byte condition, string errorString) {
 }
 
 byte chooseCmp(const spec_t spec, const void *a, const void *b) {
-    if (!spec || !a || !b)
-        return NULL_POINTER;
+    checkCondition(!spec || !a || !b, NULL_POINTER_GIVEN);
     char (*cmpFun)(const void *a, const void *b) = getCmp(spec);
     return (*cmpFun)(a, b);
 }
@@ -37,32 +37,36 @@ void *getCmp(const spec_t spec) {
 }
 
 byte charCmp(const void *a, const void *b) {
-    if (!a || !b)
-        NULL_POINTER;
+    checkCondition(!a || !b, NULL_POINTER_GIVEN);
     byte diff = *((char *)a) - *((char *)b);
     return (diff == 0) ? EQUAL : ((diff > 0) ? GREATER : SMALLER);
 }
 
 byte byteCmp(const void *a, const void *b) {
+    checkCondition(!a || !b, NULL_POINTER_GIVEN);
     return charCmp(a, b);
 }
 
 byte intCmp(const void *a, const void *b) {
+    checkCondition(!a || !b, NULL_POINTER_GIVEN);
     int diff = *((int *)a) - *((int *)b);
     return (diff == 0) ? EQUAL : ((diff > 0) ? GREATER : SMALLER);
 }
 
 byte floatCmp(const void *a, const void *b) {
+    checkCondition(!a || !b, NULL_POINTER_GIVEN);
     float diff = *((float *)a) - *((float *)b);
     return (diff == 0) ? EQUAL : ((diff > 0) ? GREATER : SMALLER);
 }
 
 byte doubleCmp(const void *a, const void *b) {
+    checkCondition(!a || !b, NULL_POINTER_GIVEN);
     double diff = *((double *)a) - *((double *)b);
     return (diff == 0) ? EQUAL : ((diff > 0) ? GREATER : SMALLER);
 }
 
 byte ptrCmp(const void *a, const void *b) {
+    checkCondition(!a || !b, NULL_POINTER_GIVEN);
     if (sizeof(void *) == 8) {
         long long int diff = *((unsigned long long *)a) - *((unsigned long long *)b);
         return (diff == 0) ? EQUAL : ((diff > 0) ? GREATER : SMALLER);
@@ -79,23 +83,7 @@ byte ptrCmp(const void *a, const void *b) {
         char diff = *((unsigned char *)a) - *((unsigned char *)b);
         return (diff == 0) ? EQUAL : ((diff > 0) ? GREATER : SMALLER);
     }
-    return UNSUPPORTED_ARCHITECTURE;
-}
-
-byte trueIfFalse(byte *value) {
-    if (!value)
-        return NULL_POINTER;
-    if (*value == FALSE)
-        *value = TRUE;
-    return SUCCESS;
-}
-
-byte falseIfTrue(byte *value) {
-    if (!value)
-        return NULL_POINTER;
-    if (*value != FALSE)
-        *value = FALSE;
-    return SUCCESS;
+    checkCondition(TRUE, UNSUPPORTED_ARCHITECTURE);
 }
 
 void *saferMalloc(unsigned int bytes) {
@@ -104,14 +92,17 @@ void *saferMalloc(unsigned int bytes) {
     do
         returnPointer = malloc(bytes);
     while (i++ < 10 && returnPointer == NULL);
+    checkCondition(!returnPointer, ALLOC_ERROR);
     return returnPointer;
 }
 
 void *saferRealloc(void *pointer, unsigned int bytes) {
+    checkCondition(!pointer, NULL_POINTER_GIVEN);
     byte i = 0;
     void *returnPointer;
     do
         returnPointer = realloc(pointer, bytes);
     while (i++ < 10 && returnPointer == NULL);
+    checkCondition(!returnPointer, REALLOC_ERROR);
     return returnPointer;
 }

@@ -23,7 +23,7 @@ ArrayList newALFromAL(const ArrayList arr) {
         copy->type = "%c";
         bytesToBeCopied = arr->size * sizeof(char);
     }
-    copy->body = saferRealloc(copy->body, bytesToBeCopied);
+    copy->body = saferMalloc(bytesToBeCopied);
     memcpy(copy->body, arr->body, bytesToBeCopied);
     return copy;
 }

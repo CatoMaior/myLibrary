@@ -16,11 +16,10 @@ void checkCondition(byte condition, string errorString);
  * @param spec Type specifier of the values to be sorted. Refer to ::spec_t for supported types.
  * @param a Pointer to the first element to be compared
  * @param b Pointer to the second element to be compared
- * @return Constant for the corresponding comparation result or the return code of the function
+ * @return Constant for the corresponding comparation result
  * @retval GREATER First element is grater than the second
  * @retval EQUAL First element is equal to the second
  * @retval SMALLER First element is smaller than the second
- * @retval NULL_POINTER At least one among given pointers was null
  */
 byte chooseCmp(const spec_t spec, const void *a, const void *b);
 
@@ -68,29 +67,10 @@ byte ptrCmp(const void *a, const void *b);
 void *getCmp(const spec_t spec);
 
 /**
- * @brief Set variable to `TRUE` if variable at provided address is 0
- * @param value Pointer to the value to be evaluated 
- * @return Return code of the function
- * @retval SUCCESS Function executed correctly
- * @retval NULL_POINTER At least one among given pointers was null
- */
-byte trueIfFalse(byte *value);
-
-/**
- * @brief Set variable to `FALSE` if variable at provided address is not 0
- * @param value Pointer to the value to be evaluated 
- * @return Return code of the function
- * @retval SUCCESS Function executed correctly
- * @retval NULL_POINTER At least one among given pointers was null
- */
-byte falseIfTrue(byte *value);
-
-/**
  * @brief Return a pointer to a space in memory of specified size
  * @details Calls `malloc(bytes)` for a maximum of 10 times until it returns a not null pointer
  * @param bytes Number of bytes to allocate
- * @return A pointer to the allocated memory or the return code of the function
- * @retval NULL Could not allocate memory
+ * @return A pointer to the allocated memory
  */
 void *saferMalloc(unsigned int bytes);
 
@@ -99,8 +79,7 @@ void *saferMalloc(unsigned int bytes);
  * @details Calls `realloc(pointer, bytes)` for a maximum of 10 times until it returns a not null pointer
  * @param pointer Pointer to the memory to be reallocated
  * @param bytes Number of bytes to allocate
- * @return A pointer to the allocated memory or the return code of the function
- * @retval NULL Could not allocate memory
+ * @return A pointer to the allocated memory
  */
 void *saferRealloc(void *pointer, unsigned int bytes);
 
