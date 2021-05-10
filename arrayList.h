@@ -115,12 +115,19 @@ byte areALEqual(ArrayList arr1, ArrayList arr2);
  */
 void reverseAL(ArrayList arr);
 
-// TYPE DIPENDENT FUNCTIONS
 /**
- * @brief Create an ::ArrayList from an array of chars
+ * @brief Create an ::ArrayList from an array
+ * @param spec The type specifier of the array passed. Refer to spec_t
  * @param arr The array you want to create the ::ArrayList from
  * @param size The size of `arr`
- * @return An ::ArrayList of type char containing the elements in `arr` in the same order
+ * @return An ::ArrayList containing the elements in `arr` in the same order
+ */
+ArrayList chooseNewALFromArray(const spec_t spec, const void *arr, unsigned int size);
+
+// TYPE DIPENDENT FUNCTIONS
+/**
+ * @brief Create ::ArrayList from an array of chars
+ * @details Equivalent to `chooseNewALFromArray("%c", arr, size)`. Refer to chooseNewALFromArray()
  */
 ArrayList newALFromCharArray(const char arr[], unsigned int size);
 

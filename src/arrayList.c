@@ -2,6 +2,7 @@
 #include "../strings.h"
 #include "../types.h"
 #include "../utility.h"
+#include "../arrayList.h"
 #include "errors.h"
 #include <math.h>
 #include <stdio.h>
@@ -26,6 +27,13 @@ ArrayList newALFromAL(const ArrayList arr) {
     copy->body = saferMalloc(bytesToBeCopied);
     memcpy(copy->body, arr->body, bytesToBeCopied);
     return copy;
+}
+
+ArrayList chooseNewALFromArray(const spec_t spec, const void *arr, unsigned int size) {
+    checkCondition(!arr, NULL_POINTER_GIVEN);
+    if (strcmp(spec, "%c" == 0))
+        return newALFromCharArray(arr, size);
+    checkCondition(TRUE, UNSUPPORTED_SPECIFIER);
 }
 
 void mergeAL(ArrayList arr1, const ArrayList arr2) {
@@ -107,51 +115,10 @@ byte areALEqual(ArrayList arr1, ArrayList arr2) {
     return FALSE;
 }
 
-void appendCharToAL(ArrayList arr, char element) {
-    checkCondition(!arr, NULL_AL_GIVEN);
-    if (!arr->type)
-        arr->type = "%c";
-    if (arr->size == 0)
-        arr->body = saferMalloc(sizeof(char));
-    else
-        arr->body = saferRealloc(arr->body, sizeof(char));
-    *((char *)arr->body + arr->size * sizeof(char)) = element;
-    arr->size++;
-}
-
-ArrayList newALFromCharArray(const char arr[], unsigned int size) {
-    checkCondition(!arr, NULL_AL_GIVEN);
-    ArrayList newArray = saferMalloc(sizeof(ArrayList));
-    newArray->type = "%c";
-    newArray->size = 0;
-    for (unsigned int i = 0; i < size; i++)
-        appendCharToAL(newArray, arr[i]);
-    return newArray;
-}
-
 void deleteAL(ArrayList arr) {
     checkCondition(!arr, NULL_AL_GIVEN);
     free(arr->body);
     free(arr);
-}
-
-void insertCharToAL(ArrayList arr, char element, unsigned int index) {
-    checkCondition(!arr, NULL_AL_GIVEN);
-    checkCondition(!arr->type, NULL_AL_TYPE);
-    checkCondition(index >= arr->size, OUT_OF_AL_BOUNDS);
-    void *newBody = saferMalloc(arr->size + 1 * sizeof(char));
-    memcpy(newBody, arr->body, index * sizeof(char));
-    *((char *)newBody + index * sizeof(char)) = element;
-    memcpy(newBody + (index + 1) * sizeof(char), arr->body + index * sizeof(char), (arr->size - index) * sizeof(char));
-    arr->size++;
-    free(arr->body);
-    arr->body = newBody;
-}
-
-void setALChar(ArrayList arr, char element, unsigned int index) {
-    checkCondition(!arr, NULL_AL_GIVEN);
-    checkCondition(index >= arr->size, OUT_OF_AL_BOUNDS);
-    *((char *)arr->body + index * sizeof(char)) = element;
 }
 
 void reverseAL(ArrayList arr) {
@@ -165,8 +132,4 @@ void reverseAL(ArrayList arr) {
     }
     free(arr->body);
     arr->body = newBody;
-}
-
-ArrayList newALFromByteArray(const char arr[], unsigned int size) {
-    return newALFromCharArray(arr, size);
 }
