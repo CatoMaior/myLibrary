@@ -22,7 +22,6 @@ string getString();
  * @return A boolean value
  * @retval TRUE `str` ends with `suffix`
  * @retval FALSE `str` does not end with `suffix`
- * @retval NULL_POINTER At least one among given pointers was null
  */
 byte endsWith(const string str, const string suffix);
 
@@ -38,7 +37,6 @@ string changeLastCharacter(const string str, char newCharacter);
  * @brief Get the lenght of a string
  * @param str The string to be evaluated
  * @return The lenght of the given string (terminator EXCLUDED) or the return code of the function
- * @retval NULL_POINTER At least one among given pointers was null
  */
 unsigned int getLength(const string str);
 
