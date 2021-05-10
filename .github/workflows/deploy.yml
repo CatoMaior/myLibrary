@@ -13,8 +13,8 @@ jobs:
     
     - uses: actions/checkout@v2
     
-    - name: Compile library and examples
-      run: make lib build/examples
+    - name: Compile library and testing
+      run: make lib build/testing
         
     - name: Compile docs
       uses: mattnotmitt/doxygen-action@v1.3.0
@@ -35,7 +35,7 @@ jobs:
         branch: gh-pages
     
     - name: Create release zip file
-      run: zip release.zip *.h examples.c build/myLibrary.lib docs.pdf
+      run: zip release.zip *.h testing.c build/myLibrary.lib docs.pdf
         
     - name: Publish build
       uses: "marvinpinto/action-automatic-releases@latest"
