@@ -138,7 +138,7 @@ void deleteAL(ArrayList arr) {
 void insertCharToAL(ArrayList arr, char element, unsigned int index) {
     checkCondition(!arr, NULL_AL_GIVEN);
     checkCondition(!arr->type, NULL_AL_TYPE);
-    checkCondition(index >= arr->type, OUT_OF_AL_BOUNDS);
+    checkCondition(index >= arr->size, OUT_OF_AL_BOUNDS);
     void *newBody = saferMalloc(arr->size + 1 * sizeof(char));
     memcpy(newBody, arr->body, index * sizeof(char));
     *((char *)newBody + index * sizeof(char)) = element;
