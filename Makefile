@@ -20,8 +20,8 @@ pdf: $(DOCS_PDF)
 $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR) 
 
-$(TESTING): testing.c
-	$(CC) testing.c -o $(EXAMPLES) $(LIB)
+$(TESTING): testing.c $(LIB)
+	$(CC) testing.c -o $(TESTING) $(LIB)
 
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c $(SRC_DIR)/errors.h
 	$(CC) -c $< -o $@
