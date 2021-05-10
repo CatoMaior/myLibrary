@@ -95,7 +95,7 @@ void getFromAL(const ArrayList arr, unsigned int index, void *dest) {
         *(char *)dest = *((char *)arr->body + index * sizeof(char));
 }
 
-byte compareAL(ArrayList arr1, ArrayList arr2) {
+byte areALEqual(ArrayList arr1, ArrayList arr2) {
     checkCondition(!arr1 || !arr2, NULL_AL_GIVEN);
     if (strcmp(arr1->type, arr2->type) != 0 || arr1->size != arr2->size)
         return FALSE;
@@ -165,4 +165,8 @@ void reverseAL(ArrayList arr) {
     }
     free(arr->body);
     arr->body = newBody;
+}
+
+ArrayList newALFromByteArray(const char arr[], unsigned int size) {
+    return newALFromCharArray(arr, size);
 }
