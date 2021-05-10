@@ -20,7 +20,6 @@ void checkCondition(byte condition, string errorString);
  * @retval GREATER First element is grater than the second
  * @retval EQUAL First element is equal to the second
  * @retval SMALLER First element is smaller than the second
- * @retval NULL_POINTER At least one among given pointers was null
  */
 byte chooseCmp(const spec_t spec, const void *a, const void *b);
 
@@ -66,24 +65,6 @@ byte ptrCmp(const void *a, const void *b);
  * @return Pointer to the right comparison function, `NULL` if identifier is not recognized or given pointer was null
  */
 void *getCmp(const spec_t spec);
-
-/**
- * @brief Set variable to `TRUE` if variable at provided address is 0
- * @param value Pointer to the value to be evaluated 
- * @return Return code of the function
- * @retval SUCCESS Function executed correctly
- * @retval NULL_POINTER At least one among given pointers was null
- */
-byte trueIfFalse(byte *value);
-
-/**
- * @brief Set variable to `FALSE` if variable at provided address is not 0
- * @param value Pointer to the value to be evaluated 
- * @return Return code of the function
- * @retval SUCCESS Function executed correctly
- * @retval NULL_POINTER At least one among given pointers was null
- */
-byte falseIfTrue(byte *value);
 
 /**
  * @brief Return a pointer to a space in memory of specified size
