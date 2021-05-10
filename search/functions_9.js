@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['safermalloc_90',['saferMalloc',['../utility_8h.html#aa7da8f49b718cedad9e787580432709b',1,'utility.h']]],
-  ['saferrealloc_91',['saferRealloc',['../utility_8h.html#aadeeccab529e344cc74407333840fb73',1,'utility.h']]]
+  ['main_125',['main',['../testing_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'testing.c']]],
+  ['mergeal_126',['mergeAL',['../arrayList_8h.html#a6ee39fe88752ebaeb10c9afc15695536',1,'arrayList.h']]]
 ];

@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['intbubblesort_82',['intBubbleSort',['../arrays_8h.html#a94c2c39427912ee078495c0fc42ee49a',1,'arrays.h']]],
-  ['intcmp_83',['intCmp',['../utility_8h.html#aebc7b095cdd90551a58295a17ce16dfd',1,'utility.h']]],
-  ['intquicksort_84',['intQuickSort',['../arrays_8h.html#a844fd7c621663da6642a7b6cce309a9f',1,'arrays.h']]]
+  ['getcmp_116',['getCmp',['../utility_8h.html#ac7255ad382cf2ec4f5504ebe251ef285',1,'utility.h']]],
+  ['getfromal_117',['getFromAL',['../arrayList_8h.html#a0b9cabcaa26a16ecbc2eb0fbf1ba43c2',1,'arrayList.h']]],
+  ['getlength_118',['getLength',['../strings_8h.html#a9ef4bcf04c8fd3ac3b1d0365aa4eb1b3',1,'strings.h']]],
+  ['getstring_119',['getString',['../strings_8h.html#af7827d71f6acc4e3d6b22b66a8c1f356',1,'strings.h']]]
 ];

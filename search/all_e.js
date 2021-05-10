@@ -1,10 +1,5 @@
 var searchData=
 [
-  ['safermalloc_42',['saferMalloc',['../utility_8h.html#aa7da8f49b718cedad9e787580432709b',1,'utility.h']]],
-  ['saferrealloc_43',['saferRealloc',['../utility_8h.html#aadeeccab529e344cc74407333840fb73',1,'utility.h']]],
-  ['smaller_44',['SMALLER',['../constants_8h.html#aac275767d3931bb4649e508153721044',1,'constants.h']]],
-  ['spec_5ft_45',['spec_t',['../types_8h.html#a12a67a7129240fa955c096deb10cdd6e',1,'types.h']]],
-  ['string_46',['string',['../types_8h.html#a4505c08c065b48840a30eedd9845cce2',1,'types.h']]],
-  ['strings_2eh_47',['strings.h',['../strings_8h.html',1,'']]],
-  ['success_48',['SUCCESS',['../constants_8h.html#aa90cac659d18e8ef6294c7ae337f6b58',1,'constants.h']]]
+  ['removefromal_63',['removeFromAL',['../arrayList_8h.html#a8d0adda2154aa4ed545511cc38479039',1,'arrayList.h']]],
+  ['reverseal_64',['reverseAL',['../arrayList_8h.html#a3e70818561c342e00d39cc5588011e5c',1,'arrayList.h']]]
 ];
