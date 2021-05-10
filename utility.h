@@ -58,7 +58,7 @@ byte doubleCmp(const void *a, const void *b);
  * @brief Compare two pointers
  * @details Equivalent to `chooseCmp("%p", a, b)`. Refer to chooseCmp()
  */
-byte ptrCmp(const void **a, const void **b);
+byte ptrCmp(const void *a, const void *b);
 
 /**
  * @brief Choose comparison function based on given identifier
