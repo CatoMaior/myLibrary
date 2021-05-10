@@ -44,4 +44,4 @@ HAVE_DOT               = YES
 
 DOT_FONTNAME           = Calibri
 
-DIRECTORY_GRAPH        = NO3
+DIRECTORY_GRAPH        = NO
