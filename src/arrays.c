@@ -25,7 +25,6 @@ void chooseQuickSort(const spec_t spec, void *arr, int size) {
         checkCondition(TRUE, UNSUPPORTED_SPECIFIER);
     void *cmp = getCmp(spec);
     qsort(arr, size, typeSize, cmp);
-    return SUCCESS;
 }
 
 void charQuickSort(char *arr, unsigned int size) {
@@ -67,7 +66,7 @@ void chooseBubbleSort(const spec_t spec, void *arr, unsigned int size) {
         return doubleBubbleSort(arr, size);
     if (strcmp("%p", spec) == 0) 
         return ptrBubbleSort(arr, size);
-    return UNKNOWN_SPEC;
+    checkCondition(TRUE, UNSUPPORTED_SPECIFIER);
 }
 
 int linearSearch(const spec_t spec, const void *arr, const void *key, int size) {
