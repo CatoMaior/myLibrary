@@ -14,24 +14,16 @@
  * @param spec Type specifier of the array to be sorted. Refer to ::spec_t for supported types.
  * @param arr Pointer to the first element of the array to be sorted
  * @param size Number of elements of the array to be sorted
- * @return The return code of the function
- * @retval SUCCESS The array was correctly sorted
- * @retval UNKNOWN_SPEC Unknown id provided. The array has not been changed
- * @retval NULL_POINTER At least one among given pointers was null
  */
-byte chooseBubbleSort(const spec_t spec, void *arr, unsigned int size);
+void chooseBubbleSort(const spec_t spec, void *arr, unsigned int size);
 
 /**
  * @brief Quick sort for arrays
  * @param spec Type specifier of the array to be sorted. Refer to ::spec_t for supported types
  * @param arr Pointer to the first element of the array to be sorted
  * @param size Number of elements of the array to be sorted
- * @return The return code of the function
- * @retval SUCCESS The array was correctly sorted
- * @retval UNKNOWN_SPEC Unknown id provided. The array has not been changed
- * @retval NULL_POINTER At least one among given pointers was null
  */
-byte chooseQuickSort(const spec_t spec, void *arr, int size);
+void chooseQuickSort(const spec_t spec, void *arr, int size);
 
 /**
  * @brief Linear search for arrays
@@ -41,7 +33,6 @@ byte chooseQuickSort(const spec_t spec, void *arr, int size);
  * @param size Number of elements of the array to be inspected
  * @return The index of the first occurence of the key in the array or the return code of the function
  * @retval KEY_NOT_FOUND The key was not found
- * @retval NULL_POINTER At least one among given pointers was null
  */
 int linearSearch(const spec_t spec, const void *arr, const void *key, int size);
 
@@ -52,71 +43,67 @@ int linearSearch(const spec_t spec, const void *arr, const void *key, int size);
  * @param matrix Pointer to the first element of the matrix
  * @param nRows Number of rows of the matrix
  * @param nColumns Number of rows of the matrix
- * @return The return code of the function
- * @retval SUCCESS The matrix was correctly printed
- * @retval UNKNOWN_SPEC Give type specifier was not recognised
- * @retval NULL_POINTER At least one among given pointer was null
  */
-byte printMatrix(const spec_t spec, const void *matrix, const unsigned int nRows, const unsigned int nColumns);
+void printMatrix(const spec_t spec, const void *matrix, const unsigned int nRows, const unsigned int nColumns);
 
 /**
  * @brief Bubblesort for arrays of chars
  * @details Equivalent to `chooseBubbleSort("%c", arr, size)`. Refer to chooseBubbleSort()
  */
-byte charBubbleSort(char *arr, unsigned int size);
+void charBubbleSort(char *arr, unsigned int size);
 
 /**
  * @brief Bubblesort for arrays of ints
  * @details Equivalent to `chooseBubbleSort("%i", arr, size)`. Refer to chooseBubbleSort()
  */
-byte intBubbleSort(int *arr, unsigned int size);
+void intBubbleSort(int *arr, unsigned int size);
 
 /**
  * @brief Bubblesort for arrays of floats
  * @details Equivalent to `chooseBubbleSort("%f", arr, size)`. Refer to chooseBubbleSort()
  */
-byte floatBubbleSort(float *arr, unsigned int size);
+void floatBubbleSort(float *arr, unsigned int size);
 
 /**
  * @brief Bubblesort for arrays of doubles
  * @details Equivalent to `chooseBubbleSort("%lf", arr, size)`. Refer to chooseBubbleSort()
  */
-byte doubleBubbleSort(double *arr, unsigned int size);
+void doubleBubbleSort(double *arr, unsigned int size);
 
 /**
  * @brief Bubblesort for arrays of pointers
  * @details Equivalent to `chooseBubbleSort("%p", arr, size)`. Refer to chooseBubbleSort()
  */
-byte ptrBubbleSort(void **arr, unsigned int size);
+void ptrBubbleSort(void **arr, unsigned int size);
 
 /**
  * @brief Quicksort for arrays of chars
  * @details Equivalent to `chooseQuickSort("%c", arr, size)`. Refer to chooseQuickSort()
  */
-byte charQuickSort(char *arr, unsigned int size);
+void charQuickSort(char *arr, unsigned int size);
 
 /**
  * @brief Quicksort for arrays of ints
  * @details Equivalent to `chooseQuickSort("%i", arr, size)`. Refer to chooseQuickSort()
  */
-byte intQuickSort(int *arr, unsigned int size);
+void intQuickSort(int *arr, unsigned int size);
 
 /**
  * @brief Quicksort for arrays of floats
  * @details Equivalent to `chooseQuickSort("%f", arr, size)`. Refer to chooseQuickSort()
  */
-byte floatQuickSort(float *arr, unsigned int size);
+void floatQuickSort(float *arr, unsigned int size);
 
 /**
  * @brief Quicksort for arrays of doubles
  * @details Equivalent to `chooseQuickSort("%lf", arr, size)`. Refer to chooseQuickSort()
  */
-byte doubleQuickSort(double *arr, unsigned int size);
+void doubleQuickSort(double *arr, unsigned int size);
 
 /**
  * @brief Quicksort for arrays of pointers
  * @details Equivalent to `chooseQuickSort("%p", arr, size)`. Refer to chooseQuickSort()
  */
-byte ptrQuickSort(void **arr, unsigned int size);
+void ptrQuickSort(void **arr, unsigned int size);
 
 #endif
