@@ -107,32 +107,32 @@ int main() {
 
     byte (*cmpFunc)(const void *a, const void *b);
 
-    cmpFunc = getCmp("%c");
+    cmpFunc = __getCmp("%c");
     for (int i = 0; i < 2; i++)
         for (int j = 0; j < 2; j++)
             printf("%3i", (*cmpFunc)(&bytes[i], &bytes[j]));
     printf("\n");
-    cmpFunc = getCmp("%c");
+    cmpFunc = __getCmp("%c");
     for (int i = 0; i < 2; i++)
         for (int j = 0; j < 2; j++)
             printf("%3i", (*cmpFunc)(&chars[i], &chars[j]));
     printf("\n");
-    cmpFunc = getCmp("%i");
+    cmpFunc = __getCmp("%i");
     for (int i = 0; i < 2; i++)
         for (int j = 0; j < 2; j++)
             printf("%3i", (*cmpFunc)(&ints[i], &ints[j]));
     printf("\n");
-    cmpFunc = getCmp("%f");
+    cmpFunc = __getCmp("%f");
     for (int i = 0; i < 2; i++)
         for (int j = 0; j < 2; j++)
             printf("%3i", (*cmpFunc)(&floats[i], &floats[j]));
     printf("\n");
-    cmpFunc = getCmp("%lf");
+    cmpFunc = __getCmp("%lf");
     for (int i = 0; i < 2; i++)
         for (int j = 0; j < 2; j++)
             printf("%3i", (*cmpFunc)(&doubles[i], &doubles[j]));
     printf("\n");
-    cmpFunc = getCmp("%p");
+    cmpFunc = __getCmp("%p");
     for (int i = 0; i < 2; i++)
         for (int j = 0; j < 2; j++)
             printf("%3i", (*cmpFunc)(&ptrs[i], &ptrs[j]));

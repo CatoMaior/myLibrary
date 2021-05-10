@@ -60,15 +60,8 @@ byte doubleCmp(const void *a, const void *b);
 byte ptrCmp(const void *a, const void *b);
 
 /**
- * @brief Choose comparison function based on given identifier
- * @param spec Specifier of the type of the data. Refer to ::spec_t 
- * @return Pointer to the right comparison function, `NULL` if identifier is not recognized or given pointer was null
- */
-void *getCmp(const spec_t spec);
-
-/**
  * @brief Return a pointer to a space in memory of specified size
- * @details Calls `malloc(bytes)` for a maximum of 10 times until it returns a not null pointer
+ * @details Calls `malloc(bytes)` for a maximum of 10 times until it returns a not null pointer. If in 10 calls does not manage to obtain a not null pointer makes the program terminate
  * @param bytes Number of bytes to allocate
  * @return A pointer to the allocated memory
  */
@@ -76,11 +69,15 @@ void *saferMalloc(unsigned int bytes);
 
 /**
  * @brief Reallocate a space in memory
- * @details Calls `realloc(pointer, bytes)` for a maximum of 10 times until it returns a not null pointer
+ * @details Calls `realloc(pointer, bytes)` for a maximum of 10 times until it returns a not null pointer. If in 10 calls does not manage to obtain a not null pointer makes the program terminate
  * @param pointer Pointer to the memory to be reallocated
  * @param bytes Number of bytes to allocate
  * @return A pointer to the allocated memory
  */
 void *saferRealloc(void *pointer, unsigned int bytes);
+
+/** @cond */
+void *__getCmp(const spec_t spec);
+/** @endcond */
 
 #endif

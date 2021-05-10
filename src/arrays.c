@@ -23,7 +23,7 @@ void chooseQuickSort(const spec_t spec, void *arr, int size) {
         typeSize = sizeof(void *);
     else
         checkCondition(TRUE, UNSUPPORTED_SPECIFIER);
-    void *cmp = getCmp(spec);
+    void *cmp = __getCmp(spec);
     qsort(arr, size, typeSize, cmp);
 }
 
