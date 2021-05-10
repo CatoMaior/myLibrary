@@ -142,12 +142,6 @@ Functions</h2></td></tr>
 <tr class="memitem:ac7255ad382cf2ec4f5504ebe251ef285"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utility_8h.html#ac7255ad382cf2ec4f5504ebe251ef285">getCmp</a> (const <a class="el" href="types_8h.html#a12a67a7129240fa955c096deb10cdd6e">spec_t</a> spec)</td></tr>
 <tr class="memdesc:ac7255ad382cf2ec4f5504ebe251ef285"><td class="mdescLeft">&#160;</td><td class="mdescRight">Choose comparison function based on given identifier.  <a href="utility_8h.html#ac7255ad382cf2ec4f5504ebe251ef285">More...</a><br /></td></tr>
 <tr class="separator:ac7255ad382cf2ec4f5504ebe251ef285"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b2f8c3cb23987b0d24da1a04e1feab9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#a2b7e7856b48ec3327148ac994ad95cd5">byte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utility_8h.html#a2b2f8c3cb23987b0d24da1a04e1feab9">trueIfFalse</a> (<a class="el" href="types_8h.html#a2b7e7856b48ec3327148ac994ad95cd5">byte</a> *value)</td></tr>
-<tr class="memdesc:a2b2f8c3cb23987b0d24da1a04e1feab9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set variable to <code>TRUE</code> if variable at provided address is 0.  <a href="utility_8h.html#a2b2f8c3cb23987b0d24da1a04e1feab9">More...</a><br /></td></tr>
-<tr class="separator:a2b2f8c3cb23987b0d24da1a04e1feab9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abff545c25e773c91f1d7adb803eedc5e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#a2b7e7856b48ec3327148ac994ad95cd5">byte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utility_8h.html#abff545c25e773c91f1d7adb803eedc5e">falseIfTrue</a> (<a class="el" href="types_8h.html#a2b7e7856b48ec3327148ac994ad95cd5">byte</a> *value)</td></tr>
-<tr class="memdesc:abff545c25e773c91f1d7adb803eedc5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set variable to <code>FALSE</code> if variable at provided address is not 0.  <a href="utility_8h.html#abff545c25e773c91f1d7adb803eedc5e">More...</a><br /></td></tr>
-<tr class="separator:abff545c25e773c91f1d7adb803eedc5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa7da8f49b718cedad9e787580432709b"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utility_8h.html#aa7da8f49b718cedad9e787580432709b">saferMalloc</a> (unsigned int bytes)</td></tr>
 <tr class="memdesc:aa7da8f49b718cedad9e787580432709b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a pointer to a space in memory of specified size.  <a href="utility_8h.html#aa7da8f49b718cedad9e787580432709b">More...</a><br /></td></tr>
 <tr class="separator:aa7da8f49b718cedad9e787580432709b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -290,13 +284,12 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Constant for the corresponding comparation result or the return code of the function </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Constant for the corresponding comparation result </dd></dl>
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
     <tr><td class="paramname">GREATER</td><td>First element is grater than the second </td></tr>
     <tr><td class="paramname">EQUAL</td><td>First element is equal to the second </td></tr>
     <tr><td class="paramname">SMALLER</td><td>First element is smaller than the second </td></tr>
-    <tr><td class="paramname">NULL_POINTER</td><td>At least one among given pointers was null </td></tr>
   </table>
   </dd>
 </dl>
@@ -331,40 +324,6 @@ Functions</h2></td></tr>
 
 <p>Compare two doubles. </p>
 <p>Equivalent to <code>chooseCmp("%lf", a, b)</code>. Refer to <a class="el" href="utility_8h.html#ac3769c644736b102babde740e8c03acf" title="Compare two chars.">chooseCmp()</a> </p>
-
-</div>
-</div>
-<a id="abff545c25e773c91f1d7adb803eedc5e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abff545c25e773c91f1d7adb803eedc5e">&#9670;&nbsp;</a></span>falseIfTrue()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="types_8h.html#a2b7e7856b48ec3327148ac994ad95cd5">byte</a> falseIfTrue </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="types_8h.html#a2b7e7856b48ec3327148ac994ad95cd5">byte</a> *&#160;</td>
-          <td class="paramname"><em>value</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Set variable to <code>FALSE</code> if variable at provided address is not 0. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">value</td><td>Pointer to the value to be evaluated </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Return code of the function </dd></dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">SUCCESS</td><td>Function executed correctly </td></tr>
-    <tr><td class="paramname">NULL_POINTER</td><td>At least one among given pointers was null </td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>
@@ -511,13 +470,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A pointer to the allocated memory or the return code of the function </dd></dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">NULL</td><td>Could not allocate memory </td></tr>
-  </table>
-  </dd>
-</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the allocated memory </dd></dl>
 
 </div>
 </div>
@@ -555,47 +508,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A pointer to the allocated memory or the return code of the function </dd></dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">NULL</td><td>Could not allocate memory </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a2b2f8c3cb23987b0d24da1a04e1feab9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2b2f8c3cb23987b0d24da1a04e1feab9">&#9670;&nbsp;</a></span>trueIfFalse()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="types_8h.html#a2b7e7856b48ec3327148ac994ad95cd5">byte</a> trueIfFalse </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="types_8h.html#a2b7e7856b48ec3327148ac994ad95cd5">byte</a> *&#160;</td>
-          <td class="paramname"><em>value</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Set variable to <code>TRUE</code> if variable at provided address is 0. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">value</td><td>Pointer to the value to be evaluated </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Return code of the function </dd></dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">SUCCESS</td><td>Function executed correctly </td></tr>
-    <tr><td class="paramname">NULL_POINTER</td><td>At least one among given pointers was null </td></tr>
-  </table>
-  </dd>
-</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the allocated memory </dd></dl>
 
 </div>
 </div>

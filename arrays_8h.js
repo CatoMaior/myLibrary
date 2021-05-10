@@ -1,17 +1,17 @@
 var arrays_8h =
 [
-    [ "charBubbleSort", "arrays_8h.html#ab9643af75396a3aa99972432e95709eb", null ],
-    [ "charQuickSort", "arrays_8h.html#a2e34e474660109d766fbaf23f2a17ee3", null ],
-    [ "chooseBubbleSort", "arrays_8h.html#a4713da1e17845758d3b94c2a843bd55d", null ],
-    [ "chooseQuickSort", "arrays_8h.html#abc2e6f58f9f213e8fed55ebc0b80734d", null ],
-    [ "doubleBubbleSort", "arrays_8h.html#a74d8ec0b84c64c30f09f84510adb3be4", null ],
-    [ "doubleQuickSort", "arrays_8h.html#ac3b2bd59f23db2c8ba23137e7970b2fa", null ],
-    [ "floatBubbleSort", "arrays_8h.html#ae04451f00f7d5649d6f75a0888819b6e", null ],
-    [ "floatQuickSort", "arrays_8h.html#a87126c3a7ea3ecd857fc6894a4f04019", null ],
-    [ "intBubbleSort", "arrays_8h.html#a94c2c39427912ee078495c0fc42ee49a", null ],
-    [ "intQuickSort", "arrays_8h.html#a844fd7c621663da6642a7b6cce309a9f", null ],
+    [ "charBubbleSort", "arrays_8h.html#aba45688581551369e2806b7d0230d34c", null ],
+    [ "charQuickSort", "arrays_8h.html#a13f8a7a51bbaefbc3bd9b7b519530dba", null ],
+    [ "chooseBubbleSort", "arrays_8h.html#a73341bf99d1255781aad299310d22458", null ],
+    [ "chooseQuickSort", "arrays_8h.html#a6182cfcf64d1c9326708d154950742d5", null ],
+    [ "doubleBubbleSort", "arrays_8h.html#a61a8cae710b612db52c21140d70c0d4f", null ],
+    [ "doubleQuickSort", "arrays_8h.html#a36e8a7df6238bcad62e963665fc347ee", null ],
+    [ "floatBubbleSort", "arrays_8h.html#a9015e98d89b08ad1dbf78c1813d84ac2", null ],
+    [ "floatQuickSort", "arrays_8h.html#a04fd645c0d691ec70f40a83ad8a5f6ef", null ],
+    [ "intBubbleSort", "arrays_8h.html#a114783f8a2beed66f15d55a6c49c678d", null ],
+    [ "intQuickSort", "arrays_8h.html#a7d82fada628bc00b425b7dac04d69ee0", null ],
     [ "linearSearch", "arrays_8h.html#a7dd000aef5c7e94084dc0918747df67a", null ],
-    [ "printMatrix", "arrays_8h.html#aa607e7ac224a243add6993c972d07fa9", null ],
-    [ "ptrBubbleSort", "arrays_8h.html#a7b492766761dd37b8475a3a58679bd3a", null ],
-    [ "ptrQuickSort", "arrays_8h.html#a00752ddf09285a74ec7f715fbbc8a765", null ]
+    [ "printMatrix", "arrays_8h.html#ab620d2c7265e41a8928042c7c0ea269e", null ],
+    [ "ptrBubbleSort", "arrays_8h.html#a4c4dac17d159dcca9c913c135c3438b2", null ],
+    [ "ptrQuickSort", "arrays_8h.html#a2a4d082bc0ee99bf1542507238420030", null ]
 ];
