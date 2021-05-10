@@ -2,11 +2,98 @@
 #include <stdlib.h>
 #include "myLibrary.h"
 
+// #define SKIP_ARRAYLIST
 // #define SKIP_UTILITY
 // #define SKIP_STRING
 // #define SKIP_ARRAY
 
 int main() {
+
+#ifndef SKIP_ARRAYLIST
+
+    byte byteArr[] = {32, 43, 65, 12, 76, 75, 1, 2};
+    char charArr[] = {'F', 'Q', 'A', 'C', '3', '0', 'Z', 'R'};
+    ArrayList byteAL = newALFromArray(byteArr, 8);
+    ArrayList charAL = newALFromArray(charArr, 8);
+    printAL("%4hi", byteAL);
+    printf("\n\n");
+    printAL("%2c", charAL);
+    printf("\n\n\n");
+
+    byte myByte;
+    char myChar;
+    getFromAL(byteAL, 0, &myByte);
+    getFromAL(charAL, 0, &myChar);
+    printf("%hi\n", myByte);
+    printf("%c\n", myChar);
+    printf("\n");
+
+    setALElement(byteAL, (byte)-1, 0);
+    setALElement(charAL, (char)'*', 0);
+    printAL("%4hi", byteAL);
+    printf("\n\n");
+    printAL("%2c", charAL);
+    printf("\n\n\n");
+
+    appendToAL(byteAL, (byte)42);
+    appendToAL(charAL, (char)'a');
+    printAL("%4hi", byteAL);
+    printf("\n\n");
+    printAL("%2c", charAL);
+    printf("\n\n\n");
+
+    removeFromAL(byteAL, 8);
+    removeFromAL(charAL, 8);
+    printAL("%4hi", byteAL);
+    printf("\n\n");
+    printAL("%2c", charAL);
+    printf("\n\n\n");
+
+    insertToAL(byteAL, (byte)-42, 4);
+    insertToAL(charAL, (char)'a', 4);
+    printAL("%4hi", byteAL);
+    printf("\n\n");
+    printAL("%2c", charAL);
+    printf("\n\n\n");
+
+    reverseAL(byteAL);
+    reverseAL(charAL);
+    printAL("%4hi", byteAL);
+    printf("\n\n");
+    printAL("%2c", charAL);
+    printf("\n\n\n");
+
+    mergeAL(byteAL, byteAL);
+    mergeAL(charAL, charAL);
+    printAL("%4hi", byteAL);
+    printf("\n\n");
+    printAL("%2c", charAL);
+    printf("\n\n\n");
+
+    sliceAL(byteAL, 0, 10);
+    sliceAL(charAL, 0, 10);
+    printAL("%4hi", byteAL);
+    printf("\n\n");
+    printAL("%2c", charAL);
+    printf("\n\n\n");
+
+    ArrayList byteAL2 = newALFromAL(byteAL);
+    ArrayList charAL2 = newALFromAL(charAL);
+    printf("%2hi\n", areALEqual(byteAL, byteAL2));
+    printf("%2hi\n", areALEqual(charAL, charAL2));
+    sliceAL(byteAL2, 3, 5);
+    sliceAL(charAL2, 3, 5);
+
+    printf("%2hi\n", areALEqual(byteAL, byteAL2));
+    printf("%2hi\n", areALEqual(charAL, charAL2));
+
+    deleteAL(byteAL);
+    deleteAL(charAL);
+    deleteAL(byteAL2);
+    deleteAL(charAL2);
+    printf("\n\n");
+
+#endif
 
 #ifndef SKIP_UTILITY
     byte bytes[2] = {-1, 1};
@@ -140,7 +227,6 @@ int main() {
         for (int j = 0; j < 8; j++)
             ptrMatrix[i][j] = (void *)saferMalloc(sizeof(char));
 
-    printf("MATRICES\n");
     printMatrix("%4hi", byteMatrix, 2, 8);
     printMatrix("%2c", charMatrix, 2, 8);
     printMatrix("%10.2f", floatMatrix, 2, 8);
@@ -154,7 +240,6 @@ int main() {
     quickSort(doubleMatrix[0], 8);  // chooseQuickSort("%lf", doubleMatrix[0], 8);
     quickSort(ptrMatrix[0], 8);     // chooseQuickSort("%p", ptrMatrix[0], 8);
 
-    printf("QUICKSORTED MATRICES\n");
     printMatrix("%4hi", byteMatrix, 1, 8);
     printMatrix("%2c", charMatrix, 1, 8);
     printMatrix("%6i", intMatrix, 1, 8);
@@ -171,7 +256,6 @@ int main() {
     bubbleSort(doubleMatrix[1], 8);// equivalent to chooseBubbleSort("%lf", doubleMatrix[1], 8);
     bubbleSort(ptrMatrix[1], 8);   // equivalent to chooseBubbleSort("%p", ptrMatrix[1], 8);
 
-    printf("BUBBLESORTED MATRICES\n");
     printMatrix("%4hi", byteMatrix[1], 1, 8);
     printMatrix("%2c", charMatrix[1], 1, 8);
     printMatrix("%6i", intMatrix[1], 1, 8);
@@ -182,7 +266,6 @@ int main() {
     //no printMatrix("%p", ptrMatrix) beacause %p is not supported by printMatrix
     printf("\n\n");
 
-    printf("LINEAR SEARCH\n");
     for (int i = 0; i < 8; i++)
         printf("%2i", linearSearch("%c", byteMatrix, &byteMatrix[0][i], 8));
     printf("\n");
