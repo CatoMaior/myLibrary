@@ -4,6 +4,7 @@
 #include "../types.h"
 #include "../constants.h"
 #include "../utility.h"
+#include "utilityInternal.h"
 #include "errors.h"
 
 string getString() {
@@ -20,7 +21,7 @@ string getString() {
 }
 
 byte endsWith(const string str, const string suffix) {
-    checkCondition(!str || !suffix, NULL_POINTER_GIVEN);
+    __checkCondition(!str || !suffix, NULL_POINTER_GIVEN);
     unsigned int lenstr = strlen(str);
     unsigned int lensuffix = strlen(suffix);
     if (lensuffix > lenstr)
@@ -29,19 +30,19 @@ byte endsWith(const string str, const string suffix) {
 }
 
 unsigned int getLength(const string str) {
-    checkCondition(!str, NULL_POINTER_GIVEN);
+    __checkCondition(!str, NULL_POINTER_GIVEN);
     return strlen(str);
 }
 
 string copyOf(const string src) {
-    checkCondition(!src, NULL_POINTER_GIVEN);
+    __checkCondition(!src, NULL_POINTER_GIVEN);
     char *dest = (char *)saferMalloc(getLength(src) * sizeof(char));
     strcpy(dest, src);
     return dest;
 }
 
 string changeLastCharacter(const string str, char newCharacter) {
-    checkCondition(!str, NULL_POINTER_GIVEN);
+    __checkCondition(!str, NULL_POINTER_GIVEN);
     string newString = copyOf(str);
     *(newString + (getLength(str) - 1) * sizeof(char)) = newCharacter;
     return newString;

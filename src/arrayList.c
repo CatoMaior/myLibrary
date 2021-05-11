@@ -3,8 +3,9 @@
 #include "../types.h"
 #include "../utility.h"
 #include "../arrayList.h"
+#include "../arrays.h"
 #include "errors.h"
-#include <math.h>
+#include "utilityInternal.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -16,51 +17,48 @@ ArrayList newAL() {
 }
 
 ArrayList newALFromAL(const ArrayList arr) {
-    checkCondition(!arr, NULL_AL_GIVEN);
+    __checkCondition(!arr, NULL_AL_GIVEN);
+    __checkCondition(!arr->type, NULL_AL_TYPE);
+    __checkCondition(!arr->body, NULL_AL_BODY);
     ArrayList copy = newAL();
     copy->size = arr->size;
-    unsigned int bytesToBeCopied;
-    if (strcmp(arr->type, "%c") == 0) {
-        copy->type = "%c";
-        bytesToBeCopied = arr->size * sizeof(char);
-    }
+    copy->type = copyOf(arr->type);
+    unsigned int bytesToBeCopied = __getTypeSize(arr->type) * arr->size;
     copy->body = saferMalloc(bytesToBeCopied);
     memcpy(copy->body, arr->body, bytesToBeCopied);
     return copy;
 }
 
 ArrayList chooseNewALFromArray(const spec_t spec, const void *arr, unsigned int size) {
-    checkCondition(!arr, NULL_POINTER_GIVEN);
-    if (strcmp(spec, "%c" == 0))
+    __checkCondition(!arr || !spec, NULL_POINTER_GIVEN);
+    if (strcmp(spec, "%c") == 0)
         return newALFromCharArray(arr, size);
-    checkCondition(TRUE, UNSUPPORTED_SPECIFIER);
+    __checkCondition(TRUE, UNSUPPORTED_SPECIFIER);
 }
 
 void mergeAL(ArrayList arr1, const ArrayList arr2) {
-    checkCondition(!arr1 || !arr2, NULL_AL_GIVEN);
-    checkCondition(!arr1->type || !arr2->type, NULL_AL_TYPE);
-    checkCondition(strcmp(arr1->type, arr2->type) != 0, DIFFERENT_AL_TYPES);
-    unsigned int bytesToBeCopied;
-    byte typeSize;
-    if (strcmp(arr1->type, "%c") == 0) {
-        typeSize = sizeof(char);
-        bytesToBeCopied = arr2->size * sizeof(char);
-    }
+    __checkCondition(!arr1 || !arr2, NULL_AL_GIVEN);
+    __checkCondition(!arr1->type || !arr2->type, NULL_AL_TYPE);
+    __checkCondition(!arr1->body || !arr2->body, NULL_AL_BODY);
+    __checkCondition(strcmp(arr1->type, arr2->type) != 0, DIFFERENT_AL_TYPES);
+    byte typeSize = __getTypeSize(arr1->type);
+    unsigned int bytesToBeCopied = arr2->size * typeSize;
     arr1->body = saferRealloc(arr1->body, (arr1->size + arr2->size) * typeSize);
     memcpy(arr1->body + arr1->size * typeSize, arr2->body, bytesToBeCopied);
     arr1->size = arr1->size + arr2->size;
 }
 
 void sliceAL(ArrayList arr, unsigned int begin, unsigned int end) {
-    checkCondition(!arr, NULL_AL_GIVEN);
-    checkCondition(!arr->type, NULL_AL_TYPE);
-    checkCondition(begin < 0 || end > arr->size, OUT_OF_AL_BOUNDS);
-    checkCondition(begin > end, WRONG_INDEX_ORDER);
+    __checkCondition(!arr, NULL_AL_GIVEN);
+    __checkCondition(!arr->type, NULL_AL_TYPE);
+    __checkCondition(!arr->body, NULL_AL_BODY);
+    __checkCondition(begin < 0 || end > arr->size, OUT_OF_AL_BOUNDS);
+    __checkCondition(begin > end, WRONG_INDEX_ORDER);
     byte typeSize;
     void *newBody;
     if (strcmp(arr->type, "%c") == 0)
         typeSize = sizeof(char);
-    arr->size = abs(end - begin);
+    arr->size = end - begin;
     newBody = saferMalloc(arr->size * typeSize);
     memcpy(newBody, arr->body + begin * typeSize, arr->size * typeSize);
     free(arr->body);
@@ -68,9 +66,10 @@ void sliceAL(ArrayList arr, unsigned int begin, unsigned int end) {
 }
 
 void printAL(const spec_t spec, const ArrayList arr) {
-    checkCondition(!arr, NULL_AL_GIVEN);
-    checkCondition(!spec, NULL_POINTER_GIVEN);
-    checkCondition(!arr->type, NULL_AL_TYPE);
+    __checkCondition(!arr, NULL_AL_GIVEN);
+    __checkCondition(!spec, NULL_POINTER_GIVEN);
+    __checkCondition(!arr->type, NULL_AL_TYPE);
+    __checkCondition(!arr->body, NULL_AL_BODY);
     if (arr->size == 0) {
         printf("Empty\n");
         return;
@@ -81,55 +80,71 @@ void printAL(const spec_t spec, const ArrayList arr) {
 }
 
 void removeFromAL(ArrayList arr, unsigned int index) {
-    checkCondition(!arr, NULL_AL_GIVEN);
-    checkCondition(index >= arr->size, OUT_OF_AL_BOUNDS);
+    __checkCondition(!arr, NULL_AL_GIVEN);
+    __checkCondition(!arr->type, NULL_AL_TYPE);
+    __checkCondition(!arr->body, NULL_AL_BODY);
+    __checkCondition(index >= arr->size, OUT_OF_AL_BOUNDS);
     if (arr->size == 1) {
         free(arr->body);
         arr->size--;
         return;
     }
-    byte typeSize;
-    if (strcmp(arr->type, "%c") == 0)
-        typeSize = sizeof(char);
+    byte typeSize = __getTypeSize(arr->type);
     memcpy(arr->body + index * typeSize, arr->body + (index + 1) * typeSize, (arr->size - index) * typeSize);
     arr->body = saferRealloc(arr->body, --arr->size * typeSize);
 }
 
 void getFromAL(const ArrayList arr, unsigned int index, void *dest) {
-    checkCondition(!arr, NULL_AL_GIVEN);
-    checkCondition(!dest, NULL_DESTINATION_GIVEN);
-    checkCondition(index >= arr->size, OUT_OF_AL_BOUNDS);
-    if (strcmp(arr->type, "%c") == 0)
-        *(char *)dest = *((char *)arr->body + index * sizeof(char));
+    __checkCondition(!arr, NULL_AL_GIVEN);
+    __checkCondition(!arr->type, NULL_AL_TYPE);
+    __checkCondition(!arr->body, NULL_AL_BODY);
+    __checkCondition(!dest, NULL_DESTINATION_GIVEN);
+    __checkCondition(index >= arr->size, OUT_OF_AL_BOUNDS);
+    byte typeSize = __getTypeSize(arr->type);
+    memcpy(dest, arr->body + index * typeSize, typeSize);
 }
 
 byte areALEqual(ArrayList arr1, ArrayList arr2) {
-    checkCondition(!arr1 || !arr2, NULL_AL_GIVEN);
+    __checkCondition(!arr1 || !arr2, NULL_AL_GIVEN);
+    __checkCondition(!arr1->type || !arr2->type, NULL_AL_TYPE);
+    __checkCondition(!arr2->body || !arr2->body, NULL_AL_BODY);
     if (strcmp(arr1->type, arr2->type) != 0 || arr1->size != arr2->size)
         return FALSE;
-    byte typeSize;
-    if (strcmp(arr1->type, "%c") == 0)
-        typeSize = sizeof(char);
+    byte typeSize = __getTypeSize(arr1->type);
     if (memcmp(arr1->body, arr2->body, arr1->size * typeSize) == 0)
         return TRUE;
     return FALSE;
 }
 
 void deleteAL(ArrayList arr) {
-    checkCondition(!arr, NULL_AL_GIVEN);
+    __checkCondition(!arr, NULL_AL_GIVEN);
+    __checkCondition(!arr->body, NULL_AL_BODY);
     free(arr->body);
     free(arr);
 }
 
 void reverseAL(ArrayList arr) {
-    checkCondition(!arr, NULL_AL_GIVEN);
-    void *newBody;
-    if (strcmp(arr->type, "%c") == 0) {
-        newBody = saferMalloc(arr->size * sizeof(char));
-        char temp;
-        for (unsigned int i = 0; i < arr->size; i++)
-            getFromAL(arr, i, newBody + (arr->size - i - 1) * sizeof(char));
-    }
+    __checkCondition(!arr, NULL_AL_GIVEN);
+    __checkCondition(!arr->type, NULL_AL_TYPE);
+    __checkCondition(!arr->body, NULL_AL_BODY);
+    byte typeSize = __getTypeSize(arr->type);
+    void *newBody = saferMalloc(arr->size * typeSize);
+    for (unsigned int i = 0; i < arr->size; i++)
+        getFromAL(arr, i, newBody + (arr->size - i - 1) * typeSize);
     free(arr->body);
     arr->body = newBody;
+}
+
+void bubbleSortAL(ArrayList arr) {
+    __checkCondition(!arr, NULL_AL_GIVEN);
+    __checkCondition(!arr->type, NULL_AL_TYPE);
+    __checkCondition(!arr->body, NULL_AL_BODY);
+    chooseBubbleSortArr(arr->type, arr->body, __getTypeSize(arr->type) * arr->size);
+}
+
+void quickSortAL(ArrayList arr) {
+    __checkCondition(!arr, NULL_AL_GIVEN);
+    __checkCondition(!arr->type, NULL_AL_TYPE);
+    __checkCondition(!arr->body, NULL_AL_BODY);
+    chooseQuickSortArr(arr->type, arr->body, __getTypeSize(arr->type) * arr->size);
 }

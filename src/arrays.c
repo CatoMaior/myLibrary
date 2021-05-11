@@ -6,10 +6,11 @@
 #include "../constants.h"
 #include "../strings.h"
 #include "errors.h"
+#include "utilityInternal.h"
 
-void chooseQuickSort(const spec_t spec, void *arr, int size) {
+void chooseQuickSortArr(const spec_t spec, void *arr, int size) {
     //size is not unsigned int beacause qsort requires signed int
-    checkCondition(!spec || !arr, NULL_POINTER_GIVEN);
+    __checkCondition(!spec || !arr, NULL_POINTER_GIVEN);
     size_t typeSize;
     if (strcmp("%c", spec) == 0)
         typeSize = sizeof(char);
@@ -22,38 +23,38 @@ void chooseQuickSort(const spec_t spec, void *arr, int size) {
     else if (strcmp("%p", spec) == 0)
         typeSize = sizeof(void *);
     else
-        checkCondition(TRUE, UNSUPPORTED_SPECIFIER);
-    void *cmp = __getCmp(spec);
-    qsort(arr, size, typeSize, cmp);
+        __checkCondition(TRUE, UNSUPPORTED_SPECIFIER);
+    void *cmpVal = __getCmp(spec);
+    qsort(arr, size, typeSize, cmpVal);
 }
 
 void charQuickSort(char *arr, unsigned int size) {
-    checkCondition(!arr, NULL_POINTER_GIVEN);
-    chooseQuickSort("%c", arr, size);
+    __checkCondition(!arr, NULL_POINTER_GIVEN);
+    chooseQuickSortArr("%c", arr, size);
 }
 
 void intQuickSort(int *arr, unsigned int size) {
-    checkCondition(!arr, NULL_POINTER_GIVEN);
-    chooseQuickSort("%i", arr, size);
+    __checkCondition(!arr, NULL_POINTER_GIVEN);
+    chooseQuickSortArr("%i", arr, size);
 }
 
 void floatQuickSort(float *arr, unsigned int size) {
-    checkCondition(!arr, NULL_POINTER_GIVEN);
-    chooseQuickSort("%f", arr, size);
+    __checkCondition(!arr, NULL_POINTER_GIVEN);
+    chooseQuickSortArr("%f", arr, size);
 }
 
 void doubleQuickSort(double *arr, unsigned int size) {
-    checkCondition(!arr, NULL_POINTER_GIVEN);
-    chooseQuickSort("%lf", arr, size);
+    __checkCondition(!arr, NULL_POINTER_GIVEN);
+    chooseQuickSortArr("%lf", arr, size);
 }
 
 void ptrQuickSort(void **arr, unsigned int size) {
-    checkCondition(!arr, NULL_POINTER_GIVEN);
-    chooseQuickSort("%p", arr, size);
+    __checkCondition(!arr, NULL_POINTER_GIVEN);
+    chooseQuickSortArr("%p", arr, size);
 }
 
-void chooseBubbleSort(const spec_t spec, void *arr, unsigned int size) {
-    checkCondition(!arr || !spec, NULL_POINTER_GIVEN);
+void chooseBubbleSortArr(const spec_t spec, void *arr, unsigned int size) {
+    __checkCondition(!arr || !spec, NULL_POINTER_GIVEN);
     char isSorted;
     unsigned int sorted = 0;
     if (strcmp("%c", spec) == 0)
@@ -66,11 +67,11 @@ void chooseBubbleSort(const spec_t spec, void *arr, unsigned int size) {
         return doubleBubbleSort(arr, size);
     if (strcmp("%p", spec) == 0) 
         return ptrBubbleSort(arr, size);
-    checkCondition(TRUE, UNSUPPORTED_SPECIFIER);
+    __checkCondition(TRUE, UNSUPPORTED_SPECIFIER);
 }
 
 int linearSearch(const spec_t spec, const void *arr, const void *key, int size) {
-    checkCondition((!spec || !arr || !key), NULL_POINTER_GIVEN);
+    __checkCondition((!spec || !arr || !key), NULL_POINTER_GIVEN);
     //int and not unsigned int because KEY_NOT_FOUND is -1
     //key pointer is void in order to be used with pointers of all types
     // TODO use memcmp instead of the abort it uses now
@@ -88,7 +89,7 @@ int linearSearch(const spec_t spec, const void *arr, const void *key, int size) 
     else if (strcmp("%p", spec) == 0)
         typeSize = sizeof(void *);
     else
-        checkCondition(TRUE, UNSUPPORTED_SPECIFIER);
+        __checkCondition(TRUE, UNSUPPORTED_SPECIFIER);
     int index;
     char equalUntilNow;
     for (index = 0; index < typeSize * size; index += typeSize) {
@@ -106,9 +107,9 @@ int linearSearch(const spec_t spec, const void *arr, const void *key, int size) 
 }
 
 void printMatrix(const spec_t spec, const void *matrix, const unsigned int nRows, const unsigned int nColumns) {
-    checkCondition(!spec || !matrix, NULL_POINTER_GIVEN);
+    __checkCondition(!spec || !matrix, NULL_POINTER_GIVEN);
     if (endsWith(spec, "hhi"))
-        checkCondition(TRUE, UNSUPPORTED_SPECIFIER);
+        __checkCondition(TRUE, UNSUPPORTED_SPECIFIER);
     if (endsWith(spec, "hi")) {
         for (unsigned int i = 0; i < nRows; i++) {
             for (unsigned int j = 0; j < nColumns; j++)
@@ -150,11 +151,11 @@ void printMatrix(const spec_t spec, const void *matrix, const unsigned int nRows
         printf("\n");
     }
     else
-        checkCondition(TRUE, UNSUPPORTED_SPECIFIER);
+        __checkCondition(TRUE, UNSUPPORTED_SPECIFIER);
 }
 
 void charBubbleSort(char *arr, unsigned int size) {
-    checkCondition(!arr, NULL_POINTER_GIVEN);
+    __checkCondition(!arr, NULL_POINTER_GIVEN);
     byte isSorted;
     unsigned int sorted = 0;
     char temp;
@@ -175,7 +176,7 @@ void charBubbleSort(char *arr, unsigned int size) {
 }
 
 void intBubbleSort(int *arr, unsigned int size) {
-    checkCondition(!arr, NULL_POINTER_GIVEN);
+    __checkCondition(!arr, NULL_POINTER_GIVEN);
     byte isSorted;
     unsigned int sorted = 0;
     int temp;
@@ -196,7 +197,7 @@ void intBubbleSort(int *arr, unsigned int size) {
 }
 
 void floatBubbleSort(float *arr, unsigned int size) {
-    checkCondition(!arr, NULL_POINTER_GIVEN);
+    __checkCondition(!arr, NULL_POINTER_GIVEN);
     byte isSorted;
     unsigned int sorted = 0;
     float temp;
@@ -217,7 +218,7 @@ void floatBubbleSort(float *arr, unsigned int size) {
 }
 
 void doubleBubbleSort(double *arr, unsigned int size) {
-    checkCondition(!arr, NULL_POINTER_GIVEN);
+    __checkCondition(!arr, NULL_POINTER_GIVEN);
     byte isSorted;
     unsigned int sorted = 0;
     double temp;
@@ -238,7 +239,7 @@ void doubleBubbleSort(double *arr, unsigned int size) {
 }
 
 void ptrBubbleSort(void **arr, unsigned int size) {
-    checkCondition(!arr, NULL_POINTER_GIVEN);
+    __checkCondition(!arr, NULL_POINTER_GIVEN);
     byte isSorted;
     unsigned int sorted = 0;
     int *temp;

@@ -4,8 +4,8 @@
  * @brief Collection of useful types
  */
 
-#ifndef _SEEN_TYPES
-#define _SEEN_TYPES
+#ifndef __SEEN_TYPES
+#define __SEEN_TYPES
 
 /**
  * @brief Alias for char, just to avoid confusion with 8 bit numbers and ASCII characters

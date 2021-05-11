@@ -4,12 +4,10 @@
  * @brief Common tasks such as comparing variables, swap bools, allocate memory
  */
 
-#ifndef _SEEN_UTILITY
-#define _SEEN_UTILITY
+#ifndef __SEEN_UTILITY
+#define __SEEN_UTILITY
 
 #include "types.h"
-
-void checkCondition(byte condition, string errorString);
 
 /**
  * @brief Compare two chars
@@ -75,9 +73,5 @@ void *saferMalloc(unsigned int bytes);
  * @return A pointer to the allocated memory
  */
 void *saferRealloc(void *pointer, unsigned int bytes);
-
-/** @cond */
-void *__getCmp(const spec_t spec);
-/** @endcond */
 
 #endif

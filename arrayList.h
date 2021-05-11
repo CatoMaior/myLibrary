@@ -4,8 +4,8 @@
  * @brief Functions for working with dynArrays
  */
 
-#ifndef _SEEN_ARRAYLIST
-#define _SEEN_ARRAYLIST
+#ifndef __SEEN_ARRAYLIST
+#define __SEEN_ARRAYLIST
 
 #include "types.h"
 
@@ -114,6 +114,18 @@ byte areALEqual(ArrayList arr1, ArrayList arr2);
  * @param arr The array you want to reverse
  */
 void reverseAL(ArrayList arr);
+
+/**
+ * @brief Bubble sort for ::ArrayList
+ * @param arr The ::ArrayList you want to bubble sort
+ */
+void bubbleSortAL(ArrayList arr);
+
+/**
+ * @brief Quicksort for ::ArrayList
+ * @param arr The ::ArrayList you want to quickort
+ */
+void quickSortAL(ArrayList arr);
 
 /**
  * @brief Create an ::ArrayList from an array
