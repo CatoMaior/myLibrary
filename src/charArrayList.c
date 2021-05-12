@@ -3,7 +3,6 @@
 #include "../utility.h"
 #include "errors.h"
 #include "utilityInternal.h"
-#include <math.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -21,18 +20,6 @@ ArrayList newALFromCharArray(const char arr[], unsigned int size) {
 ArrayList newALFromByteArray(const char arr[], unsigned int size) {
     __checkCondition(!arr, NULL_AL_GIVEN);
     return newALFromCharArray(arr, size);
-}
-
-void appendCharToAL(ArrayList arr, char element) {
-    __checkCondition(!arr, NULL_AL_GIVEN);
-    if (!arr->type)
-        arr->type = "%c";
-    if (arr->size == 0)
-        arr->body = saferMalloc(sizeof(char));
-    else
-        arr->body = saferRealloc(arr->body, sizeof(char));
-    *((char *)arr->body + arr->size * sizeof(char)) = element;
-    arr->size++;
 }
 
 void insertCharToAL(ArrayList arr, char element, unsigned int index) {
