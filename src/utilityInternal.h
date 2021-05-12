@@ -3,6 +3,14 @@
 
 #include "../types.h"
 
+typedef union {
+    char charData;
+    int intData;
+    float floatData;
+    double doubleData;
+    void *ptrData;
+} __data;
+
 void *__getCmp(const spec_t spec);
 
 byte __getTypeSize(const spec_t spec);
