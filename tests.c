@@ -11,6 +11,7 @@ int main() {
 
 #ifndef SKIP_ARRAYLIST
 
+    printf("TESTING ARRAYLIST\n");
     ArrayList newByteAL = newAL("%c");
     ArrayList newCharAL = newAL("%c");
     printf("Testing newAL()\n");
@@ -40,16 +41,16 @@ int main() {
     printf("%c\n\n", myChar);
     printf("\n");
 
-    setALElement(byteAL, (byte)-1, 0);
-    setALElement(charAL, (char)'*', 0);
+    setALElement(byteAL, 0, -1);
+    setALElement(charAL, 0, '*');
     printf("Testing setALelement()\n");
     printAL("%4hi", byteAL);
     printf("\n\n");
     printAL("%2c", charAL);
     printf("\n\n\n");
 
-    appendToAL(byteAL, (byte)42);
-    appendToAL(charAL, (char)'a');
+    appendToAL(byteAL, 42);
+    appendToAL(charAL, 'a');
     printf("Testing appendToAL()\n");
     printAL("%4hi", byteAL);
     printf("\n\n");
@@ -64,8 +65,8 @@ int main() {
     printAL("%2c", charAL);
     printf("\n\n\n");
 
-    insertToAL(byteAL, (byte)-42, 4);
-    insertToAL(charAL, (char)'a', 4);
+    insertToAL(byteAL, 4, -42);
+    insertToAL(charAL, 4, 'a');
     printf("Testing inserToAL()\n");
     printAL("%4hi", byteAL);
     printf("\n\n");
@@ -131,6 +132,7 @@ int main() {
 #endif
 
 #ifndef SKIP_UTILITY
+    printf("TESTING UTILITY\n");
     byte bytes[2] = {-1, 1};
     char chars[] = {'A', 'a'};
     int ints[] = {-128, 128};
@@ -164,7 +166,7 @@ int main() {
     for (int i = 0; i < 2; i++)
         for (int j = 0; j < 2; j++)
             printf("%3i", chooseCmp("%p", &ptrs[i], &ptrs[j]));
-    printf("\n");
+    printf("\n\n");
 
     printf("Testing cmpVal()\n");
     for (int i = 0; i < 2; i++)
@@ -190,7 +192,7 @@ int main() {
     for (int i = 0; i < 2; i++)
         for (int j = 0; j < 2; j++)
             printf("%3i", cmpVal(ptrs[i], ptrs[j]));
-    printf("\n");
+    printf("\n\n");
 
     printf("\n\n");
     for (int i = 0; i < 2; i++)
@@ -198,6 +200,7 @@ int main() {
 #endif
 
 #ifndef SKIP_STRING
+    printf("TESTING STRINGS\n");
     printf("Insert string: ");
     string myString = getString();
     printf("String: %s\n", myString);
@@ -211,6 +214,7 @@ int main() {
 #endif
 
 #ifndef SKIP_ARRAY
+    printf("TESTING ARRAYS\n");
     byte byteMatrix[][8] = {
         {32, 43, 65, 12, 76, 75, 1, 2},
         {32, 43, 65, 12, 76, 75, 1, 2},
