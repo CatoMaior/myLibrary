@@ -11,6 +11,16 @@ int main() {
 
 #ifndef SKIP_ARRAYLIST
 
+    ArrayList newByteAL = newAL("%c");
+    ArrayList newCharAL = newAL("%c");
+    printf("Testing newAL()\n");
+    printAL("%4hi", newByteAL);
+    printf("\n");
+    printAL("%2c", newCharAL);
+    printf("\n\n");
+    deleteAL(newByteAL);
+    deleteAL(newCharAL);
+
     byte byteArr[] = {32, 43, 65, 12, 76, 75, 1, 2};
     char charArr[] = {'F', 'Q', 'A', 'C', '3', '0', 'Z', 'R'};
     ArrayList byteAL = newALFromArray(byteArr, 8);
@@ -26,8 +36,8 @@ int main() {
     getFromAL(byteAL, 0, &myByte);
     getFromAL(charAL, 0, &myChar);
     printf("Testing getFromAl()\n");
-    printf("%hi\n", myByte);
-    printf("%c\n", myChar);
+    printf("%hi\n\n", myByte);
+    printf("%c\n\n", myChar);
     printf("\n");
 
     setALElement(byteAL, (byte)-1, 0);
