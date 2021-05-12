@@ -9,9 +9,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdarg.h>
 
-ArrayList newAL() {
+ArrayList newAL(const spec_t spec) {
     ArrayList newArray = saferMalloc(sizeof(ArrayList));
+    newArray->type = spec;
     newArray->size = 0;
     return newArray;
 }
@@ -20,7 +22,7 @@ ArrayList newALFromAL(const ArrayList arr) {
     __checkCondition(!arr, NULL_AL_GIVEN);
     __checkCondition(!arr->type, NULL_AL_TYPE);
     __checkCondition(!arr->body, NULL_AL_BODY);
-    ArrayList copy = newAL();
+    ArrayList copy = newAL(copyOf(arr->type));
     copy->size = arr->size;
     copy->type = copyOf(arr->type);
     unsigned int bytesToBeCopied = __getTypeSize(arr->type) * arr->size;
@@ -69,14 +71,27 @@ void printAL(const spec_t spec, const ArrayList arr) {
     __checkCondition(!arr, NULL_AL_GIVEN);
     __checkCondition(!spec, NULL_POINTER_GIVEN);
     __checkCondition(!arr->type, NULL_AL_TYPE);
-    __checkCondition(!arr->body, NULL_AL_BODY);
-    if (arr->size == 0) {
+    if (arr->size == 0 || !arr->body) {
         printf("Empty\n");
         return;
     }
     if (strcmp(arr->type, "%c") == 0)
         for (unsigned int i = 0; i < arr->size; i++)
             printf(spec, *((char *)arr->body + i * sizeof(char)));
+    else if (strcmp(arr->type, "%i") == 0)
+        for (unsigned int i = 0; i < arr->size; i++)
+            printf(spec, *((int *)arr->body + i * sizeof(int)));
+    else if (strcmp(arr->type, "%f") == 0)
+        for (unsigned int i = 0; i < arr->size; i++)
+            printf(spec, *((float *)arr->body + i * sizeof(float)));
+    else if (strcmp(arr->type, "%lf") == 0)
+        for (unsigned int i = 0; i < arr->size; i++)
+            printf(spec, *((double *)arr->body + i * sizeof(double)));
+    else if (strcmp(arr->type, "%p") == 0)
+        for (unsigned int i = 0; i < arr->size; i++)
+            printf(spec, *((int *)arr->body + i * sizeof(int *)));
+    else
+        __checkCondition(TRUE, UNSUPPORTED_SPECIFIER);
 }
 
 void removeFromAL(ArrayList arr, unsigned int index) {
@@ -118,8 +133,8 @@ byte areALEqual(ArrayList arr1, ArrayList arr2) {
 
 void deleteAL(ArrayList arr) {
     __checkCondition(!arr, NULL_AL_GIVEN);
-    __checkCondition(!arr->body, NULL_AL_BODY);
-    free(arr->body);
+    if(arr->body)
+        free(arr->body);
     free(arr);
 }
 
@@ -147,4 +162,40 @@ void quickSortAL(ArrayList arr) {
     __checkCondition(!arr->type, NULL_AL_TYPE);
     __checkCondition(!arr->body, NULL_AL_BODY);
     chooseQuickSortArr(arr->type, arr->body, __getTypeSize(arr->type) * arr->size);
+}
+
+void appendToAL(ArrayList arr, ...) {
+    __checkCondition(!arr, NULL_AL_GIVEN);
+    __checkCondition(!arr->type, NULL_AL_GIVEN);
+    byte typeSize = __getTypeSize(arr->type);
+    if (arr->size == 0)
+        arr->body = saferMalloc(typeSize);
+    else
+        arr->body = saferRealloc(arr->body, typeSize);
+    va_list argList;
+    va_start(argList, arr);
+    void *address;
+    if (strcmp(arr->type, "%c") == 0) {
+        char element = va_arg(argList, int);
+        address = &element;
+    }
+    else if (strcmp(arr->type, "%i") == 0) {
+        int element = va_arg(argList, int);
+        address = &element;
+    }
+    else if (strcmp(arr->type, "%f") == 0) {
+        float element = va_arg(argList, double);
+        address = &element;
+    }
+    else if (strcmp(arr->type, "%lf") == 0) {
+        double element = va_arg(argList, double);
+        address = &element;
+    }
+    else if (strcmp(arr->type, "%p") == 0) {
+        void *element = va_arg(argList, void *);
+        address = &element;
+    }
+    memcpy(arr->body + arr->size * typeSize, address, typeSize);
+    va_end(argList);
+    arr->size++;
 }

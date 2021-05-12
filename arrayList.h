@@ -1,21 +1,13 @@
 /**
  * @file arrayList.h
  * @author Pietro Firpo (pietro.firpo@pm.me)
- * @brief Functions for working with dynArrays
+ * @brief Functions for working with ::ArrayList
  */
 
 #ifndef __SEEN_ARRAYLIST
 #define __SEEN_ARRAYLIST
 
 #include "types.h"
-
-/**
- * @brief Append an element to an ::ArrayList
- * @param arr The ::ArrayList you want to append an item to
- * @param element The element you want to append to `arr`
- * @note When you want to append something hardcoded that is not an `int` but the compiler treats as an `int` by default (a `byte`, a `char`, an integer `float` or `double`), you must specify a casting to that type. For example, if you want to append the number `42` to an ::ArrayList named `arr`, you must use `appendToAL(arr, (byte)42)`
- */
-#define appendToAL(arr, element) _Generic(element, char: appendCharToAL)(arr, element)
 
 /**
  * @brief Create an ::ArrayList from a static array
@@ -45,9 +37,10 @@
 // TYPE INDIPENDENT FUNCTIONS
 /**
  * @brief Allocate a new ::ArrayList
- * @return  An empty ::ArrayList
+ * @param spec Type specifier of the ::ArrayList you want to create
+ * @return An empty ::ArrayList
  */
-ArrayList newAL();
+ArrayList newAL(const spec_t spec);
 
 /**
  * @brief Get a copy of an ::ArrayList
@@ -150,10 +143,10 @@ ArrayList newALFromByteArray(const char arr[], unsigned int size);
 
 /**
  * @brief Insert a char at the end of an ::ArrayList 
- * @param arr The ::ArrayList you want to append a char to
- * @param element The char you want to append to `arr`
+ * @param arr The ::ArrayList you want to append an item to
+ * @param ... The item you want to append to `arr`. Even though inserting more than one item does not throw a compiler nor runtime error, only inserting one item is supported. Other items are ignored and are not appended to `arr`
  */
-void appendCharToAL(ArrayList arr, char element);
+void appendToAL(ArrayList arr, ...);
 
 /**
  * @brief Insert a char at a specified position of an ::ArrayList
