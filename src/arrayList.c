@@ -174,28 +174,92 @@ void appendToAL(ArrayList arr, ...) {
         arr->body = saferRealloc(arr->body, typeSize);
     va_list argList;
     va_start(argList, arr);
-    void *address;
-    if (strcmp(arr->type, "%c") == 0) {
-        char element = va_arg(argList, int);
-        address = &element;
-    }
-    else if (strcmp(arr->type, "%i") == 0) {
-        int element = va_arg(argList, int);
-        address = &element;
-    }
-    else if (strcmp(arr->type, "%f") == 0) {
-        float element = va_arg(argList, double);
-        address = &element;
-    }
-    else if (strcmp(arr->type, "%lf") == 0) {
-        double element = va_arg(argList, double);
-        address = &element;
-    }
-    else if (strcmp(arr->type, "%p") == 0) {
-        void *element = va_arg(argList, void *);
-        address = &element;
-    }
-    memcpy(arr->body + arr->size * typeSize, address, typeSize);
+    __data data;
+    if (strcmp(arr->type, "%c") == 0)
+        data.charData = va_arg(argList, int);
+    else if (strcmp(arr->type, "%i") == 0)
+        data.intData = va_arg(argList, int);
+    else if (strcmp(arr->type, "%f") == 0)
+        data.floatData = va_arg(argList, double);
+    else if (strcmp(arr->type, "%lf") == 0)
+        data.doubleData = va_arg(argList, double);
+    else if (strcmp(arr->type, "%p") == 0)
+        data.ptrData = va_arg(argList, void *);
+    memcpy(arr->body + arr->size * typeSize, &data, typeSize);
     va_end(argList);
     arr->size++;
+}
+
+void insertToAL(ArrayList arr, unsigned int index, ...) {
+    __checkCondition(!arr, NULL_AL_GIVEN);
+    __checkCondition(!arr->body, NULL_AL_BODY);
+    __checkCondition(!arr->type, NULL_AL_TYPE);
+    __checkCondition(index >= arr->size, OUT_OF_AL_BOUNDS);
+    byte typeSize = __getTypeSize(arr->type);
+    void *newBody = saferMalloc((arr->size + 1) * typeSize);
+    memcpy(newBody, arr->body, index * typeSize);
+    va_list argList;
+    va_start(argList, index);
+    __data data;
+    if (strcmp(arr->type, "%c") == 0)
+        data.charData = va_arg(argList, int);
+    else if (strcmp(arr->type, "%i") == 0)
+        data.intData = va_arg(argList, int);
+    else if (strcmp(arr->type, "%f") == 0)
+        data.floatData = va_arg(argList, double);
+    else if (strcmp(arr->type, "%lf") == 0)
+        data.doubleData = va_arg(argList, double);
+    else if (strcmp(arr->type, "%p") == 0)
+        data.ptrData = va_arg(argList, void *);
+    else {
+        va_end(argList);
+        __checkCondition(TRUE, UNSUPPORTED_SPECIFIER);
+    }
+    memcpy(newBody + index * typeSize, &data, typeSize);
+    memcpy(newBody + (index + 1) * typeSize, arr->body + index * typeSize, (arr->size - index) * typeSize);
+    arr->size++;
+    free(arr->body);
+    arr->body = newBody;
+}
+
+void setALElement(ArrayList arr, unsigned int index, ...) {
+    __checkCondition(!arr, NULL_AL_GIVEN);
+    __checkCondition(!arr->body, NULL_AL_BODY);
+    __checkCondition(!arr->type, NULL_AL_TYPE);
+    __checkCondition(index >= arr->size, OUT_OF_AL_BOUNDS);
+    byte typeSize = __getTypeSize(arr->type);
+    va_list argList;
+    va_start(argList, index);
+    __data data;
+    if (strcmp(arr->type, "%c") == 0)
+        data.charData = va_arg(argList, int);
+    else if (strcmp(arr->type, "%i") == 0)
+        data.intData = va_arg(argList, int);
+    else if (strcmp(arr->type, "%f") == 0)
+        data.floatData = va_arg(argList, double);
+    else if (strcmp(arr->type, "%lf") == 0)
+        data.doubleData = va_arg(argList, double);
+    else if (strcmp(arr->type, "%p") == 0)
+        data.ptrData = va_arg(argList, void *);
+    else {
+        va_end(argList);
+        __checkCondition(TRUE, UNSUPPORTED_SPECIFIER);
+    }
+    memcpy(arr->body + index * typeSize, &data, typeSize);
+}
+
+ArrayList newALFromCharArray(const char arr[], unsigned int size) {
+    __checkCondition(!arr, NULL_AL_GIVEN);
+    ArrayList newArray = saferMalloc(sizeof(ArrayList));
+    newArray->type = "%c";
+    newArray->size = size;
+    unsigned int bytesToBeCopied = size * sizeof(char);
+    newArray->body = saferMalloc(bytesToBeCopied);
+    memcpy(newArray->body, arr, bytesToBeCopied);
+    return newArray;
+}
+
+ArrayList newALFromByteArray(const char arr[], unsigned int size) {
+    __checkCondition(!arr, NULL_AL_GIVEN);
+    return newALFromCharArray(arr, size);
 }
