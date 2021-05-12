@@ -1,7 +1,7 @@
 /**
  * @file arrayList.h
  * @author Pietro Firpo (pietro.firpo@pm.me)
- * @brief Functions for working with ::ArrayList
+ * @brief ::ArrayList functions and macros
  */
 
 #ifndef __SEEN_ARRAYLIST
@@ -17,23 +17,6 @@
  */
 #define newALFromArray(arr, size) _Generic(arr, char*: newALFromCharArray)(arr, size)
 
-/**
- * @brief insert element into ::ArrayList
- * @param arr The ::ArrayList you want to insert an element into
- * @param element The element you want to insert into `arr`
- * @param index The index you want to insert `element` to
- * @note When you want to insert something hardcoded that is not an `int` but the compiler treats as an `int` by default (a `byte`, a `char`, an integer `float` or `double`), you must specify a casting to that type. For example, if you want to insert the number `42` at index `4` into an ::ArrayList named `arr`, you must use `insertToAl(arr, (byte)42, 4)`
- */
-#define insertToAL(arr, element, index) _Generic(element, char: insertCharToAL)(arr, element, index)
-
-/**
- * @brief Set an element of an ::ArrayList
- * @param arr The :ArrayList you want to change an element
- * @param element The element you want to set an item of `arr` to
- * @param index The index of the element of the ::ArrayList you want to set to `element`
- */
-#define setALElement(arr, element, index) _Generic(element, char: setALChar)(arr, element, index)
-
 // TYPE INDIPENDENT FUNCTIONS
 /**
  * @brief Allocate a new ::ArrayList
@@ -48,6 +31,29 @@ ArrayList newAL(const spec_t spec);
  * @return A copy of `arr`
  */
 ArrayList newALFromAL(const ArrayList arr);
+
+/**
+ * @brief Insert an item at the end of an ::ArrayList 
+ * @param arr The ::ArrayList you want to append an item to
+ * @param ... The item you want to append to `arr`. Even though appending more than one item does not throw a compiler nor runtime error, only appending one item is supported. Other items are ignored and are not appended to `arr`
+ */
+void appendToAL(ArrayList arr, ...);
+
+/**
+ * @brief Insert an element at a specified position of an ::ArrayList
+ * @param arr The ::ArrayList you want to insert an element into
+ * @param index The position you want to insert `element` at
+ * @param ... The item you want to insert into `arr`. Even though inserting more than one item does not throw a compiler nor runtime error, only inserting one item is supported. Other items are ignored and are not inserted into `arr`
+ */
+void insertToAL(ArrayList arr, unsigned int index, ...);
+
+/**
+ * @brief Set value of an element of an ::ArrayList
+ * @param arr The ::ArrayList you want to edit
+ * @param index The index of the element you want to change
+ * @param ... The item you want to insert into `arr`. Even though inserting more than one item does not throw a compiler nor runtime error, only setting one item is supported. Other items are ignored
+ */
+void setALElement(ArrayList arr, unsigned int index, ...);
 
 /**
  * @brief Merge two ::ArrayList
@@ -140,28 +146,5 @@ ArrayList newALFromCharArray(const char arr[], unsigned int size);
  * @brief Alias for newALFromCharArray(). Used to create ::ArrayList from byte array. Refer to newALFromCharArray()
  */
 ArrayList newALFromByteArray(const char arr[], unsigned int size);
-
-/**
- * @brief Insert a char at the end of an ::ArrayList 
- * @param arr The ::ArrayList you want to append an item to
- * @param ... The item you want to append to `arr`. Even though inserting more than one item does not throw a compiler nor runtime error, only inserting one item is supported. Other items are ignored and are not appended to `arr`
- */
-void appendToAL(ArrayList arr, ...);
-
-/**
- * @brief Insert a char at a specified position of an ::ArrayList
- * @param arr The ::ArrayList you want to insert the char into
- * @param element The char you want to insert into `arr`
- * @param index The position you want to insert `element` at
- */
-void insertCharToAL(ArrayList arr, char element, unsigned int index);
-
-/**
- * @brief Set value of an element of an ::ArrayList
- * @param arr The ::ArrayList you want to edit
- * @param element The element you want to set 
- * @param index The index of the element you want to change
- */
-void setALChar(ArrayList arr, char element, unsigned int index);
 
 #endif
