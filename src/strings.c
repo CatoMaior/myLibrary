@@ -4,6 +4,7 @@
 #include "../types.h"
 #include "../constants.h"
 #include "../utility.h"
+#include "utilityInternal.h"
 #include "errors.h"
 
 string getString() {

@@ -14,11 +14,7 @@ EXTRACT_ALL            = YES
 
 CASE_SENSE_NAMES       = YES
 
-FILE_PATTERNS          = *.c \
-                         *.h
-
-EXCLUDE                = examples.c \
-                         README.md
+FILE_PATTERNS          = *.h
 
 USE_MDFILE_AS_MAINPAGE = NO
 
@@ -28,7 +24,7 @@ HTML_OUTPUT            = html
 
 HTML_FILE_EXTENSION    = .html
 
-GENERATE_TREEVIEW      = YES
+GENERATE_TREEVIEW      = NO
 
 GENERATE_LATEX         = YES
 

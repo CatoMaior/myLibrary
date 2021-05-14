@@ -6,34 +6,12 @@
 #include "../constants.h"
 #include "../strings.h"
 #include "errors.h"
-
-void checkCondition(byte condition, string errorString) {
-    if (condition) {
-        printf("\n%s\nExiting\n", errorString);
-        exit(1);
-    }
-}
+#include "utilityInternal.h"
 
 byte chooseCmp(const spec_t spec, const void *a, const void *b) {
     checkCondition(!spec || !a || !b, NULL_POINTER_GIVEN);
     char (*cmpFun)(const void *a, const void *b) = getCmp(spec);
     return (*cmpFun)(a, b);
-}
-
-void *getCmp(const spec_t spec) {
-    if (!spec)
-        return NULL;
-    if (strcmp("%c", spec) == 0)
-        return charCmp;
-    if (strcmp("%i", spec) == 0)
-        return intCmp;
-    if (strcmp("%f", spec) == 0)
-        return floatCmp;
-    if (strcmp("%lf", spec) == 0)
-        return doubleCmp;
-    if (strcmp("%p", spec) == 0)
-        return ptrCmp;
-    return NULL;
 }
 
 byte charCmp(const void *a, const void *b) {

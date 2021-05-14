@@ -7,9 +7,9 @@ SRCS=$(wildcard $(SRC_DIR)/*.c)
 OBJS=$(patsubst $(SRC_DIR)/%.c,$(BUILD_DIR)/%.o,$(SRCS))
 HEADS=$(wildcard *.h)
 LIB=$(BUILD_DIR)/myLibrary.lib
-TESTING=$(BUILD_DIR)/testing
+TESTS_FILE=tests
 
-all: $(BUILD_DIR) $(OBJS) $(LIB) $(DOCS_HTML) $(DOCS_PDF) $(TESTING)
+all: $(BUILD_DIR) $(OBJS) $(LIB) $(TESTS_FILE) $(DOCS_HTML) $(DOCS_PDF)
 
 lib: $(BUILD_DIR) $(OBJS) $(LIB)
 
@@ -20,13 +20,13 @@ pdf: $(DOCS_PDF)
 $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR) 
 
-$(TESTING): testing.c $(LIB)
-	$(CC) testing.c -o $(TESTING) $(LIB)
+$(BUILD_DIR)/$(TESTS_FILE): $(BUILD_DIR) $(OBJS) $(LIB) $(TESTS_FILE).c
+	$(CC) $(TESTS_FILE).c -o $(BUILD_DIR)/$(TESTS_FILE) $(LIB)
 
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c $(SRC_DIR)/errors.h
 	$(CC) -c $< -o $@
 
-$(LIB): $(OBJS) $(BUILD_DIR)
+$(LIB): $(OBJS)
 	ar rcs $@ $(OBJS)
 
 $(DOCS_HTML): $(HEADS)

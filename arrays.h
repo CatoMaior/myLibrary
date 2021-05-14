@@ -4,8 +4,8 @@
  * @brief Common tasks with arrays: sorting, searching, printing etc
  */
 
-#ifndef _SEEN_ARRAYS
-#define _SEEN_ARRAYS
+#ifndef __SEEN_ARRAYS
+#define __SEEN_ARRAYS
 
 #include "types.h"
 
@@ -15,7 +15,7 @@
  * @param arr Pointer to the first element of the array to be sorted
  * @param size Number of elements of the array to be sorted
  */
-void chooseBubbleSort(const spec_t spec, void *arr, unsigned int size);
+void chooseBubbleSortArr(const spec_t spec, void *arr, unsigned int size);
 
 /**
  * @brief Quick sort for arrays
@@ -23,18 +23,19 @@ void chooseBubbleSort(const spec_t spec, void *arr, unsigned int size);
  * @param arr Pointer to the first element of the array to be sorted
  * @param size Number of elements of the array to be sorted
  */
-void chooseQuickSort(const spec_t spec, void *arr, int size);
+void chooseQuickSortArr(const spec_t spec, void *arr, int size);
 
 /**
  * @brief Linear search for arrays
  * @param spec Type specifier of the array to be sorted. Refer to ::spec_t for supported types
  * @param arr Pointer to the first element of the array to be inspected
- * @param key Pointer to the key
  * @param size Number of elements of the array to be inspected
+ * @param ... The key to be searched
+ * @note Even though passing more than one key does not throw a compiler nor runtime error, only searching one item is supported. Other items are ignored. If you don't specify any item to be searched, still no errors occur but the return value of the function can be unpredictable
  * @return The index of the first occurence of the key in the array or the return code of the function
  * @retval KEY_NOT_FOUND The key was not found
  */
-int linearSearch(const spec_t spec, const void *arr, const void *key, int size);
+int chooseLinearSearch(const spec_t spec, void *arr, int size, ...);
 
 /**
  * @brief Print matrix of specified size with specified formatting
@@ -48,61 +49,61 @@ void printMatrix(const spec_t spec, const void *matrix, const unsigned int nRows
 
 /**
  * @brief Bubblesort for arrays of chars
- * @details Equivalent to `chooseBubbleSort("%c", arr, size)`. Refer to chooseBubbleSort()
+ * @details Equivalent to `chooseBubbleSortArr("%c", arr, size)`. Refer to chooseBubbleSortArr()
  */
 void charBubbleSort(char *arr, unsigned int size);
 
 /**
  * @brief Bubblesort for arrays of ints
- * @details Equivalent to `chooseBubbleSort("%i", arr, size)`. Refer to chooseBubbleSort()
+ * @details Equivalent to `chooseBubbleSortArr("%i", arr, size)`. Refer to chooseBubbleSortArr()
  */
 void intBubbleSort(int *arr, unsigned int size);
 
 /**
  * @brief Bubblesort for arrays of floats
- * @details Equivalent to `chooseBubbleSort("%f", arr, size)`. Refer to chooseBubbleSort()
+ * @details Equivalent to `chooseBubbleSortArr("%f", arr, size)`. Refer to chooseBubbleSortArr()
  */
 void floatBubbleSort(float *arr, unsigned int size);
 
 /**
  * @brief Bubblesort for arrays of doubles
- * @details Equivalent to `chooseBubbleSort("%lf", arr, size)`. Refer to chooseBubbleSort()
+ * @details Equivalent to `chooseBubbleSortArr("%lf", arr, size)`. Refer to chooseBubbleSortArr()
  */
 void doubleBubbleSort(double *arr, unsigned int size);
 
 /**
  * @brief Bubblesort for arrays of pointers
- * @details Equivalent to `chooseBubbleSort("%p", arr, size)`. Refer to chooseBubbleSort()
+ * @details Equivalent to `chooseBubbleSortArr("%p", arr, size)`. Refer to chooseBubbleSortArr()
  */
 void ptrBubbleSort(void **arr, unsigned int size);
 
 /**
  * @brief Quicksort for arrays of chars
- * @details Equivalent to `chooseQuickSort("%c", arr, size)`. Refer to chooseQuickSort()
+ * @details Equivalent to `chooseQuickSortArr("%c", arr, size)`. Refer to chooseQuickSortArr()
  */
 void charQuickSort(char *arr, unsigned int size);
 
 /**
  * @brief Quicksort for arrays of ints
- * @details Equivalent to `chooseQuickSort("%i", arr, size)`. Refer to chooseQuickSort()
+ * @details Equivalent to `chooseQuickSortArr("%i", arr, size)`. Refer to chooseQuickSortArr()
  */
 void intQuickSort(int *arr, unsigned int size);
 
 /**
  * @brief Quicksort for arrays of floats
- * @details Equivalent to `chooseQuickSort("%f", arr, size)`. Refer to chooseQuickSort()
+ * @details Equivalent to `chooseQuickSortArr("%f", arr, size)`. Refer to chooseQuickSortArr()
  */
 void floatQuickSort(float *arr, unsigned int size);
 
 /**
  * @brief Quicksort for arrays of doubles
- * @details Equivalent to `chooseQuickSort("%lf", arr, size)`. Refer to chooseQuickSort()
+ * @details Equivalent to `chooseQuickSortArr("%lf", arr, size)`. Refer to chooseQuickSortArr()
  */
 void doubleQuickSort(double *arr, unsigned int size);
 
 /**
  * @brief Quicksort for arrays of pointers
- * @details Equivalent to `chooseQuickSort("%p", arr, size)`. Refer to chooseQuickSort()
+ * @details Equivalent to `chooseQuickSortArr("%p", arr, size)`. Refer to chooseQuickSortArr()
  */
 void ptrQuickSort(void **arr, unsigned int size);
 

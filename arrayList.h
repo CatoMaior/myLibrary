@@ -1,53 +1,34 @@
 /**
  * @file arrayList.h
  * @author Pietro Firpo (pietro.firpo@pm.me)
- * @brief Functions for working with dynArrays
+ * @brief ::ArrayList functions and macros
  */
 
-#ifndef _SEEN_ARRAYLIST
-#define _SEEN_ARRAYLIST
+#ifndef __SEEN_ARRAYLIST
+#define __SEEN_ARRAYLIST
 
 #include "types.h"
-
-/**
- * @brief Append an element to an ::ArrayList
- * @param arr The ::ArrayList you want to append an item to
- * @param element The element you want to append to `arr`
- * @note When you want to append something hardcoded that is not an `int` but the compiler treats as an `int` by default (a `byte`, a `char`, an integer `float` or `double`), you must specify a casting to that type. For example, if you want to append the number `42` to an ::ArrayList named `arr`, you must use `appendToAL(arr, (byte)42)`
- */
-#define appendToAL(arr, element) _Generic(element, char: appendCharToAL)(arr, element)
 
 /**
  * @brief Create an ::ArrayList from a static array
  * @param arr The array you want to create an ::ArrayList from
  * @param size The size of `arr`
- * @return An ::ArrayList containing all the elements of `arr`void
+ * @note Passing an array of pointers is not supported
+ * @return An ::ArrayList containing all the elements of `arr`
  */
-#define newALFromArray(arr, size) _Generic(arr, char*: newALFromCharArray)(arr, size)
-
-/**
- * @brief insert element into ::ArrayList
- * @param arr The ::ArrayList you want to insert an element into
- * @param element The element you want to insert into `arr`
- * @param index The index you want to insert `element` to
- * @note When you want to insert something hardcoded that is not an `int` but the compiler treats as an `int` by default (a `byte`, a `char`, an integer `float` or `double`), you must specify a casting to that type. For example, if you want to insert the number `42` at index `4` into an ::ArrayList named `arr`, you must use `insertToAl(arr, (byte)42, 4)`
- */
-#define insertToAL(arr, element, index) _Generic(element, char: insertCharToAL)(arr, element, index)
-
-/**
- * @brief Set an element of an ::ArrayList
- * @param arr The :ArrayList you want to change an element
- * @param element The element you want to set an item of `arr` to
- * @param index The index of the element of the ::ArrayList you want to set to `element`
- */
-#define setALElement(arr, element, index) _Generic(element, char: setALChar)(arr, element, index)
+#define newALFromArray(arr, size) _Generic(arr, char *                     \
+                                           : newALFromCharArray, int *     \
+                                           : newALFromIntArray, float *    \
+                                           : newALFromFloatArray, double * \
+                                           : newALFromDoubleArray)(arr, size)
 
 // TYPE INDIPENDENT FUNCTIONS
 /**
  * @brief Allocate a new ::ArrayList
- * @return  An empty ::ArrayList
+ * @param spec Type specifier of the ::ArrayList you want to create
+ * @return An empty ::ArrayList
  */
-ArrayList newAL();
+ArrayList newAL(const spec_t spec);
 
 /**
  * @brief Get a copy of an ::ArrayList
@@ -55,6 +36,32 @@ ArrayList newAL();
  * @return A copy of `arr`
  */
 ArrayList newALFromAL(const ArrayList arr);
+
+/**
+ * @brief Insert an item at the end of an ::ArrayList 
+ * @param arr The ::ArrayList you want to append an item to
+ * @param ... The item you want to append to `arr`
+ * @note Even though appending more than one item does not throw a compiler nor runtime error, only appending one item is supported. Other items are ignored and are not appended to `arr`. If you don't specify any item to be appended, still no errors occur but the content of your ::ArrayList can be messed up
+ */
+void appendToAL(ArrayList arr, ...);
+
+/**
+ * @brief Insert an element at a specified position of an ::ArrayList
+ * @param arr The ::ArrayList you want to insert an element into
+ * @param index The position you want to insert `element` at
+ * @param ... The item you want to insert into `arr`
+ * @note Even though inserting more than one item does not throw a compiler nor runtime error, only inserting one item is supported. Other items are ignored and are not inserted into `arr`. If you don't specify any item to be inserted, still no errors occur but the content of your ::ArrayList can be messed up
+ */
+void insertToAL(ArrayList arr, unsigned int index, ...);
+
+/**
+ * @brief Set value of an element of an ::ArrayList
+ * @param arr The ::ArrayList you want to edit
+ * @param index The index of the element you want to change
+ * @param ... The item you want to insert into `arr`
+ * @note Even though inserting more than one item does not throw a compiler nor runtime error, only setting one item is supported. Other items are ignored. If you don't specify any item to be inserted, still no errors occur but the content of your ::ArrayList can be messed up
+ */
+void setALItem(ArrayList arr, unsigned int index, ...);
 
 /**
  * @brief Merge two ::ArrayList
@@ -72,24 +79,24 @@ void mergeAL(ArrayList arr1, const ArrayList arr2);
 void sliceAL(ArrayList arr, unsigned int begin, unsigned int end);
 
 /**
- * @brief Print an ::ArrayList content
+ * @brief Print contents from an ::ArrayList
  * @param spec The type and format specifier you want to use to print the single element of the ::ArrayList
  * @param arr The ::ArrayList you want to print
  */
 void printAL(const spec_t spec, const ArrayList arr);
 
 /**
- * @brief Remove an element from an ::ArrayList
- * @param arr The ::ArrayList you want to delete an element from
- * @param index The index of the element you want to delete
+ * @brief Remove an item from an ::ArrayList
+ * @param arr The ::ArrayList you want to delete an item from
+ * @param index The index of the item you want to delete
  */
 void removeFromAL(ArrayList arr, unsigned int index);
 
 /**
- * @brief Get an element from an ::ArrayList
- * @param arr The ::ArrayList you want to get the item from
- * @param index The index of the element you want to get
- * @param dest The address of the variable you want to store the result in
+ * @brief Get an item from an ::ArrayList
+ * @param arr The ::ArrayList you want to get an item from
+ * @param index The index of the item you want to get
+ * @param dest The address of the variable you want to store the item in
  */
 void getFromAL(const ArrayList arr, unsigned int index, void *dest);
 
@@ -107,20 +114,60 @@ void deleteAL(ArrayList arr);
  * @retval TRUE `arr1` and `arr2` have equal type, equal length and equal contents
  * @retval FALSE `arr1` and `arr2` do not have equal type, equal length or equal contents
  */
-byte areALEqual(ArrayList arr1, ArrayList arr2);
+byte areALEqual(const ArrayList arr1, const ArrayList arr2);
 
 /**
  * @brief Reverse an ::ArrayList
- * @param arr The array you want to reverse
+ * @param arr The ::ArrayList you want to reverse
  */
 void reverseAL(ArrayList arr);
 
+/**
+ * @brief Bubble sort for ::ArrayList
+ * @param arr The ::ArrayList you want to bubble sort
+ */
+void bubbleSortAL(ArrayList arr);
+
+/**
+ * @brief Quicksort for ::ArrayList
+ * @param arr The ::ArrayList you want to quicksort
+ */
+void quickSortAL(ArrayList arr);
+
+/**
+ * @brief Detect if an element is inside an ::ArrayList
+ * @param arr The ::ArrayList you want search in
+ * @param ... The element you want to search
+ * @note Even though inserting zero more than one item does not throw a compiler nor runtime error, only searching one item is supported. Other items are ignored. If you don't specify any item to be searched, still no errors occur but the return value of the function can be unpredictable
+ * @retval TRUE Given element is contained in `arr`
+ * @retval FALSE Given element is not contained in `arr`
+ */
+byte isInAL(ArrayList arr, ...);
+
+/**
+ * @brief Linear search for ::ArrayList
+ * @param arr The ::ArrayList to be inspected
+ * @param ... The key to be searched
+ * @note This function does not support float and double ::ArrayList
+ * @note Even though passing more than one key does not throw a compiler nor runtime error, only searching one item is supported. Other items are ignored. If you don't specify any item to be searched, still no errors occur but the return value of the function can be unpredictable
+ * @return The index of the first occurence of the key in the array or the return code of the function
+ * @retval KEY_NOT_FOUND The key was not found
+ */
+int linearSearchAL(ArrayList arr, ...);
+
+/**
+ * @brief Create an ::ArrayList from an array
+ * @param spec The type specifier of the array passed. Refer to spec_t
+ * @param arr The array you want to create the ::ArrayList from
+ * @param size The number of items of `arr`
+ * @return An ::ArrayList containing the elements in `arr` in the same order
+ */
+ArrayList chooseNewALFromArray(const spec_t spec, const void *arr, unsigned int size);
+
 // TYPE DIPENDENT FUNCTIONS
 /**
- * @brief Create an ::ArrayList from an array of chars
- * @param arr The array you want to create the ::ArrayList from
- * @param size The size of `arr`
- * @return An ::ArrayList of type char containing the elements in `arr` in the same order
+ * @brief Create ::ArrayList from an array of chars
+ * @details Equivalent to `chooseNewALFromArray("%c", arr, size)`. Refer to chooseNewALFromArray()
  */
 ArrayList newALFromCharArray(const char arr[], unsigned int size);
 
@@ -130,26 +177,27 @@ ArrayList newALFromCharArray(const char arr[], unsigned int size);
 ArrayList newALFromByteArray(const char arr[], unsigned int size);
 
 /**
- * @brief Insert a char at the end of an ::ArrayList 
- * @param arr The ::ArrayList you want to append a char to
- * @param element The char you want to append to `arr`
+ * @brief Create ::ArrayList from an array of ints
+ * @details Equivalent to `chooseNewALFromArray("%i", arr, size)`. Refer to chooseNewALFromArray()
  */
-void appendCharToAL(ArrayList arr, char element);
+ArrayList newALFromIntArray(const int arr[], unsigned int size);
 
 /**
- * @brief Insert a char at a specified position of an ::ArrayList
- * @param arr The ::ArrayList you want to insert the char into
- * @param element The char you want to insert into `arr`
- * @param index The position you want to insert `element` at
+ * @brief Create ::ArrayList from an array of floats
+ * @details Equivalent to `chooseNewALFromArray("%f", arr, size)`. Refer to chooseNewALFromArray()
  */
-void insertCharToAL(ArrayList arr, char element, unsigned int index);
+ArrayList newALFromFloatArray(const float arr[], unsigned int size);
 
 /**
- * @brief Set value of an element of an ::ArrayList
- * @param arr The ::ArrayList you want to edit
- * @param element The element you want to set 
- * @param index The index of the element you want to change
+ * @brief Create ::ArrayList from an array of doubles
+ * @details Equivalent to `chooseNewALFromArray("%lf", arr, size)`. Refer to chooseNewALFromArray()
  */
-void setALChar(ArrayList arr, char element, unsigned int index);
+ArrayList newALFromDoubleArray(const double arr[], unsigned int size);
+
+/**
+ * @brief Create ::ArrayList from an array of pointers
+ * @details Equivalent to `chooseNewALFromArray("%p", arr, size)`. Refer to chooseNewALFromArray()
+ */
+ArrayList newALFromPtrArray(const void *arr, unsigned int size);
 
 #endif

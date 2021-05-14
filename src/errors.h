@@ -23,4 +23,6 @@
 
 #define REALLOC_ERROR "Error: could not reallocate memory"
 
+#define NULL_AL_BODY "Error: given ArrayList has null body"
+
 #endif
