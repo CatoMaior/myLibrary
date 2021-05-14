@@ -5,10 +5,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Make project and launch examples",
+            "name": "Build and launch current file",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/examples",
+            "program": "${workspaceFolder}/build/${fileBasenameNoExtension}",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
@@ -22,7 +22,7 @@
                     "ignoreFailures": true
                 }
             ],
-            "preLaunchTask": "Build library and examples",
+            "preLaunchTask": "Build library and current C file",
             "postDebugTask": "Build docs",
             "miDebuggerPath": "/usr/bin/gdb",
             "miDebuggerArgs": "-q -ex quit; wait() { fg >/dev/null; }; /bin/gdb -q --interpreter=mi"

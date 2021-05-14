@@ -12,6 +12,7 @@
 #include <stdarg.h>
 
 ArrayList newAL(const spec_t spec) {
+    checkCondition(!isTypeSupported(spec), UNSUPPORTED_SPECIFIER);
     ArrayList newArray = saferMalloc(sizeof(ArrayList));
     newArray->type = spec;
     newArray->size = 0;
@@ -19,31 +20,39 @@ ArrayList newAL(const spec_t spec) {
 }
 
 ArrayList newALFromAL(const ArrayList arr) {
-    __checkCondition(!arr, NULL_AL_GIVEN);
-    __checkCondition(!arr->type, NULL_AL_TYPE);
-    __checkCondition(!arr->body, NULL_AL_BODY);
+    checkCondition(!arr, NULL_AL_GIVEN);
+    checkCondition(!arr->type, NULL_AL_TYPE);
+    checkCondition(!arr->body, NULL_AL_BODY);
     ArrayList copy = newAL(copyOf(arr->type));
     copy->size = arr->size;
     copy->type = copyOf(arr->type);
-    unsigned int bytesToBeCopied = __getTypeSize(arr->type) * arr->size;
+    unsigned int bytesToBeCopied = getTypeSize(arr->type) * arr->size;
     copy->body = saferMalloc(bytesToBeCopied);
     memcpy(copy->body, arr->body, bytesToBeCopied);
     return copy;
 }
 
 ArrayList chooseNewALFromArray(const spec_t spec, const void *arr, unsigned int size) {
-    __checkCondition(!arr || !spec, NULL_POINTER_GIVEN);
+    checkCondition(!arr || !spec, NULL_POINTER_GIVEN);
     if (strcmp(spec, "%c") == 0)
         return newALFromCharArray(arr, size);
-    __checkCondition(TRUE, UNSUPPORTED_SPECIFIER);
+    if (strcmp(spec, "%i") == 0)
+        return newALFromIntArray(arr, size);
+    if (strcmp(spec, "%f") == 0)
+        return newALFromFloatArray(arr, size);
+    if (strcmp(spec, "%lf") == 0)
+        return newALFromDoubleArray(arr, size);
+    if (strcmp(spec, "%p") == 0)
+        return newALFromPtrArray(arr, size);
+    checkCondition(TRUE, UNSUPPORTED_SPECIFIER);
 }
 
 void mergeAL(ArrayList arr1, const ArrayList arr2) {
-    __checkCondition(!arr1 || !arr2, NULL_AL_GIVEN);
-    __checkCondition(!arr1->type || !arr2->type, NULL_AL_TYPE);
-    __checkCondition(!arr1->body || !arr2->body, NULL_AL_BODY);
-    __checkCondition(strcmp(arr1->type, arr2->type) != 0, DIFFERENT_AL_TYPES);
-    byte typeSize = __getTypeSize(arr1->type);
+    checkCondition(!arr1 || !arr2, NULL_AL_GIVEN);
+    checkCondition(!arr1->type || !arr2->type, NULL_AL_TYPE);
+    checkCondition(!arr1->body || !arr2->body, NULL_AL_BODY);
+    checkCondition(strcmp(arr1->type, arr2->type) != 0, DIFFERENT_AL_TYPES);
+    byte typeSize = getTypeSize(arr1->type);
     unsigned int bytesToBeCopied = arr2->size * typeSize;
     arr1->body = saferRealloc(arr1->body, (arr1->size + arr2->size) * typeSize);
     memcpy(arr1->body + arr1->size * typeSize, arr2->body, bytesToBeCopied);
@@ -51,98 +60,95 @@ void mergeAL(ArrayList arr1, const ArrayList arr2) {
 }
 
 void sliceAL(ArrayList arr, unsigned int begin, unsigned int end) {
-    __checkCondition(!arr, NULL_AL_GIVEN);
-    __checkCondition(!arr->type, NULL_AL_TYPE);
-    __checkCondition(!arr->body, NULL_AL_BODY);
-    __checkCondition(begin < 0 || end > arr->size, OUT_OF_AL_BOUNDS);
-    __checkCondition(begin > end, WRONG_INDEX_ORDER);
-    byte typeSize;
-    void *newBody;
-    if (strcmp(arr->type, "%c") == 0)
-        typeSize = sizeof(char);
+    checkCondition(!arr, NULL_AL_GIVEN);
+    checkCondition(!arr->type, NULL_AL_TYPE);
+    checkCondition(!arr->body, NULL_AL_BODY);
+    checkCondition(begin < 0 || end > arr->size, OUT_OF_AL_BOUNDS);
+    checkCondition(begin > end, WRONG_INDEX_ORDER);
+    byte typeSize = getTypeSize(arr->type);
     arr->size = end - begin;
-    newBody = saferMalloc(arr->size * typeSize);
+    void *newBody = saferMalloc(arr->size * typeSize);
     memcpy(newBody, arr->body + begin * typeSize, arr->size * typeSize);
     free(arr->body);
     arr->body = newBody;
 }
 
 void printAL(const spec_t spec, const ArrayList arr) {
-    __checkCondition(!arr, NULL_AL_GIVEN);
-    __checkCondition(!spec, NULL_POINTER_GIVEN);
-    __checkCondition(!arr->type, NULL_AL_TYPE);
+    checkCondition(!arr, NULL_AL_GIVEN);
+    checkCondition(!spec, NULL_POINTER_GIVEN);
+    checkCondition(!arr->type, NULL_AL_TYPE);
     if (arr->size == 0 || !arr->body) {
         printf("Empty\n");
         return;
     }
     if (strcmp(arr->type, "%c") == 0)
         for (unsigned int i = 0; i < arr->size; i++)
-            printf(spec, *((char *)arr->body + i * sizeof(char)));
+            printf(spec, *((char *)arr->body + i));
     else if (strcmp(arr->type, "%i") == 0)
         for (unsigned int i = 0; i < arr->size; i++)
-            printf(spec, *((int *)arr->body + i * sizeof(int)));
+            printf(spec, *((int *)arr->body + i));
     else if (strcmp(arr->type, "%f") == 0)
         for (unsigned int i = 0; i < arr->size; i++)
-            printf(spec, *((float *)arr->body + i * sizeof(float)));
+            printf(spec, *((float *)arr->body + i));
     else if (strcmp(arr->type, "%lf") == 0)
         for (unsigned int i = 0; i < arr->size; i++)
-            printf(spec, *((double *)arr->body + i * sizeof(double)));
+            printf(spec, *((double *)arr->body + i));
     else if (strcmp(arr->type, "%p") == 0)
         for (unsigned int i = 0; i < arr->size; i++)
-            printf(spec, *((int *)arr->body + i * sizeof(int *)));
+            printf(spec, *((int **)arr->body + i));
     else
-        __checkCondition(TRUE, UNSUPPORTED_SPECIFIER);
+        checkCondition(TRUE, UNSUPPORTED_SPECIFIER);
 }
 
 void removeFromAL(ArrayList arr, unsigned int index) {
-    __checkCondition(!arr, NULL_AL_GIVEN);
-    __checkCondition(!arr->type, NULL_AL_TYPE);
-    __checkCondition(!arr->body, NULL_AL_BODY);
-    __checkCondition(index >= arr->size, OUT_OF_AL_BOUNDS);
+    checkCondition(!arr, NULL_AL_GIVEN);
+    checkCondition(!arr->type, NULL_AL_TYPE);
+    checkCondition(!arr->body, NULL_AL_BODY);
+    checkCondition(index >= arr->size, OUT_OF_AL_BOUNDS);
     if (arr->size == 1) {
         free(arr->body);
         arr->size--;
         return;
     }
-    byte typeSize = __getTypeSize(arr->type);
+    byte typeSize = getTypeSize(arr->type);
     memcpy(arr->body + index * typeSize, arr->body + (index + 1) * typeSize, (arr->size - index) * typeSize);
     arr->body = saferRealloc(arr->body, --arr->size * typeSize);
 }
 
 void getFromAL(const ArrayList arr, unsigned int index, void *dest) {
-    __checkCondition(!arr, NULL_AL_GIVEN);
-    __checkCondition(!arr->type, NULL_AL_TYPE);
-    __checkCondition(!arr->body, NULL_AL_BODY);
-    __checkCondition(!dest, NULL_DESTINATION_GIVEN);
-    __checkCondition(index >= arr->size, OUT_OF_AL_BOUNDS);
-    byte typeSize = __getTypeSize(arr->type);
+    checkCondition(!arr, NULL_AL_GIVEN);
+    checkCondition(!arr->type, NULL_AL_TYPE);
+    checkCondition(!arr->body, NULL_AL_BODY);
+    checkCondition(!dest, NULL_DESTINATION_GIVEN);
+    checkCondition(index >= arr->size, OUT_OF_AL_BOUNDS);
+    byte typeSize = getTypeSize(arr->type);
     memcpy(dest, arr->body + index * typeSize, typeSize);
 }
 
-byte areALEqual(ArrayList arr1, ArrayList arr2) {
-    __checkCondition(!arr1 || !arr2, NULL_AL_GIVEN);
-    __checkCondition(!arr1->type || !arr2->type, NULL_AL_TYPE);
-    __checkCondition(!arr2->body || !arr2->body, NULL_AL_BODY);
+byte areALEqual(const ArrayList arr1, const ArrayList arr2) {
+    checkCondition(!arr1 || !arr2, NULL_AL_GIVEN);
+    checkCondition(!arr1->type || !arr2->type, NULL_AL_TYPE);
+    checkCondition(!arr2->body || !arr2->body, NULL_AL_BODY);
     if (strcmp(arr1->type, arr2->type) != 0 || arr1->size != arr2->size)
         return FALSE;
-    byte typeSize = __getTypeSize(arr1->type);
+    byte typeSize = getTypeSize(arr1->type);
     if (memcmp(arr1->body, arr2->body, arr1->size * typeSize) == 0)
         return TRUE;
     return FALSE;
 }
 
 void deleteAL(ArrayList arr) {
-    __checkCondition(!arr, NULL_AL_GIVEN);
+    checkCondition(!arr, NULL_AL_GIVEN);
     if(arr->body)
         free(arr->body);
     free(arr);
 }
 
 void reverseAL(ArrayList arr) {
-    __checkCondition(!arr, NULL_AL_GIVEN);
-    __checkCondition(!arr->type, NULL_AL_TYPE);
-    __checkCondition(!arr->body, NULL_AL_BODY);
-    byte typeSize = __getTypeSize(arr->type);
+    checkCondition(!arr, NULL_AL_GIVEN);
+    checkCondition(!arr->type, NULL_AL_TYPE);
+    checkCondition(!arr->body, NULL_AL_BODY);
+    byte typeSize = getTypeSize(arr->type);
     void *newBody = saferMalloc(arr->size * typeSize);
     for (unsigned int i = 0; i < arr->size; i++)
         getFromAL(arr, i, newBody + (arr->size - i - 1) * typeSize);
@@ -151,105 +157,70 @@ void reverseAL(ArrayList arr) {
 }
 
 void bubbleSortAL(ArrayList arr) {
-    __checkCondition(!arr, NULL_AL_GIVEN);
-    __checkCondition(!arr->type, NULL_AL_TYPE);
-    __checkCondition(!arr->body, NULL_AL_BODY);
-    chooseBubbleSortArr(arr->type, arr->body, __getTypeSize(arr->type) * arr->size);
+    checkCondition(!arr, NULL_AL_GIVEN);
+    checkCondition(!arr->type, NULL_AL_TYPE);
+    checkCondition(!arr->body, NULL_AL_BODY);
+    chooseBubbleSortArr(arr->type, arr->body, arr->size);
 }
 
 void quickSortAL(ArrayList arr) {
-    __checkCondition(!arr, NULL_AL_GIVEN);
-    __checkCondition(!arr->type, NULL_AL_TYPE);
-    __checkCondition(!arr->body, NULL_AL_BODY);
-    chooseQuickSortArr(arr->type, arr->body, __getTypeSize(arr->type) * arr->size);
+    checkCondition(!arr, NULL_AL_GIVEN);
+    checkCondition(!arr->type, NULL_AL_TYPE);
+    checkCondition(!arr->body, NULL_AL_BODY);
+    chooseQuickSortArr(arr->type, arr->body, arr->size);
 }
 
 void appendToAL(ArrayList arr, ...) {
-    __checkCondition(!arr, NULL_AL_GIVEN);
-    __checkCondition(!arr->type, NULL_AL_GIVEN);
-    byte typeSize = __getTypeSize(arr->type);
+    checkCondition(!arr, NULL_AL_GIVEN);
+    checkCondition(!arr->type, NULL_AL_GIVEN);
+    byte typeSize = getTypeSize(arr->type);
     if (arr->size == 0)
         arr->body = saferMalloc(typeSize);
     else
-        arr->body = saferRealloc(arr->body, typeSize);
+        arr->body = saferRealloc(arr->body, (arr->size + 1) * typeSize);
     va_list argList;
     va_start(argList, arr);
-    __data data;
-    if (strcmp(arr->type, "%c") == 0)
-        data.charData = va_arg(argList, int);
-    else if (strcmp(arr->type, "%i") == 0)
-        data.intData = va_arg(argList, int);
-    else if (strcmp(arr->type, "%f") == 0)
-        data.floatData = va_arg(argList, double);
-    else if (strcmp(arr->type, "%lf") == 0)
-        data.doubleData = va_arg(argList, double);
-    else if (strcmp(arr->type, "%p") == 0)
-        data.ptrData = va_arg(argList, void *);
-    memcpy(arr->body + arr->size * typeSize, &data, typeSize);
+    varData data = getData(arr->type, argList);
+    memcpy(arr->body + arr->size * typeSize, data, typeSize);
+    free(data);
     va_end(argList);
     arr->size++;
 }
 
 void insertToAL(ArrayList arr, unsigned int index, ...) {
-    __checkCondition(!arr, NULL_AL_GIVEN);
-    __checkCondition(!arr->body, NULL_AL_BODY);
-    __checkCondition(!arr->type, NULL_AL_TYPE);
-    __checkCondition(index >= arr->size, OUT_OF_AL_BOUNDS);
-    byte typeSize = __getTypeSize(arr->type);
+    checkCondition(!arr, NULL_AL_GIVEN);
+    checkCondition(!arr->body, NULL_AL_BODY);
+    checkCondition(!arr->type, NULL_AL_TYPE);
+    checkCondition(index >= arr->size, OUT_OF_AL_BOUNDS);
+    byte typeSize = getTypeSize(arr->type);
     void *newBody = saferMalloc((arr->size + 1) * typeSize);
     memcpy(newBody, arr->body, index * typeSize);
     va_list argList;
     va_start(argList, index);
-    __data data;
-    if (strcmp(arr->type, "%c") == 0)
-        data.charData = va_arg(argList, int);
-    else if (strcmp(arr->type, "%i") == 0)
-        data.intData = va_arg(argList, int);
-    else if (strcmp(arr->type, "%f") == 0)
-        data.floatData = va_arg(argList, double);
-    else if (strcmp(arr->type, "%lf") == 0)
-        data.doubleData = va_arg(argList, double);
-    else if (strcmp(arr->type, "%p") == 0)
-        data.ptrData = va_arg(argList, void *);
-    else {
-        va_end(argList);
-        __checkCondition(TRUE, UNSUPPORTED_SPECIFIER);
-    }
-    memcpy(newBody + index * typeSize, &data, typeSize);
+    varData data = getData(arr->type, argList);
+    memcpy(newBody + index * typeSize, data, typeSize);
     memcpy(newBody + (index + 1) * typeSize, arr->body + index * typeSize, (arr->size - index) * typeSize);
-    arr->size++;
     free(arr->body);
+    free(data);
+    arr->size++;
     arr->body = newBody;
 }
 
-void setALElement(ArrayList arr, unsigned int index, ...) {
-    __checkCondition(!arr, NULL_AL_GIVEN);
-    __checkCondition(!arr->body, NULL_AL_BODY);
-    __checkCondition(!arr->type, NULL_AL_TYPE);
-    __checkCondition(index >= arr->size, OUT_OF_AL_BOUNDS);
-    byte typeSize = __getTypeSize(arr->type);
+void setALItem(ArrayList arr, unsigned int index, ...) {
+    checkCondition(!arr, NULL_AL_GIVEN);
+    checkCondition(!arr->body, NULL_AL_BODY);
+    checkCondition(!arr->type, NULL_AL_TYPE);
+    checkCondition(index >= arr->size, OUT_OF_AL_BOUNDS);
+    byte typeSize = getTypeSize(arr->type);
     va_list argList;
     va_start(argList, index);
-    __data data;
-    if (strcmp(arr->type, "%c") == 0)
-        data.charData = va_arg(argList, int);
-    else if (strcmp(arr->type, "%i") == 0)
-        data.intData = va_arg(argList, int);
-    else if (strcmp(arr->type, "%f") == 0)
-        data.floatData = va_arg(argList, double);
-    else if (strcmp(arr->type, "%lf") == 0)
-        data.doubleData = va_arg(argList, double);
-    else if (strcmp(arr->type, "%p") == 0)
-        data.ptrData = va_arg(argList, void *);
-    else {
-        va_end(argList);
-        __checkCondition(TRUE, UNSUPPORTED_SPECIFIER);
-    }
-    memcpy(arr->body + index * typeSize, &data, typeSize);
+    varData data = getData(arr->type, argList);
+    memcpy(arr->body + index * typeSize, data, typeSize);
+    free(data);
 }
 
 ArrayList newALFromCharArray(const char arr[], unsigned int size) {
-    __checkCondition(!arr, NULL_AL_GIVEN);
+    checkCondition(!arr, NULL_AL_GIVEN);
     ArrayList newArray = saferMalloc(sizeof(ArrayList));
     newArray->type = "%c";
     newArray->size = size;
@@ -260,6 +231,76 @@ ArrayList newALFromCharArray(const char arr[], unsigned int size) {
 }
 
 ArrayList newALFromByteArray(const char arr[], unsigned int size) {
-    __checkCondition(!arr, NULL_AL_GIVEN);
+    checkCondition(!arr, NULL_AL_GIVEN);
     return newALFromCharArray(arr, size);
+}
+
+ArrayList newALFromIntArray(const int arr[], unsigned int size) {
+    checkCondition(!arr, NULL_AL_GIVEN);
+    ArrayList newArray = saferMalloc(sizeof(ArrayList));
+    newArray->type = "%i";
+    newArray->size = size;
+    unsigned int bytesToBeCopied = size * sizeof(int);
+    newArray->body = saferMalloc(bytesToBeCopied);
+    memcpy(newArray->body, arr, bytesToBeCopied);
+    return newArray;
+}
+
+ArrayList newALFromFloatArray(const float arr[], unsigned int size) {
+    checkCondition(!arr, NULL_AL_GIVEN);
+    ArrayList newArray = saferMalloc(sizeof(ArrayList));
+    newArray->type = "%f";
+    newArray->size = size;
+    unsigned int bytesToBeCopied = size * sizeof(float);
+    newArray->body = saferMalloc(bytesToBeCopied);
+    memcpy(newArray->body, arr, bytesToBeCopied);
+    return newArray;
+}
+
+ArrayList newALFromDoubleArray(const double arr[], unsigned int size) {
+    checkCondition(!arr, NULL_AL_GIVEN);
+    ArrayList newArray = saferMalloc(sizeof(ArrayList));
+    newArray->type = "%lf";
+    newArray->size = size;
+    unsigned int bytesToBeCopied = size * sizeof(double);
+    newArray->body = saferMalloc(bytesToBeCopied);
+    memcpy(newArray->body, arr, bytesToBeCopied);
+    return newArray;
+}
+
+ArrayList newALFromPtrArray(const void *arr, unsigned int size) {
+    checkCondition(!arr, NULL_AL_GIVEN);
+    ArrayList newArray = saferMalloc(sizeof(ArrayList));
+    newArray->type = "%p";
+    newArray->size = size;
+    unsigned int bytesToBeCopied = size * sizeof(void *);
+    newArray->body = saferMalloc(bytesToBeCopied);
+    memcpy(newArray->body, arr, bytesToBeCopied);
+    return newArray;
+}
+
+byte isInAL(ArrayList arr, ...) {
+    checkCondition(!arr, NULL_AL_GIVEN);
+    checkCondition(!arr->type, NULL_AL_GIVEN);
+    byte typeSize = getTypeSize(arr->type);
+    va_list argList;
+    va_start(argList, arr);
+    varData data = getData(arr->type, argList);
+    for (unsigned i = 0; i < arr->size; i++) 
+        if (memcmp(arr->body + i * typeSize, data, typeSize) == 0)
+            return TRUE;
+    return FALSE;
+}
+
+int linearSearchAL(ArrayList arr, ...) {
+    checkCondition(!arr, NULL_POINTER_GIVEN);
+    checkCondition(!arr->type, NULL_AL_TYPE);
+    checkCondition(endsWith(arr->type, "f"), UNSUPPORTED_SPECIFIER);
+    va_list argList;
+    va_start(argList, arr);
+    varData key = getData(arr->type, argList);
+    va_end(argList);
+    int index = chooseLinearSearch(arr->type, arr->body, arr->size, *key);
+    free(key);
+    return index;
 }

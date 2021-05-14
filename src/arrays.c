@@ -10,51 +10,39 @@
 
 void chooseQuickSortArr(const spec_t spec, void *arr, int size) {
     //size is not unsigned int beacause qsort requires signed int
-    __checkCondition(!spec || !arr, NULL_POINTER_GIVEN);
-    size_t typeSize;
-    if (strcmp("%c", spec) == 0)
-        typeSize = sizeof(char);
-    else if (strcmp("%i", spec) == 0)
-        typeSize = sizeof(int);
-    else if (strcmp("%f", spec) == 0)
-        typeSize = sizeof(float);
-    else if (strcmp("%lf", spec) == 0)
-        typeSize = sizeof(double);
-    else if (strcmp("%p", spec) == 0)
-        typeSize = sizeof(void *);
-    else
-        __checkCondition(TRUE, UNSUPPORTED_SPECIFIER);
-    void *cmpVal = __getCmp(spec);
+    checkCondition(!spec || !arr, NULL_POINTER_GIVEN);
+    size_t typeSize = getTypeSize(spec);
+    void *cmpVal = getCmp(spec);
     qsort(arr, size, typeSize, cmpVal);
 }
 
 void charQuickSort(char *arr, unsigned int size) {
-    __checkCondition(!arr, NULL_POINTER_GIVEN);
+    checkCondition(!arr, NULL_POINTER_GIVEN);
     chooseQuickSortArr("%c", arr, size);
 }
 
 void intQuickSort(int *arr, unsigned int size) {
-    __checkCondition(!arr, NULL_POINTER_GIVEN);
+    checkCondition(!arr, NULL_POINTER_GIVEN);
     chooseQuickSortArr("%i", arr, size);
 }
 
 void floatQuickSort(float *arr, unsigned int size) {
-    __checkCondition(!arr, NULL_POINTER_GIVEN);
+    checkCondition(!arr, NULL_POINTER_GIVEN);
     chooseQuickSortArr("%f", arr, size);
 }
 
 void doubleQuickSort(double *arr, unsigned int size) {
-    __checkCondition(!arr, NULL_POINTER_GIVEN);
+    checkCondition(!arr, NULL_POINTER_GIVEN);
     chooseQuickSortArr("%lf", arr, size);
 }
 
 void ptrQuickSort(void **arr, unsigned int size) {
-    __checkCondition(!arr, NULL_POINTER_GIVEN);
+    checkCondition(!arr, NULL_POINTER_GIVEN);
     chooseQuickSortArr("%p", arr, size);
 }
 
 void chooseBubbleSortArr(const spec_t spec, void *arr, unsigned int size) {
-    __checkCondition(!arr || !spec, NULL_POINTER_GIVEN);
+    checkCondition(!arr || !spec, NULL_POINTER_GIVEN);
     char isSorted;
     unsigned int sorted = 0;
     if (strcmp("%c", spec) == 0)
@@ -67,54 +55,37 @@ void chooseBubbleSortArr(const spec_t spec, void *arr, unsigned int size) {
         return doubleBubbleSort(arr, size);
     if (strcmp("%p", spec) == 0) 
         return ptrBubbleSort(arr, size);
-    __checkCondition(TRUE, UNSUPPORTED_SPECIFIER);
+    checkCondition(TRUE, UNSUPPORTED_SPECIFIER);
 }
 
-int linearSearch(const spec_t spec, const void *arr, const void *key, int size) {
-    __checkCondition((!spec || !arr || !key), NULL_POINTER_GIVEN);
-    //int and not unsigned int because KEY_NOT_FOUND is -1
-    //key pointer is void in order to be used with pointers of all types
-    // TODO use memcmp instead of the abort it uses now
-    char typeSize;
-    char *castedArrPtr = (char *)arr;
-    char *castedKeyPtr = (char *)key;
-    if (strcmp("%c", spec) == 0)
-        typeSize = sizeof(char);
-    else if (strcmp("%i", spec) == 0)
-        typeSize = sizeof(int);
-    else if (strcmp("%f", spec) == 0)
-        typeSize = sizeof(float);
-    else if (strcmp("%lf", spec) == 0)
-        typeSize = sizeof(double);
-    else if (strcmp("%p", spec) == 0)
-        typeSize = sizeof(void *);
-    else
-        __checkCondition(TRUE, UNSUPPORTED_SPECIFIER);
-    int index;
-    char equalUntilNow;
-    for (index = 0; index < typeSize * size; index += typeSize) {
-        equalUntilNow = 1;
-        for (int j = 0; j < typeSize && equalUntilNow; j++) {
-            if (*(castedArrPtr + index + j) != *(castedKeyPtr + j)) {
-                equalUntilNow = 0;
-                continue;
-            }
-            if (j == typeSize - 1)
-                return index / typeSize;
+// TODO Linear searches for all types definition and implementation
+
+int chooseLinearSearch(const spec_t spec, void *arr, int size, ...) {
+    checkCondition(!spec || !arr, NULL_POINTER_GIVEN);
+    checkCondition(!isTypeSupported(spec), UNSUPPORTED_SPECIFIER);
+    va_list argList;
+    va_start(argList, size);
+    varData key = getData(spec, argList);
+    va_end(argList);
+    byte typeSize = getTypeSize(spec);
+    for (int i = 0; i < size; i++)
+        if (memcmp(arr + i * typeSize, key, typeSize) == 0) {
+            free(key);
+            return i;
         }
-    }
+    free(key);
     return KEY_NOT_FOUND;
 }
 
 void printMatrix(const spec_t spec, const void *matrix, const unsigned int nRows, const unsigned int nColumns) {
-    __checkCondition(!spec || !matrix, NULL_POINTER_GIVEN);
+    checkCondition(!spec || !matrix, NULL_POINTER_GIVEN);
     if (endsWith(spec, "hhi"))
-        __checkCondition(TRUE, UNSUPPORTED_SPECIFIER);
+        checkCondition(TRUE, UNSUPPORTED_SPECIFIER);
     if (endsWith(spec, "hi")) {
         for (unsigned int i = 0; i < nRows; i++) {
             for (unsigned int j = 0; j < nColumns; j++)
                 printf(spec, *((char *)(matrix + i * nColumns * sizeof(char) + j * sizeof(char))));
-            printf("\n\n");
+            printf("\n");
         }
         printf("\n");
     }
@@ -122,7 +93,7 @@ void printMatrix(const spec_t spec, const void *matrix, const unsigned int nRows
         for (unsigned int i = 0; i < nRows; i++) {
             for (unsigned int j = 0; j < nColumns; j++)
                 printf(spec, *((char *)(matrix + i * nColumns * sizeof(char) + j * sizeof(char))));
-            printf("\n\n");
+            printf("\n");
         }
         printf("\n");
     }
@@ -130,7 +101,7 @@ void printMatrix(const spec_t spec, const void *matrix, const unsigned int nRows
         for (unsigned int i = 0; i < nRows; i++) {
             for (unsigned int j = 0; j < nColumns; j++)
                 printf(spec, *((int *)(matrix + i * nColumns * sizeof(int) + j * sizeof(int))));
-            printf("\n\n");
+            printf("\n");
         }
         printf("\n");
     }
@@ -138,7 +109,7 @@ void printMatrix(const spec_t spec, const void *matrix, const unsigned int nRows
         for (unsigned int i = 0; i < nRows; i++) {
             for (unsigned int j = 0; j < nColumns; j++)
                 printf(spec, *((double *)(matrix + i * nColumns * sizeof(double) + j * sizeof(double))));
-            printf("\n\n");
+            printf("\n");
         }
         printf("\n");
     }
@@ -146,16 +117,16 @@ void printMatrix(const spec_t spec, const void *matrix, const unsigned int nRows
         for (unsigned int i = 0; i < nRows; i++) {
             for (unsigned int j = 0; j < nColumns; j++)
                 printf(spec, *((float *)(matrix + i * nColumns * sizeof(float) + j * sizeof(float))));
-            printf("\n\n");
+            printf("\n");
         }
         printf("\n");
     }
     else
-        __checkCondition(TRUE, UNSUPPORTED_SPECIFIER);
+        checkCondition(TRUE, UNSUPPORTED_SPECIFIER);
 }
 
 void charBubbleSort(char *arr, unsigned int size) {
-    __checkCondition(!arr, NULL_POINTER_GIVEN);
+    checkCondition(!arr, NULL_POINTER_GIVEN);
     byte isSorted;
     unsigned int sorted = 0;
     char temp;
@@ -176,7 +147,7 @@ void charBubbleSort(char *arr, unsigned int size) {
 }
 
 void intBubbleSort(int *arr, unsigned int size) {
-    __checkCondition(!arr, NULL_POINTER_GIVEN);
+    checkCondition(!arr, NULL_POINTER_GIVEN);
     byte isSorted;
     unsigned int sorted = 0;
     int temp;
@@ -197,7 +168,7 @@ void intBubbleSort(int *arr, unsigned int size) {
 }
 
 void floatBubbleSort(float *arr, unsigned int size) {
-    __checkCondition(!arr, NULL_POINTER_GIVEN);
+    checkCondition(!arr, NULL_POINTER_GIVEN);
     byte isSorted;
     unsigned int sorted = 0;
     float temp;
@@ -218,7 +189,7 @@ void floatBubbleSort(float *arr, unsigned int size) {
 }
 
 void doubleBubbleSort(double *arr, unsigned int size) {
-    __checkCondition(!arr, NULL_POINTER_GIVEN);
+    checkCondition(!arr, NULL_POINTER_GIVEN);
     byte isSorted;
     unsigned int sorted = 0;
     double temp;
@@ -239,10 +210,10 @@ void doubleBubbleSort(double *arr, unsigned int size) {
 }
 
 void ptrBubbleSort(void **arr, unsigned int size) {
-    __checkCondition(!arr, NULL_POINTER_GIVEN);
+    checkCondition(!arr, NULL_POINTER_GIVEN);
     byte isSorted;
     unsigned int sorted = 0;
-    int *temp;
+    void *temp;
     do {
         isSorted = 1;
         int i = -1;

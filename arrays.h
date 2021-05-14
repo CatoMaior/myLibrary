@@ -29,12 +29,13 @@ void chooseQuickSortArr(const spec_t spec, void *arr, int size);
  * @brief Linear search for arrays
  * @param spec Type specifier of the array to be sorted. Refer to ::spec_t for supported types
  * @param arr Pointer to the first element of the array to be inspected
- * @param key Pointer to the key
  * @param size Number of elements of the array to be inspected
+ * @param ... The key to be searched
+ * @note Even though passing more than one key does not throw a compiler nor runtime error, only searching one item is supported. Other items are ignored. If you don't specify any item to be searched, still no errors occur but the return value of the function can be unpredictable
  * @return The index of the first occurence of the key in the array or the return code of the function
  * @retval KEY_NOT_FOUND The key was not found
  */
-int linearSearch(const spec_t spec, const void *arr, const void *key, int size);
+int chooseLinearSearch(const spec_t spec, void *arr, int size, ...);
 
 /**
  * @brief Print matrix of specified size with specified formatting
