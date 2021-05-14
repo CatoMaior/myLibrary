@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['linearsearch_42',['linearSearch',['../arrays_8h.html#a7dd000aef5c7e94084dc0918747df67a',1,'arrays.h']]]
+  ['linearsearchal_42',['linearSearchAL',['../arrayList_8h.html#acb61557097e2a0935a25ebe6e56e5a4c',1,'arrayList.h']]]
 ];

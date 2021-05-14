@@ -9,10 +9,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -50,23 +46,6 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('utility_8h.html',''); initResizable(); });
-/* @license-end */
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -81,6 +60,7 @@ $(document).ready(function(){initNavTree('utility_8h.html',''); initResizable();
 </iframe>
 </div>
 
+</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
@@ -108,7 +88,6 @@ This graph shows which files directly or indirectly include this file:</div>
 <map name="autility_8hdep" id="autility_8hdep">
 <area shape="rect" title="Common tasks such as comparing variables, swap bools, allocate memory." alt="" coords="18,5,81,32"/>
 <area shape="rect" href="myLibrary_8h.html" title="Includes all other headers. Useful for rapid import." alt="" coords="5,80,93,107"/>
-<area shape="rect" href="testing_8c.html" title=" " alt="" coords="14,155,85,181"/>
 </map>
 </div>
 </div>
@@ -116,8 +95,6 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aec39d7db80970425e66b06496a7a2542"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utility_8h.html#aec39d7db80970425e66b06496a7a2542">checkCondition</a> (<a class="el" href="types_8h.html#a2b7e7856b48ec3327148ac994ad95cd5">byte</a> condition, <a class="el" href="types_8h.html#a4505c08c065b48840a30eedd9845cce2">string</a> errorString)</td></tr>
-<tr class="separator:aec39d7db80970425e66b06496a7a2542"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3769c644736b102babde740e8c03acf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#a2b7e7856b48ec3327148ac994ad95cd5">byte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utility_8h.html#ac3769c644736b102babde740e8c03acf">chooseCmp</a> (const <a class="el" href="types_8h.html#a12a67a7129240fa955c096deb10cdd6e">spec_t</a> spec, const void *a, const void *b)</td></tr>
 <tr class="memdesc:ac3769c644736b102babde740e8c03acf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare two chars.  <a href="utility_8h.html#ac3769c644736b102babde740e8c03acf">More...</a><br /></td></tr>
 <tr class="separator:ac3769c644736b102babde740e8c03acf"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -139,9 +116,6 @@ Functions</h2></td></tr>
 <tr class="memitem:a3a26e3c3ede0beca95ea69c8372bbda5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#a2b7e7856b48ec3327148ac994ad95cd5">byte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utility_8h.html#a3a26e3c3ede0beca95ea69c8372bbda5">ptrCmp</a> (const void *a, const void *b)</td></tr>
 <tr class="memdesc:a3a26e3c3ede0beca95ea69c8372bbda5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare two pointers.  <a href="utility_8h.html#a3a26e3c3ede0beca95ea69c8372bbda5">More...</a><br /></td></tr>
 <tr class="separator:a3a26e3c3ede0beca95ea69c8372bbda5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac7255ad382cf2ec4f5504ebe251ef285"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utility_8h.html#ac7255ad382cf2ec4f5504ebe251ef285">getCmp</a> (const <a class="el" href="types_8h.html#a12a67a7129240fa955c096deb10cdd6e">spec_t</a> spec)</td></tr>
-<tr class="memdesc:ac7255ad382cf2ec4f5504ebe251ef285"><td class="mdescLeft">&#160;</td><td class="mdescRight">Choose comparison function based on given identifier.  <a href="utility_8h.html#ac7255ad382cf2ec4f5504ebe251ef285">More...</a><br /></td></tr>
-<tr class="separator:ac7255ad382cf2ec4f5504ebe251ef285"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa7da8f49b718cedad9e787580432709b"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utility_8h.html#aa7da8f49b718cedad9e787580432709b">saferMalloc</a> (unsigned int bytes)</td></tr>
 <tr class="memdesc:aa7da8f49b718cedad9e787580432709b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a pointer to a space in memory of specified size.  <a href="utility_8h.html#aa7da8f49b718cedad9e787580432709b">More...</a><br /></td></tr>
 <tr class="separator:aa7da8f49b718cedad9e787580432709b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -212,34 +186,6 @@ Functions</h2></td></tr>
 
 <p>Compare two chars. </p>
 <p>Equivalent to <code>chooseCmp("%c", a, b)</code>. Refer to <a class="el" href="utility_8h.html#ac3769c644736b102babde740e8c03acf" title="Compare two chars.">chooseCmp()</a> </p>
-
-</div>
-</div>
-<a id="aec39d7db80970425e66b06496a7a2542"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aec39d7db80970425e66b06496a7a2542">&#9670;&nbsp;</a></span>checkCondition()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void checkCondition </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="types_8h.html#a2b7e7856b48ec3327148ac994ad95cd5">byte</a>&#160;</td>
-          <td class="paramname"><em>condition</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="types_8h.html#a4505c08c065b48840a30eedd9845cce2">string</a>&#160;</td>
-          <td class="paramname"><em>errorString</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
 
 </div>
 </div>
@@ -358,33 +304,6 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ac7255ad382cf2ec4f5504ebe251ef285"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac7255ad382cf2ec4f5504ebe251ef285">&#9670;&nbsp;</a></span>getCmp()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void* getCmp </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="types_8h.html#a12a67a7129240fa955c096deb10cdd6e">spec_t</a>&#160;</td>
-          <td class="paramname"><em>spec</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Choose comparison function based on given identifier. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">spec</td><td>Specifier of the type of the data. Refer to <a class="el" href="types_8h.html#a12a67a7129240fa955c096deb10cdd6e" title="Used to specify type of argument passed in functions that require a type specifier.">spec_t</a> </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to the right comparison function, <code>NULL</code> if identifier is not recognized or given pointer was null </dd></dl>
-
-</div>
-</div>
 <a id="aebc7b095cdd90551a58295a17ce16dfd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aebc7b095cdd90551a58295a17ce16dfd">&#9670;&nbsp;</a></span>intCmp()</h2>
 
@@ -464,7 +383,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Return a pointer to a space in memory of specified size. </p>
-<p>Calls <code>malloc(bytes)</code> for a maximum of 10 times until it returns a not null pointer </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Calls <code>malloc(bytes)</code> for a maximum of 10 times until it returns a not null pointer. If in 10 calls does not manage to obtain a not null pointer makes the program terminate </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">bytes</td><td>Number of bytes to allocate </td></tr>
   </table>
@@ -501,7 +420,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Reallocate a space in memory. </p>
-<p>Calls <code>realloc(pointer, bytes)</code> for a maximum of 10 times until it returns a not null pointer </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Calls <code>realloc(pointer, bytes)</code> for a maximum of 10 times until it returns a not null pointer. If in 10 calls does not manage to obtain a not null pointer makes the program terminate </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">pointer</td><td>Pointer to the memory to be reallocated </td></tr>
     <tr><td class="paramname">bytes</td><td>Number of bytes to allocate </td></tr>
@@ -513,13 +432,9 @@ Functions</h2></td></tr>
 </div>
 </div>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="utility_8h.html">utility.h</a></li>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
 </body>
 </html>

@@ -9,10 +9,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -51,22 +47,6 @@ $(function() {
 /* @license-end */</script>
 <div id="main-nav"></div>
 </div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('globals_func.html',''); initResizable(); });
-/* @license-end */
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -85,16 +65,19 @@ $(document).ready(function(){initNavTree('globals_func.html',''); initResizable(
 &#160;
 
 <h3><a id="index_a"></a>- a -</h3><ul>
-<li>appendCharToAL()
-: <a class="el" href="arrayList_8h.html#abf019c5cc4cbe3552b5d1ce30377eb5b">arrayList.h</a>
+<li>appendToAL()
+: <a class="el" href="arrayList_8h.html#a692474324bdb27d3943c981cd076749c">arrayList.h</a>
 </li>
 <li>areALEqual()
-: <a class="el" href="arrayList_8h.html#a40cdebf2afcbe0410560cc43cab86bc5">arrayList.h</a>
+: <a class="el" href="arrayList_8h.html#ac20f6cec03a7cdd8e701385c6f8160d4">arrayList.h</a>
 </li>
 </ul>
 
 
 <h3><a id="index_b"></a>- b -</h3><ul>
+<li>bubbleSortAL()
+: <a class="el" href="arrayList_8h.html#aeee17b55409fa14dc8d62f1cfa462837">arrayList.h</a>
+</li>
 <li>byteCmp()
 : <a class="el" href="utility_8h.html#acc8c97c95b8bfe6eba88cc46480d2b45">utility.h</a>
 </li>
@@ -114,17 +97,20 @@ $(document).ready(function(){initNavTree('globals_func.html',''); initResizable(
 <li>charQuickSort()
 : <a class="el" href="arrays_8h.html#a13f8a7a51bbaefbc3bd9b7b519530dba">arrays.h</a>
 </li>
-<li>checkCondition()
-: <a class="el" href="utility_8h.html#aec39d7db80970425e66b06496a7a2542">utility.h</a>
-</li>
-<li>chooseBubbleSort()
-: <a class="el" href="arrays_8h.html#a73341bf99d1255781aad299310d22458">arrays.h</a>
+<li>chooseBubbleSortArr()
+: <a class="el" href="arrays_8h.html#a261dbf080f89266b313adf68de9575a2">arrays.h</a>
 </li>
 <li>chooseCmp()
 : <a class="el" href="utility_8h.html#ac3769c644736b102babde740e8c03acf">utility.h</a>
 </li>
-<li>chooseQuickSort()
-: <a class="el" href="arrays_8h.html#a6182cfcf64d1c9326708d154950742d5">arrays.h</a>
+<li>chooseLinearSearch()
+: <a class="el" href="arrays_8h.html#a23bc03dea4b74f8712b4a3d01f2ce06b">arrays.h</a>
+</li>
+<li>chooseNewALFromArray()
+: <a class="el" href="arrayList_8h.html#a4b307a56bc57878384e0fcc2f95d9125">arrayList.h</a>
+</li>
+<li>chooseQuickSortArr()
+: <a class="el" href="arrays_8h.html#af251dbb285faf8d84a4fb4cf7aa9abe1">arrays.h</a>
 </li>
 <li>copyOf()
 : <a class="el" href="strings_8h.html#a3a4ef40ecb4f7fb22f99f1b456a61076">strings.h</a>
@@ -169,9 +155,6 @@ $(document).ready(function(){initNavTree('globals_func.html',''); initResizable(
 
 
 <h3><a id="index_g"></a>- g -</h3><ul>
-<li>getCmp()
-: <a class="el" href="utility_8h.html#ac7255ad382cf2ec4f5504ebe251ef285">utility.h</a>
-</li>
 <li>getFromAL()
 : <a class="el" href="arrayList_8h.html#a0b9cabcaa26a16ecbc2eb0fbf1ba43c2">arrayList.h</a>
 </li>
@@ -185,8 +168,8 @@ $(document).ready(function(){initNavTree('globals_func.html',''); initResizable(
 
 
 <h3><a id="index_i"></a>- i -</h3><ul>
-<li>insertCharToAL()
-: <a class="el" href="arrayList_8h.html#a999975a49973b4576f1de0d6d5eddc29">arrayList.h</a>
+<li>insertToAL()
+: <a class="el" href="arrayList_8h.html#a0ef14226f064a82a4a135547d9e00d54">arrayList.h</a>
 </li>
 <li>intBubbleSort()
 : <a class="el" href="arrays_8h.html#a114783f8a2beed66f15d55a6c49c678d">arrays.h</a>
@@ -197,20 +180,20 @@ $(document).ready(function(){initNavTree('globals_func.html',''); initResizable(
 <li>intQuickSort()
 : <a class="el" href="arrays_8h.html#a7d82fada628bc00b425b7dac04d69ee0">arrays.h</a>
 </li>
+<li>isInAL()
+: <a class="el" href="arrayList_8h.html#a7389cf897eaf9fd26277510a37251a4d">arrayList.h</a>
+</li>
 </ul>
 
 
 <h3><a id="index_l"></a>- l -</h3><ul>
-<li>linearSearch()
-: <a class="el" href="arrays_8h.html#a7dd000aef5c7e94084dc0918747df67a">arrays.h</a>
+<li>linearSearchAL()
+: <a class="el" href="arrayList_8h.html#acb61557097e2a0935a25ebe6e56e5a4c">arrayList.h</a>
 </li>
 </ul>
 
 
 <h3><a id="index_m"></a>- m -</h3><ul>
-<li>main()
-: <a class="el" href="testing_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">testing.c</a>
-</li>
 <li>mergeAL()
 : <a class="el" href="arrayList_8h.html#a6ee39fe88752ebaeb10c9afc15695536">arrayList.h</a>
 </li>
@@ -219,7 +202,7 @@ $(document).ready(function(){initNavTree('globals_func.html',''); initResizable(
 
 <h3><a id="index_n"></a>- n -</h3><ul>
 <li>newAL()
-: <a class="el" href="arrayList_8h.html#a429dce8b21a5cdc75ad93277d854a94d">arrayList.h</a>
+: <a class="el" href="arrayList_8h.html#aa6808afbb41c7ef03e1841717dd3d7b2">arrayList.h</a>
 </li>
 <li>newALFromAL()
 : <a class="el" href="arrayList_8h.html#a9e403594d19bb436ac875a0b1add4912">arrayList.h</a>
@@ -229,6 +212,18 @@ $(document).ready(function(){initNavTree('globals_func.html',''); initResizable(
 </li>
 <li>newALFromCharArray()
 : <a class="el" href="arrayList_8h.html#a4739fd0a8f0abc7ff145b9486de66efc">arrayList.h</a>
+</li>
+<li>newALFromDoubleArray()
+: <a class="el" href="arrayList_8h.html#a760db070b3b9470f0118e77054d2630e">arrayList.h</a>
+</li>
+<li>newALFromFloatArray()
+: <a class="el" href="arrayList_8h.html#a7b87887820904cc98001088f5bbbc113">arrayList.h</a>
+</li>
+<li>newALFromIntArray()
+: <a class="el" href="arrayList_8h.html#ae7a9883c8db9b50ad80d0f58ad8223e8">arrayList.h</a>
+</li>
+<li>newALFromPtrArray()
+: <a class="el" href="arrayList_8h.html#af53a4d161e8ba6ff95042165eb3bfefc">arrayList.h</a>
 </li>
 </ul>
 
@@ -252,6 +247,13 @@ $(document).ready(function(){initNavTree('globals_func.html',''); initResizable(
 </ul>
 
 
+<h3><a id="index_q"></a>- q -</h3><ul>
+<li>quickSortAL()
+: <a class="el" href="arrayList_8h.html#aae97fcbafcef23122fee9bb61d662f84">arrayList.h</a>
+</li>
+</ul>
+
+
 <h3><a id="index_r"></a>- r -</h3><ul>
 <li>removeFromAL()
 : <a class="el" href="arrayList_8h.html#a8d0adda2154aa4ed545511cc38479039">arrayList.h</a>
@@ -269,20 +271,17 @@ $(document).ready(function(){initNavTree('globals_func.html',''); initResizable(
 <li>saferRealloc()
 : <a class="el" href="utility_8h.html#aadeeccab529e344cc74407333840fb73">utility.h</a>
 </li>
-<li>setALChar()
-: <a class="el" href="arrayList_8h.html#a3696c263c280cf7cea5b81483ba429de">arrayList.h</a>
+<li>setALItem()
+: <a class="el" href="arrayList_8h.html#abec30529fef441aa5f29776d8ec6cbff">arrayList.h</a>
 </li>
 <li>sliceAL()
 : <a class="el" href="arrayList_8h.html#ae47b315bd6c4eb95bf122ab0c1734ce5">arrayList.h</a>
 </li>
 </ul>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
 </body>
 </html>

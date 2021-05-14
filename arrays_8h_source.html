@@ -9,10 +9,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -51,22 +47,6 @@ $(function() {
 /* @license-end */</script>
 <div id="main-nav"></div>
 </div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('arrays_8h_source.html',''); initResizable(); });
-/* @license-end */
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -87,64 +67,60 @@ $(document).ready(function(){initNavTree('arrays_8h_source.html',''); initResiza
 </div><!--header-->
 <div class="contents">
 <a href="arrays_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#ifndef _SEEN_ARRAYS</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#define _SEEN_ARRAYS</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#ifndef __SEEN_ARRAYS</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#define __SEEN_ARRAYS</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="types_8h.html">types.h</a>&quot;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="arrays_8h.html#a73341bf99d1255781aad299310d22458">   18</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="arrays_8h.html#a73341bf99d1255781aad299310d22458">chooseBubbleSort</a>(<span class="keyword">const</span> <a class="code" href="types_8h.html#a12a67a7129240fa955c096deb10cdd6e">spec_t</a> spec, <span class="keywordtype">void</span> *arr, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> size);</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="arrays_8h.html#a261dbf080f89266b313adf68de9575a2">   18</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="arrays_8h.html#a261dbf080f89266b313adf68de9575a2">chooseBubbleSortArr</a>(<span class="keyword">const</span> <a class="code" href="types_8h.html#a12a67a7129240fa955c096deb10cdd6e">spec_t</a> spec, <span class="keywordtype">void</span> *arr, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> size);</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="arrays_8h.html#a6182cfcf64d1c9326708d154950742d5">   26</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="arrays_8h.html#a6182cfcf64d1c9326708d154950742d5">chooseQuickSort</a>(<span class="keyword">const</span> <a class="code" href="types_8h.html#a12a67a7129240fa955c096deb10cdd6e">spec_t</a> spec, <span class="keywordtype">void</span> *arr, <span class="keywordtype">int</span> size);</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="arrays_8h.html#af251dbb285faf8d84a4fb4cf7aa9abe1">   26</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="arrays_8h.html#af251dbb285faf8d84a4fb4cf7aa9abe1">chooseQuickSortArr</a>(<span class="keyword">const</span> <a class="code" href="types_8h.html#a12a67a7129240fa955c096deb10cdd6e">spec_t</a> spec, <span class="keywordtype">void</span> *arr, <span class="keywordtype">int</span> size);</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="arrays_8h.html#a7dd000aef5c7e94084dc0918747df67a">   37</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="arrays_8h.html#a7dd000aef5c7e94084dc0918747df67a">linearSearch</a>(<span class="keyword">const</span> <a class="code" href="types_8h.html#a12a67a7129240fa955c096deb10cdd6e">spec_t</a> spec, <span class="keyword">const</span> <span class="keywordtype">void</span> *arr, <span class="keyword">const</span> <span class="keywordtype">void</span> *key, <span class="keywordtype">int</span> size);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="arrays_8h.html#ab620d2c7265e41a8928042c7c0ea269e">   47</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="arrays_8h.html#ab620d2c7265e41a8928042c7c0ea269e">printMatrix</a>(<span class="keyword">const</span> <a class="code" href="types_8h.html#a12a67a7129240fa955c096deb10cdd6e">spec_t</a> spec, <span class="keyword">const</span> <span class="keywordtype">void</span> *matrix, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> nRows, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> nColumns);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="arrays_8h.html#aba45688581551369e2806b7d0230d34c">   53</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="arrays_8h.html#aba45688581551369e2806b7d0230d34c">charBubbleSort</a>(<span class="keywordtype">char</span> *arr, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> size);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="arrays_8h.html#a114783f8a2beed66f15d55a6c49c678d">   59</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="arrays_8h.html#a114783f8a2beed66f15d55a6c49c678d">intBubbleSort</a>(<span class="keywordtype">int</span> *arr, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> size);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="arrays_8h.html#a9015e98d89b08ad1dbf78c1813d84ac2">   65</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="arrays_8h.html#a9015e98d89b08ad1dbf78c1813d84ac2">floatBubbleSort</a>(<span class="keywordtype">float</span> *arr, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> size);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="arrays_8h.html#a61a8cae710b612db52c21140d70c0d4f">   71</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="arrays_8h.html#a61a8cae710b612db52c21140d70c0d4f">doubleBubbleSort</a>(<span class="keywordtype">double</span> *arr, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> size);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="arrays_8h.html#a4c4dac17d159dcca9c913c135c3438b2">   77</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="arrays_8h.html#a4c4dac17d159dcca9c913c135c3438b2">ptrBubbleSort</a>(<span class="keywordtype">void</span> **arr, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> size);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="arrays_8h.html#a13f8a7a51bbaefbc3bd9b7b519530dba">   83</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="arrays_8h.html#a13f8a7a51bbaefbc3bd9b7b519530dba">charQuickSort</a>(<span class="keywordtype">char</span> *arr, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> size);</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="arrays_8h.html#a7d82fada628bc00b425b7dac04d69ee0">   89</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="arrays_8h.html#a7d82fada628bc00b425b7dac04d69ee0">intQuickSort</a>(<span class="keywordtype">int</span> *arr, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> size);</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="arrays_8h.html#a04fd645c0d691ec70f40a83ad8a5f6ef">   95</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="arrays_8h.html#a04fd645c0d691ec70f40a83ad8a5f6ef">floatQuickSort</a>(<span class="keywordtype">float</span> *arr, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> size);</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
-<div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="arrays_8h.html#a36e8a7df6238bcad62e963665fc347ee">  101</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="arrays_8h.html#a36e8a7df6238bcad62e963665fc347ee">doubleQuickSort</a>(<span class="keywordtype">double</span> *arr, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> size);</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
-<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="arrays_8h.html#a2a4d082bc0ee99bf1542507238420030">  107</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="arrays_8h.html#a2a4d082bc0ee99bf1542507238420030">ptrQuickSort</a>(<span class="keywordtype">void</span> **arr, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> size);</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="arrays_8h.html#a23bc03dea4b74f8712b4a3d01f2ce06b">   38</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="arrays_8h.html#a23bc03dea4b74f8712b4a3d01f2ce06b">chooseLinearSearch</a>(<span class="keyword">const</span> <a class="code" href="types_8h.html#a12a67a7129240fa955c096deb10cdd6e">spec_t</a> spec, <span class="keywordtype">void</span> *arr, <span class="keywordtype">int</span> size, ...);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="arrays_8h.html#ab620d2c7265e41a8928042c7c0ea269e">   48</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="arrays_8h.html#ab620d2c7265e41a8928042c7c0ea269e">printMatrix</a>(<span class="keyword">const</span> <a class="code" href="types_8h.html#a12a67a7129240fa955c096deb10cdd6e">spec_t</a> spec, <span class="keyword">const</span> <span class="keywordtype">void</span> *matrix, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> nRows, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> nColumns);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="arrays_8h.html#aba45688581551369e2806b7d0230d34c">   54</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="arrays_8h.html#aba45688581551369e2806b7d0230d34c">charBubbleSort</a>(<span class="keywordtype">char</span> *arr, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> size);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="arrays_8h.html#a114783f8a2beed66f15d55a6c49c678d">   60</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="arrays_8h.html#a114783f8a2beed66f15d55a6c49c678d">intBubbleSort</a>(<span class="keywordtype">int</span> *arr, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> size);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="arrays_8h.html#a9015e98d89b08ad1dbf78c1813d84ac2">   66</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="arrays_8h.html#a9015e98d89b08ad1dbf78c1813d84ac2">floatBubbleSort</a>(<span class="keywordtype">float</span> *arr, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> size);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="arrays_8h.html#a61a8cae710b612db52c21140d70c0d4f">   72</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="arrays_8h.html#a61a8cae710b612db52c21140d70c0d4f">doubleBubbleSort</a>(<span class="keywordtype">double</span> *arr, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> size);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="arrays_8h.html#a4c4dac17d159dcca9c913c135c3438b2">   78</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="arrays_8h.html#a4c4dac17d159dcca9c913c135c3438b2">ptrBubbleSort</a>(<span class="keywordtype">void</span> **arr, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> size);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="arrays_8h.html#a13f8a7a51bbaefbc3bd9b7b519530dba">   84</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="arrays_8h.html#a13f8a7a51bbaefbc3bd9b7b519530dba">charQuickSort</a>(<span class="keywordtype">char</span> *arr, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> size);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="arrays_8h.html#a7d82fada628bc00b425b7dac04d69ee0">   90</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="arrays_8h.html#a7d82fada628bc00b425b7dac04d69ee0">intQuickSort</a>(<span class="keywordtype">int</span> *arr, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> size);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="arrays_8h.html#a04fd645c0d691ec70f40a83ad8a5f6ef">   96</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="arrays_8h.html#a04fd645c0d691ec70f40a83ad8a5f6ef">floatQuickSort</a>(<span class="keywordtype">float</span> *arr, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> size);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="arrays_8h.html#a36e8a7df6238bcad62e963665fc347ee">  102</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="arrays_8h.html#a36e8a7df6238bcad62e963665fc347ee">doubleQuickSort</a>(<span class="keywordtype">double</span> *arr, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> size);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="arrays_8h.html#a2a4d082bc0ee99bf1542507238420030">  108</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="arrays_8h.html#a2a4d082bc0ee99bf1542507238420030">ptrQuickSort</a>(<span class="keywordtype">void</span> **arr, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> size);</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aarrays_8h_html_a04fd645c0d691ec70f40a83ad8a5f6ef"><div class="ttname"><a href="arrays_8h.html#a04fd645c0d691ec70f40a83ad8a5f6ef">floatQuickSort</a></div><div class="ttdeci">void floatQuickSort(float *arr, unsigned int size)</div><div class="ttdoc">Quicksort for arrays of floats.</div></div>
 <div class="ttc" id="aarrays_8h_html_a114783f8a2beed66f15d55a6c49c678d"><div class="ttname"><a href="arrays_8h.html#a114783f8a2beed66f15d55a6c49c678d">intBubbleSort</a></div><div class="ttdeci">void intBubbleSort(int *arr, unsigned int size)</div><div class="ttdoc">Bubblesort for arrays of ints.</div></div>
 <div class="ttc" id="aarrays_8h_html_a13f8a7a51bbaefbc3bd9b7b519530dba"><div class="ttname"><a href="arrays_8h.html#a13f8a7a51bbaefbc3bd9b7b519530dba">charQuickSort</a></div><div class="ttdeci">void charQuickSort(char *arr, unsigned int size)</div><div class="ttdoc">Quicksort for arrays of chars.</div></div>
+<div class="ttc" id="aarrays_8h_html_a23bc03dea4b74f8712b4a3d01f2ce06b"><div class="ttname"><a href="arrays_8h.html#a23bc03dea4b74f8712b4a3d01f2ce06b">chooseLinearSearch</a></div><div class="ttdeci">int chooseLinearSearch(const spec_t spec, void *arr, int size,...)</div><div class="ttdoc">Linear search for arrays.</div></div>
+<div class="ttc" id="aarrays_8h_html_a261dbf080f89266b313adf68de9575a2"><div class="ttname"><a href="arrays_8h.html#a261dbf080f89266b313adf68de9575a2">chooseBubbleSortArr</a></div><div class="ttdeci">void chooseBubbleSortArr(const spec_t spec, void *arr, unsigned int size)</div><div class="ttdoc">Bubble sort for arrays.</div></div>
 <div class="ttc" id="aarrays_8h_html_a2a4d082bc0ee99bf1542507238420030"><div class="ttname"><a href="arrays_8h.html#a2a4d082bc0ee99bf1542507238420030">ptrQuickSort</a></div><div class="ttdeci">void ptrQuickSort(void **arr, unsigned int size)</div><div class="ttdoc">Quicksort for arrays of pointers.</div></div>
 <div class="ttc" id="aarrays_8h_html_a36e8a7df6238bcad62e963665fc347ee"><div class="ttname"><a href="arrays_8h.html#a36e8a7df6238bcad62e963665fc347ee">doubleQuickSort</a></div><div class="ttdeci">void doubleQuickSort(double *arr, unsigned int size)</div><div class="ttdoc">Quicksort for arrays of doubles.</div></div>
 <div class="ttc" id="aarrays_8h_html_a4c4dac17d159dcca9c913c135c3438b2"><div class="ttname"><a href="arrays_8h.html#a4c4dac17d159dcca9c913c135c3438b2">ptrBubbleSort</a></div><div class="ttdeci">void ptrBubbleSort(void **arr, unsigned int size)</div><div class="ttdoc">Bubblesort for arrays of pointers.</div></div>
-<div class="ttc" id="aarrays_8h_html_a6182cfcf64d1c9326708d154950742d5"><div class="ttname"><a href="arrays_8h.html#a6182cfcf64d1c9326708d154950742d5">chooseQuickSort</a></div><div class="ttdeci">void chooseQuickSort(const spec_t spec, void *arr, int size)</div><div class="ttdoc">Quick sort for arrays.</div></div>
 <div class="ttc" id="aarrays_8h_html_a61a8cae710b612db52c21140d70c0d4f"><div class="ttname"><a href="arrays_8h.html#a61a8cae710b612db52c21140d70c0d4f">doubleBubbleSort</a></div><div class="ttdeci">void doubleBubbleSort(double *arr, unsigned int size)</div><div class="ttdoc">Bubblesort for arrays of doubles.</div></div>
-<div class="ttc" id="aarrays_8h_html_a73341bf99d1255781aad299310d22458"><div class="ttname"><a href="arrays_8h.html#a73341bf99d1255781aad299310d22458">chooseBubbleSort</a></div><div class="ttdeci">void chooseBubbleSort(const spec_t spec, void *arr, unsigned int size)</div><div class="ttdoc">Bubble sort for arrays.</div></div>
 <div class="ttc" id="aarrays_8h_html_a7d82fada628bc00b425b7dac04d69ee0"><div class="ttname"><a href="arrays_8h.html#a7d82fada628bc00b425b7dac04d69ee0">intQuickSort</a></div><div class="ttdeci">void intQuickSort(int *arr, unsigned int size)</div><div class="ttdoc">Quicksort for arrays of ints.</div></div>
-<div class="ttc" id="aarrays_8h_html_a7dd000aef5c7e94084dc0918747df67a"><div class="ttname"><a href="arrays_8h.html#a7dd000aef5c7e94084dc0918747df67a">linearSearch</a></div><div class="ttdeci">int linearSearch(const spec_t spec, const void *arr, const void *key, int size)</div><div class="ttdoc">Linear search for arrays.</div></div>
 <div class="ttc" id="aarrays_8h_html_a9015e98d89b08ad1dbf78c1813d84ac2"><div class="ttname"><a href="arrays_8h.html#a9015e98d89b08ad1dbf78c1813d84ac2">floatBubbleSort</a></div><div class="ttdeci">void floatBubbleSort(float *arr, unsigned int size)</div><div class="ttdoc">Bubblesort for arrays of floats.</div></div>
 <div class="ttc" id="aarrays_8h_html_ab620d2c7265e41a8928042c7c0ea269e"><div class="ttname"><a href="arrays_8h.html#ab620d2c7265e41a8928042c7c0ea269e">printMatrix</a></div><div class="ttdeci">void printMatrix(const spec_t spec, const void *matrix, const unsigned int nRows, const unsigned int nColumns)</div><div class="ttdoc">Print matrix of specified size with specified formatting.</div></div>
 <div class="ttc" id="aarrays_8h_html_aba45688581551369e2806b7d0230d34c"><div class="ttname"><a href="arrays_8h.html#aba45688581551369e2806b7d0230d34c">charBubbleSort</a></div><div class="ttdeci">void charBubbleSort(char *arr, unsigned int size)</div><div class="ttdoc">Bubblesort for arrays of chars.</div></div>
+<div class="ttc" id="aarrays_8h_html_af251dbb285faf8d84a4fb4cf7aa9abe1"><div class="ttname"><a href="arrays_8h.html#af251dbb285faf8d84a4fb4cf7aa9abe1">chooseQuickSortArr</a></div><div class="ttdeci">void chooseQuickSortArr(const spec_t spec, void *arr, int size)</div><div class="ttdoc">Quick sort for arrays.</div></div>
 <div class="ttc" id="atypes_8h_html"><div class="ttname"><a href="types_8h.html">types.h</a></div><div class="ttdoc">Collection of useful types.</div></div>
 <div class="ttc" id="atypes_8h_html_a12a67a7129240fa955c096deb10cdd6e"><div class="ttname"><a href="types_8h.html#a12a67a7129240fa955c096deb10cdd6e">spec_t</a></div><div class="ttdeci">char * spec_t</div><div class="ttdoc">Used to specify type of argument passed in functions that require a type specifier.</div><div class="ttdef"><b>Definition:</b> types.h:20</div></div>
 </div><!-- fragment --></div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="arrays_8h.html">arrays.h</a></li>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
 </body>
 </html>

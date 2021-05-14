@@ -9,10 +9,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -51,22 +47,6 @@ $(function() {
 /* @license-end */</script>
 <div id="main-nav"></div>
 </div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('utility_8h_source.html',''); initResizable(); });
-/* @license-end */
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -87,34 +67,30 @@ $(document).ready(function(){initNavTree('utility_8h_source.html',''); initResiz
 </div><!--header-->
 <div class="contents">
 <a href="utility_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#ifndef _SEEN_UTILITY</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#define _SEEN_UTILITY</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#ifndef __SEEN_UTILITY</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#define __SEEN_UTILITY</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="types_8h.html">types.h</a>&quot;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="utility_8h.html#aec39d7db80970425e66b06496a7a2542">   12</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="utility_8h.html#aec39d7db80970425e66b06496a7a2542">checkCondition</a>(<span class="keywordtype">byte</span> condition, <span class="keywordtype">string</span> errorString);</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="utility_8h.html#ac3769c644736b102babde740e8c03acf">   24</a></span>&#160;<span class="keywordtype">byte</span> <a class="code" href="utility_8h.html#ac3769c644736b102babde740e8c03acf">chooseCmp</a>(<span class="keyword">const</span> <a class="code" href="types_8h.html#a12a67a7129240fa955c096deb10cdd6e">spec_t</a> spec, <span class="keyword">const</span> <span class="keywordtype">void</span> *a, <span class="keyword">const</span> <span class="keywordtype">void</span> *b);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="utility_8h.html#a6617abe8dcee554e16d01965050c6011">   30</a></span>&#160;<span class="keywordtype">byte</span> <a class="code" href="utility_8h.html#a6617abe8dcee554e16d01965050c6011">charCmp</a>(<span class="keyword">const</span> <span class="keywordtype">void</span> *a, <span class="keyword">const</span> <span class="keywordtype">void</span> *b);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="utility_8h.html#acc8c97c95b8bfe6eba88cc46480d2b45">   36</a></span>&#160;<span class="keywordtype">byte</span> <a class="code" href="utility_8h.html#acc8c97c95b8bfe6eba88cc46480d2b45">byteCmp</a>(<span class="keyword">const</span> <span class="keywordtype">void</span> *a, <span class="keyword">const</span> <span class="keywordtype">void</span> *b);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="utility_8h.html#aebc7b095cdd90551a58295a17ce16dfd">   42</a></span>&#160;<span class="keywordtype">byte</span> <a class="code" href="utility_8h.html#aebc7b095cdd90551a58295a17ce16dfd">intCmp</a>(<span class="keyword">const</span> <span class="keywordtype">void</span> *a, <span class="keyword">const</span> <span class="keywordtype">void</span> *b);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="utility_8h.html#a55042291f308fda752817077c2aab57f">   48</a></span>&#160;<span class="keywordtype">byte</span> <a class="code" href="utility_8h.html#a55042291f308fda752817077c2aab57f">floatCmp</a>(<span class="keyword">const</span> <span class="keywordtype">void</span> *a, <span class="keyword">const</span> <span class="keywordtype">void</span> *b);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="utility_8h.html#af0fc0c42b6a41f593a63535ca5352309">   54</a></span>&#160;<span class="keywordtype">byte</span> <a class="code" href="utility_8h.html#af0fc0c42b6a41f593a63535ca5352309">doubleCmp</a>(<span class="keyword">const</span> <span class="keywordtype">void</span> *a, <span class="keyword">const</span> <span class="keywordtype">void</span> *b);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="utility_8h.html#a3a26e3c3ede0beca95ea69c8372bbda5">   60</a></span>&#160;<span class="keywordtype">byte</span> <a class="code" href="utility_8h.html#a3a26e3c3ede0beca95ea69c8372bbda5">ptrCmp</a>(<span class="keyword">const</span> <span class="keywordtype">void</span> *a, <span class="keyword">const</span> <span class="keywordtype">void</span> *b);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="utility_8h.html#ac7255ad382cf2ec4f5504ebe251ef285">   67</a></span>&#160;<span class="keywordtype">void</span> *<a class="code" href="utility_8h.html#ac7255ad382cf2ec4f5504ebe251ef285">getCmp</a>(<span class="keyword">const</span> <a class="code" href="types_8h.html#a12a67a7129240fa955c096deb10cdd6e">spec_t</a> spec);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="utility_8h.html#aa7da8f49b718cedad9e787580432709b">   75</a></span>&#160;<span class="keywordtype">void</span> *<a class="code" href="utility_8h.html#aa7da8f49b718cedad9e787580432709b">saferMalloc</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> bytes);</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="utility_8h.html#ac3769c644736b102babde740e8c03acf">   22</a></span>&#160;<span class="keywordtype">byte</span> <a class="code" href="utility_8h.html#ac3769c644736b102babde740e8c03acf">chooseCmp</a>(<span class="keyword">const</span> <a class="code" href="types_8h.html#a12a67a7129240fa955c096deb10cdd6e">spec_t</a> spec, <span class="keyword">const</span> <span class="keywordtype">void</span> *a, <span class="keyword">const</span> <span class="keywordtype">void</span> *b);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="utility_8h.html#a6617abe8dcee554e16d01965050c6011">   28</a></span>&#160;<span class="keywordtype">byte</span> <a class="code" href="utility_8h.html#a6617abe8dcee554e16d01965050c6011">charCmp</a>(<span class="keyword">const</span> <span class="keywordtype">void</span> *a, <span class="keyword">const</span> <span class="keywordtype">void</span> *b);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="utility_8h.html#acc8c97c95b8bfe6eba88cc46480d2b45">   34</a></span>&#160;<span class="keywordtype">byte</span> <a class="code" href="utility_8h.html#acc8c97c95b8bfe6eba88cc46480d2b45">byteCmp</a>(<span class="keyword">const</span> <span class="keywordtype">void</span> *a, <span class="keyword">const</span> <span class="keywordtype">void</span> *b);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="utility_8h.html#aebc7b095cdd90551a58295a17ce16dfd">   40</a></span>&#160;<span class="keywordtype">byte</span> <a class="code" href="utility_8h.html#aebc7b095cdd90551a58295a17ce16dfd">intCmp</a>(<span class="keyword">const</span> <span class="keywordtype">void</span> *a, <span class="keyword">const</span> <span class="keywordtype">void</span> *b);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="utility_8h.html#a55042291f308fda752817077c2aab57f">   46</a></span>&#160;<span class="keywordtype">byte</span> <a class="code" href="utility_8h.html#a55042291f308fda752817077c2aab57f">floatCmp</a>(<span class="keyword">const</span> <span class="keywordtype">void</span> *a, <span class="keyword">const</span> <span class="keywordtype">void</span> *b);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="utility_8h.html#af0fc0c42b6a41f593a63535ca5352309">   52</a></span>&#160;<span class="keywordtype">byte</span> <a class="code" href="utility_8h.html#af0fc0c42b6a41f593a63535ca5352309">doubleCmp</a>(<span class="keyword">const</span> <span class="keywordtype">void</span> *a, <span class="keyword">const</span> <span class="keywordtype">void</span> *b);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="utility_8h.html#a3a26e3c3ede0beca95ea69c8372bbda5">   58</a></span>&#160;<span class="keywordtype">byte</span> <a class="code" href="utility_8h.html#a3a26e3c3ede0beca95ea69c8372bbda5">ptrCmp</a>(<span class="keyword">const</span> <span class="keywordtype">void</span> *a, <span class="keyword">const</span> <span class="keywordtype">void</span> *b);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="utility_8h.html#aa7da8f49b718cedad9e787580432709b">   66</a></span>&#160;<span class="keywordtype">void</span> *<a class="code" href="utility_8h.html#aa7da8f49b718cedad9e787580432709b">saferMalloc</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> bytes);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="utility_8h.html#aadeeccab529e344cc74407333840fb73">   75</a></span>&#160;<span class="keywordtype">void</span> *<a class="code" href="utility_8h.html#aadeeccab529e344cc74407333840fb73">saferRealloc</a>(<span class="keywordtype">void</span> *pointer, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> bytes);</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="utility_8h.html#aadeeccab529e344cc74407333840fb73">   84</a></span>&#160;<span class="keywordtype">void</span> *<a class="code" href="utility_8h.html#aadeeccab529e344cc74407333840fb73">saferRealloc</a>(<span class="keywordtype">void</span> *pointer, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> bytes);</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="atypes_8h_html"><div class="ttname"><a href="types_8h.html">types.h</a></div><div class="ttdoc">Collection of useful types.</div></div>
 <div class="ttc" id="atypes_8h_html_a12a67a7129240fa955c096deb10cdd6e"><div class="ttname"><a href="types_8h.html#a12a67a7129240fa955c096deb10cdd6e">spec_t</a></div><div class="ttdeci">char * spec_t</div><div class="ttdoc">Used to specify type of argument passed in functions that require a type specifier.</div><div class="ttdef"><b>Definition:</b> types.h:20</div></div>
 <div class="ttc" id="autility_8h_html_a3a26e3c3ede0beca95ea69c8372bbda5"><div class="ttname"><a href="utility_8h.html#a3a26e3c3ede0beca95ea69c8372bbda5">ptrCmp</a></div><div class="ttdeci">byte ptrCmp(const void *a, const void *b)</div><div class="ttdoc">Compare two pointers.</div></div>
@@ -123,19 +99,13 @@ $(document).ready(function(){initNavTree('utility_8h_source.html',''); initResiz
 <div class="ttc" id="autility_8h_html_aa7da8f49b718cedad9e787580432709b"><div class="ttname"><a href="utility_8h.html#aa7da8f49b718cedad9e787580432709b">saferMalloc</a></div><div class="ttdeci">void * saferMalloc(unsigned int bytes)</div><div class="ttdoc">Return a pointer to a space in memory of specified size.</div></div>
 <div class="ttc" id="autility_8h_html_aadeeccab529e344cc74407333840fb73"><div class="ttname"><a href="utility_8h.html#aadeeccab529e344cc74407333840fb73">saferRealloc</a></div><div class="ttdeci">void * saferRealloc(void *pointer, unsigned int bytes)</div><div class="ttdoc">Reallocate a space in memory.</div></div>
 <div class="ttc" id="autility_8h_html_ac3769c644736b102babde740e8c03acf"><div class="ttname"><a href="utility_8h.html#ac3769c644736b102babde740e8c03acf">chooseCmp</a></div><div class="ttdeci">byte chooseCmp(const spec_t spec, const void *a, const void *b)</div><div class="ttdoc">Compare two chars.</div></div>
-<div class="ttc" id="autility_8h_html_ac7255ad382cf2ec4f5504ebe251ef285"><div class="ttname"><a href="utility_8h.html#ac7255ad382cf2ec4f5504ebe251ef285">getCmp</a></div><div class="ttdeci">void * getCmp(const spec_t spec)</div><div class="ttdoc">Choose comparison function based on given identifier.</div></div>
 <div class="ttc" id="autility_8h_html_acc8c97c95b8bfe6eba88cc46480d2b45"><div class="ttname"><a href="utility_8h.html#acc8c97c95b8bfe6eba88cc46480d2b45">byteCmp</a></div><div class="ttdeci">byte byteCmp(const void *a, const void *b)</div><div class="ttdoc">Compare two bytes.</div></div>
 <div class="ttc" id="autility_8h_html_aebc7b095cdd90551a58295a17ce16dfd"><div class="ttname"><a href="utility_8h.html#aebc7b095cdd90551a58295a17ce16dfd">intCmp</a></div><div class="ttdeci">byte intCmp(const void *a, const void *b)</div><div class="ttdoc">Compare two ints.</div></div>
-<div class="ttc" id="autility_8h_html_aec39d7db80970425e66b06496a7a2542"><div class="ttname"><a href="utility_8h.html#aec39d7db80970425e66b06496a7a2542">checkCondition</a></div><div class="ttdeci">void checkCondition(byte condition, string errorString)</div></div>
 <div class="ttc" id="autility_8h_html_af0fc0c42b6a41f593a63535ca5352309"><div class="ttname"><a href="utility_8h.html#af0fc0c42b6a41f593a63535ca5352309">doubleCmp</a></div><div class="ttdeci">byte doubleCmp(const void *a, const void *b)</div><div class="ttdoc">Compare two doubles.</div></div>
 </div><!-- fragment --></div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="utility_8h.html">utility.h</a></li>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
 </body>
 </html>

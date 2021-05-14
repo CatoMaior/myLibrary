@@ -9,10 +9,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -50,23 +46,6 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('arrays_8h.html',''); initResizable(); });
-/* @license-end */
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -81,6 +60,7 @@ $(document).ready(function(){initNavTree('arrays_8h.html',''); initResizable(); 
 </iframe>
 </div>
 
+</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
@@ -108,7 +88,6 @@ This graph shows which files directly or indirectly include this file:</div>
 <map name="aarrays_8hdep" id="aarrays_8hdep">
 <area shape="rect" title="Common tasks with arrays: sorting, searching, printing etc." alt="" coords="16,5,83,32"/>
 <area shape="rect" href="myLibrary_8h.html" title="Includes all other headers. Useful for rapid import." alt="" coords="5,80,93,107"/>
-<area shape="rect" href="testing_8c.html" title=" " alt="" coords="14,155,85,181"/>
 </map>
 </div>
 </div>
@@ -116,15 +95,15 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a73341bf99d1255781aad299310d22458"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arrays_8h.html#a73341bf99d1255781aad299310d22458">chooseBubbleSort</a> (const <a class="el" href="types_8h.html#a12a67a7129240fa955c096deb10cdd6e">spec_t</a> spec, void *arr, unsigned int size)</td></tr>
-<tr class="memdesc:a73341bf99d1255781aad299310d22458"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bubble sort for arrays.  <a href="arrays_8h.html#a73341bf99d1255781aad299310d22458">More...</a><br /></td></tr>
-<tr class="separator:a73341bf99d1255781aad299310d22458"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6182cfcf64d1c9326708d154950742d5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arrays_8h.html#a6182cfcf64d1c9326708d154950742d5">chooseQuickSort</a> (const <a class="el" href="types_8h.html#a12a67a7129240fa955c096deb10cdd6e">spec_t</a> spec, void *arr, int size)</td></tr>
-<tr class="memdesc:a6182cfcf64d1c9326708d154950742d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Quick sort for arrays.  <a href="arrays_8h.html#a6182cfcf64d1c9326708d154950742d5">More...</a><br /></td></tr>
-<tr class="separator:a6182cfcf64d1c9326708d154950742d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7dd000aef5c7e94084dc0918747df67a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arrays_8h.html#a7dd000aef5c7e94084dc0918747df67a">linearSearch</a> (const <a class="el" href="types_8h.html#a12a67a7129240fa955c096deb10cdd6e">spec_t</a> spec, const void *arr, const void *key, int size)</td></tr>
-<tr class="memdesc:a7dd000aef5c7e94084dc0918747df67a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Linear search for arrays.  <a href="arrays_8h.html#a7dd000aef5c7e94084dc0918747df67a">More...</a><br /></td></tr>
-<tr class="separator:a7dd000aef5c7e94084dc0918747df67a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a261dbf080f89266b313adf68de9575a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arrays_8h.html#a261dbf080f89266b313adf68de9575a2">chooseBubbleSortArr</a> (const <a class="el" href="types_8h.html#a12a67a7129240fa955c096deb10cdd6e">spec_t</a> spec, void *arr, unsigned int size)</td></tr>
+<tr class="memdesc:a261dbf080f89266b313adf68de9575a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bubble sort for arrays.  <a href="arrays_8h.html#a261dbf080f89266b313adf68de9575a2">More...</a><br /></td></tr>
+<tr class="separator:a261dbf080f89266b313adf68de9575a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af251dbb285faf8d84a4fb4cf7aa9abe1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arrays_8h.html#af251dbb285faf8d84a4fb4cf7aa9abe1">chooseQuickSortArr</a> (const <a class="el" href="types_8h.html#a12a67a7129240fa955c096deb10cdd6e">spec_t</a> spec, void *arr, int size)</td></tr>
+<tr class="memdesc:af251dbb285faf8d84a4fb4cf7aa9abe1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Quick sort for arrays.  <a href="arrays_8h.html#af251dbb285faf8d84a4fb4cf7aa9abe1">More...</a><br /></td></tr>
+<tr class="separator:af251dbb285faf8d84a4fb4cf7aa9abe1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23bc03dea4b74f8712b4a3d01f2ce06b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arrays_8h.html#a23bc03dea4b74f8712b4a3d01f2ce06b">chooseLinearSearch</a> (const <a class="el" href="types_8h.html#a12a67a7129240fa955c096deb10cdd6e">spec_t</a> spec, void *arr, int size,...)</td></tr>
+<tr class="memdesc:a23bc03dea4b74f8712b4a3d01f2ce06b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Linear search for arrays.  <a href="arrays_8h.html#a23bc03dea4b74f8712b4a3d01f2ce06b">More...</a><br /></td></tr>
+<tr class="separator:a23bc03dea4b74f8712b4a3d01f2ce06b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab620d2c7265e41a8928042c7c0ea269e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arrays_8h.html#ab620d2c7265e41a8928042c7c0ea269e">printMatrix</a> (const <a class="el" href="types_8h.html#a12a67a7129240fa955c096deb10cdd6e">spec_t</a> spec, const void *matrix, const unsigned int nRows, const unsigned int nColumns)</td></tr>
 <tr class="memdesc:ab620d2c7265e41a8928042c7c0ea269e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print matrix of specified size with specified formatting.  <a href="arrays_8h.html#ab620d2c7265e41a8928042c7c0ea269e">More...</a><br /></td></tr>
 <tr class="separator:ab620d2c7265e41a8928042c7c0ea269e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -190,7 +169,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Bubblesort for arrays of chars. </p>
-<p>Equivalent to <code>chooseBubbleSort("%c", arr, size)</code>. Refer to <a class="el" href="arrays_8h.html#a73341bf99d1255781aad299310d22458" title="Bubble sort for arrays.">chooseBubbleSort()</a> </p>
+<p>Equivalent to <code>chooseBubbleSortArr("%c", arr, size)</code>. Refer to <a class="el" href="arrays_8h.html#a261dbf080f89266b313adf68de9575a2" title="Bubble sort for arrays.">chooseBubbleSortArr()</a> </p>
 
 </div>
 </div>
@@ -221,18 +200,18 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Quicksort for arrays of chars. </p>
-<p>Equivalent to <code>chooseQuickSort("%c", arr, size)</code>. Refer to <a class="el" href="arrays_8h.html#a6182cfcf64d1c9326708d154950742d5" title="Quick sort for arrays.">chooseQuickSort()</a> </p>
+<p>Equivalent to <code>chooseQuickSortArr("%c", arr, size)</code>. Refer to <a class="el" href="arrays_8h.html#af251dbb285faf8d84a4fb4cf7aa9abe1" title="Quick sort for arrays.">chooseQuickSortArr()</a> </p>
 
 </div>
 </div>
-<a id="a73341bf99d1255781aad299310d22458"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a73341bf99d1255781aad299310d22458">&#9670;&nbsp;</a></span>chooseBubbleSort()</h2>
+<a id="a261dbf080f89266b313adf68de9575a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a261dbf080f89266b313adf68de9575a2">&#9670;&nbsp;</a></span>chooseBubbleSortArr()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void chooseBubbleSort </td>
+          <td class="memname">void chooseBubbleSortArr </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="types_8h.html#a12a67a7129240fa955c096deb10cdd6e">spec_t</a>&#160;</td>
           <td class="paramname"><em>spec</em>, </td>
@@ -269,14 +248,73 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a6182cfcf64d1c9326708d154950742d5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6182cfcf64d1c9326708d154950742d5">&#9670;&nbsp;</a></span>chooseQuickSort()</h2>
+<a id="a23bc03dea4b74f8712b4a3d01f2ce06b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23bc03dea4b74f8712b4a3d01f2ce06b">&#9670;&nbsp;</a></span>chooseLinearSearch()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void chooseQuickSort </td>
+          <td class="memname">int chooseLinearSearch </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="types_8h.html#a12a67a7129240fa955c096deb10cdd6e">spec_t</a>&#160;</td>
+          <td class="paramname"><em>spec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>arr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Linear search for arrays. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">spec</td><td>Type specifier of the array to be sorted. Refer to <a class="el" href="types_8h.html#a12a67a7129240fa955c096deb10cdd6e" title="Used to specify type of argument passed in functions that require a type specifier.">spec_t</a> for supported types </td></tr>
+    <tr><td class="paramname">arr</td><td>Pointer to the first element of the array to be inspected </td></tr>
+    <tr><td class="paramname">size</td><td>Number of elements of the array to be inspected </td></tr>
+    <tr><td class="paramname">...</td><td>The key to be searched </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Even though passing more than one key does not throw a compiler nor runtime error, only searching one item is supported. Other items are ignored. If you don't specify any item to be searched, still no errors occur but the return value of the function can be unpredictable </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The index of the first occurence of the key in the array or the return code of the function </dd></dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">KEY_NOT_FOUND</td><td>The key was not found </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af251dbb285faf8d84a4fb4cf7aa9abe1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af251dbb285faf8d84a4fb4cf7aa9abe1">&#9670;&nbsp;</a></span>chooseQuickSortArr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void chooseQuickSortArr </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="types_8h.html#a12a67a7129240fa955c096deb10cdd6e">spec_t</a>&#160;</td>
           <td class="paramname"><em>spec</em>, </td>
@@ -340,7 +378,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Bubblesort for arrays of doubles. </p>
-<p>Equivalent to <code>chooseBubbleSort("%lf", arr, size)</code>. Refer to <a class="el" href="arrays_8h.html#a73341bf99d1255781aad299310d22458" title="Bubble sort for arrays.">chooseBubbleSort()</a> </p>
+<p>Equivalent to <code>chooseBubbleSortArr("%lf", arr, size)</code>. Refer to <a class="el" href="arrays_8h.html#a261dbf080f89266b313adf68de9575a2" title="Bubble sort for arrays.">chooseBubbleSortArr()</a> </p>
 
 </div>
 </div>
@@ -371,7 +409,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Quicksort for arrays of doubles. </p>
-<p>Equivalent to <code>chooseQuickSort("%lf", arr, size)</code>. Refer to <a class="el" href="arrays_8h.html#a6182cfcf64d1c9326708d154950742d5" title="Quick sort for arrays.">chooseQuickSort()</a> </p>
+<p>Equivalent to <code>chooseQuickSortArr("%lf", arr, size)</code>. Refer to <a class="el" href="arrays_8h.html#af251dbb285faf8d84a4fb4cf7aa9abe1" title="Quick sort for arrays.">chooseQuickSortArr()</a> </p>
 
 </div>
 </div>
@@ -402,7 +440,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Bubblesort for arrays of floats. </p>
-<p>Equivalent to <code>chooseBubbleSort("%f", arr, size)</code>. Refer to <a class="el" href="arrays_8h.html#a73341bf99d1255781aad299310d22458" title="Bubble sort for arrays.">chooseBubbleSort()</a> </p>
+<p>Equivalent to <code>chooseBubbleSortArr("%f", arr, size)</code>. Refer to <a class="el" href="arrays_8h.html#a261dbf080f89266b313adf68de9575a2" title="Bubble sort for arrays.">chooseBubbleSortArr()</a> </p>
 
 </div>
 </div>
@@ -433,7 +471,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Quicksort for arrays of floats. </p>
-<p>Equivalent to <code>chooseQuickSort("%f", arr, size)</code>. Refer to <a class="el" href="arrays_8h.html#a6182cfcf64d1c9326708d154950742d5" title="Quick sort for arrays.">chooseQuickSort()</a> </p>
+<p>Equivalent to <code>chooseQuickSortArr("%f", arr, size)</code>. Refer to <a class="el" href="arrays_8h.html#af251dbb285faf8d84a4fb4cf7aa9abe1" title="Quick sort for arrays.">chooseQuickSortArr()</a> </p>
 
 </div>
 </div>
@@ -464,7 +502,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Bubblesort for arrays of ints. </p>
-<p>Equivalent to <code>chooseBubbleSort("%i", arr, size)</code>. Refer to <a class="el" href="arrays_8h.html#a73341bf99d1255781aad299310d22458" title="Bubble sort for arrays.">chooseBubbleSort()</a> </p>
+<p>Equivalent to <code>chooseBubbleSortArr("%i", arr, size)</code>. Refer to <a class="el" href="arrays_8h.html#a261dbf080f89266b313adf68de9575a2" title="Bubble sort for arrays.">chooseBubbleSortArr()</a> </p>
 
 </div>
 </div>
@@ -495,65 +533,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Quicksort for arrays of ints. </p>
-<p>Equivalent to <code>chooseQuickSort("%i", arr, size)</code>. Refer to <a class="el" href="arrays_8h.html#a6182cfcf64d1c9326708d154950742d5" title="Quick sort for arrays.">chooseQuickSort()</a> </p>
-
-</div>
-</div>
-<a id="a7dd000aef5c7e94084dc0918747df67a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7dd000aef5c7e94084dc0918747df67a">&#9670;&nbsp;</a></span>linearSearch()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int linearSearch </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="types_8h.html#a12a67a7129240fa955c096deb10cdd6e">spec_t</a>&#160;</td>
-          <td class="paramname"><em>spec</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const void *&#160;</td>
-          <td class="paramname"><em>arr</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const void *&#160;</td>
-          <td class="paramname"><em>key</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>size</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Linear search for arrays. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">spec</td><td>Type specifier of the array to be sorted. Refer to <a class="el" href="types_8h.html#a12a67a7129240fa955c096deb10cdd6e" title="Used to specify type of argument passed in functions that require a type specifier.">spec_t</a> for supported types </td></tr>
-    <tr><td class="paramname">arr</td><td>Pointer to the first element of the array to be inspected </td></tr>
-    <tr><td class="paramname">key</td><td>Pointer to the key </td></tr>
-    <tr><td class="paramname">size</td><td>Number of elements of the array to be inspected </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The index of the first occurence of the key in the array or the return code of the function </dd></dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">KEY_NOT_FOUND</td><td>The key was not found </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Equivalent to <code>chooseQuickSortArr("%i", arr, size)</code>. Refer to <a class="el" href="arrays_8h.html#af251dbb285faf8d84a4fb4cf7aa9abe1" title="Quick sort for arrays.">chooseQuickSortArr()</a> </p>
 
 </div>
 </div>
@@ -641,7 +621,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Bubblesort for arrays of pointers. </p>
-<p>Equivalent to <code>chooseBubbleSort("%p", arr, size)</code>. Refer to <a class="el" href="arrays_8h.html#a73341bf99d1255781aad299310d22458" title="Bubble sort for arrays.">chooseBubbleSort()</a> </p>
+<p>Equivalent to <code>chooseBubbleSortArr("%p", arr, size)</code>. Refer to <a class="el" href="arrays_8h.html#a261dbf080f89266b313adf68de9575a2" title="Bubble sort for arrays.">chooseBubbleSortArr()</a> </p>
 
 </div>
 </div>
@@ -672,18 +652,14 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Quicksort for arrays of pointers. </p>
-<p>Equivalent to <code>chooseQuickSort("%p", arr, size)</code>. Refer to <a class="el" href="arrays_8h.html#a6182cfcf64d1c9326708d154950742d5" title="Quick sort for arrays.">chooseQuickSort()</a> </p>
+<p>Equivalent to <code>chooseQuickSortArr("%p", arr, size)</code>. Refer to <a class="el" href="arrays_8h.html#af251dbb285faf8d84a4fb4cf7aa9abe1" title="Quick sort for arrays.">chooseQuickSortArr()</a> </p>
 
 </div>
 </div>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="arrays_8h.html">arrays.h</a></li>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
 </body>
 </html>
