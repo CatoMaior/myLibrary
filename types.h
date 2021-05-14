@@ -26,13 +26,22 @@ typedef char *string;
 
 /**
  * @brief ::ArrayList type
- * @param type The type of the elements contained by the ::ArrayList. Refer to ::spec_t
- * @param size The number of elements contained by the ::ArrayList
  * @note All the parameters in this structure must be intended as read-only. Manually modifyng them can cause unknown and unwanted behavior
  */
 typedef struct {
+    /**
+     * @brief The type of the elements contained by the ::ArrayList. Refer to ::spec_t
+     */
     spec_t type;
+
+    /**
+     * @brief Void pointer to the first element of the ::ArrayList
+     */
     void *body;
+
+    /**
+     * @brief The number of elements contained by the ::ArrayList
+     */
     unsigned int size;
 } * ArrayList;
 
