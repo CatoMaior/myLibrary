@@ -25,24 +25,30 @@ typedef char *spec_t;
 typedef char *string;
 
 /**
- * @brief ::ArrayList type
+ * @brief ::arrayList type
  * @note All the parameters in this structure must be intended as read-only. Manually modifying them can cause unknown and unwanted behavior
  */
 typedef struct {
     /**
-     * @brief The type of the elements contained by the ::ArrayList. Refer to ::spec_t
+     * @brief The type of the elements contained by the ::arrayList. Refer to ::spec_t
      */
     spec_t type;
 
     /**
-     * @brief Void pointer to the first element of the ::ArrayList
+     * @brief Void pointer to the first element of the ::arrayList
      */
     void *body;
 
     /**
-     * @brief The number of elements contained by the ::ArrayList
+     * @brief The number of elements contained by the ::arrayList
      */
     unsigned int size;
-} * ArrayList;
+} arrayList;
+
+/**
+ * @brief ::ArrayList type
+ * @details Pointer to ::arrayList
+ */
+typedef arrayList *ArrayList;
 
 #endif

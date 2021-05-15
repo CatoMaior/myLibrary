@@ -10,7 +10,9 @@ typedef union {
     float floatData;
     double doubleData;
     void *ptrData;
-} * varData;
+} varData;
+
+typedef varData *VarData;
 
 void *getCmp(const spec_t spec);
 
@@ -20,6 +22,6 @@ void throwIf(const byte condition, const string errorString, const char* funcNam
 
 byte isTypeSupported(const spec_t spec);
 
-varData getData(const spec_t spec, va_list argList);
+VarData getData(const spec_t spec, va_list argList);
 
 #endif

@@ -65,7 +65,7 @@ int chooseLinearSearch(const spec_t spec, void *arr, int size, ...) {
     throwIf(!isTypeSupported(spec), UNSUPPORTED_SPECIFIER, __func__);
     va_list argList;
     va_start(argList, size);
-    varData key = getData(spec, argList);
+    VarData key = getData(spec, argList);
     va_end(argList);
     byte typeSize = getTypeSize(spec);
     for (int i = 0; i < size; i++)
@@ -84,7 +84,7 @@ void printMatrix(const spec_t spec, const void *matrix, const unsigned int nRows
     if (endsWith(spec, "hi")) {
         for (unsigned int i = 0; i < nRows; i++) {
             for (unsigned int j = 0; j < nColumns; j++)
-                printf(spec, *((char *)(matrix + i * nColumns * sizeof(char) + j * sizeof(char))));
+                printf(spec, *((char *)matrix + i * nColumns + j));
             printf("\n");
         }
         printf("\n");
@@ -92,7 +92,7 @@ void printMatrix(const spec_t spec, const void *matrix, const unsigned int nRows
     else if (endsWith(spec, "c")) {
         for (unsigned int i = 0; i < nRows; i++) {
             for (unsigned int j = 0; j < nColumns; j++)
-                printf(spec, *((char *)(matrix + i * nColumns * sizeof(char) + j * sizeof(char))));
+                printf(spec, *((char *)matrix + i * nColumns + j));
             printf("\n");
         }
         printf("\n");
@@ -100,7 +100,7 @@ void printMatrix(const spec_t spec, const void *matrix, const unsigned int nRows
     else if (endsWith(spec, "i")) {
         for (unsigned int i = 0; i < nRows; i++) {
             for (unsigned int j = 0; j < nColumns; j++)
-                printf(spec, *((int *)(matrix + i * nColumns * sizeof(int) + j * sizeof(int))));
+                printf(spec, *((int *)matrix + i * nColumns + j));
             printf("\n");
         }
         printf("\n");
@@ -108,7 +108,7 @@ void printMatrix(const spec_t spec, const void *matrix, const unsigned int nRows
     else if (endsWith(spec, "lf")) {
         for (unsigned int i = 0; i < nRows; i++) {
             for (unsigned int j = 0; j < nColumns; j++)
-                printf(spec, *((double *)(matrix + i * nColumns * sizeof(double) + j * sizeof(double))));
+                printf(spec, *((double *)matrix + i * nColumns + j));
             printf("\n");
         }
         printf("\n");
@@ -116,7 +116,15 @@ void printMatrix(const spec_t spec, const void *matrix, const unsigned int nRows
     else if (endsWith(spec, "f")) {
         for (unsigned int i = 0; i < nRows; i++) {
             for (unsigned int j = 0; j < nColumns; j++)
-                printf(spec, *((float *)(matrix + i * nColumns * sizeof(float) + j * sizeof(float))));
+                printf(spec, *((float *)matrix + i * nColumns + j));
+            printf("\n");
+        }
+        printf("\n");
+    }
+    else if (endsWith(spec, "p")) {
+        for (unsigned int i = 0; i < nRows; i++) {
+            for (unsigned int j = 0; j < nColumns; j++)
+                printf(spec, *((byte **)matrix + i * nColumns + j));
             printf("\n");
         }
         printf("\n");

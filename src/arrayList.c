@@ -13,7 +13,7 @@
 
 ArrayList newAL(const spec_t spec) {
     throwIf(!isTypeSupported(spec), UNSUPPORTED_SPECIFIER, __func__);
-    ArrayList newArray = saferMalloc(sizeof(ArrayList));
+    ArrayList newArray = saferMalloc(sizeof(arrayList));
     newArray->type = spec;
     newArray->size = 0;
     return newArray;
@@ -180,7 +180,7 @@ void appendToAL(ArrayList arr, ...) {
         arr->body = saferRealloc(arr->body, (arr->size + 1) * typeSize);
     va_list argList;
     va_start(argList, arr);
-    varData data = getData(arr->type, argList);
+    VarData data = getData(arr->type, argList);
     memcpy(arr->body + arr->size * typeSize, data, typeSize);
     free(data);
     va_end(argList);
@@ -197,7 +197,7 @@ void insertToAL(ArrayList arr, unsigned int index, ...) {
     memcpy(newBody, arr->body, index * typeSize);
     va_list argList;
     va_start(argList, index);
-    varData data = getData(arr->type, argList);
+    VarData data = getData(arr->type, argList);
     memcpy(newBody + index * typeSize, data, typeSize);
     memcpy(newBody + (index + 1) * typeSize, arr->body + index * typeSize, (arr->size - index) * typeSize);
     free(arr->body);
@@ -214,14 +214,14 @@ void setALItem(ArrayList arr, unsigned int index, ...) {
     byte typeSize = getTypeSize(arr->type);
     va_list argList;
     va_start(argList, index);
-    varData data = getData(arr->type, argList);
+    VarData data = getData(arr->type, argList);
     memcpy(arr->body + index * typeSize, data, typeSize);
     free(data);
 }
 
 ArrayList newALFromCharArray(const char arr[], unsigned int size) {
     throwIf(!arr, NULL_AL_GIVEN, __func__);
-    ArrayList newArray = saferMalloc(sizeof(ArrayList));
+    ArrayList newArray = saferMalloc(sizeof(arrayList));
     newArray->type = "%c";
     newArray->size = size;
     unsigned int bytesToBeCopied = size * sizeof(char);
@@ -237,7 +237,7 @@ ArrayList newALFromByteArray(const char arr[], unsigned int size) {
 
 ArrayList newALFromIntArray(const int arr[], unsigned int size) {
     throwIf(!arr, NULL_AL_GIVEN, __func__);
-    ArrayList newArray = saferMalloc(sizeof(ArrayList));
+    ArrayList newArray = saferMalloc(sizeof(arrayList));
     newArray->type = "%i";
     newArray->size = size;
     unsigned int bytesToBeCopied = size * sizeof(int);
@@ -248,7 +248,7 @@ ArrayList newALFromIntArray(const int arr[], unsigned int size) {
 
 ArrayList newALFromFloatArray(const float arr[], unsigned int size) {
     throwIf(!arr, NULL_AL_GIVEN, __func__);
-    ArrayList newArray = saferMalloc(sizeof(ArrayList));
+    ArrayList newArray = saferMalloc(sizeof(arrayList));
     newArray->type = "%f";
     newArray->size = size;
     unsigned int bytesToBeCopied = size * sizeof(float);
@@ -259,7 +259,7 @@ ArrayList newALFromFloatArray(const float arr[], unsigned int size) {
 
 ArrayList newALFromDoubleArray(const double arr[], unsigned int size) {
     throwIf(!arr, NULL_AL_GIVEN, __func__);
-    ArrayList newArray = saferMalloc(sizeof(ArrayList));
+    ArrayList newArray = saferMalloc(sizeof(arrayList));
     newArray->type = "%lf";
     newArray->size = size;
     unsigned int bytesToBeCopied = size * sizeof(double);
@@ -270,7 +270,7 @@ ArrayList newALFromDoubleArray(const double arr[], unsigned int size) {
 
 ArrayList newALFromPtrArray(const void *arr, unsigned int size) {
     throwIf(!arr, NULL_AL_GIVEN, __func__);
-    ArrayList newArray = saferMalloc(sizeof(ArrayList));
+    ArrayList newArray = saferMalloc(sizeof(arrayList));
     newArray->type = "%p";
     newArray->size = size;
     unsigned int bytesToBeCopied = size * sizeof(void *);
@@ -285,10 +285,13 @@ byte isInAL(ArrayList arr, ...) {
     byte typeSize = getTypeSize(arr->type);
     va_list argList;
     va_start(argList, arr);
-    varData data = getData(arr->type, argList);
+    VarData data = getData(arr->type, argList);
     for (unsigned i = 0; i < arr->size; i++) 
-        if (memcmp(arr->body + i * typeSize, data, typeSize) == 0)
+        if (memcmp(arr->body + i * typeSize, data, typeSize) == 0) {
+            free(data);
             return TRUE;
+        }
+    free(data);
     return FALSE;
 }
 
@@ -298,7 +301,7 @@ int linearSearchAL(ArrayList arr, ...) {
     throwIf(endsWith(arr->type, "f"), UNSUPPORTED_SPECIFIER, __func__);
     va_list argList;
     va_start(argList, arr);
-    varData key = getData(arr->type, argList);
+    VarData key = getData(arr->type, argList);
     va_end(argList);
     int index = chooseLinearSearch(arr->type, arr->body, arr->size, *key);
     free(key);
