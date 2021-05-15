@@ -26,7 +26,7 @@ typedef char *string;
 
 /**
  * @brief ::ArrayList type
- * @note All the parameters in this structure must be intended as read-only. Manually modifyng them can cause unknown and unwanted behavior
+ * @note All the parameters in this structure must be intended as read-only. Manually modifying them can cause unknown and unwanted behavior
  */
 typedef struct {
     /**
