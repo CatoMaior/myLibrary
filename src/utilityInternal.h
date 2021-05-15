@@ -16,7 +16,7 @@ void *getCmp(const spec_t spec);
 
 byte getTypeSize(const spec_t spec);
 
-void checkCondition(byte condition, string errorString);
+void throwIf(const byte condition, const string errorString, const char* funcName);
 
 byte isTypeSupported(const spec_t spec);
 

@@ -8,15 +8,15 @@
 #include "errors.h"
 #include "utilityInternal.h"
 
-void checkCondition(byte condition, string errorString) {
+void throwIf(const byte condition, const string errorString, const char* funcName) {
     if (condition) {
-        printf("\n%s\nExiting\n", errorString);
+        printf("\n%s in function %s.\nExiting\n", errorString, funcName);
         exit(1);
     }
 }
 
 void *getCmp(const spec_t spec) {
-    checkCondition(!spec, NULL_POINTER_GIVEN);
+    throwIf(!spec, NULL_POINTER_GIVEN, __func__);
     if (strcmp("%c", spec) == 0)
         return charCmp;
     if (strcmp("%i", spec) == 0)
@@ -27,11 +27,11 @@ void *getCmp(const spec_t spec) {
         return doubleCmp;
     if (strcmp("%p", spec) == 0)
         return ptrCmp;
-    checkCondition(TRUE, UNSUPPORTED_SPECIFIER);
+    throwIf(TRUE, UNSUPPORTED_SPECIFIER, __func__);
 }
 
 byte getTypeSize(const spec_t spec) {
-    checkCondition(!spec, NULL_POINTER_GIVEN);
+    throwIf(!spec, NULL_POINTER_GIVEN, __func__);
     if (strcmp(spec, "%c") == 0)
         return sizeof(char);
     if (strcmp(spec, "%i") == 0)
@@ -42,7 +42,7 @@ byte getTypeSize(const spec_t spec) {
         return sizeof(double);
     if (strcmp(spec, "%p") == 0)
         return sizeof(void *);
-    checkCondition(TRUE, UNSUPPORTED_SPECIFIER);
+    throwIf(TRUE, UNSUPPORTED_SPECIFIER, __func__);
 }
 
 byte isTypeSupported(const spec_t spec) {
@@ -54,7 +54,7 @@ byte isTypeSupported(const spec_t spec) {
 }
 
 varData getData(const spec_t spec, va_list argList) {
-    checkCondition(!isTypeSupported(spec), UNSUPPORTED_SPECIFIER);
+    throwIf(!isTypeSupported(spec), UNSUPPORTED_SPECIFIER, __func__);
     varData data = saferMalloc(sizeof(varData));
     if (strcmp(spec, "%c") == 0)
         data->charData = va_arg(argList, int);

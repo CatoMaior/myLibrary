@@ -21,7 +21,7 @@ string getString() {
 }
 
 byte endsWith(const string str, const string suffix) {
-    checkCondition(!str || !suffix, NULL_POINTER_GIVEN);
+    throwIf(!str || !suffix, NULL_POINTER_GIVEN, __func__);
     unsigned int lenstr = strlen(str);
     unsigned int lensuffix = strlen(suffix);
     if (lensuffix > lenstr)
@@ -30,19 +30,19 @@ byte endsWith(const string str, const string suffix) {
 }
 
 unsigned int getLength(const string str) {
-    checkCondition(!str, NULL_POINTER_GIVEN);
+    throwIf(!str, NULL_POINTER_GIVEN, __func__);
     return strlen(str);
 }
 
 string copyOf(const string src) {
-    checkCondition(!src, NULL_POINTER_GIVEN);
+    throwIf(!src, NULL_POINTER_GIVEN, __func__);
     char *dest = (char *)saferMalloc(getLength(src) * sizeof(char));
     strcpy(dest, src);
     return dest;
 }
 
 string changeLastCharacter(const string str, char newCharacter) {
-    checkCondition(!str, NULL_POINTER_GIVEN);
+    throwIf(!str, NULL_POINTER_GIVEN, __func__);
     string newString = copyOf(str);
     *(newString + (getLength(str) - 1) * sizeof(char)) = newCharacter;
     return newString;
