@@ -366,7 +366,7 @@ int main() {
     printf("\n");
     for (int i = 0; i < 2; i++)
         for (int j = 0; j < 2; j++)
-            printf("%3i", chooseCmp("%p", &ptrs[i], &ptrs[j]));
+            printf("%3i", chooseCmp("%p", &ptrs[j], &ptrs[i]));
     printf("\n\n");
 
     printf("Testing cmpVal()\n");
@@ -392,7 +392,7 @@ int main() {
     printf("\n");
     for (int i = 0; i < 2; i++)
         for (int j = 0; j < 2; j++)
-            printf("%3i", cmpVal(ptrs[i], ptrs[j]));
+            printf("%3i", cmpVal(ptrs[j], ptrs[i]));
     printf("\n\n");
 
     printf("\n\n");
