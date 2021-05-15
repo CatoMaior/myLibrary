@@ -81,30 +81,30 @@ void ptrBubbleSort(void **arr, unsigned int size);
  * @brief Quicksort for arrays of chars
  * @details Equivalent to `chooseQuickSortArr("%c", arr, size)`. Refer to chooseQuickSortArr()
  */
-void charQuickSort(char *arr, unsigned int size);
+void charQuickSort(char *arr, int size);
 
 /**
  * @brief Quicksort for arrays of ints
  * @details Equivalent to `chooseQuickSortArr("%i", arr, size)`. Refer to chooseQuickSortArr()
  */
-void intQuickSort(int *arr, unsigned int size);
+void intQuickSort(int *arr, int size);
 
 /**
  * @brief Quicksort for arrays of floats
  * @details Equivalent to `chooseQuickSortArr("%f", arr, size)`. Refer to chooseQuickSortArr()
  */
-void floatQuickSort(float *arr, unsigned int size);
+void floatQuickSort(float *arr, int size);
 
 /**
  * @brief Quicksort for arrays of doubles
  * @details Equivalent to `chooseQuickSortArr("%lf", arr, size)`. Refer to chooseQuickSortArr()
  */
-void doubleQuickSort(double *arr, unsigned int size);
+void doubleQuickSort(double *arr, int size);
 
 /**
  * @brief Quicksort for arrays of pointers
  * @details Equivalent to `chooseQuickSortArr("%p", arr, size)`. Refer to chooseQuickSortArr()
  */
-void ptrQuickSort(void **arr, unsigned int size);
+void ptrQuickSort(void **arr, int size);
 
 #endif
