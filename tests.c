@@ -46,22 +46,22 @@ int main() {
     void *ptrArr[8];
     for (int i = 0; i < 8; i++)
         ptrArr[i] = saferMalloc(sizeof(byte));
-    ArrayList byteAL = newALFromArray(byteArr, 8);
-    ArrayList charAL = newALFromArray(charArr, 8);
-    ArrayList intAL = newALFromArray(intArr, 8);
-    ArrayList floatAL = newALFromArray(floatArr, 8);
-    ArrayList doubleAL = newALFromArray(doubleArr, 8);
-    ArrayList ptrAL = newALFromPtrArray(ptrArr, 8); // newALFromArray does not support pointerArray
-    printf("Testing newArrayFromArray()\n");
+    ArrayList byteAL = chooseNewALFromArray("%c", byteArr, 8);
+    ArrayList charAL = chooseNewALFromArray("%c", charArr, 8);
+    ArrayList intAL = chooseNewALFromArray("%i", intArr, 8);
+    ArrayList floatAL = chooseNewALFromArray("%f", floatArr, 8);
+    ArrayList doubleAL = chooseNewALFromArray("%lf", doubleArr, 8);
+    ArrayList ptrAL = chooseNewALFromArray("%p", ptrArr, 8);
+    printf("Testing chooseNewArrayFromArray()\n");
     printAL("%4hi", byteAL);
     printf("\n\n");
     printAL("%2c", charAL);
     printf("\n\n");
     printAL("%6i", intAL);
     printf("\n\n");
-    printAL("%7.1f", floatAL);
+    printAL("%9.1f", floatAL);
     printf("\n\n");
-    printAL("%8.2lf", doubleAL);
+    printAL("%10.2lf", doubleAL);
     printf("\n\n");
     printAL("%16p", ptrAL);
     printf("\n\n\n");
@@ -100,9 +100,9 @@ int main() {
     printf("\n\n");
     printAL("%6i", intAL);
     printf("\n\n");
-    printAL("%7.1f", floatAL);
+    printAL("%9.1f", floatAL);
     printf("\n\n");
-    printAL("%8.2lf", doubleAL);
+    printAL("%10.2lf", doubleAL);
     printf("\n\n");
     printAL("%16p", ptrAL);
     printf("\n\n\n");
@@ -120,9 +120,9 @@ int main() {
     printf("\n\n");
     printAL("%6i", intAL);
     printf("\n\n");
-    printAL("%7.1f", floatAL);
+    printAL("%9.1f", floatAL);
     printf("\n\n");
-    printAL("%8.2lf", doubleAL);
+    printAL("%10.2lf", doubleAL);
     printf("\n\n");
     printAL("%16p", ptrAL);
     printf("\n\n\n");
@@ -140,9 +140,9 @@ int main() {
     printf("\n\n");
     printAL("%6i", intAL);
     printf("\n\n");
-    printAL("%7.1f", floatAL);
+    printAL("%9.1f", floatAL);
     printf("\n\n");
-    printAL("%8.2lf", doubleAL);
+    printAL("%10.2lf", doubleAL);
     printf("\n\n");
     printAL("%16p", ptrAL);
     printf("\n\n\n");
@@ -160,9 +160,9 @@ int main() {
     printf("\n\n");
     printAL("%6i", intAL);
     printf("\n\n");
-    printAL("%7.1f", floatAL);
+    printAL("%9.1f", floatAL);
     printf("\n\n");
-    printAL("%8.2lf", doubleAL);
+    printAL("%10.2lf", doubleAL);
     printf("\n\n");
     printAL("%16p", ptrAL);
     printf("\n\n\n");
@@ -180,9 +180,9 @@ int main() {
     printf("\n\n");
     printAL("%6i", intAL);
     printf("\n\n");
-    printAL("%7.1f", floatAL);
+    printAL("%9.1f", floatAL);
     printf("\n\n");
-    printAL("%8.2lf", doubleAL);
+    printAL("%10.2lf", doubleAL);
     printf("\n\n");
     printAL("%16p", ptrAL);
     printf("\n\n\n");
@@ -200,9 +200,9 @@ int main() {
     printf("\n\n");
     printAL("%6i", intAL);
     printf("\n\n");
-    printAL("%7.1f", floatAL);
+    printAL("%9.1f", floatAL);
     printf("\n\n");
-    printAL("%8.2lf", doubleAL);
+    printAL("%10.2lf", doubleAL);
     printf("\n\n");
     printAL("%16p", ptrAL);
     printf("\n\n\n");
@@ -220,9 +220,9 @@ int main() {
     printf("\n\n");
     printAL("%6i", intAL);
     printf("\n\n");
-    printAL("%7.1f", floatAL);
+    printAL("%9.1f", floatAL);
     printf("\n\n");
-    printAL("%8.2lf", doubleAL);
+    printAL("%10.2lf", doubleAL);
     printf("\n\n");
     printAL("%16p", ptrAL);
     printf("\n\n\n");
@@ -240,9 +240,9 @@ int main() {
     printf("\n\n");
     printAL("%6i", intAL);
     printf("\n\n");
-    printAL("%7.1f", floatAL);
+    printAL("%9.1f", floatAL);
     printf("\n\n");
-    printAL("%8.2lf", doubleAL);
+    printAL("%10.2lf", doubleAL);
     printf("\n\n");
     printAL("%16p", ptrAL);
     printf("\n\n\n");
@@ -260,9 +260,9 @@ int main() {
     printf("\n\n");
     printAL("%6i", intAL);
     printf("\n\n");
-    printAL("%7.1f", floatAL);
+    printAL("%9.1f", floatAL);
     printf("\n\n");
-    printAL("%8.2lf", doubleAL);
+    printAL("%10.2lf", doubleAL);
     printf("\n\n");
     printAL("%16p", ptrAL);
     printf("\n\n\n");
@@ -369,32 +369,6 @@ int main() {
             printf("%3i", chooseCmp("%p", &ptrs[j], &ptrs[i]));
     printf("\n\n");
 
-    printf("Testing cmpVal()\n");
-    for (int i = 0; i < 2; i++)
-        for (int j = 0; j < 2; j++)
-            printf("%3i", cmpVal(bytes[i], bytes[j]));
-    printf("\n");
-    for (int i = 0; i < 2; i++)
-        for (int j = 0; j < 2; j++)
-            printf("%3i", cmpVal(chars[i], chars[j]));
-    printf("\n");
-    for (int i = 0; i < 2; i++)
-        for (int j = 0; j < 2; j++)
-            printf("%3i", cmpVal(ints[i], ints[j]));
-    printf("\n");
-    for (int i = 0; i < 2; i++)
-        for (int j = 0; j < 2; j++)
-            printf("%3i", cmpVal(floats[i], floats[j]));
-    printf("\n");
-    for (int i = 0; i < 2; i++)
-        for (int j = 0; j < 2; j++)
-            printf("%3i", cmpVal(doubles[i], doubles[j]));
-    printf("\n");
-    for (int i = 0; i < 2; i++)
-        for (int j = 0; j < 2; j++)
-            printf("%3i", cmpVal(ptrs[j], ptrs[i]));
-    printf("\n\n");
-
     printf("\n\n");
     for (int i = 0; i < 2; i++)
         free(ptrs[i]);
@@ -418,31 +392,21 @@ int main() {
     printf("TESTING ARRAYS\n");
     byte byteMatrix[][8] = {
         {32, 43, 65, 12, 76, 75, 1, 2},
-        {32, 43, 65, 12, 76, 75, 1, 2},
-        {32, 43, 65, 12, 76, 75, 1, 2},
         {32, 43, 65, 12, 76, 75, 1, 2}};
     char charMatrix[][8] = {
-        {'F', 'Q', 'A', 'C', '3', '0', 'Z', 'R'},
-        {'F', 'Q', 'A', 'C', '3', '0', 'Z', 'R'},
         {'F', 'Q', 'A', 'C', '3', '0', 'Z', 'R'},
         {'F', 'Q', 'A', 'C', '3', '0', 'Z', 'R'}};
     int intMatrix[][8] = {
         {3254, 433, 65554, 1223, 7665, 7600, 12, 254},
-        {3254, 433, 65554, 1223, 7665, 7600, 12, 254},
-        {3254, 433, 65554, 1223, 7665, 7600, 12, 254},
         {3254, 433, 65554, 1223, 7665, 7600, 12, 254}};
     float floatMatrix[][8] = {
-        {3254.2, 433.2, 65554.2, 1223.2, 7665.2, 7600.2, 12.2, 254.2},
-        {3254.2, 433.2, 65554.2, 1223.2, 7665.2, 7600.2, 12.2, 254.2},
         {3254.2, 433.2, 65554.2, 1223.2, 7665.2, 7600.2, 12.2, 254.2},
         {3254.2, 433.2, 65554.2, 1223.2, 7665.2, 7600.2, 12.2, 254.2}};
     double doubleMatrix[][8] = {
         {3254.21, 433.21, 65554.21, 1223.21, 7665.21, 7600.21, 12.21, 254.21},
-        {3254.21, 433.21, 65554.21, 1223.21, 7665.21, 7600.21, 12.21, 254.21},
-        {3254.21, 433.21, 65554.21, 1223.21, 7665.21, 7600.21, 12.21, 254.21},
         {3254.21, 433.21, 65554.21, 1223.21, 7665.21, 7600.21, 12.21, 254.21}};
     void *ptrMatrix[4][8];
-    for (int i = 0; i < 4; i++)
+    for (int i = 0; i < 2; i++)
         for (int j = 0; j < 8; j++)
             ptrMatrix[i][j] = (void *)saferMalloc(sizeof(byte));
     
@@ -451,16 +415,16 @@ int main() {
     printMatrix("%2c", charMatrix, 2, 8);
     printMatrix("%10.2f", floatMatrix, 2, 8);
     printMatrix("%10.2lf", doubleMatrix, 2, 8);
-    //no printMatrix("%p", ptrMatrix) beacause %p is not supported by printMatrix
+    printMatrix("%16p", ptrMatrix, 2, 8);
 
-    quickSortArr(byteMatrix[0], 8);    // chooseQuickSortArr("%c", byteMatrix[0], 8);
-    quickSortArr(charMatrix[0], 8);    // chooseQuickSortArr("%c", charMatrix[0], 8);
-    quickSortArr(intMatrix[0], 8);     // chooseQuickSortArr("%i", intMatrix[0], 8);
-    quickSortArr(floatMatrix[0], 8);   // chooseQuickSortArr("%f", floatMatrix[0], 8);
-    quickSortArr(doubleMatrix[0], 8);  // chooseQuickSortArr("%lf", doubleMatrix[0], 8);
-    quickSortArr(ptrMatrix[0], 8);     // chooseQuickSortArr("%p", ptrMatrix[0], 8);
+    chooseQuickSortArr("%c", byteMatrix[0], 8);
+    chooseQuickSortArr("%c", charMatrix[0], 8);
+    chooseQuickSortArr("%i", intMatrix[0], 8);
+    chooseQuickSortArr("%f", floatMatrix[0], 8);
+    chooseQuickSortArr("%lf", doubleMatrix[0], 8);
+    chooseQuickSortArr("%p", ptrMatrix[0], 8);
 
-    printf("Testing quickSortArr()\n");
+    printf("Testing chooseQuickSortArr()\n");
     printMatrix("%4hi", byteMatrix, 1, 8);
     printMatrix("%2c", charMatrix, 1, 8);
     printMatrix("%6i", intMatrix, 1, 8);
@@ -470,56 +434,20 @@ int main() {
         printf("%16p", ptrMatrix[0][i]);
     printf("\n\n");
 
-    bubbleSortArr(byteMatrix[1], 8);
-    bubbleSortArr(charMatrix[1], 8);
-    bubbleSortArr(intMatrix[1], 8);
-    bubbleSortArr(floatMatrix[1], 8);
-    bubbleSortArr(doubleMatrix[1], 8);
-    bubbleSortArr(ptrMatrix[1], 8);
+    chooseBubbleSortArr("%c", byteMatrix[1], 8);
+    chooseBubbleSortArr("%c", charMatrix[1], 8);
+    chooseBubbleSortArr("%i", intMatrix[1], 8);
+    chooseBubbleSortArr("%f", floatMatrix[1], 8);
+    chooseBubbleSortArr("%lf", doubleMatrix[1], 8);
+    chooseBubbleSortArr("%p", ptrMatrix[1], 8);
 
-    printf("Testing bubbleSortArr()\n");
+    printf("Testing chooseBubbleSortArr()\n");
     printMatrix("%4hi", byteMatrix[1], 1, 8);
     printMatrix("%2c", charMatrix[1], 1, 8);
     printMatrix("%6i", intMatrix[1], 1, 8);
     printMatrix("%10.2f", floatMatrix[1], 1, 8);
     printMatrix("%10.2lf", doubleMatrix[1], 1, 8);
-    for (int i = 0; i < 8; i++)
-        printf("%16p", ptrMatrix[1][i]);
-    //no printMatrix("%p", ptrMatrix) beacause %p is not supported by printMatrix
-    printf("\n\n");
-
-    chooseQuickSortArr("%c", byteMatrix[2], 8);
-    chooseQuickSortArr("%c", charMatrix[2], 8);
-    chooseQuickSortArr("%i", intMatrix[2], 8);
-    chooseQuickSortArr("%f", floatMatrix[2], 8);
-    chooseQuickSortArr("%lf", doubleMatrix[2], 8);
-    chooseQuickSortArr("%p", ptrMatrix[2], 8);
-
-    printf("Testing chooseQuickSortArr()\n");
-    printMatrix("%4hi", byteMatrix[2], 1, 8);
-    printMatrix("%2c", charMatrix[2], 1, 8);
-    printMatrix("%6i", intMatrix[2], 1, 8);
-    printMatrix("%10.2f", floatMatrix[2], 1, 8);
-    printMatrix("%10.2lf", doubleMatrix[2], 1, 8);
-    for (int i = 0; i < 8; i++)
-        printf("%16p", ptrMatrix[2][i]);
-    printf("\n\n");
-
-    chooseBubbleSortArr("%c", byteMatrix[3], 8);
-    chooseBubbleSortArr("%c", charMatrix[3], 8);
-    chooseBubbleSortArr("%i", intMatrix[3], 8);
-    chooseBubbleSortArr("%f", floatMatrix[3], 8);
-    chooseBubbleSortArr("%lf", doubleMatrix[3], 8);
-    chooseBubbleSortArr("%p", ptrMatrix[3], 8);
-
-    printf("Testing chooseQuickSortArr()\n");
-    printMatrix("%4hi", byteMatrix[3], 1, 8);
-    printMatrix("%2c", charMatrix[3], 1, 8);
-    printMatrix("%6i", intMatrix[3], 1, 8);
-    printMatrix("%10.2f", floatMatrix[3], 1, 8);
-    printMatrix("%10.2lf", doubleMatrix[3], 1, 8);
-    for (int i = 0; i < 8; i++)
-        printf("%16p", ptrMatrix[3][i]);
+    printMatrix("%16p", ptrMatrix, 2, 8);
     printf("\n\n");
 
     printf("Testing chooseLinearSearch()\n");
