@@ -11,7 +11,7 @@
                 "-lm",
                 "-I",
                 "${workspaceFolder}",
-                "${workspaceFolder}/build/myLibrary.lib"
+                "${workspaceFolder}/build/myLibrary_Linux.lib"
             ],
             "options": {
                 "cwd": "${workspaceFolder}"

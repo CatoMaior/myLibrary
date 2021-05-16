@@ -12,6 +12,9 @@ jobs:
     steps:
     
     - uses: actions/checkout@v2
+
+    - name: Install mingw
+      run: apt-get install -y mingw-64
     
     - name: Compile library and tests
       run: make lib build/tests
@@ -34,8 +37,11 @@ jobs:
         folder: docs/html
         branch: gh-pages
     
-    - name: Create release zip file
-      run: zip release.zip *.h build/myLibrary.lib docs.pdf
+    - name: Create Linux release zip file
+      run: zip release_x64_Linux.zip *.h build/myLibrary_Linux.lib docs.pdf
+
+    - name: Create Windows release zip file
+      run: zip release_x64_Windows.zip *.h build/myLibrary_Windows.lib docs.pdf
         
     - name: Publish build
       uses: "marvinpinto/action-automatic-releases@latest"
@@ -44,4 +50,6 @@ jobs:
         automatic_release_tag: "latest"
         prerelease: false
         title: "Development build"
-        files: release.zip
+        files: |
+            release_x64_Linux.zip
+            release_x64_Windows.zip
