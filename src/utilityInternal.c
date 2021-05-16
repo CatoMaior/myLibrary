@@ -10,13 +10,13 @@
 
 void throwIf(const byte condition, const string errorString, const char* funcName) {
     if (condition) {
-        printf("\n%s in function %s.\nExiting\n", errorString, funcName);
+        printf("\nAn errorr occured in function %s:\n%s\nExiting\n", funcName, errorString);
         exit(1);
     }
 }
 
 void *getCmp(const spec_t spec) {
-    throwIf(!spec, NULL_POINTER_GIVEN, __func__);
+    funcThrowIf(!spec, NULL_POINTER_GIVEN);
     if (strcmp("%c", spec) == 0)
         return charCmp;
     if (strcmp("%i", spec) == 0)
@@ -27,11 +27,11 @@ void *getCmp(const spec_t spec) {
         return doubleCmp;
     if (strcmp("%p", spec) == 0)
         return ptrCmp;
-    throwIf(TRUE, UNSUPPORTED_SPECIFIER, __func__);
+    funcThrowIf(TRUE, UNSUPPORTED_SPECIFIER);
 }
 
 byte getTypeSize(const spec_t spec) {
-    throwIf(!spec, NULL_POINTER_GIVEN, __func__);
+    funcThrowIf(!spec, NULL_POINTER_GIVEN);
     if (strcmp(spec, "%c") == 0)
         return sizeof(char);
     if (strcmp(spec, "%i") == 0)
@@ -42,7 +42,7 @@ byte getTypeSize(const spec_t spec) {
         return sizeof(double);
     if (strcmp(spec, "%p") == 0)
         return sizeof(void *);
-    throwIf(TRUE, UNSUPPORTED_SPECIFIER, __func__);
+    funcThrowIf(TRUE, UNSUPPORTED_SPECIFIER);
 }
 
 byte isTypeSupported(const spec_t spec) {
@@ -53,9 +53,7 @@ byte isTypeSupported(const spec_t spec) {
     return FALSE;
 }
 
-VarData getData(const spec_t spec, va_list argList) {
-    throwIf(!isTypeSupported(spec), UNSUPPORTED_SPECIFIER, __func__);
-    VarData data = saferMalloc(sizeof(varData));
+void getDataFromArgList(const spec_t spec, va_list argList, VarData data) {
     if (strcmp(spec, "%c") == 0)
         data->charData = va_arg(argList, int);
     else if (strcmp(spec, "%i") == 0)
@@ -66,5 +64,6 @@ VarData getData(const spec_t spec, va_list argList) {
         data->doubleData = va_arg(argList, double);
     else if (strcmp(spec, "%p") == 0)
         data->ptrData = va_arg(argList, void *);
-    return data;
+    else
+        funcThrowIf(TRUE, UNSUPPORTED_SPECIFIER);
 }

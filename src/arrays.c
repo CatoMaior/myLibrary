@@ -10,39 +10,39 @@
 
 void chooseQuickSortArr(const spec_t spec, void *arr, int size) {
     //size is not unsigned int beacause qsort requires signed int
-    throwIf(!spec || !arr, NULL_POINTER_GIVEN, __func__);
+    funcThrowIf(!spec || !arr, NULL_POINTER_GIVEN);
     size_t typeSize = getTypeSize(spec);
     void *cmpVal = getCmp(spec);
     qsort(arr, size, typeSize, cmpVal);
 }
 
 void charQuickSort(char *arr, int size) {
-    throwIf(!arr, NULL_POINTER_GIVEN, __func__);
+    funcThrowIf(!arr, NULL_POINTER_GIVEN);
     chooseQuickSortArr("%c", arr, size);
 }
 
 void intQuickSort(int *arr, int size) {
-    throwIf(!arr, NULL_POINTER_GIVEN, __func__);
+    funcThrowIf(!arr, NULL_POINTER_GIVEN);
     chooseQuickSortArr("%i", arr, size);
 }
 
 void floatQuickSort(float *arr, int size) {
-    throwIf(!arr, NULL_POINTER_GIVEN, __func__);
+    funcThrowIf(!arr, NULL_POINTER_GIVEN);
     chooseQuickSortArr("%f", arr, size);
 }
 
 void doubleQuickSort(double *arr, int size) {
-    throwIf(!arr, NULL_POINTER_GIVEN, __func__);
+    funcThrowIf(!arr, NULL_POINTER_GIVEN);
     chooseQuickSortArr("%lf", arr, size);
 }
 
 void ptrQuickSort(void **arr, int size) {
-    throwIf(!arr, NULL_POINTER_GIVEN, __func__);
+    funcThrowIf(!arr, NULL_POINTER_GIVEN);
     chooseQuickSortArr("%p", arr, size);
 }
 
 void chooseBubbleSortArr(const spec_t spec, void *arr, unsigned int size) {
-    throwIf(!arr || !spec, NULL_POINTER_GIVEN, __func__);
+    funcThrowIf(!arr || !spec, NULL_POINTER_GIVEN);
     char isSorted;
     unsigned int sorted = 0;
     if (strcmp("%c", spec) == 0)
@@ -55,32 +55,30 @@ void chooseBubbleSortArr(const spec_t spec, void *arr, unsigned int size) {
         return doubleBubbleSort(arr, size);
     if (strcmp("%p", spec) == 0) 
         return ptrBubbleSort(arr, size);
-    throwIf(TRUE, UNSUPPORTED_SPECIFIER, __func__);
+    funcThrowIf(TRUE, UNSUPPORTED_SPECIFIER);
 }
 
 // TODO Linear searches for all types definition and implementation
 
 int chooseLinearSearch(const spec_t spec, void *arr, int size, ...) {
-    throwIf(!spec || !arr, NULL_POINTER_GIVEN, __func__);
-    throwIf(!isTypeSupported(spec), UNSUPPORTED_SPECIFIER, __func__);
+    funcThrowIf(!spec || !arr, NULL_POINTER_GIVEN);
+    funcThrowIf(!isTypeSupported(spec), UNSUPPORTED_SPECIFIER);
     va_list argList;
     va_start(argList, size);
-    VarData key = getData(spec, argList);
+    varData key;
+    getDataFromArgList(spec, argList, &key);
     va_end(argList);
     byte typeSize = getTypeSize(spec);
     for (int i = 0; i < size; i++)
-        if (memcmp(arr + i * typeSize, key, typeSize) == 0) {
-            free(key);
+        if (memcmp(arr + i * typeSize, &key, typeSize) == 0)
             return i;
-        }
-    free(key);
     return KEY_NOT_FOUND;
 }
 
 void printMatrix(const spec_t spec, const void *matrix, const unsigned int nRows, const unsigned int nColumns) {
-    throwIf(!spec || !matrix, NULL_POINTER_GIVEN, __func__);
+    funcThrowIf(!spec || !matrix, NULL_POINTER_GIVEN);
     if (endsWith(spec, "hhi"))
-        throwIf(TRUE, UNSUPPORTED_SPECIFIER, __func__);
+        funcThrowIf(TRUE, UNSUPPORTED_SPECIFIER);
     if (endsWith(spec, "hi")) {
         for (unsigned int i = 0; i < nRows; i++) {
             for (unsigned int j = 0; j < nColumns; j++)
@@ -130,11 +128,11 @@ void printMatrix(const spec_t spec, const void *matrix, const unsigned int nRows
         printf("\n");
     }
     else
-        throwIf(TRUE, UNSUPPORTED_SPECIFIER, __func__);
+        funcThrowIf(TRUE, UNSUPPORTED_SPECIFIER);
 }
 
 void charBubbleSort(char *arr, unsigned int size) {
-    throwIf(!arr, NULL_POINTER_GIVEN, __func__);
+    funcThrowIf(!arr, NULL_POINTER_GIVEN);
     byte isSorted;
     unsigned int sorted = 0;
     char temp;
@@ -155,7 +153,7 @@ void charBubbleSort(char *arr, unsigned int size) {
 }
 
 void intBubbleSort(int *arr, unsigned int size) {
-    throwIf(!arr, NULL_POINTER_GIVEN, __func__);
+    funcThrowIf(!arr, NULL_POINTER_GIVEN);
     byte isSorted;
     unsigned int sorted = 0;
     int temp;
@@ -176,7 +174,7 @@ void intBubbleSort(int *arr, unsigned int size) {
 }
 
 void floatBubbleSort(float *arr, unsigned int size) {
-    throwIf(!arr, NULL_POINTER_GIVEN, __func__);
+    funcThrowIf(!arr, NULL_POINTER_GIVEN);
     byte isSorted;
     unsigned int sorted = 0;
     float temp;
@@ -197,7 +195,7 @@ void floatBubbleSort(float *arr, unsigned int size) {
 }
 
 void doubleBubbleSort(double *arr, unsigned int size) {
-    throwIf(!arr, NULL_POINTER_GIVEN, __func__);
+    funcThrowIf(!arr, NULL_POINTER_GIVEN);
     byte isSorted;
     unsigned int sorted = 0;
     double temp;
@@ -218,7 +216,7 @@ void doubleBubbleSort(double *arr, unsigned int size) {
 }
 
 void ptrBubbleSort(void **arr, unsigned int size) {
-    throwIf(!arr, NULL_POINTER_GIVEN, __func__);
+    funcThrowIf(!arr, NULL_POINTER_GIVEN);
     byte isSorted;
     unsigned int sorted = 0;
     void *temp;
