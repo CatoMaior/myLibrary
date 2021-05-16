@@ -77,13 +77,14 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="types_8h__dep__incl.png" border="0" usemap="#atypes_8hdep" alt=""/></div>
 <map name="atypes_8hdep" id="atypes_8hdep">
-<area shape="rect" title="Collection of useful types." alt="" coords="211,5,274,32"/>
+<area shape="rect" title="Collection of useful types." alt="" coords="266,5,329,32"/>
 <area shape="rect" href="arrayList_8h.html" title="ArrayList functions and macros" alt="" coords="5,80,88,107"/>
-<area shape="rect" href="myLibrary_8h.html" title="Includes all other headers. Useful for rapid import." alt="" coords="199,155,287,181"/>
+<area shape="rect" href="myLibrary_8h.html" title="Includes all other headers. Useful for rapid import." alt="" coords="253,155,341,181"/>
 <area shape="rect" href="arrays_8h.html" title="Common tasks with arrays: sorting, searching, printing etc." alt="" coords="163,80,229,107"/>
-<area shape="rect" href="macros_8h.html" title="Macros for emulated overloading." alt="" coords="253,80,328,107"/>
-<area shape="rect" href="strings_8h.html" title="Common tasks with strings." alt="" coords="353,80,423,107"/>
-<area shape="rect" href="utility_8h.html" title="Common tasks such as comparing variables, swap bools, allocate memory." alt="" coords="447,80,510,107"/>
+<area shape="rect" href="linkedList_8h.html" title=" " alt="" coords="253,80,341,107"/>
+<area shape="rect" href="macros_8h.html" title="Macros for emulated overloading." alt="" coords="365,80,440,107"/>
+<area shape="rect" href="strings_8h.html" title="Common tasks with strings." alt="" coords="465,80,535,107"/>
+<area shape="rect" href="utility_8h.html" title="Common tasks such as comparing variables, swap bools, allocate memory." alt="" coords="559,80,622,107"/>
 </map>
 </div>
 </div>
@@ -91,8 +92,14 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structarrayList.html">arrayList</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structarrayList.html" title="arrayList type">arrayList</a> type  <a href="structarrayList.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structArrayList.html">ArrayList</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a> type  <a href="structArrayList.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnode.html">node</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="types_8h.html#aeb92ac73ae6f1c50ed48c1a73a078394" title="Node type">Node</a> type  <a href="structnode.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structLinkedList.html">LinkedList</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structLinkedList.html" title="LinkedList type">LinkedList</a> type  <a href="structLinkedList.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
@@ -106,31 +113,14 @@ Typedefs</h2></td></tr>
 <tr class="memitem:a4505c08c065b48840a30eedd9845cce2"><td class="memItemLeft" align="right" valign="top">typedef char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="types_8h.html#a4505c08c065b48840a30eedd9845cce2">string</a></td></tr>
 <tr class="memdesc:a4505c08c065b48840a30eedd9845cce2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for char *, used when an array of char is actually used as a string.  <a href="types_8h.html#a4505c08c065b48840a30eedd9845cce2">More...</a><br /></td></tr>
 <tr class="separator:a4505c08c065b48840a30eedd9845cce2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac84cd640db4d191c54801cd7b62010a"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="structarrayList.html">arrayList</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="types_8h.html#aac84cd640db4d191c54801cd7b62010a">ArrayList</a></td></tr>
-<tr class="memdesc:aac84cd640db4d191c54801cd7b62010a"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="types_8h.html#aac84cd640db4d191c54801cd7b62010a" title="ArrayList type">ArrayList</a> type  <a href="types_8h.html#aac84cd640db4d191c54801cd7b62010a">More...</a><br /></td></tr>
-<tr class="separator:aac84cd640db4d191c54801cd7b62010a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb92ac73ae6f1c50ed48c1a73a078394"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structnode.html">node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="types_8h.html#aeb92ac73ae6f1c50ed48c1a73a078394">Node</a></td></tr>
+<tr class="memdesc:aeb92ac73ae6f1c50ed48c1a73a078394"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="types_8h.html#aeb92ac73ae6f1c50ed48c1a73a078394" title="Node type">Node</a> type  <a href="types_8h.html#aeb92ac73ae6f1c50ed48c1a73a078394">More...</a><br /></td></tr>
+<tr class="separator:aeb92ac73ae6f1c50ed48c1a73a078394"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Collection of useful types. </p>
 <dl class="section author"><dt>Author</dt><dd>Pietro Firpo (<a href="#" onclick="location.href='mai'+'lto:'+'pie'+'tr'+'o.f'+'ir'+'po@'+'pm'+'.me'; return false;">pietr<span style="display: none;">.nosp@m.</span>o.fi<span style="display: none;">.nosp@m.</span>rpo@p<span style="display: none;">.nosp@m.</span>m.me</a>) </dd></dl>
 </div><h2 class="groupheader">Typedef Documentation</h2>
-<a id="aac84cd640db4d191c54801cd7b62010a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aac84cd640db4d191c54801cd7b62010a">&#9670;&nbsp;</a></span>ArrayList</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef <a class="el" href="structarrayList.html">arrayList</a>* <a class="el" href="types_8h.html#aac84cd640db4d191c54801cd7b62010a">ArrayList</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p><a class="el" href="types_8h.html#aac84cd640db4d191c54801cd7b62010a" title="ArrayList type">ArrayList</a> type </p>
-<p>Pointer to <a class="el" href="structarrayList.html" title="arrayList type">arrayList</a> </p>
-
-</div>
-</div>
 <a id="a2b7e7856b48ec3327148ac994ad95cd5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2b7e7856b48ec3327148ac994ad95cd5">&#9670;&nbsp;</a></span>byte</h2>
 
@@ -144,6 +134,23 @@ Typedefs</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Alias for char, just to avoid confusion with 8 bit numbers and ASCII characters. </p>
+
+</div>
+</div>
+<a id="aeb92ac73ae6f1c50ed48c1a73a078394"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb92ac73ae6f1c50ed48c1a73a078394">&#9670;&nbsp;</a></span>Node</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structnode.html">node</a> * <a class="el" href="types_8h.html#aeb92ac73ae6f1c50ed48c1a73a078394">Node</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="types_8h.html#aeb92ac73ae6f1c50ed48c1a73a078394" title="Node type">Node</a> type </p>
+<p>Base component of every linked data type </p><dl class="section note"><dt>Note</dt><dd>All the parameters in this structure must be intended as read-only. Manually modifying them can cause unknown and unwanted behavior </dd></dl>
 
 </div>
 </div>

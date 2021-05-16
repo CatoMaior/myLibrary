@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['type_142',['type',['../structarrayList.html#ac135a08ffb9d24fccdc25a6927ce5cbb',1,'arrayList']]]
+  ['head_158',['head',['../structLinkedList.html#a12c8c1080f7a8f2fd478686d982e9da0',1,'LinkedList']]]
 ];

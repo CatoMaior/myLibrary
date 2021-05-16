@@ -1,10 +1,11 @@
 <map id="myLibrary.h" name="myLibrary.h">
-<area shape="rect" id="node1" title="Includes all other headers. Useful for rapid import." alt="" coords="261,5,349,32"/>
+<area shape="rect" id="node1" title="Includes all other headers. Useful for rapid import." alt="" coords="307,5,395,32"/>
 <area shape="rect" id="node2" href="$constants_8h.html" title="Definition of symbolic constants used by the library." alt="" coords="5,80,95,107"/>
 <area shape="rect" id="node3" href="$macros_8h.html" title="Macros for emulated overloading." alt="" coords="119,80,194,107"/>
-<area shape="rect" id="node4" href="$types_8h.html" title="Collection of useful types." alt="" coords="320,155,383,181"/>
+<area shape="rect" id="node4" href="$types_8h.html" title="Collection of useful types." alt="" coords="367,155,429,181"/>
 <area shape="rect" id="node5" href="$strings_8h.html" title="Common tasks with strings." alt="" coords="269,80,340,107"/>
 <area shape="rect" id="node6" href="$arrays_8h.html" title="Common tasks with arrays: sorting, searching, printing etc." alt="" coords="365,80,431,107"/>
 <area shape="rect" id="node7" href="$utility_8h.html" title="Common tasks such as comparing variables, swap bools, allocate memory." alt="" coords="456,80,519,107"/>
 <area shape="rect" id="node8" href="$arrayList_8h.html" title="ArrayList functions and macros" alt="" coords="543,80,626,107"/>
+<area shape="rect" id="node9" href="$linkedList_8h.html" title=" " alt="" coords="650,80,738,107"/>
 </map>
