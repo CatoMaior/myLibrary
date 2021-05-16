@@ -4,6 +4,8 @@
 #include <stdarg.h>
 #include "../types.h"
 
+#define funcThrowIf(condition, errorString) throwIf(condition, errorString, __func__)
+
 typedef union {
     char charData;
     int intData;
@@ -22,6 +24,6 @@ void throwIf(const byte condition, const string errorString, const char* funcNam
 
 byte isTypeSupported(const spec_t spec);
 
-VarData getData(const spec_t spec, va_list argList);
+void getDataFromArgList(const spec_t spec, va_list argList, VarData data);
 
 #endif
