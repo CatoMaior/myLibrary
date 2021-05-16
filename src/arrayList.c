@@ -13,16 +13,16 @@
 
 ArrayList newAL(const spec_t spec) {
     throwIf(!isTypeSupported(spec), UNSUPPORTED_SPECIFIER, __func__);
-    ArrayList newArray = saferMalloc(sizeof(arrayList));
+    ArrayList newArray = saferMalloc(sizeof(*newArray));
     newArray->type = spec;
     newArray->size = 0;
     return newArray;
 }
 
 ArrayList newALFromAL(const ArrayList arr) {
-    throwIf(!arr, NULL_AL_GIVEN, __func__);
-    throwIf(!arr->type, NULL_AL_TYPE, __func__);
-    throwIf(!arr->body, NULL_AL_BODY, __func__);
+    funcThrowIf(!arr, NULL_AL_GIVEN);
+    funcThrowIf(!arr->type, NULL_AL_TYPE);
+    funcThrowIf(!arr->body, NULL_AL_BODY);
     ArrayList copy = newAL(copyOf(arr->type));
     copy->size = arr->size;
     copy->type = copyOf(arr->type);
@@ -33,7 +33,7 @@ ArrayList newALFromAL(const ArrayList arr) {
 }
 
 ArrayList chooseNewALFromArray(const spec_t spec, const void *arr, unsigned int size) {
-    throwIf(!arr || !spec, NULL_POINTER_GIVEN, __func__);
+    funcThrowIf(!arr || !spec, NULL_POINTER_GIVEN);
     if (strcmp(spec, "%c") == 0)
         return newALFromCharArray(arr, size);
     if (strcmp(spec, "%i") == 0)
@@ -44,14 +44,14 @@ ArrayList chooseNewALFromArray(const spec_t spec, const void *arr, unsigned int 
         return newALFromDoubleArray(arr, size);
     if (strcmp(spec, "%p") == 0)
         return newALFromPtrArray(arr, size);
-    throwIf(TRUE, UNSUPPORTED_SPECIFIER, __func__);
+    funcThrowIf(TRUE, UNSUPPORTED_SPECIFIER);
 }
 
 void mergeAL(ArrayList arr1, const ArrayList arr2) {
-    throwIf(!arr1 || !arr2, NULL_AL_GIVEN, __func__);
-    throwIf(!arr1->type || !arr2->type, NULL_AL_TYPE, __func__);
-    throwIf(!arr1->body || !arr2->body, NULL_AL_BODY, __func__);
-    throwIf(strcmp(arr1->type, arr2->type) != 0, DIFFERENT_AL_TYPES, __func__);
+    funcThrowIf(!arr1 || !arr2, NULL_AL_GIVEN);
+    funcThrowIf(!arr1->type || !arr2->type, NULL_AL_TYPE);
+    funcThrowIf(!arr1->body || !arr2->body, NULL_AL_BODY);
+    funcThrowIf(strcmp(arr1->type, arr2->type) != 0, DIFFERENT_AL_TYPES);
     byte typeSize = getTypeSize(arr1->type);
     unsigned int bytesToBeCopied = arr2->size * typeSize;
     arr1->body = saferRealloc(arr1->body, (arr1->size + arr2->size) * typeSize);
@@ -60,11 +60,11 @@ void mergeAL(ArrayList arr1, const ArrayList arr2) {
 }
 
 void sliceAL(ArrayList arr, unsigned int begin, unsigned int end) {
-    throwIf(!arr, NULL_AL_GIVEN, __func__);
-    throwIf(!arr->type, NULL_AL_TYPE, __func__);
-    throwIf(!arr->body, NULL_AL_BODY, __func__);
-    throwIf(begin < 0 || end > arr->size, OUT_OF_AL_BOUNDS, __func__);
-    throwIf(begin > end, WRONG_INDEX_ORDER, __func__);
+    funcThrowIf(!arr, NULL_AL_GIVEN);
+    funcThrowIf(!arr->type, NULL_AL_TYPE);
+    funcThrowIf(!arr->body, NULL_AL_BODY);
+    funcThrowIf(begin < 0 || end > arr->size, OUT_OF_AL_BOUNDS);
+    funcThrowIf(begin > end, WRONG_INDEX_ORDER);
     byte typeSize = getTypeSize(arr->type);
     arr->size = end - begin;
     void *newBody = saferMalloc(arr->size * typeSize);
@@ -74,9 +74,9 @@ void sliceAL(ArrayList arr, unsigned int begin, unsigned int end) {
 }
 
 void printAL(const spec_t spec, const ArrayList arr) {
-    throwIf(!arr, NULL_AL_GIVEN, __func__);
-    throwIf(!spec, NULL_POINTER_GIVEN, __func__);
-    throwIf(!arr->type, NULL_AL_TYPE, __func__);
+    funcThrowIf(!arr, NULL_AL_GIVEN);
+    funcThrowIf(!spec, NULL_POINTER_GIVEN);
+    funcThrowIf(!arr->type, NULL_AL_TYPE);
     if (arr->size == 0 || !arr->body) {
         printf("Empty\n");
         return;
@@ -97,14 +97,14 @@ void printAL(const spec_t spec, const ArrayList arr) {
         for (unsigned int i = 0; i < arr->size; i++)
             printf(spec, *((int **)arr->body + i));
     else
-        throwIf(TRUE, UNSUPPORTED_SPECIFIER, __func__);
+        funcThrowIf(TRUE, UNSUPPORTED_SPECIFIER);
 }
 
 void removeFromAL(ArrayList arr, unsigned int index) {
-    throwIf(!arr, NULL_AL_GIVEN, __func__);
-    throwIf(!arr->type, NULL_AL_TYPE, __func__);
-    throwIf(!arr->body, NULL_AL_BODY, __func__);
-    throwIf(index >= arr->size, OUT_OF_AL_BOUNDS, __func__);
+    funcThrowIf(!arr, NULL_AL_GIVEN);
+    funcThrowIf(!arr->type, NULL_AL_TYPE);
+    funcThrowIf(!arr->body, NULL_AL_BODY);
+    funcThrowIf(index >= arr->size, OUT_OF_AL_BOUNDS);
     if (arr->size == 1) {
         free(arr->body);
         arr->size--;
@@ -116,19 +116,19 @@ void removeFromAL(ArrayList arr, unsigned int index) {
 }
 
 void getFromAL(const ArrayList arr, unsigned int index, void *dest) {
-    throwIf(!arr, NULL_AL_GIVEN, __func__);
-    throwIf(!arr->type, NULL_AL_TYPE, __func__);
-    throwIf(!arr->body, NULL_AL_BODY, __func__);
-    throwIf(!dest, NULL_DESTINATION_GIVEN, __func__);
-    throwIf(index >= arr->size, OUT_OF_AL_BOUNDS, __func__);
+    funcThrowIf(!arr, NULL_AL_GIVEN);
+    funcThrowIf(!arr->type, NULL_AL_TYPE);
+    funcThrowIf(!arr->body, NULL_AL_BODY);
+    funcThrowIf(!dest, NULL_DESTINATION_GIVEN);
+    funcThrowIf(index >= arr->size, OUT_OF_AL_BOUNDS);
     byte typeSize = getTypeSize(arr->type);
     memcpy(dest, arr->body + index * typeSize, typeSize);
 }
 
 byte areALEqual(const ArrayList arr1, const ArrayList arr2) {
-    throwIf(!arr1 || !arr2, NULL_AL_GIVEN, __func__);
-    throwIf(!arr1->type || !arr2->type, NULL_AL_TYPE, __func__);
-    throwIf(!arr2->body || !arr2->body, NULL_AL_BODY, __func__);
+    funcThrowIf(!arr1 || !arr2, NULL_AL_GIVEN);
+    funcThrowIf(!arr1->type || !arr2->type, NULL_AL_TYPE);
+    funcThrowIf(!arr2->body || !arr2->body, NULL_AL_BODY);
     if (strcmp(arr1->type, arr2->type) != 0 || arr1->size != arr2->size)
         return FALSE;
     byte typeSize = getTypeSize(arr1->type);
@@ -138,16 +138,16 @@ byte areALEqual(const ArrayList arr1, const ArrayList arr2) {
 }
 
 void deleteAL(ArrayList arr) {
-    throwIf(!arr, NULL_AL_GIVEN, __func__);
+    funcThrowIf(!arr, NULL_AL_GIVEN);
     if(arr->body)
         free(arr->body);
     free(arr);
 }
 
 void reverseAL(ArrayList arr) {
-    throwIf(!arr, NULL_AL_GIVEN, __func__);
-    throwIf(!arr->type, NULL_AL_TYPE, __func__);
-    throwIf(!arr->body, NULL_AL_BODY, __func__);
+    funcThrowIf(!arr, NULL_AL_GIVEN);
+    funcThrowIf(!arr->type, NULL_AL_TYPE);
+    funcThrowIf(!arr->body, NULL_AL_BODY);
     byte typeSize = getTypeSize(arr->type);
     void *newBody = saferMalloc(arr->size * typeSize);
     for (unsigned int i = 0; i < arr->size; i++)
@@ -157,22 +157,22 @@ void reverseAL(ArrayList arr) {
 }
 
 void bubbleSortAL(ArrayList arr) {
-    throwIf(!arr, NULL_AL_GIVEN, __func__);
-    throwIf(!arr->type, NULL_AL_TYPE, __func__);
-    throwIf(!arr->body, NULL_AL_BODY, __func__);
+    funcThrowIf(!arr, NULL_AL_GIVEN);
+    funcThrowIf(!arr->type, NULL_AL_TYPE);
+    funcThrowIf(!arr->body, NULL_AL_BODY);
     chooseBubbleSortArr(arr->type, arr->body, arr->size);
 }
 
 void quickSortAL(ArrayList arr) {
-    throwIf(!arr, NULL_AL_GIVEN, __func__);
-    throwIf(!arr->type, NULL_AL_TYPE, __func__);
-    throwIf(!arr->body, NULL_AL_BODY, __func__);
+    funcThrowIf(!arr, NULL_AL_GIVEN);
+    funcThrowIf(!arr->type, NULL_AL_TYPE);
+    funcThrowIf(!arr->body, NULL_AL_BODY);
     chooseQuickSortArr(arr->type, arr->body, arr->size);
 }
 
 void appendToAL(ArrayList arr, ...) {
-    throwIf(!arr, NULL_AL_GIVEN, __func__);
-    throwIf(!arr->type, NULL_AL_GIVEN, __func__);
+    funcThrowIf(!arr, NULL_AL_GIVEN);
+    funcThrowIf(!arr->type, NULL_AL_GIVEN);
     byte typeSize = getTypeSize(arr->type);
     if (arr->size == 0)
         arr->body = saferMalloc(typeSize);
@@ -180,48 +180,50 @@ void appendToAL(ArrayList arr, ...) {
         arr->body = saferRealloc(arr->body, (arr->size + 1) * typeSize);
     va_list argList;
     va_start(argList, arr);
-    VarData data = getData(arr->type, argList);
-    memcpy(arr->body + arr->size * typeSize, data, typeSize);
-    free(data);
+    varData data;
+    getDataFromArgList(arr->type, argList, &data);
     va_end(argList);
+    memcpy(arr->body + arr->size * typeSize, &data, typeSize);
     arr->size++;
 }
 
 void insertToAL(ArrayList arr, unsigned int index, ...) {
-    throwIf(!arr, NULL_AL_GIVEN, __func__);
-    throwIf(!arr->body, NULL_AL_BODY, __func__);
-    throwIf(!arr->type, NULL_AL_TYPE, __func__);
-    throwIf(index >= arr->size, OUT_OF_AL_BOUNDS, __func__);
+    funcThrowIf(!arr, NULL_AL_GIVEN);
+    funcThrowIf(!arr->body, NULL_AL_BODY);
+    funcThrowIf(!arr->type, NULL_AL_TYPE);
+    funcThrowIf(index >= arr->size, OUT_OF_AL_BOUNDS);
     byte typeSize = getTypeSize(arr->type);
     void *newBody = saferMalloc((arr->size + 1) * typeSize);
     memcpy(newBody, arr->body, index * typeSize);
     va_list argList;
     va_start(argList, index);
-    VarData data = getData(arr->type, argList);
-    memcpy(newBody + index * typeSize, data, typeSize);
+    varData data;
+    getDataFromArgList(arr->type, argList, &data);
+    va_end(argList);
+    memcpy(newBody + index * typeSize, &data, typeSize);
     memcpy(newBody + (index + 1) * typeSize, arr->body + index * typeSize, (arr->size - index) * typeSize);
     free(arr->body);
-    free(data);
     arr->size++;
     arr->body = newBody;
 }
 
 void setALItem(ArrayList arr, unsigned int index, ...) {
-    throwIf(!arr, NULL_AL_GIVEN, __func__);
-    throwIf(!arr->body, NULL_AL_BODY, __func__);
-    throwIf(!arr->type, NULL_AL_TYPE, __func__);
-    throwIf(index >= arr->size, OUT_OF_AL_BOUNDS, __func__);
+    funcThrowIf(!arr, NULL_AL_GIVEN);
+    funcThrowIf(!arr->body, NULL_AL_BODY);
+    funcThrowIf(!arr->type, NULL_AL_TYPE);
+    funcThrowIf(index >= arr->size, OUT_OF_AL_BOUNDS);
     byte typeSize = getTypeSize(arr->type);
     va_list argList;
     va_start(argList, index);
-    VarData data = getData(arr->type, argList);
-    memcpy(arr->body + index * typeSize, data, typeSize);
-    free(data);
+    varData data;
+    getDataFromArgList(arr->type, argList, &data);
+    va_end(argList);
+    memcpy(arr->body + index * typeSize, &data, typeSize);
 }
 
 ArrayList newALFromCharArray(const char arr[], unsigned int size) {
     throwIf(!arr, NULL_AL_GIVEN, __func__);
-    ArrayList newArray = saferMalloc(sizeof(arrayList));
+    ArrayList newArray = saferMalloc(sizeof(*newArray));
     newArray->type = "%c";
     newArray->size = size;
     unsigned int bytesToBeCopied = size * sizeof(char);
@@ -231,13 +233,13 @@ ArrayList newALFromCharArray(const char arr[], unsigned int size) {
 }
 
 ArrayList newALFromByteArray(const char arr[], unsigned int size) {
-    throwIf(!arr, NULL_AL_GIVEN, __func__);
+    funcThrowIf(!arr, NULL_AL_GIVEN);
     return newALFromCharArray(arr, size);
 }
 
 ArrayList newALFromIntArray(const int arr[], unsigned int size) {
     throwIf(!arr, NULL_AL_GIVEN, __func__);
-    ArrayList newArray = saferMalloc(sizeof(arrayList));
+    ArrayList newArray = saferMalloc(sizeof(*newArray));
     newArray->type = "%i";
     newArray->size = size;
     unsigned int bytesToBeCopied = size * sizeof(int);
@@ -248,7 +250,7 @@ ArrayList newALFromIntArray(const int arr[], unsigned int size) {
 
 ArrayList newALFromFloatArray(const float arr[], unsigned int size) {
     throwIf(!arr, NULL_AL_GIVEN, __func__);
-    ArrayList newArray = saferMalloc(sizeof(arrayList));
+    ArrayList newArray = saferMalloc(sizeof(*newArray));
     newArray->type = "%f";
     newArray->size = size;
     unsigned int bytesToBeCopied = size * sizeof(float);
@@ -259,7 +261,7 @@ ArrayList newALFromFloatArray(const float arr[], unsigned int size) {
 
 ArrayList newALFromDoubleArray(const double arr[], unsigned int size) {
     throwIf(!arr, NULL_AL_GIVEN, __func__);
-    ArrayList newArray = saferMalloc(sizeof(arrayList));
+    ArrayList newArray = saferMalloc(sizeof(*newArray));
     newArray->type = "%lf";
     newArray->size = size;
     unsigned int bytesToBeCopied = size * sizeof(double);
@@ -270,7 +272,7 @@ ArrayList newALFromDoubleArray(const double arr[], unsigned int size) {
 
 ArrayList newALFromPtrArray(const void *arr, unsigned int size) {
     throwIf(!arr, NULL_AL_GIVEN, __func__);
-    ArrayList newArray = saferMalloc(sizeof(arrayList));
+    ArrayList newArray = saferMalloc(sizeof(*newArray));
     newArray->type = "%p";
     newArray->size = size;
     unsigned int bytesToBeCopied = size * sizeof(void *);
@@ -280,30 +282,29 @@ ArrayList newALFromPtrArray(const void *arr, unsigned int size) {
 }
 
 byte isInAL(ArrayList arr, ...) {
-    throwIf(!arr, NULL_AL_GIVEN, __func__);
-    throwIf(!arr->type, NULL_AL_GIVEN, __func__);
+    funcThrowIf(!arr, NULL_AL_GIVEN);
+    funcThrowIf(!arr->type, NULL_AL_GIVEN);
     byte typeSize = getTypeSize(arr->type);
     va_list argList;
     va_start(argList, arr);
-    VarData data = getData(arr->type, argList);
+    varData data;
+    getDataFromArgList(arr->type, argList, &data);
+    va_end(argList);
     for (unsigned i = 0; i < arr->size; i++) 
-        if (memcmp(arr->body + i * typeSize, data, typeSize) == 0) {
-            free(data);
+        if (memcmp(arr->body + i * typeSize, &data, typeSize) == 0)
             return TRUE;
-        }
-    free(data);
     return FALSE;
 }
 
 int linearSearchAL(ArrayList arr, ...) {
-    throwIf(!arr, NULL_POINTER_GIVEN, __func__);
-    throwIf(!arr->type, NULL_AL_TYPE, __func__);
-    throwIf(endsWith(arr->type, "f"), UNSUPPORTED_SPECIFIER, __func__);
+    funcThrowIf(!arr, NULL_POINTER_GIVEN);
+    funcThrowIf(!arr->type, NULL_AL_TYPE);
+    funcThrowIf(endsWith(arr->type, "f"), UNSUPPORTED_SPECIFIER);
     va_list argList;
     va_start(argList, arr);
-    VarData key = getData(arr->type, argList);
+    varData key;
+    getDataFromArgList(arr->type, argList, &key);
     va_end(argList);
-    int index = chooseLinearSearch(arr->type, arr->body, arr->size, *key);
-    free(key);
+    int index = chooseLinearSearch(arr->type, arr->body, arr->size, key);
     return index;
 }

@@ -24,7 +24,7 @@
 
 // TYPE INDIPENDENT FUNCTIONS
 /**
- * @brief Allocate a new ::ArrayList
+ * @brief Allocate a new ::ArrayList of specified type
  * @param spec Type specifier of the ::ArrayList you want to create
  * @return An empty ::ArrayList
  */

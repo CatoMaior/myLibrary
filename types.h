@@ -25,30 +25,67 @@ typedef char *spec_t;
 typedef char *string;
 
 /**
- * @brief ::arrayList type
+ * @brief ::ArrayList type
  * @note All the parameters in this structure must be intended as read-only. Manually modifying them can cause unknown and unwanted behavior
  */
 typedef struct {
     /**
-     * @brief The type of the elements contained by the ::arrayList. Refer to ::spec_t
+     * @brief The type of the elements contained by the ::ArrayList. Refer to ::spec_t
      */
     spec_t type;
 
     /**
-     * @brief Void pointer to the first element of the ::arrayList
+     * @brief Void pointer to the first element of the ::ArrayList
      */
     void *body;
 
     /**
-     * @brief The number of elements contained by the ::arrayList
+     * @brief The number of elements contained by the ::ArrayList
      */
     unsigned int size;
-} arrayList;
+} *ArrayList;
 
 /**
- * @brief ::ArrayList type
- * @details Pointer to ::arrayList
+ * @brief ::Node type
+ * @details Base component of every linked data type
+ * @note All the parameters in this structure must be intended as read-only. Manually modifying them can cause unknown and unwanted behavior
  */
-typedef arrayList *ArrayList;
+typedef struct node {
+    /**
+     * @brief Pointer to the value contained
+     */
+    void *data;
+
+    /**
+     * @brief The ::Node this ::Node is linked to
+     */
+    struct node *linked;
+} *Node;
+
+/**
+ * @brief ::LinkedList type
+ * @note All the parameters in this structure must be intended as read-only. Manually modifying them can cause unknown and unwanted behavior
+ */
+typedef struct {
+    /**
+     * @brief The type of the elements contained by the ::LinkedList. Refer to ::spec_t
+     */
+    spec_t type;
+
+    /**
+     * @brief Head of the ::LinkedList
+     */
+    Node head;
+
+    /**
+     * @brief Tail of the ::LinkedList
+     */
+    Node tail;
+
+    /**
+     * @brief The number of elements contained by the ::LinkedList
+     */
+    unsigned int size;
+} * LinkedList;
 
 #endif
