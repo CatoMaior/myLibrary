@@ -140,6 +140,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ad3e0ede5bfad2104f814e7c10a09fb77"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#a2b7e7856b48ec3327148ac994ad95cd5">byte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="linkedList_8h.html#ad3e0ede5bfad2104f814e7c10a09fb77">areLLEqual</a> (const <a class="el" href="structLinkedList.html">LinkedList</a> list1, const <a class="el" href="structLinkedList.html">LinkedList</a> list2)</td></tr>
 <tr class="memdesc:ad3e0ede5bfad2104f814e7c10a09fb77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare two <a class="el" href="structLinkedList.html" title="LinkedList type">LinkedList</a>.  <a href="linkedList_8h.html#ad3e0ede5bfad2104f814e7c10a09fb77">More...</a><br /></td></tr>
 <tr class="separator:ad3e0ede5bfad2104f814e7c10a09fb77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56b44c3c46c8eead0d3b15074294c675"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#a2b7e7856b48ec3327148ac994ad95cd5">byte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="linkedList_8h.html#a56b44c3c46c8eead0d3b15074294c675">isInLL</a> (<a class="el" href="structLinkedList.html">LinkedList</a> list,...)</td></tr>
+<tr class="memdesc:a56b44c3c46c8eead0d3b15074294c675"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detect if an element is inside a <a class="el" href="structLinkedList.html" title="LinkedList type">LinkedList</a>.  <a href="linkedList_8h.html#a56b44c3c46c8eead0d3b15074294c675">More...</a><br /></td></tr>
+<tr class="separator:a56b44c3c46c8eead0d3b15074294c675"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="aabebc904105a4c4d6a9f7ae9618e9468"></a>
@@ -419,6 +422,51 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>Even though inserting more than one item does not throw a compiler nor runtime error, only inserting one item is supported. Other items are ignored and are not inserted into <code>arr</code>. If you don't specify any item to be inserted, still no errors occur but the content of your <a class="el" href="structLinkedList.html" title="LinkedList type">LinkedList</a> can be messed up </dd></dl>
+
+</div>
+</div>
+<a id="a56b44c3c46c8eead0d3b15074294c675"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56b44c3c46c8eead0d3b15074294c675">&#9670;&nbsp;</a></span>isInLL()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="types_8h.html#a2b7e7856b48ec3327148ac994ad95cd5">byte</a> isInLL </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structLinkedList.html">LinkedList</a>&#160;</td>
+          <td class="paramname"><em>list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Detect if an element is inside a <a class="el" href="structLinkedList.html" title="LinkedList type">LinkedList</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">list</td><td>The <a class="el" href="structLinkedList.html" title="LinkedList type">LinkedList</a> you want search in </td></tr>
+    <tr><td class="paramname">...</td><td>The element you want to search </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Even though inserting zero more than one item does not throw a compiler nor runtime error, only searching one item is supported. Other items are ignored. If you don't specify any item to be searched, still no errors occur but the return value of the function can be unpredictable </dd></dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">TRUE</td><td>Given element is contained in <code>list</code> </td></tr>
+    <tr><td class="paramname">FALSE</td><td>Given element is not contained in <code>list</code> </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
