@@ -3,10 +3,10 @@
 #include "myLibrary.h"
 
 #define TEST_LINKEDLIST
-#define TEST_ARRAYLIST
-#define TEST_UTILITY
-#define TEST_STRING
-#define TEST_ARRAY
+// #define TEST_ARRAYLIST
+// #define TEST_UTILITY
+// #define TEST_STRING
+// #define TEST_ARRAY
 
 int main() {
 
@@ -270,6 +270,32 @@ int main() {
         getFromLL(ptrLL, i, &myPtrForLL);
         printf("%p\n", linearSearchLLPtr(ptrLL, myPtrForLL));
     }
+    printf("\n\n\n");
+
+    printf("Testing isInLL()\n");
+    for (int i = 0; i < 8; i++) {
+        getFromLL(byteLL, i, &myByteForLL);
+        printf("%3i", isInLL(byteLL, myByteForLL));
+    }
+    printf("%3i", isInLL(byteLL, -128));
+    printf("\n");
+    for (int i = 0; i < 8; i++) {
+        getFromLL(charLL, i, &myCharForLL);
+        printf("%3i", isInLL(charLL, myCharForLL));
+    }
+    printf("%3i", isInLL(charLL, '\0'));
+    printf("\n");
+    for (int i = 0; i < 8; i++) {
+        getFromLL(intLL, i, &myIntForLL);
+        printf("%3i", isInLL(intLL, myIntForLL));
+    }
+    printf("%3i", isInLL(intLL, -65536));
+    printf("\n");
+    for (int i = 0; i < 8; i++) {
+        getFromLL(ptrLL, i, &myPtrForLL);
+        printf("%3i", isInLL(ptrLL, myPtrForLL));
+    }
+    printf("%3i", isInLL(ptrLL, NULL));
     printf("\n\n\n");
 
     LinkedList byteLL2 = newLLFromLL(byteLL);
@@ -593,6 +619,32 @@ int main() {
         getFromAL(ptrAL, i, &myPtrForAL);
         printf("%2i", linearSearchAL(ptrAL, myPtrForAL));
     }
+    printf("\n\n\n");
+
+    printf("Testing isInAL()\n");
+    for (int i = 0; i < 8; i++) {
+        getFromAL(byteAL, i, &myByteForAL);
+        printf("%3i", isInAL(byteAL, myByteForAL));
+    }
+    printf("%3i", isInAL(byteAL, -128));
+    printf("\n");
+    for (int i = 0; i < 8; i++) {
+        getFromAL(charAL, i, &myCharForAL);
+        printf("%3i", isInAL(charAL, myCharForAL));
+    }
+    printf("%3i", isInAL(charAL, '\0'));
+    printf("\n");
+    for (int i = 0; i < 8; i++) {
+        getFromAL(intAL, i, &myIntForAL);
+        printf("%3i", isInAL(intAL, myIntForAL));
+    }
+    printf("%3i", isInAL(intAL, -65536));
+    printf("\n");
+    for (int i = 0; i < 8; i++) {
+        getFromAL(ptrAL, i, &myPtrForAL);
+        printf("%3i", isInAL(ptrAL, myPtrForAL));
+    }
+    printf("%3i", isInAL(ptrAL, NULL));
     printf("\n\n\n");
 
     ArrayList byteAL2 = newALFromAL(byteAL);

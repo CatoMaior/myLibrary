@@ -134,6 +134,16 @@ void *linearSearchLLPtr(LinkedList list, ...);
  */
 byte areLLEqual(const LinkedList list1, const LinkedList list2);
 
+/**
+ * @brief Detect if an element is inside a ::LinkedList
+ * @param list The ::LinkedList you want search in
+ * @param ... The element you want to search
+ * @note Even though inserting zero more than one item does not throw a compiler nor runtime error, only searching one item is supported. Other items are ignored. If you don't specify any item to be searched, still no errors occur but the return value of the function can be unpredictable
+ * @retval TRUE Given element is contained in `list`
+ * @retval FALSE Given element is not contained in `list`
+ */
+byte isInLL(LinkedList list, ...);
+
 // TODO Sorting algorithms, currently available only for ArrayList
 
 #endif

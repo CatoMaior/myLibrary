@@ -289,3 +289,22 @@ byte areLLEqual(const LinkedList list1, const LinkedList list2) {
     }
     return TRUE;
 }
+
+byte isInLL(LinkedList list, ...) {
+    funcThrowIf(!list, NULL_POINTER_GIVEN);
+    funcThrowIf(!list->type, NULL_LL_TYPE);
+    funcThrowIf(endsWith(list->type, "f"), UNSUPPORTED_SPECIFIER);
+    va_list argList;
+    va_start(argList, list);
+    varData key;
+    getDataFromArgList(list->type, argList, &key);
+    va_end(argList);
+    Node currNode = list->head;
+    byte typeSize = getTypeSize(list->type);
+    for (unsigned int i = 0; i < list->size; i++) {
+        if (memcmp(currNode->data, &key, typeSize) == 0)
+            return TRUE;
+        currNode = currNode->linked;
+    }
+    return FALSE;
+}
