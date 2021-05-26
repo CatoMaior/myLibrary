@@ -86,6 +86,6 @@ typedef struct {
      * @brief The number of elements contained by the ::LinkedList
      */
     unsigned int size;
-} * LinkedList;
+} *LinkedList;
 
 #endif
