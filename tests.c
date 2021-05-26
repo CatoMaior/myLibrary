@@ -2,12 +2,318 @@
 #include <stdlib.h>
 #include "myLibrary.h"
 
+#define TEST_LINKEDLIST
 #define TEST_ARRAYLIST
 #define TEST_UTILITY
 #define TEST_STRING
 #define TEST_ARRAY
 
 int main() {
+
+#ifdef TEST_LINKEDLIST
+
+    printf("TESTING LINKEDLIST\n");
+    LinkedList newByteLL = newLL("%c");
+    LinkedList newCharLL = newLL("%c");
+    LinkedList newIntLL = newLL("%i");
+    LinkedList newFloatLL = newLL("%f");
+    LinkedList newDoubleLL = newLL("%lf");
+    LinkedList newPtrLL = newLL("%p");
+    printf("Testing newLL()\n");
+    printLL("%hi", newByteLL);
+    printf("\n");
+    printLL("%c", newCharLL);
+    printf("\n");
+    printLL("%i", newIntLL);
+    printf("\n");
+    printLL("%f", newFloatLL);
+    printf("\n");
+    printLL("%lf", newDoubleLL);
+    printf("\n");
+    printLL("%p", newPtrLL);
+    printf("\n\n");
+    deleteLL(newByteLL);
+    deleteLL(newCharLL);
+    deleteLL(newIntLL);
+    deleteLL(newFloatLL);
+    deleteLL(newDoubleLL);
+    deleteLL(newPtrLL);
+
+    byte byteArrForLL[] = {32, 43, 65, 12, 76, 75, 1, 2};
+    char charArrForLL[] = {'F', 'Q', 'A', 'C', '3', '0', 'Z', 'R'};
+    int intArrForLL[] = {3254, 433, 65554, 1223, 7665, 7600, 12, 254};
+    float floatArrForLL[] = {3254.2, 433.2, 65554.2, 1223.2, 7665.2, 7600.2, 12.2, 254.2};
+    double doubleArrForLL[] = {3254.21, 433.21, 65554.21, 1223.21, 7665.21, 7600.21, 12.21, 254.21};
+    void *ptrArrForLL[8];
+    for (int i = 0; i < 8; i++)
+        ptrArrForLL[i] = saferMalloc(sizeof(byte));
+    LinkedList byteLL = chooseNewLLFromArray("%c", byteArrForLL, 8);
+    LinkedList charLL = chooseNewLLFromArray("%c", charArrForLL, 8);
+    LinkedList intLL = chooseNewLLFromArray("%i", intArrForLL, 8);
+    LinkedList floatLL = chooseNewLLFromArray("%f", floatArrForLL, 8);
+    LinkedList doubleLL = chooseNewLLFromArray("%lf", doubleArrForLL, 8);
+    LinkedList ptrLL = chooseNewLLFromArray("%p", ptrArrForLL, 8);
+    printf("Testing chooseNewLLFromArray()\n");
+    printLL("%4hi", byteLL);
+    printf("\n\n");
+    printLL("%2c", charLL);
+    printf("\n\n");
+    printLL("%6i", intLL);
+    printf("\n\n");
+    printLL("%9.1f", floatLL);
+    printf("\n\n");
+    printLL("%10.2lf", doubleLL);
+    printf("\n\n");
+    printLL("%16p", ptrLL);
+    printf("\n\n\n");
+
+    byte myByteForLL;
+    char myCharForLL;
+    int myIntForLL;
+    float myFloatForLL;
+    double myDoubleForLL;
+    void *myPtrForLL;
+    getFromLL(byteLL, 0, &myByteForLL);
+    getFromLL(charLL, 0, &myCharForLL);
+    getFromLL(intLL, 0, &myIntForLL);
+    getFromLL(floatLL, 0, &myFloatForLL);
+    getFromLL(doubleLL, 0, &myDoubleForLL);
+    getFromLL(ptrLL, 0, &myPtrForLL);
+    printf("Testing getFromAl()\n");
+    printf("%hi\n\n", myByteForLL);
+    printf("%c\n\n", myCharForLL);
+    printf("%i\n\n", myIntForLL);
+    printf("%f\n\n", myFloatForLL);
+    printf("%lf\n\n", myDoubleForLL);
+    printf("%p\n\n", myPtrForLL);
+    printf("\n");
+
+    setLLItem(byteLL, 0, -1);
+    setLLItem(charLL, 0, '*');
+    setLLItem(intLL, 0, -1);
+    setLLItem(floatLL, 0, -1.2);
+    setLLItem(doubleLL, 0, -1.21);
+    setLLItem(ptrLL, 0, &myPtrForLL);
+    printf("Testing setLLelement()\n");
+    printLL("%4hi", byteLL);
+    printf("\n\n");
+    printLL("%2c", charLL);
+    printf("\n\n");
+    printLL("%6i", intLL);
+    printf("\n\n");
+    printLL("%9.1f", floatLL);
+    printf("\n\n");
+    printLL("%10.2lf", doubleLL);
+    printf("\n\n");
+    printLL("%16p", ptrLL);
+    printf("\n\n\n");
+
+    appendToLL(byteLL, 42);
+    appendToLL(charLL, 'a');
+    appendToLL(intLL, 422);
+    appendToLL(floatLL, -2.2);
+    appendToLL(doubleLL, -2.21);
+    appendToLL(ptrLL, &myDoubleForLL);
+    printf("Testing appendToLL()\n");
+    printLL("%4hi", byteLL);
+    printf("\n\n");
+    printLL("%2c", charLL);
+    printf("\n\n");
+    printLL("%6i", intLL);
+    printf("\n\n");
+    printLL("%9.1f", floatLL);
+    printf("\n\n");
+    printLL("%10.2lf", doubleLL);
+    printf("\n\n");
+    printLL("%16p", ptrLL);
+    printf("\n\n\n");
+
+    insertToLL(byteLL, 4, -42);
+    insertToLL(charLL, 4, 'a');
+    insertToLL(intLL, 4, -422);
+    insertToLL(floatLL, 4, -422.2);
+    insertToLL(doubleLL, 4, -422.21);
+    insertToLL(ptrLL, 4, &myFloatForLL);
+    printf("Testing inserToLL()\n");
+    printLL("%4hi", byteLL);
+    printf("\n\n");
+    printLL("%2c", charLL);
+    printf("\n\n");
+    printLL("%6i", intLL);
+    printf("\n\n");
+    printLL("%9.1f", floatLL);
+    printf("\n\n");
+    printLL("%10.2lf", doubleLL);
+    printf("\n\n");
+    printLL("%16p", ptrLL);
+    printf("\n\n\n");
+
+    removeFromLL(byteLL, 8);
+    removeFromLL(charLL, 8);
+    removeFromLL(intLL, 8);
+    removeFromLL(floatLL, 8);
+    removeFromLL(doubleLL, 8);
+    removeFromLL(ptrLL, 8);
+    printf("Testing removeFromLL()\n");
+    printLL("%4hi", byteLL);
+    printf("\n\n");
+    printLL("%2c", charLL);
+    printf("\n\n");
+    printLL("%6i", intLL);
+    printf("\n\n");
+    printLL("%9.1f", floatLL);
+    printf("\n\n");
+    printLL("%10.2lf", doubleLL);
+    printf("\n\n");
+    printLL("%16p", ptrLL);
+    printf("\n\n\n");
+
+    insertToLL(byteLL, 4, -42);
+    insertToLL(charLL, 4, 'a');
+    insertToLL(intLL, 4, -422);
+    insertToLL(floatLL, 4, -422.2);
+    insertToLL(doubleLL, 4, -422.21);
+    insertToLL(ptrLL, 4, &myFloatForLL);
+    printf("Testing inserToLL()\n");
+    printLL("%4hi", byteLL);
+    printf("\n\n");
+    printLL("%2c", charLL);
+    printf("\n\n");
+    printLL("%6i", intLL);
+    printf("\n\n");
+    printLL("%9.1f", floatLL);
+    printf("\n\n");
+    printLL("%10.2lf", doubleLL);
+    printf("\n\n");
+    printLL("%16p", ptrLL);
+    printf("\n\n\n");
+
+    mergeLL(byteLL, byteLL);
+    mergeLL(charLL, charLL);
+    mergeLL(intLL, intLL);
+    mergeLL(floatLL, floatLL);
+    mergeLL(doubleLL, doubleLL);
+    mergeLL(ptrLL, ptrLL);
+    printf("Testing mergeLL()\n");
+    printLL("%4hi", byteLL);
+    printf("\n\n");
+    printLL("%2c", charLL);
+    printf("\n\n");
+    printLL("%6i", intLL);
+    printf("\n\n");
+    printLL("%9.1f", floatLL);
+    printf("\n\n");
+    printLL("%10.2lf", doubleLL);
+    printf("\n\n");
+    printLL("%16p", ptrLL);
+    printf("\n\n\n");
+
+    sliceLL(byteLL, 5, 15);
+    sliceLL(charLL, 5, 15);
+    sliceLL(intLL, 5, 15);
+    sliceLL(floatLL, 5, 15);
+    sliceLL(doubleLL, 5, 15);
+    sliceLL(ptrLL, 5, 15);
+    printf("Testing sliceLL()\n");
+    printLL("%4hi", byteLL);
+    printf("\n\n");
+    printLL("%2c", charLL);
+    printf("\n\n");
+    printLL("%6i", intLL);
+    printf("\n\n");
+    printLL("%9.1f", floatLL);
+    printf("\n\n");
+    printLL("%10.2lf", doubleLL);
+    printf("\n\n");
+    printLL("%16p", ptrLL);
+    printf("\n\n\n");
+
+    printf("Testing linearSearchLL()\n");
+    for (int i = 0; i < 8; i++) {
+        getFromLL(byteLL, i, &myByteForLL);
+        printf("%2i", linearSearchLL(byteLL, myByteForLL));
+    }
+    printf("\n");
+    for (int i = 0; i < 8; i++) {
+        getFromLL(charLL, i, &myCharForLL);
+        printf("%2i", linearSearchLL(charLL, myCharForLL));
+    }
+    printf("\n");
+    for (int i = 0; i < 8; i++) {
+        getFromLL(intLL, i, &myIntForLL);
+        printf("%2i", linearSearchLL(intLL, myIntForLL));
+    }
+    printf("\n");
+    for (int i = 0; i < 8; i++) {
+        getFromLL(ptrLL, i, &myPtrForLL);
+        printf("%2i", linearSearchLL(ptrLL, myPtrForLL));
+    }
+    printf("\n\n\n");
+
+    printf("Testing linearSearchLLPtr()\n");
+    for (int i = 0; i < 8; i++) {
+        getFromLL(byteLL, i, &myByteForLL);
+        printf("%p\n", linearSearchLLPtr(byteLL, myByteForLL));
+    }
+    printf("\n");
+    for (int i = 0; i < 8; i++) {
+        getFromLL(charLL, i, &myCharForLL);
+        printf("%p\n", linearSearchLLPtr(charLL, myCharForLL));
+    }
+    printf("\n");
+    for (int i = 0; i < 8; i++) {
+        getFromLL(intLL, i, &myIntForLL);
+        printf("%p\n", linearSearchLLPtr(intLL, myIntForLL));
+    }
+    printf("\n");
+    for (int i = 0; i < 8; i++) {
+        getFromLL(ptrLL, i, &myPtrForLL);
+        printf("%p\n", linearSearchLLPtr(ptrLL, myPtrForLL));
+    }
+    printf("\n\n\n");
+
+    LinkedList byteLL2 = newLLFromLL(byteLL);
+    LinkedList charLL2 = newLLFromLL(charLL);
+    LinkedList intLL2 = newLLFromLL(intLL);
+    LinkedList floatLL2 = newLLFromLL(floatLL);
+    LinkedList doubleLL2 = newLLFromLL(doubleLL);
+    LinkedList ptrLL2 = newLLFromLL(ptrLL);
+    printf("Testing areLLEqual()\n");
+    printf("%2hi\n", areLLEqual(byteLL, byteLL2));
+    printf("%2hi\n", areLLEqual(charLL, charLL2));
+    printf("%2hi\n", areLLEqual(intLL2, intLL2));
+    printf("%2hi\n", areLLEqual(floatLL2, floatLL2));
+    printf("%2hi\n", areLLEqual(doubleLL2, doubleLL2));
+    printf("%2hi\n", areLLEqual(ptrLL2, ptrLL2));
+    sliceLL(byteLL2, 3, 5);
+    sliceLL(charLL2, 3, 5);
+    sliceLL(intLL2, 3, 5);
+    sliceLL(floatLL2, 3, 5);
+    sliceLL(doubleLL2, 3, 5);
+    sliceLL(ptrLL2, 3, 5);
+    printf("%2hi\n", areLLEqual(byteLL, byteLL2));
+    printf("%2hi\n", areLLEqual(charLL, charLL2));
+    printf("%2hi\n", areLLEqual(intLL, intLL2));
+    printf("%2hi\n", areLLEqual(floatLL, floatLL2));
+    printf("%2hi\n", areLLEqual(doubleLL, doubleLL2));
+    printf("%2hi\n", areLLEqual(ptrLL, ptrLL2));
+
+    deleteLL(byteLL);
+    deleteLL(charLL);
+    deleteLL(intLL);
+    deleteLL(floatLL);
+    deleteLL(doubleLL);
+    deleteLL(ptrLL);
+    deleteLL(byteLL2);
+    deleteLL(charLL2);
+    deleteLL(intLL2);
+    deleteLL(floatLL2);
+    deleteLL(doubleLL2);
+    deleteLL(ptrLL2);
+
+    printf("\n\n");
+
+#endif
 
 #ifdef TEST_ARRAYLIST
 
@@ -38,21 +344,21 @@ int main() {
     deleteAL(newDoubleAL);
     deleteAL(newPtrAL);
 
-    byte byteArr[] = {32, 43, 65, 12, 76, 75, 1, 2};
-    char charArr[] = {'F', 'Q', 'A', 'C', '3', '0', 'Z', 'R'};
-    int intArr[] = {3254, 433, 65554, 1223, 7665, 7600, 12, 254};
-    float floatArr[] = {3254.2, 433.2, 65554.2, 1223.2, 7665.2, 7600.2, 12.2, 254.2};
-    double doubleArr[] = {3254.21, 433.21, 65554.21, 1223.21, 7665.21, 7600.21, 12.21, 254.21};
-    void *ptrArr[8];
+    byte byteArrForAL[] = {32, 43, 65, 12, 76, 75, 1, 2};
+    char charArrForAL[] = {'F', 'Q', 'A', 'C', '3', '0', 'Z', 'R'};
+    int intArrForAL[] = {3254, 433, 65554, 1223, 7665, 7600, 12, 254};
+    float floatArrForAL[] = {3254.2, 433.2, 65554.2, 1223.2, 7665.2, 7600.2, 12.2, 254.2};
+    double doubleArrForAL[] = {3254.21, 433.21, 65554.21, 1223.21, 7665.21, 7600.21, 12.21, 254.21};
+    void *ptrArrForAL[8];
     for (int i = 0; i < 8; i++)
-        ptrArr[i] = saferMalloc(sizeof(byte));
-    ArrayList byteAL = chooseNewALFromArray("%c", byteArr, 8);
-    ArrayList charAL = chooseNewALFromArray("%c", charArr, 8);
-    ArrayList intAL = chooseNewALFromArray("%i", intArr, 8);
-    ArrayList floatAL = chooseNewALFromArray("%f", floatArr, 8);
-    ArrayList doubleAL = chooseNewALFromArray("%lf", doubleArr, 8);
-    ArrayList ptrAL = chooseNewALFromArray("%p", ptrArr, 8);
-    printf("Testing chooseNewArrayFromArray()\n");
+        ptrArrForAL[i] = saferMalloc(sizeof(byte));
+    ArrayList byteAL = chooseNewALFromArray("%c", byteArrForAL, 8);
+    ArrayList charAL = chooseNewALFromArray("%c", charArrForAL, 8);
+    ArrayList intAL = chooseNewALFromArray("%i", intArrForAL, 8);
+    ArrayList floatAL = chooseNewALFromArray("%f", floatArrForAL, 8);
+    ArrayList doubleAL = chooseNewALFromArray("%lf", doubleArrForAL, 8);
+    ArrayList ptrAL = chooseNewALFromArray("%p", ptrArrForAL, 8);
+    printf("Testing chooseNewALFromArray()\n");
     printAL("%4hi", byteAL);
     printf("\n\n");
     printAL("%2c", charAL);
@@ -66,25 +372,25 @@ int main() {
     printAL("%16p", ptrAL);
     printf("\n\n\n");
 
-    byte myByte;
-    char myChar;
-    int myInt;
-    float myFloat;
-    double myDouble;
-    void *myPtr;
-    getFromAL(byteAL, 0, &myByte);
-    getFromAL(charAL, 0, &myChar);
-    getFromAL(intAL, 0, &myInt);
-    getFromAL(floatAL, 0, &myFloat);
-    getFromAL(doubleAL, 0, &myDouble);
-    getFromAL(ptrAL, 0, &myPtr);
-    printf("Testing getFromAl()\n");
-    printf("%hi\n\n", myByte);
-    printf("%c\n\n", myChar);
-    printf("%i\n\n", myInt);
-    printf("%f\n\n", myFloat);
-    printf("%lf\n\n", myDouble);
-    printf("%p\n\n", myPtr);
+    byte myByteForAL;
+    char myCharForAL;
+    int myIntForAL;
+    float myFloatForAL;
+    double myDoubleForAL;
+    void *myPtrForAL;
+    getFromAL(byteAL, 0, &myByteForAL);
+    getFromAL(charAL, 0, &myCharForAL);
+    getFromAL(intAL, 0, &myIntForAL);
+    getFromAL(floatAL, 0, &myFloatForAL);
+    getFromAL(doubleAL, 0, &myDoubleForAL);
+    getFromAL(ptrAL, 0, &myPtrForAL);
+    printf("Testing getFromAL()\n");
+    printf("%hi\n\n", myByteForAL);
+    printf("%c\n\n", myCharForAL);
+    printf("%i\n\n", myIntForAL);
+    printf("%f\n\n", myFloatForAL);
+    printf("%lf\n\n", myDoubleForAL);
+    printf("%p\n\n", myPtrForAL);
     printf("\n");
 
     setALItem(byteAL, 0, -1);
@@ -92,7 +398,7 @@ int main() {
     setALItem(intAL, 0, -1);
     setALItem(floatAL, 0, -1.2);
     setALItem(doubleAL, 0, -1.21);
-    setALItem(ptrAL, 0, &myPtr);
+    setALItem(ptrAL, 0, &myPtrForAL);
     printf("Testing setALelement()\n");
     printAL("%4hi", byteAL);
     printf("\n\n");
@@ -109,10 +415,10 @@ int main() {
 
     appendToAL(byteAL, 42);
     appendToAL(charAL, 'a');
-    appendToAL(intAL, -2);
+    appendToAL(intAL, 422);
     appendToAL(floatAL, -2.2);
     appendToAL(doubleAL, -2.21);
-    appendToAL(ptrAL, &myDouble);
+    appendToAL(ptrAL, &myDoubleForAL);
     printf("Testing appendToAL()\n");
     printAL("%4hi", byteAL);
     printf("\n\n");
@@ -152,7 +458,7 @@ int main() {
     insertToAL(intAL, 4, -422);
     insertToAL(floatAL, 4, -422.2);
     insertToAL(doubleAL, 4, -422.21);
-    insertToAL(ptrAL, 4, &myFloat);
+    insertToAL(ptrAL, 4, &myFloatForAL);
     printf("Testing inserToAL()\n");
     printAL("%4hi", byteAL);
     printf("\n\n");
@@ -269,23 +575,23 @@ int main() {
 
     printf("Testing linearSearchAL()\n");
     for (int i = 0; i < 8; i++) {
-        getFromAL(byteAL, i, &myByte);
-        printf("%2i", linearSearchAL(byteAL, myByte));
+        getFromAL(byteAL, i, &myByteForAL);
+        printf("%2i", linearSearchAL(byteAL, myByteForAL));
     }
     printf("\n");
     for (int i = 0; i < 8; i++) {
-        getFromAL(charAL, i, &myChar);
-        printf("%2i", linearSearchAL(charAL, myChar));
+        getFromAL(charAL, i, &myCharForAL);
+        printf("%2i", linearSearchAL(charAL, myCharForAL));
     }
     printf("\n");
     for (int i = 0; i < 8; i++) {
-        getFromAL(intAL, i, &myInt);
-        printf("%2i", linearSearchAL(intAL, myInt));
+        getFromAL(intAL, i, &myIntForAL);
+        printf("%2i", linearSearchAL(intAL, myIntForAL));
     }
     printf("\n");
     for (int i = 0; i < 8; i++) {
-        getFromAL(ptrAL, i, &myPtr);
-        printf("%2i", linearSearchAL(ptrAL, myPtr));
+        getFromAL(ptrAL, i, &myPtrForAL);
+        printf("%2i", linearSearchAL(ptrAL, myPtrForAL));
     }
     printf("\n\n\n");
 
