@@ -1,6 +1,6 @@
 <map id="types.h" name="types.h">
 <area shape="rect" id="node1" title="Collection of useful types." alt="" coords="266,5,329,32"/>
-<area shape="rect" id="node2" href="$arrayList_8h.html" title="ArrayList functions and macros" alt="" coords="5,80,88,107"/>
+<area shape="rect" id="node2" href="$arrayList_8h.html" title=" " alt="" coords="5,80,88,107"/>
 <area shape="rect" id="node3" href="$myLibrary_8h.html" title="Includes all other headers. Useful for rapid import." alt="" coords="253,155,341,181"/>
 <area shape="rect" id="node4" href="$arrays_8h.html" title="Common tasks with arrays: sorting, searching, printing etc." alt="" coords="163,80,229,107"/>
 <area shape="rect" id="node5" href="$linkedList_8h.html" title=" " alt="" coords="253,80,341,107"/>

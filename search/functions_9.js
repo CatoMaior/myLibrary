@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['mergeal_133',['mergeAL',['../arrayList_8h.html#a6ee39fe88752ebaeb10c9afc15695536',1,'arrayList.h']]]
+  ['mergeal_154',['mergeAL',['../arrayList_8h.html#a62ba0e7f589a6e8a293ba719dc40b829',1,'arrayList.h']]],
+  ['mergell_155',['mergeLL',['../linkedList_8h.html#a6496383714472c8b301c462551fae0cd',1,'linkedList.h']]]
 ];

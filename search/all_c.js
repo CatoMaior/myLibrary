@@ -1,15 +1,16 @@
 var searchData=
 [
-  ['newal_53',['newAL',['../arrayList_8h.html#aa6808afbb41c7ef03e1841717dd3d7b2',1,'arrayList.h']]],
-  ['newalfromal_54',['newALFromAL',['../arrayList_8h.html#a9e403594d19bb436ac875a0b1add4912',1,'arrayList.h']]],
-  ['newalfromarray_55',['newALFromArray',['../arrayList_8h.html#ad8028636e4addb1d2a10468e7305308b',1,'arrayList.h']]],
-  ['newalfrombytearray_56',['newALFromByteArray',['../arrayList_8h.html#a8509e1a6a4a32309ef396baaaeaebf8b',1,'arrayList.h']]],
-  ['newalfromchararray_57',['newALFromCharArray',['../arrayList_8h.html#a4739fd0a8f0abc7ff145b9486de66efc',1,'arrayList.h']]],
-  ['newalfromdoublearray_58',['newALFromDoubleArray',['../arrayList_8h.html#a760db070b3b9470f0118e77054d2630e',1,'arrayList.h']]],
-  ['newalfromfloatarray_59',['newALFromFloatArray',['../arrayList_8h.html#a7b87887820904cc98001088f5bbbc113',1,'arrayList.h']]],
-  ['newalfromintarray_60',['newALFromIntArray',['../arrayList_8h.html#ae7a9883c8db9b50ad80d0f58ad8223e8',1,'arrayList.h']]],
-  ['newalfromptrarray_61',['newALFromPtrArray',['../arrayList_8h.html#af53a4d161e8ba6ff95042165eb3bfefc',1,'arrayList.h']]],
-  ['newll_62',['newLL',['../linkedList_8h.html#a01a4dca38876a6f58e017b1527c01442',1,'linkedList.h']]],
-  ['node_63',['node',['../structnode.html',1,'']]],
-  ['node_64',['Node',['../types_8h.html#aeb92ac73ae6f1c50ed48c1a73a078394',1,'types.h']]]
+  ['newal_62',['newAL',['../arrayList_8h.html#aa6808afbb41c7ef03e1841717dd3d7b2',1,'arrayList.h']]],
+  ['newalfromal_63',['newALFromAL',['../arrayList_8h.html#a5d26787c8c4fbfa05e79f93ea06f4ee1',1,'arrayList.h']]],
+  ['newalfromarray_64',['newALFromArray',['../arrayList_8h.html#a9ec621d98d569a4b0c270bc34ec51638',1,'arrayList.h']]],
+  ['newalfrombytearray_65',['newALFromByteArray',['../arrayList_8h.html#ab3c665b54a325eb13706d15070a26825',1,'arrayList.h']]],
+  ['newalfromchararray_66',['newALFromCharArray',['../arrayList_8h.html#a197eae76a84384bd91a9be1e51e3e711',1,'arrayList.h']]],
+  ['newalfromdoublearray_67',['newALFromDoubleArray',['../arrayList_8h.html#ae0c68807b92d285ecc5fd09636ca85e4',1,'arrayList.h']]],
+  ['newalfromfloatarray_68',['newALFromFloatArray',['../arrayList_8h.html#a16be09f590258c337be02fcd079d8ed7',1,'arrayList.h']]],
+  ['newalfromintarray_69',['newALFromIntArray',['../arrayList_8h.html#aa9b102f91a0a79b7e7a963e923fa5c22',1,'arrayList.h']]],
+  ['newalfromptrarray_70',['newALFromPtrArray',['../arrayList_8h.html#ae27e57c6a7433ff6854d707eb339665f',1,'arrayList.h']]],
+  ['newll_71',['newLL',['../linkedList_8h.html#a01a4dca38876a6f58e017b1527c01442',1,'linkedList.h']]],
+  ['newllfromll_72',['newLLFromLL',['../linkedList_8h.html#adcfe81ba2bf83b35b8ddbe6d40d269d4',1,'linkedList.h']]],
+  ['node_73',['node',['../structnode.html',1,'']]],
+  ['node_74',['Node',['../types_8h.html#aeb92ac73ae6f1c50ed48c1a73a078394',1,'types.h']]]
 ];
