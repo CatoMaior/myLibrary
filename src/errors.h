@@ -31,4 +31,8 @@
 
 #define NULL_LL_HEAD "Given LinkedList has null head"
 
+#define OUT_OF_LL_BOUNDS "Trying to access LinkedList out of its bounds"
+
+#define DIFFERENT_LL_TYPES "Different LinkedList types"
+
 #endif
