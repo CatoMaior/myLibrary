@@ -1,3 +1,9 @@
+/**
+ * @file linkedList.h
+ * @author Pietro Firpo (pietro.firpo@pm.me)
+ * @brief Functions for working with ::LinkedList type
+ */
+
 #ifndef __SEEN_LINKEDLIST
 #define __SEEN_LINKEDLIST
 
@@ -30,7 +36,7 @@ void printLL(const spec_t spec, const LinkedList list);
  * @brief Insert an item at the end of a ::LinkedList
  * @param list The ::LinkedList you want to append an item to
  * @param ... The item you want to append to `list`
- * @note Even though appending more than one item does not throw a compiler nor runtime error, only appending one item is supported. Other items are ignored and are not appended to `arr`. If you don't specify any item to be appended, still no errors occur but the content of your ::LinkedList can be messed up
+ * @note Even though appending more than one item for single call does not throw a compiler nor runtime error, only appending one item is supported. Other items are ignored and are not appended to `arr`. If you don't specify any item to be appended, still no errors occur but the content of your ::LinkedList can be messed up
  */
 void appendToLL(LinkedList list, ...);
 
@@ -39,14 +45,14 @@ void appendToLL(LinkedList list, ...);
  * @param list The ::LinkedList you want to append an item to
  * @param element Pointer to the item you want to append to `list`
  */
-void appendToLLFromPtr(LinkedList list, void *element);
+void appendToLLFromPtr(LinkedList list, const void *element);
 
 /**
  * @brief Insert an element at a specified position of an ::LinkedList
  * @param list The ::LinkedList you want to insert an element into
  * @param index The position you want to insert `element` at
  * @param ... The item you want to insert into `list`
- * @note Even though inserting more than one item does not throw a compiler nor runtime error, only inserting one item is supported. Other items are ignored and are not inserted into `arr`. If you don't specify any item to be inserted, still no errors occur but the content of your ::LinkedList can be messed up
+ * @note Even though inserting more than one item for single call does not throw a compiler nor runtime error, only inserting one item is supported. Other items are ignored and are not inserted into `arr`. If you don't specify any item to be inserted, still no errors occur but the content of your ::LinkedList can be messed up
  */
 void insertToLL(LinkedList list, unsigned int index, ...);
 
@@ -58,7 +64,7 @@ void deleteLL(LinkedList list);
 
 /**
  * @brief Get an item from a ::LinkedList
- * @param arr The ::LinkedList you want to get an item from
+ * @param list The ::LinkedList you want to get an item from
  * @param index The index of the item you want to get
  * @param dest The address of the variable you want to store the item in
  */
@@ -69,7 +75,7 @@ void getFromLL(LinkedList list, unsigned int index, void *dest);
  * @param list The ::LinkedList you want to edit
  * @param index The index of the element you want to change
  * @param ... The item you want to insert into `list`
- * @note Even though inserting more than one item does not throw a compiler nor runtime error, only setting one item is supported. Other items are ignored. If you don't specify any item to be inserted, still no errors occur but the content of your ::LinkedList can be messed up
+ * @note Even though inserting more than one item for single call does not throw a compiler nor runtime error, only setting one item is supported. Other items are ignored. If you don't specify any item to be inserted, still no errors occur but the content of your ::LinkedList can be messed up
  */
 void setLLItem(LinkedList list, unsigned int index, ...);
 
@@ -138,7 +144,7 @@ byte areLLEqual(const LinkedList list1, const LinkedList list2);
  * @brief Detect if an element is inside a ::LinkedList
  * @param list The ::LinkedList you want search in
  * @param ... The element you want to search
- * @note Even though inserting zero more than one item does not throw a compiler nor runtime error, only searching one item is supported. Other items are ignored. If you don't specify any item to be searched, still no errors occur but the return value of the function can be unpredictable
+ * @note Even though inserting zero more than one item for single call does not throw a compiler nor runtime error, only searching one item is supported. Other items are ignored. If you don't specify any item to be searched, still no errors occur but the return value of the function can be unpredictable
  * @retval TRUE Given element is contained in `list`
  * @retval FALSE Given element is not contained in `list`
  */
