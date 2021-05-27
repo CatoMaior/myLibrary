@@ -69,13 +69,16 @@ $(function() {
 <div class="title">arrayList.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Functions and macros for working with <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a> type.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="types_8h_source.html">types.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for arrayList.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="arrayList_8h__incl.png" border="0" usemap="#aarrayList_8h" alt=""/></div>
 <map name="aarrayList_8h" id="aarrayList_8h">
-<area shape="rect" title=" " alt="" coords="5,5,88,32"/>
+<area shape="rect" title="Functions and macros for working with ArrayList type." alt="" coords="5,5,88,32"/>
 <area shape="rect" href="types_8h.html" title="Collection of useful types." alt="" coords="15,80,78,107"/>
 </map>
 </div>
@@ -84,7 +87,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="arrayList_8h__dep__incl.png" border="0" usemap="#aarrayList_8hdep" alt=""/></div>
 <map name="aarrayList_8hdep" id="aarrayList_8hdep">
-<area shape="rect" title=" " alt="" coords="8,5,91,32"/>
+<area shape="rect" title="Functions and macros for working with ArrayList type." alt="" coords="8,5,91,32"/>
 <area shape="rect" href="myLibrary_8h.html" title="Includes all other headers. Useful for rapid import." alt="" coords="5,80,93,107"/>
 </map>
 </div>
@@ -172,7 +175,10 @@ Functions</h2></td></tr>
 <tr class="memdesc:ae27e57c6a7433ff6854d707eb339665f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a> from an list of pointers.  <a href="arrayList_8h.html#ae27e57c6a7433ff6854d707eb339665f">More...</a><br /></td></tr>
 <tr class="separator:ae27e57c6a7433ff6854d707eb339665f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Functions and macros for working with <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a> type. </p>
+<dl class="section author"><dt>Author</dt><dd>Pietro Firpo (<a href="#" onclick="location.href='mai'+'lto:'+'pie'+'tr'+'o.f'+'ir'+'po@'+'pm'+'.me'; return false;">pietr<span style="display: none;">.nosp@m.</span>o.fi<span style="display: none;">.nosp@m.</span>rpo@p<span style="display: none;">.nosp@m.</span>m.me</a>) </dd></dl>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a9ec621d98d569a4b0c270bc34ec51638"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9ec621d98d569a4b0c270bc34ec51638">&#9670;&nbsp;</a></span>newALFromArray</h2>
 
@@ -256,7 +262,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>Even though appending more than one item does not throw a compiler nor runtime error, only appending one item is supported. Other items are ignored and are not appended to <code>list</code>. If you don't specify any item to be appended, still no errors occur but the content of your <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a> can be messed up </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Even though appending more than one item for single call does not throw a compiler nor runtime error, only appending one item is supported. Other items are ignored and are not appended to <code>list</code>. If you don't specify any item to be appended, still no errors occur but the content of your <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a> can be messed up </dd></dl>
 
 </div>
 </div>
@@ -487,7 +493,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>Even though inserting more than one item does not throw a compiler nor runtime error, only inserting one item is supported. Other items are ignored and are not inserted into <code>list</code>. If you don't specify any item to be inserted, still no errors occur but the content of your <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a> can be messed up </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Even though inserting more than one item for single call does not throw a compiler nor runtime error, only inserting one item is supported. Other items are ignored and are not inserted into <code>list</code>. If you don't specify any item to be inserted, still no errors occur but the content of your <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a> can be messed up </dd></dl>
 
 </div>
 </div>
@@ -525,7 +531,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>Even though inserting zero more than one item does not throw a compiler nor runtime error, only searching one item is supported. Other items are ignored. If you don't specify any item to be searched, still no errors occur but the return value of the function can be unpredictable </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Even though inserting zero more than one item for single call does not throw a compiler nor runtime error, only searching one item is supported. Other items are ignored. If you don't specify any item to be searched, still no errors occur but the return value of the function can be unpredictable </dd></dl>
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
     <tr><td class="paramname">TRUE</td><td>Given element is contained in <code>list</code> </td></tr>
@@ -1026,7 +1032,7 @@ Even though passing more than one key does not throw a compiler nor runtime erro
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>Even though inserting more than one item does not throw a compiler nor runtime error, only setting one item is supported. Other items are ignored. If you don't specify any item to be inserted, still no errors occur but the content of your <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a> can be messed up </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Even though inserting more than one item for single call does not throw a compiler nor runtime error, only setting one item is supported. Other items are ignored. If you don't specify any item to be inserted, still no errors occur but the content of your <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a> can be messed up </dd></dl>
 
 </div>
 </div>

@@ -9,8 +9,9 @@ var searchData=
   ['chooselinearsearch_19',['chooseLinearSearch',['../arrays_8h.html#a23bc03dea4b74f8712b4a3d01f2ce06b',1,'arrays.h']]],
   ['choosenewalfromarray_20',['chooseNewALFromArray',['../arrayList_8h.html#acd66d5c146517fb8dbc928f2be88448c',1,'arrayList.h']]],
   ['choosenewllfromarray_21',['chooseNewLLFromArray',['../linkedList_8h.html#a26f96db75d914839ba9d0c2fb04a5159',1,'linkedList.h']]],
-  ['choosequicksortarr_22',['chooseQuickSortArr',['../arrays_8h.html#af251dbb285faf8d84a4fb4cf7aa9abe1',1,'arrays.h']]],
-  ['cmpval_23',['cmpVal',['../macros_8h.html#a1b05108c96f945dd618c13cd835d2b8d',1,'macros.h']]],
-  ['constants_2eh_24',['constants.h',['../constants_8h.html',1,'']]],
-  ['copyof_25',['copyOf',['../strings_8h.html#a3a4ef40ecb4f7fb22f99f1b456a61076',1,'strings.h']]]
+  ['choosenewstackfromarray_22',['chooseNewStackFromArray',['../stack_8h.html#aea505190fcfa100bdfce93008337fc63',1,'stack.h']]],
+  ['choosequicksortarr_23',['chooseQuickSortArr',['../arrays_8h.html#af251dbb285faf8d84a4fb4cf7aa9abe1',1,'arrays.h']]],
+  ['cmpval_24',['cmpVal',['../macros_8h.html#a1b05108c96f945dd618c13cd835d2b8d',1,'macros.h']]],
+  ['constants_2eh_25',['constants.h',['../constants_8h.html',1,'']]],
+  ['copyof_26',['copyOf',['../strings_8h.html#a3a4ef40ecb4f7fb22f99f1b456a61076',1,'strings.h']]]
 ];
