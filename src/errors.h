@@ -35,4 +35,10 @@
 
 #define DIFFERENT_LL_TYPES "Different LinkedList types"
 
+#define NULL_STACK_GIVEN "Null Stack given"
+
+#define NULL_STACK_TYPE "Null Stack type"
+
+#define NULL_STACK_HEAD "Given Stack has null head"
+
 #endif

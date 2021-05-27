@@ -88,4 +88,20 @@ typedef struct {
     unsigned int size;
 } *LinkedList;
 
+/**
+ * @brief ::Stack type
+ * @note All the parameters in this structure must be intended as read-only. Manually modifying them can cause unknown and unwanted behavior
+ */
+typedef struct {
+    /**
+     * @brief The type of the elements contained by the ::Stack. Refer to ::spec_t
+     */
+    spec_t type;
+
+    /**
+     * @brief Head of the ::Stack
+     */
+    Node head;
+} *Stack;
+
 #endif

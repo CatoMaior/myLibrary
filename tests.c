@@ -2,13 +2,155 @@
 #include <stdlib.h>
 #include "myLibrary.h"
 
-#define TEST_LINKEDLIST
+#define TEST_STACK
+// #define TEST_LINKEDLIST
 // #define TEST_ARRAYLIST
 // #define TEST_UTILITY
 // #define TEST_STRING
 // #define TEST_ARRAY
 
 int main() {
+
+#ifdef TEST_STACK
+
+    printf("TESTING STACK\n");
+    Stack byteStack = newStack("%c");
+    Stack charStack = newStack("%c");
+    Stack intStack = newStack("%i");
+    Stack floatStack = newStack("%f");
+    Stack doubleStack = newStack("%lf");
+    Stack ptrStack = newStack("%p");
+    printf("Testing newStack()\n");
+    printStack("%hi", byteStack);
+    printf("\n");
+    printStack("%c", charStack);
+    printf("\n");
+    printStack("%i", intStack);
+    printf("\n");
+    printStack("%f", floatStack);
+    printf("\n");
+    printStack("%lf", doubleStack);
+    printf("\n");
+    printStack("%p", ptrStack);
+    printf("\n\n");
+
+    deleteStack(byteStack);
+    deleteStack(charStack);
+    deleteStack(intStack);
+    deleteStack(floatStack);
+    deleteStack(doubleStack);
+    deleteStack(ptrStack);
+
+    byte byteArrForStack[] = {32, 43, 65, 12, 76, 75, 1, 2};
+    char charArrForStack[] = {'F', 'Q', 'A', 'C', '3', '0', 'Z', 'R'};
+    int intArrForStack[] = {3254, 433, 65554, 1223, 7665, 7600, 12, 254};
+    float floatArrForStack[] = {3254.2, 433.2, 65554.2, 1223.2, 7665.2, 7600.2, 12.2, 254.2};
+    double doubleArrForStack[] = {3254.21, 433.21, 65554.21, 1223.21, 7665.21, 7600.21, 12.21, 254.21};
+    void *ptrArrForStack[8];
+    for (int i = 0; i < 8; i++)
+        ptrArrForStack[i] = saferMalloc(sizeof(byte));
+    byteStack = chooseNewStackFromArray("%c", byteArrForStack, 8);
+    charStack = chooseNewStackFromArray("%c", charArrForStack, 8);
+    intStack = chooseNewStackFromArray("%i", intArrForStack, 8);
+    floatStack = chooseNewStackFromArray("%f", floatArrForStack, 8);
+    doubleStack = chooseNewStackFromArray("%lf", doubleArrForStack, 8);
+    ptrStack = chooseNewStackFromArray("%p", ptrArrForStack, 8);
+    printf("Testing chooseNewStackFromArray()\n");
+    printStack("%4hi", byteStack);
+    printf("\n\n");
+    printStack("%2c", charStack);
+    printf("\n\n");
+    printStack("%6i", intStack);
+    printf("\n\n");
+    printStack("%9.1f", floatStack);
+    printf("\n\n");
+    printStack("%10.2lf", doubleStack);
+    printf("\n\n");
+    printStack("%16p", ptrStack);
+    printf("\n\n\n");
+    ;
+
+    byte myByteForStack;
+    char myCharForStack;
+    int myIntForStack;
+    float myFloatForStack;
+    double myDoubleForStack;
+    void *myPtrForStack;
+
+    pushToStack(byteStack, 42);
+    pushToStack(charStack, 'a');
+    pushToStack(intStack, 422);
+    pushToStack(floatStack, -2.2);
+    pushToStack(doubleStack, -2.21);
+    pushToStack(ptrStack, &myDoubleForStack);
+    printf("Testing pushToStack()\n");
+    printStack("%4hi", byteStack);
+    printf("\n\n");
+    printStack("%2c", charStack);
+    printf("\n\n");
+    printStack("%6i", intStack);
+    printf("\n\n");
+    printStack("%9.1f", floatStack);
+    printf("\n\n");
+    printStack("%10.2lf", doubleStack);
+    printf("\n\n");
+    printStack("%16p", ptrStack);
+    printf("\n\n\n");
+
+    deleteHeadFromStack(byteStack);
+    deleteHeadFromStack(charStack);
+    deleteHeadFromStack(intStack);
+    deleteHeadFromStack(floatStack);
+    deleteHeadFromStack(doubleStack);
+    deleteHeadFromStack(ptrStack);
+    printf("Testing deleteHeadFromStack()\n");
+    printStack("%4hi", byteStack);
+    printf("\n\n");
+    printStack("%2c", charStack);
+    printf("\n\n");
+    printStack("%6i", intStack);
+    printf("\n\n");
+    printStack("%9.1f", floatStack);
+    printf("\n\n");
+    printStack("%10.2lf", doubleStack);
+    printf("\n\n");
+    printStack("%16p", ptrStack);
+    printf("\n\n\n");
+
+    printf("Testing isInStack()\n");
+    for (int i = 0; i < 8; i++) {
+        getHeadDataFromStack(byteStack, &myByteForStack);
+        printf("%3i", isInStack(byteStack, myByteForStack));
+    }
+    printf("%3i", isInStack(byteStack, -128));
+    printf("\n");
+    for (int i = 0; i < 8; i++) {
+        getHeadDataFromStack(charStack, &myCharForStack);
+        printf("%3i", isInStack(charStack, myCharForStack));
+    }
+    printf("%3i", isInStack(charStack, '\0'));
+    printf("\n");
+    for (int i = 0; i < 8; i++) {
+        getHeadDataFromStack(intStack, &myIntForStack);
+        printf("%3i", isInStack(intStack, myIntForStack));
+    }
+    printf("%3i", isInStack(intStack, -65536));
+    printf("\n");
+    for (int i = 0; i < 8; i++) {
+        getHeadDataFromStack(ptrStack, &myPtrForStack);
+        printf("%3i", isInStack(ptrStack, myPtrForStack));
+    }
+    printf("%3i", isInStack(ptrStack, NULL));
+    printf("\n\n\n");
+
+    deleteStack(byteStack);
+    deleteStack(charStack);
+    deleteStack(intStack);
+    deleteStack(floatStack);
+    deleteStack(doubleStack);
+    deleteStack(ptrStack);
+
+#endif
 
 #ifdef TEST_LINKEDLIST
 

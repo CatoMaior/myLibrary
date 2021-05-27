@@ -25,3 +25,5 @@
 #include "arrayList.h"
 
 #include "linkedList.h"
+
+#include "stack.h"
