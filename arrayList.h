@@ -1,7 +1,7 @@
 /**
- * @file listList.h
+ * @file arrayList.h
  * @author Pietro Firpo (pietro.firpo@pm.me)
- * @brief ::ArrayList functions and macros
+ * @brief Functions and macros for working with ::ArrayList type
  */
 
 #ifndef __SEEN_ARRAYLIST
@@ -41,7 +41,7 @@ ArrayList newALFromAL(const ArrayList list);
  * @brief Insert an item at the end of an ::ArrayList 
  * @param list The ::ArrayList you want to append an item to
  * @param ... The item you want to append to `list`
- * @note Even though appending more than one item does not throw a compiler nor runtime error, only appending one item is supported. Other items are ignored and are not appended to `list`. If you don't specify any item to be appended, still no errors occur but the content of your ::ArrayList can be messed up
+ * @note Even though appending more than one item for single call does not throw a compiler nor runtime error, only appending one item is supported. Other items are ignored and are not appended to `list`. If you don't specify any item to be appended, still no errors occur but the content of your ::ArrayList can be messed up
  */
 void appendToAL(ArrayList list, ...);
 
@@ -50,7 +50,7 @@ void appendToAL(ArrayList list, ...);
  * @param list The ::ArrayList you want to insert an element into
  * @param index The position you want to insert an item at
  * @param ... The item you want to insert into `list`
- * @note Even though inserting more than one item does not throw a compiler nor runtime error, only inserting one item is supported. Other items are ignored and are not inserted into `list`. If you don't specify any item to be inserted, still no errors occur but the content of your ::ArrayList can be messed up
+ * @note Even though inserting more than one item for single call does not throw a compiler nor runtime error, only inserting one item is supported. Other items are ignored and are not inserted into `list`. If you don't specify any item to be inserted, still no errors occur but the content of your ::ArrayList can be messed up
  */
 void insertToAL(ArrayList list, unsigned int index, ...);
 
@@ -59,7 +59,7 @@ void insertToAL(ArrayList list, unsigned int index, ...);
  * @param list The ::ArrayList you want to edit
  * @param index The index of the element you want to change
  * @param ... The item you want to insert into `list`
- * @note Even though inserting more than one item does not throw a compiler nor runtime error, only setting one item is supported. Other items are ignored. If you don't specify any item to be inserted, still no errors occur but the content of your ::ArrayList can be messed up
+ * @note Even though inserting more than one item for single call does not throw a compiler nor runtime error, only setting one item is supported. Other items are ignored. If you don't specify any item to be inserted, still no errors occur but the content of your ::ArrayList can be messed up
  */
 void setALItem(ArrayList list, unsigned int index, ...);
 
@@ -138,7 +138,7 @@ void quickSortAL(ArrayList list);
  * @brief Detect if an element is inside an ::ArrayList
  * @param list The ::ArrayList you want search in
  * @param ... The element you want to search
- * @note Even though inserting zero more than one item does not throw a compiler nor runtime error, only searching one item is supported. Other items are ignored. If you don't specify any item to be searched, still no errors occur but the return value of the function can be unpredictable
+ * @note Even though inserting zero more than one item for single call does not throw a compiler nor runtime error, only searching one item is supported. Other items are ignored. If you don't specify any item to be searched, still no errors occur but the return value of the function can be unpredictable
  * @retval TRUE Given element is contained in `list`
  * @retval FALSE Given element is not contained in `list`
  */

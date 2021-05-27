@@ -1,7 +1,7 @@
 /**
  * @file utility.h
  * @author Pietro Firpo (pietro.firpo@pm.me)
- * @brief Common tasks such as comparing variables, swap bools, allocate memory
+ * @brief Common tasks such as comparing variables, allocate memory
  */
 
 #ifndef __SEEN_UTILITY
