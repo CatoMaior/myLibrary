@@ -67,7 +67,7 @@ void appendToLL(LinkedList list, ...) {
     list->size++;
 }
 
-void appendToLLFromPtr(LinkedList list, void *element) {
+void appendToLLFromPtr(LinkedList list, const void *element) {
     funcThrowIf(!list, NULL_AL_GIVEN);
     funcThrowIf(!list->type, NULL_AL_GIVEN);
     Node newNode = saferMalloc(sizeof(*newNode));
@@ -265,11 +265,9 @@ void *linearSearchLLPtr(LinkedList list, ...) {
     int index;
     Node currNode = list->head;
     byte typeSize = getTypeSize(list->type);
-    for (unsigned int i = 0; i < list->size; i++) {
+    for (Node currNode = list->head; currNode; currNode = currNode->linked)
         if (memcmp(currNode->data, &key, typeSize) == 0)
             return currNode->data;
-        currNode = currNode->linked;
-    }
     return NULL;
 }
 
