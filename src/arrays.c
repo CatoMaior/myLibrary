@@ -75,26 +75,43 @@ int chooseLinearSearch(const spec_t spec, void *arr, int size, ...) {
     return KEY_NOT_FOUND;
 }
 
+int charLinearSearch(const char* arr, int size, char key) {
+    funcThrowIf(!arr, NULL_POINTER_GIVEN);
+    return chooseLinearSearch("%c", arr, size, key);
+}
+
+int intLinearSearch(const char *arr, int size, int key) {
+    funcThrowIf(!arr, NULL_POINTER_GIVEN);
+    return chooseLinearSearch("%i", arr, size, key);
+}
+
+int floatLinearSearch(const char *arr, int size, float key) {
+    funcThrowIf(!arr, NULL_POINTER_GIVEN);
+    return chooseLinearSearch("%f", arr, size, key);
+}
+
+int doubleLinearSearch(const char *arr, int size, double key) {
+    funcThrowIf(!arr, NULL_POINTER_GIVEN);
+    return chooseLinearSearch("%lf", arr, size, key);
+}
+
+int ptrLinearSearch(const char **arr, int size, void *key) {
+    funcThrowIf(!arr, NULL_POINTER_GIVEN);
+    return chooseLinearSearch("%p", arr, size, key);
+}
+
 void printMatrix(const spec_t spec, const void *matrix, const unsigned int nRows, const unsigned int nColumns) {
     funcThrowIf(!spec || !matrix, NULL_POINTER_GIVEN);
     if (endsWith(spec, "hhi"))
         funcThrowIf(TRUE, UNSUPPORTED_SPECIFIER);
-    if (endsWith(spec, "hi")) {
+    if (endsWith(spec, "hi") || endsWith(spec, "c")) {
         for (unsigned int i = 0; i < nRows; i++) {
             for (unsigned int j = 0; j < nColumns; j++)
                 printf(spec, *((char *)matrix + i * nColumns + j));
             printf("\n");
         }
         printf("\n");
-    }
-    else if (endsWith(spec, "c")) {
-        for (unsigned int i = 0; i < nRows; i++) {
-            for (unsigned int j = 0; j < nColumns; j++)
-                printf(spec, *((char *)matrix + i * nColumns + j));
-            printf("\n");
-        }
-        printf("\n");
-    }
+    } 
     else if (endsWith(spec, "i")) {
         for (unsigned int i = 0; i < nRows; i++) {
             for (unsigned int j = 0; j < nColumns; j++)
@@ -102,32 +119,28 @@ void printMatrix(const spec_t spec, const void *matrix, const unsigned int nRows
             printf("\n");
         }
         printf("\n");
-    }
-    else if (endsWith(spec, "lf")) {
+    } else if (endsWith(spec, "lf")) {
         for (unsigned int i = 0; i < nRows; i++) {
             for (unsigned int j = 0; j < nColumns; j++)
                 printf(spec, *((double *)matrix + i * nColumns + j));
             printf("\n");
         }
         printf("\n");
-    }
-    else if (endsWith(spec, "f")) {
+    } else if (endsWith(spec, "f")) {
         for (unsigned int i = 0; i < nRows; i++) {
             for (unsigned int j = 0; j < nColumns; j++)
                 printf(spec, *((float *)matrix + i * nColumns + j));
             printf("\n");
         }
         printf("\n");
-    }
-    else if (endsWith(spec, "p")) {
+    } else if (endsWith(spec, "p")) {
         for (unsigned int i = 0; i < nRows; i++) {
             for (unsigned int j = 0; j < nColumns; j++)
                 printf(spec, *((byte **)matrix + i * nColumns + j));
             printf("\n");
         }
         printf("\n");
-    }
-    else
+    } else
         funcThrowIf(TRUE, UNSUPPORTED_SPECIFIER);
 }
 

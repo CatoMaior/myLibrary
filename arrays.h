@@ -107,4 +107,34 @@ void doubleQuickSort(double *arr, int size);
  */
 void ptrQuickSort(void **arr, int size);
 
+/**
+ * @brief Linear search for arrays of chars
+ * @details Equivalent to `chooseLinearSearch("%c", arr, size, key)`. Refer to chooseQuickSortArr()
+ */
+int charLinearSearch(const char *arr, int size, char key);
+
+/**
+ * @brief Linear search for arrays of integers
+ * @details Equivalent to `chooseLinearSearch("%i", arr, size, key)`. Refer to chooseLinearSearch()
+ */
+int intLinearSearch(const char *arr, int size, int key);
+
+/**
+ * @brief Linear search for arrays of floats
+ * @details Equivalent to `chooseLinearSearch("%f", arr, size, key)`. Refer to chooseLinearSearch()
+ */
+int floatLinearSearch(const char *arr, int size, float key);
+
+/**
+ * @brief Linear search for arrays of doubles
+ * @details Equivalent to `chooseLinearSearch("%lf", arr, size, key)`. Refer to chooseLinearSearch()
+ */
+int doubleLinearSearch(const char *arr, int size, double key);
+
+/**
+ * @brief Linear search for arrays of pointers
+ * @details Equivalent to `chooseLinearSearch("%p", arr, size, key)`. Refer to chooseLinearSearch()
+ */
+int ptrLinearSearch(const char **arr, int size, void *key);
+
 #endif
