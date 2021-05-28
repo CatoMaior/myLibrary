@@ -40,7 +40,7 @@ void printQueue(const spec_t spec, const Queue queue) {
     printLinked(spec, queue);
 }
 
-unsigned int getQueueSize(const Queue queue) {
+unsigned int getQueueLength(const Queue queue) {
     funcThrowIf(!queue, NULL_QUEUE_GIVEN);
     return getLinkedSize(queue);
 }
@@ -71,7 +71,7 @@ void getHeadDataFromQueue(const Queue queue, void *dest) {
 }
 
 void deleteQueue(Queue queue) {
-    while (getQueueSize(queue) != 0)
+    while (getQueueLength(queue) != 0)
         deleteHeadFromQueue(queue);
     free(queue);
 }
@@ -114,4 +114,9 @@ void enqueueFromPtr(Queue queue, const void *element) {
     queue->tail = newNode;
     if (!queue->head)
         queue->head = newNode;
+}
+
+byte isQueueEmpty(Queue queue) {
+    funcThrowIf(!queue, NULL_STACK_GIVEN);
+    return queue->head ? FALSE : TRUE;
 }

@@ -97,6 +97,6 @@ void pushToStackFromPtr(Stack stack, const void *element);
  * @param stack The ::Stack you want to evaluate
  * @return The number of elements in `stack`
  */
-unsigned int getStackSize(const Stack stack);
+unsigned int getStackLength(const Stack stack);
 
 #endif

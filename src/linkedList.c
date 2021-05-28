@@ -287,7 +287,7 @@ byte isInLL(LinkedList list, ...) {
     return FALSE;
 }
 
-unsigned int getLLSize(const LinkedList list) {
+unsigned int getLLLength(const LinkedList list) {
     funcThrowIf(!list, NULL_LL_GIVEN);
     return list->size;
 }

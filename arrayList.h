@@ -206,6 +206,6 @@ ArrayList newALFromPtrArray(const void **list, unsigned int size);
  * @param list The ::ArrayList you want to evaluate
  * @return The number of elements in `list`
  */
-unsigned int getALSize(const ArrayList list);
+unsigned int getALLength(const ArrayList list);
 
 #endif

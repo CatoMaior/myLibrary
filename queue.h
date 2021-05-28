@@ -43,7 +43,7 @@ void printQueue(const spec_t spec, const Queue queue);
  * @param queue The ::Queue you want to evaluate
  * @return The number of elements in `queue`
  */
-unsigned int getQueueSize(const Queue queue);
+unsigned int getQueueLength(const Queue queue);
 
 /**
  * @brief Delete current ::Queue head
@@ -90,5 +90,13 @@ Queue chooseNewQueueFromArray(const spec_t spec, const void *arr, unsigned int s
  * @param element Pointer to the item you want to enqueue into `queue`
  */
 void enqueueFromPtr(Queue queue, const void *element);
+
+/**
+ * @brief Check if ::Queue is empty
+ * @param stack The ::Queue to be checked
+ * @retval TRUE `queue` is empty
+ * @retval FALSE `queue` is not empty
+ */
+byte isQueueEmpty(Stack stack);
 
 #endif

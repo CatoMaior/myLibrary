@@ -113,7 +113,7 @@ void pushToStackFromPtr(Stack stack, const void *element) {
     stack->head = newNode;
 }
 
-unsigned int getStackSize(const Stack stack) {
+unsigned int getStackLength(const Stack stack) {
     funcThrowIf(!stack, NULL_STACK_GIVEN);
     unsigned int length = 0;
     for (Node currNode = stack->head; currNode; currNode = currNode->linked)

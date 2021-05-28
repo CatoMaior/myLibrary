@@ -155,7 +155,7 @@ byte isInLL(LinkedList list, ...);
  * @param list The ::LinkedList you want to evaluate
  * @return The number of elements in `list`
  */
-unsigned int getLLSize(const LinkedList list);
+unsigned int getLLLength(const LinkedList list);
 
 // TODO Sorting algorithms, currently available only for ArrayList
 
