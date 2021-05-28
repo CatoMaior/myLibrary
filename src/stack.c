@@ -7,8 +7,6 @@
 #include <stdarg.h>
 #include <string.h>
 
-// TODO add getStackSize() and remove isStackEmpty(), use printLinked()
-
 Stack newStack(const spec_t spec) {
     funcThrowIf(!spec, NULL_POINTER_GIVEN);
     Stack stack = saferMalloc(sizeof(*stack));
@@ -20,27 +18,7 @@ void printStack(const spec_t spec, const Stack stack) {
     funcThrowIf(!stack, NULL_STACK_GIVEN);
     funcThrowIf(!spec, NULL_POINTER_GIVEN);
     funcThrowIf(!stack->type, NULL_STACK_TYPE);
-    if (!stack->head) {
-        printf("Empty\n");
-        return;
-    }
-    if (strcmp(stack->type, "%c") == 0)
-        for (Node currNode = stack->head; currNode; currNode = currNode->linked)
-            printf(spec, *((char *)currNode->data));
-    else if (strcmp(stack->type, "%i") == 0)
-        for (Node currNode = stack->head; currNode; currNode = currNode->linked)
-            printf(spec, *((int *)currNode->data));
-    else if (strcmp(stack->type, "%f") == 0)
-        for (Node currNode = stack->head; currNode; currNode = currNode->linked)
-            printf(spec, *((float *)currNode->data));
-    else if (strcmp(stack->type, "%lf") == 0)
-        for (Node currNode = stack->head; currNode; currNode = currNode->linked)
-            printf(spec, *((double *)currNode->data));
-    else if (strcmp(stack->type, "%p") == 0)
-        for (Node currNode = stack->head; currNode; currNode = currNode->linked)
-            printf(spec, *((int **)currNode->data));
-    else
-        funcThrowIf(TRUE, UNSUPPORTED_SPECIFIER);
+    printLinked(spec, stack);
 }
 
 void pushToStack(Stack stack, ...) {
@@ -133,4 +111,12 @@ void pushToStackFromPtr(Stack stack, const void *element) {
     Node prevHead = stack->head;
     newNode->linked = prevHead;
     stack->head = newNode;
+}
+
+unsigned int getStackSize(const Stack stack) {
+    funcThrowIf(!stack, NULL_STACK_GIVEN);
+    unsigned int length = 0;
+    for (Node currNode = stack->head; currNode; currNode = currNode->linked)
+        length++;
+    return length;
 }

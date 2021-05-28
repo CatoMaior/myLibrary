@@ -92,4 +92,11 @@ Stack chooseNewStackFromArray(const spec_t spec, const void *arr, unsigned int s
  */
 void pushToStackFromPtr(Stack stack, const void *element);
 
+/**
+ * @brief Get the size of a ::Stack
+ * @param stack The ::Stack you want to evaluate
+ * @return The number of elements in `stack`
+ */
+unsigned int getStackSize(const Stack stack);
+
 #endif
