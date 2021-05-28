@@ -26,4 +26,8 @@ byte isTypeSupported(const spec_t spec);
 
 void getDataFromArgList(const spec_t spec, va_list argList, VarData data);
 
+void printLinked(const spec_t spec, void *linkedEl);
+
+unsigned int getLinkedSize(const void *linkedEl);
+
 #endif

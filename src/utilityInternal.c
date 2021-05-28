@@ -67,3 +67,36 @@ void getDataFromArgList(const spec_t spec, va_list argList, VarData data) {
     else
         funcThrowIf(TRUE, UNSUPPORTED_SPECIFIER);
 }
+
+void printLinked(const spec_t spec, void *linkedEl) {
+    Stack castedLinkedEl = linkedEl;
+    if (!castedLinkedEl->head) {
+        printf("Empty\n");
+        return;
+    }
+    if (strcmp(castedLinkedEl->type, "%c") == 0)
+        for (Node currNode = castedLinkedEl->head; currNode; currNode = currNode->linked)
+            printf(spec, *((char *)currNode->data));
+    else if (strcmp(castedLinkedEl->type, "%i") == 0)
+        for (Node currNode = castedLinkedEl->head; currNode; currNode = currNode->linked)
+            printf(spec, *((int *)currNode->data));
+    else if (strcmp(castedLinkedEl->type, "%f") == 0)
+        for (Node currNode = castedLinkedEl->head; currNode; currNode = currNode->linked)
+            printf(spec, *((float *)currNode->data));
+    else if (strcmp(castedLinkedEl->type, "%lf") == 0)
+        for (Node currNode = castedLinkedEl->head; currNode; currNode = currNode->linked)
+            printf(spec, *((double *)currNode->data));
+    else if (strcmp(castedLinkedEl->type, "%p") == 0)
+        for (Node currNode = castedLinkedEl->head; currNode; currNode = currNode->linked)
+            printf(spec, *((int **)currNode->data));
+    else
+        funcThrowIf(TRUE, UNSUPPORTED_SPECIFIER);
+}
+
+unsigned int getLinkedSize(const void *linkedEl) {
+    Stack castedLinkedEl = linkedEl;
+    unsigned int i = 0;
+    for (Node currNode = castedLinkedEl->head; currNode; currNode = currNode->linked)
+        i++;
+    return i;
+}
