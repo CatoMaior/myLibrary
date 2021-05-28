@@ -975,6 +975,7 @@ int main() {
 #endif
 
 #ifdef TEST_UTILITY
+
     printf("TESTING UTILITY\n");
     byte bytes[2] = {-1, 1};
     char chars[] = {'A', 'a'};
@@ -1017,6 +1018,7 @@ int main() {
 #endif
 
 #ifdef TEST_STRING
+
     printf("TESTING STRINGS\n");
     printf("Insert string: ");
     string myString = getString();
@@ -1028,9 +1030,11 @@ int main() {
     printf("Shrinked string: %s\n", myString);
     printf("Shrinked string length: %i\n", getLength(myString));
     printf("\n\n");
+
 #endif
 
 #ifdef TEST_ARRAY
+
     printf("TESTING ARRAYS\n");
     byte byteMatrix[][8] = {
         {32, 43, 65, 12, 76, 75, 1, 2},
