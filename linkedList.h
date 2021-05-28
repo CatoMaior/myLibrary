@@ -150,6 +150,13 @@ byte areLLEqual(const LinkedList list1, const LinkedList list2);
  */
 byte isInLL(LinkedList list, ...);
 
+/**
+ * @brief Get the size of a ::LinkedList
+ * @param list The ::LinkedList you want to evaluate
+ * @return The number of elements in `list`
+ */
+unsigned int getLLSize(const LinkedList list);
+
 // TODO Sorting algorithms, currently available only for ArrayList
 
 #endif

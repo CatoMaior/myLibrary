@@ -10,8 +10,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// TODO Remove size in LinkedList and add getLLSize(), use printLinked()
-
 LinkedList newLL(const spec_t spec) {
     funcThrowIf(!spec, NULL_POINTER_GIVEN);
     funcThrowIf(!isTypeSupported(spec), UNSUPPORTED_SPECIFIER);
@@ -25,28 +23,7 @@ void printLL(const spec_t spec, const LinkedList list) {
     funcThrowIf(!spec, NULL_POINTER_GIVEN);
     funcThrowIf(!list, NULL_LL_GIVEN);
     funcThrowIf(!list->type, NULL_LL_TYPE);
-    if (list->size == 0) {
-        printf("Empty\n");
-        return;
-    }
-    funcThrowIf(!list->head, NULL_LL_HEAD);
-    if (strcmp(list->type, "%c") == 0)
-        for (Node currNode = list->head; currNode; currNode = currNode->linked)
-            printf(spec, *((char *)(currNode->data)));
-    else if (strcmp(list->type, "%i") == 0)
-        for (Node currNode = list->head; currNode; currNode = currNode->linked)
-            printf(spec, *((int *)(currNode->data)));
-    else if (strcmp(list->type, "%f") == 0)
-        for (Node currNode = list->head; currNode; currNode = currNode->linked)
-            printf(spec, *((float *)(currNode->data)));
-    else if (strcmp(list->type, "%lf") == 0)
-        for (Node currNode = list->head; currNode; currNode = currNode->linked)
-            printf(spec, *((double *)(currNode->data)));
-    else if (strcmp(list->type, "%p") == 0)
-        for (Node currNode = list->head; currNode; currNode = currNode->linked)
-            printf(spec, *((int **)(currNode->data)));
-    else
-        funcThrowIf(TRUE, UNSUPPORTED_SPECIFIER);
+    printLinked(spec, list);
 }
 
 void appendToLL(LinkedList list, ...) {
@@ -75,6 +52,7 @@ void appendToLLFromPtr(LinkedList list, const void *element) {
     Node newNode = saferMalloc(sizeof(*newNode));
     byte typeSize = getTypeSize(list->type);
     newNode->data = saferMalloc(typeSize);
+    newNode->linked = NULL;
     memcpy(newNode->data, element, typeSize);
     if (list->size == 0)
         list->head = newNode;
@@ -307,4 +285,9 @@ byte isInLL(LinkedList list, ...) {
         currNode = currNode->linked;
     }
     return FALSE;
+}
+
+unsigned int getLLSize(const LinkedList list) {
+    funcThrowIf(!list, NULL_LL_GIVEN);
+    return list->size;
 }
