@@ -11,22 +11,22 @@
 
 /**
  * @brief Allocate a new ::Stack of specified type
- * @param spec Type specifier of the ::Stack you want to create
+ * @param spec Type specifier of the ::Stack you want to create. Refer to ::spec_t for supported types
  * @return An empty ::Stack
  */
 Stack newStack(const spec_t spec);
 
 /**
- * @brief Push an item to a ::Stack
- * @param stack The ::Stack you want to push to
- * @param ... The item you want to append to `stack`
- * @note Even though pushing more than one item for single call call does not throw a compiler nor runtime error, only pushing one item is supported. Other items are ignored and are not pushed to `stack`. If you don't specify any item to be pushed, still no errors occur but the content of your ::Stack can be messed up
+ * @brief Push an item into a ::Stack
+ * @param stack The ::Stack you want to push into
+ * @param ... The item you want to push into `stack`
+ * @note Even though pushing more than one item for single call does not throw a compiler nor runtime error, only pushing one item is supported. Other items are ignored and are not pushed into `stack`. If you don't specify any item to be pushed, still no errors occur but the content of your ::Stack can be messed up
  */
 void pushToStack(Stack stack, ...);
 
 /**
  * @brief Print contents from a ::Stack
- * @param spec The type and format specifier you want to use to print the single element of the ::Stack
+ * @param spec The type and format specifier you want to use to print the single element of the ::Stack. Use the `printf()` conventions
  * @param stack The ::Stack you want to print
  */
 void printStack(const spec_t spec, const Stack stack);
@@ -70,7 +70,7 @@ void getHeadDataFromStack(Stack stack, void *dest);
  * @param stack The ::Stack you want search in
  * @param ... The element you want to search
  * @note This function does not support float and double ::Stack types
- * @note Even though specifying zero or more than one item for single call does not throw a compiler nor runtime error, only searching one item is supported. Other items are ignored. If you don't specify any item to be searched, still no errors occur but the return value of the function can be unpredictable
+ * @note Even though specifying more than one item for single call does not throw a compiler nor runtime error, only searching one item is supported. Other items are ignored. If you don't specify any item to be searched, still no errors occur but the return value of the function can be unpredictable
  * @retval TRUE Given element is contained in `stack`
  * @retval FALSE Given element is not contained in `stack`
  */
@@ -78,17 +78,17 @@ byte isInStack(Stack stack, ...);
 
 /**
  * @brief Create a ::Stack from an array
- * @param spec The type specifier of the array passed. Refer to spec_t
+ * @param spec The type specifier of the array passed. Refer to ::spec_t for supported types
  * @param arr The array you want to create the ::Stack from
- * @param size The number of items of `arr`
+ * @param size The number of items in `arr`
  * @return A ::Stack containing the elements in `arr`, having the last element of `arr` as head
  */
 Stack chooseNewStackFromArray(const spec_t spec, const void *arr, unsigned int size);
 
 /**
- * @brief Push an item to a ::Stack
- * @param stack The ::Stack you want to append an item to
- * @param element Pointer to the item you want to push to `stack`
+ * @brief Push an item into a ::Stack
+ * @param stack The ::Stack you want to push an item into
+ * @param element Pointer to the item you want to push into `stack`
  */
 void pushToStackFromPtr(Stack stack, const void *element);
 

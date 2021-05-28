@@ -11,7 +11,7 @@
 
 /**
  * @brief Bubble sort for arrays
- * @param spec Type specifier of the array to be sorted. Refer to ::spec_t for supported types.
+ * @param spec Type specifier of the array to be sorted. Refer to ::spec_t for supported types
  * @param arr Pointer to the first element of the array to be sorted
  * @param size Number of elements of the array to be sorted
  */
@@ -31,15 +31,15 @@ void chooseQuickSortArr(const spec_t spec, void *arr, int size);
  * @param arr Pointer to the first element of the array to be inspected
  * @param size Number of elements of the array to be inspected
  * @param ... The key to be searched
- * @note Even though passing more than one key does not throw a compiler nor runtime error, only searching one item is supported. Other items are ignored. If you don't specify any item to be searched, still no errors occur but the return value of the function can be unpredictable
+ * @note Even though passing more than one key does not throw a compiler nor runtime error, only searching one key is supported. Other items are ignored. If you don't specify any key to be searched, still no errors occur but the return value of the function can be unpredictable
  * @return The index of the first occurence of the key in the array or the return code of the function
  * @retval KEY_NOT_FOUND The key was not found
  */
 int chooseLinearSearch(const spec_t spec, void *arr, int size, ...);
 
 /**
- * @brief Print matrix of specified size with specified formatting
- * @param spec Type and format specifier used to print a cell. The printf() identifier formatting convention is supported. See ::spec_t for details. Additional supported specifiers: `"%hi"` (numerical output for char)
+ * @brief Print a matrix of specified size with specified formatting
+ * @param spec Type and format specifier used to print a cell. The printf() identifier and formatting convention is supported. See ::spec_t for details. Additional supported specifiers: `"%hi"` (numerical output for char)
  * @note The format specifier must end with the letter of the type specifier. For example, `"%5.3lf"` is supported, `"%5.3lf\n"` or `"%5.3lfTest"` is not supported and nothing is printed
  * @param matrix Pointer to the first element of the matrix
  * @param nRows Number of rows of the matrix

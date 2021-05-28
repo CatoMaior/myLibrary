@@ -59,7 +59,7 @@ void insertToAL(ArrayList list, unsigned int index, ...);
  * @param list The ::ArrayList you want to edit
  * @param index The index of the element you want to change
  * @param ... The item you want to insert into `list`
- * @note Even though inserting more than one item for single call does not throw a compiler nor runtime error, only setting one item is supported. Other items are ignored. If you don't specify any item to be inserted, still no errors occur but the content of your ::ArrayList can be messed up
+ * @note Even though changing more than one item for single call does not throw a compiler nor runtime error, only setting one item is supported. Other items are ignored. If you don't specify any item to be inserted, still no errors occur but the content of your ::ArrayList can be messed up
  */
 void setALItem(ArrayList list, unsigned int index, ...);
 
@@ -80,7 +80,7 @@ void sliceAL(ArrayList list, unsigned int begin, unsigned int end);
 
 /**
  * @brief Print contents from an ::ArrayList
- * @param spec The type and format specifier you want to use to print the single element of the ::ArrayList
+ * @param spec The type and format specifier you want to use to print the single element of the ::ArrayList. Use the `printf()` conventions
  * @param list The ::ArrayList you want to print
  */
 void printAL(const spec_t spec, const ArrayList list);
@@ -138,7 +138,7 @@ void quickSortAL(ArrayList list);
  * @brief Detect if an element is inside an ::ArrayList
  * @param list The ::ArrayList you want search in
  * @param ... The element you want to search
- * @note Even though inserting zero more than one item for single call does not throw a compiler nor runtime error, only searching one item is supported. Other items are ignored. If you don't specify any item to be searched, still no errors occur but the return value of the function can be unpredictable
+ * @note Even though searching more than one item for single call does not throw a compiler nor runtime error, only searching one item is supported. Other items are ignored. If you don't specify any item to be searched, still no errors occur but the return value of the function can be unpredictable
  * @retval TRUE Given element is contained in `list`
  * @retval FALSE Given element is not contained in `list`
  */
@@ -148,42 +148,43 @@ byte isInAL(ArrayList list, ...);
  * @brief Linear search for ::ArrayList
  * @param list The ::ArrayList to be inspected
  * @param ... The key to be searched
- * @note This function does not support float and double ::ArrayList
- * @note Even though passing more than one key does not throw a compiler nor runtime error, only searching one item is supported. Other items are ignored. If you don't specify any item to be searched, still no errors occur but the return value of the function can be unpredictable
+ * @note This function does not support float and double ::ArrayList types
+ * @note Even though passing more than one key does not throw a compiler nor runtime error, only searching one key is supported. Other items are ignored. If you don't specify any item to be searched, still no errors occur but the return value of the function can be unpredictable
  * @return The index of the first occurence of the key in the list or the return code of the function
  * @retval KEY_NOT_FOUND The key was not found
  */
 int linearSearchAL(ArrayList list, ...);
 
 /**
- * @brief Create an ::ArrayList from an list
- * @param spec The type specifier of the list passed. Refer to spec_t
+ * @brief Create an ::ArrayList from a static array
+ * @param spec The type specifier of the array passed. Refer to spec_t
  * @param list The list you want to create the ::ArrayList from
- * @param size The number of items of `list`
+ * @param size The number of items in `list`
  * @return An ::ArrayList containing the elements in `list` in the same order
  */
 ArrayList chooseNewALFromArray(const spec_t spec, const void *list, unsigned int size);
 
 // TYPE DIPENDENT FUNCTIONS
 /**
- * @brief Create ::ArrayList from an list of chars
+ * @brief Create ::ArrayList from a list of chars
  * @details Equivalent to `chooseNewALFromArray("%c", list, size)`. Refer to chooseNewALFromArray()
  */
 ArrayList newALFromCharArray(const char list[], unsigned int size);
 
 /**
- * @brief Alias for newALFromCharArray(). Used to create ::ArrayList from byte list. Refer to newALFromCharArray()
+ * @brief Create ::ArrayList from a list of bytes
+ * @details Alias for newALFromCharArray(). Used to create ::ArrayList from byte list. Refer to newALFromCharArray()
  */
 ArrayList newALFromByteArray(const char list[], unsigned int size);
 
 /**
- * @brief Create ::ArrayList from an list of ints
+ * @brief Create ::ArrayList from a list of ints
  * @details Equivalent to `chooseNewALFromArray("%i", list, size)`. Refer to chooseNewALFromArray()
  */
 ArrayList newALFromIntArray(const int list[], unsigned int size);
 
 /**
- * @brief Create ::ArrayList from an list of floats
+ * @brief Create ::ArrayList from a list of floats
  * @details Equivalent to `chooseNewALFromArray("%f", list, size)`. Refer to chooseNewALFromArray()
  */
 ArrayList newALFromFloatArray(const float list[], unsigned int size);
@@ -198,6 +199,6 @@ ArrayList newALFromDoubleArray(const double list[], unsigned int size);
  * @brief Create ::ArrayList from an list of pointers
  * @details Equivalent to `chooseNewALFromArray("%p", list, size)`. Refer to chooseNewALFromArray()
  */
-ArrayList newALFromPtrArray(const void *list, unsigned int size);
+ArrayList newALFromPtrArray(const void **list, unsigned int size);
 
 #endif

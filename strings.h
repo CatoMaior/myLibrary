@@ -11,39 +11,41 @@
 
 /**
  * @brief Reads from terminal a string of arbitrary length
- * @return A char pointer to the first element of the string or a null pointer in case of errors 
+ * @return A char pointer to the first character of the string or the return code of the function
+ * @retval NULL Errors occurred during the execution of the function
  */
 string getString();
 
 /**
- * @brief Check if a string ends with the specified substring
- * @param str The string to be inspected
- * @param suffix The string you want to check if `string`ends with
- * @return A boolean value
+ * @brief Check if a ::string ends with the specified substring
+ * @param str The ::string to be inspected
+ * @param suffix The ::string you want to check if `string` ends with
+ * @return The return code of the function
  * @retval TRUE `str` ends with `suffix`
  * @retval FALSE `str` does not end with `suffix`
  */
 byte endsWith(const string str, const string suffix);
 
 /**
- * @brief Get string with different last character
- * @param str The string you want to change the last character
+ * @brief Get a tring with different last character
+ * @param str The ::string you want to change the last character
  * @param newCharacter The character you want to set as last character
- * @return A pointer to a string with the same characters of `str` and newCharacter as last character or a null pointer in case of errors
- */
+ * @return A pointer to a ::string with the same characters of `str` and newCharacter as last character or the return code of the function
+ * @retval NULL Errors occurred during the execution of the function
+*/
 string changeLastCharacter(const string str, char newCharacter);
 
 /**
- * @brief Get the lenght of a string
- * @param str The string to be evaluated
- * @return The lenght of the given string (terminator EXCLUDED) or the return code of the function
+ * @brief Get the lenght of a ::string (terminator EXCLUDED)
+ * @param str The ::string to be evaluated
+ * @return The lenght of the given ::string (terminator EXCLUDED)
  */
 unsigned int getLength(const string str);
 
 /**
- * @brief Get a copy of the given string
- * @param src The string to be copied
- * @return A pointer to the copy of the given string or or a null pointer in case of errors 
+ * @brief Get a copy of the given ::string
+ * @param src The ::string to be copied
+ * @return A pointer to the copy of the given ::string
  */
 string copyOf(const string src);
 
