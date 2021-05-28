@@ -58,7 +58,7 @@ void chooseBubbleSortArr(const spec_t spec, void *arr, unsigned int size) {
     funcThrowIf(TRUE, UNSUPPORTED_SPECIFIER);
 }
 
-// TODO Linear searches for all types definition and implementation (just for completeness, chooseLinearSearch is already working)
+// TODO Linear searches for all types definition and implementation (just for completeness and macros, chooseLinearSearch is already working)
 
 int chooseLinearSearch(const spec_t spec, void *arr, int size, ...) {
     funcThrowIf(!spec || !arr, NULL_POINTER_GIVEN);
