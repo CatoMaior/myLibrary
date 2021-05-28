@@ -41,4 +41,10 @@
 
 #define NULL_STACK_HEAD "Given Stack has null head"
 
+#define NULL_QUEUE_GIVEN "Null Queue given"
+
+#define NULL_QUEUE_TYPE "Null Queue type"
+
+#define NULL_QUEUE_HEAD "Given Queue has null head"
+
 #endif

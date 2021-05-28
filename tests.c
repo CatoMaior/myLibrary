@@ -2,14 +2,156 @@
 #include <stdlib.h>
 #include "myLibrary.h"
 
+#define TEST_QUEUE
 #define TEST_STACK
-// #define TEST_LINKEDLIST
-// #define TEST_ARRAYLIST
-// #define TEST_UTILITY
-// #define TEST_STRING
-// #define TEST_ARRAY
+#define TEST_LINKEDLIST
+#define TEST_ARRAYLIST
+#define TEST_UTILITY
+#define TEST_STRING
+#define TEST_ARRAY
 
 int main() {
+
+#ifdef TEST_QUEUE
+
+    printf("TESTING STACK\n");
+    Queue byteQueue = newQueue("%c");
+    Queue charQueue = newQueue("%c");
+    Queue intQueue = newQueue("%i");
+    Queue floatQueue = newQueue("%f");
+    Queue doubleQueue = newQueue("%lf");
+    Queue ptrQueue = newQueue("%p");
+    printf("Testing newQueue()\n");
+    printQueue("%hi", byteQueue);
+    printf("\n");
+    printQueue("%c", charQueue);
+    printf("\n");
+    printQueue("%i", intQueue);
+    printf("\n");
+    printQueue("%f", floatQueue);
+    printf("\n");
+    printQueue("%lf", doubleQueue);
+    printf("\n");
+    printQueue("%p", ptrQueue);
+    printf("\n\n");
+
+    deleteQueue(byteQueue);
+    deleteQueue(charQueue);
+    deleteQueue(intQueue);
+    deleteQueue(floatQueue);
+    deleteQueue(doubleQueue);
+    deleteQueue(ptrQueue);
+
+    byte byteArrForQueue[] = {32, 43, 65, 12, 76, 75, 1, 2};
+    char charArrForQueue[] = {'F', 'Q', 'A', 'C', '3', '0', 'Z', 'R'};
+    int intArrForQueue[] = {3254, 433, 65554, 1223, 7665, 7600, 12, 254};
+    float floatArrForQueue[] = {3254.2, 433.2, 65554.2, 1223.2, 7665.2, 7600.2, 12.2, 254.2};
+    double doubleArrForQueue[] = {3254.21, 433.21, 65554.21, 1223.21, 7665.21, 7600.21, 12.21, 254.21};
+    void *ptrArrForQueue[8];
+    for (int i = 0; i < 8; i++)
+        ptrArrForQueue[i] = saferMalloc(sizeof(byte));
+    byteQueue = chooseNewQueueFromArray("%c", byteArrForQueue, 8);
+    charQueue = chooseNewQueueFromArray("%c", charArrForQueue, 8);
+    intQueue = chooseNewQueueFromArray("%i", intArrForQueue, 8);
+    floatQueue = chooseNewQueueFromArray("%f", floatArrForQueue, 8);
+    doubleQueue = chooseNewQueueFromArray("%lf", doubleArrForQueue, 8);
+    ptrQueue = chooseNewQueueFromArray("%p", ptrArrForQueue, 8);
+    printf("Testing chooseNewQueueFromArray()\n");
+    printQueue("%4hi", byteQueue);
+    printf("\n\n");
+    printQueue("%2c", charQueue);
+    printf("\n\n");
+    printQueue("%6i", intQueue);
+    printf("\n\n");
+    printQueue("%9.1f", floatQueue);
+    printf("\n\n");
+    printQueue("%10.2lf", doubleQueue);
+    printf("\n\n");
+    printQueue("%16p", ptrQueue);
+    printf("\n\n\n");
+    ;
+
+    byte myByteForQueue;
+    char myCharForQueue;
+    int myIntForQueue;
+    float myFloatForQueue;
+    double myDoubleForQueue;
+    void *myPtrForQueue;
+
+    enqueue(byteQueue, 42);
+    enqueue(charQueue, 'a');
+    enqueue(intQueue, 422);
+    enqueue(floatQueue, -2.2);
+    enqueue(doubleQueue, -2.21);
+    enqueue(ptrQueue, &myDoubleForQueue);
+    printf("Testing enqueue()\n");
+    printQueue("%4hi", byteQueue);
+    printf("\n\n");
+    printQueue("%2c", charQueue);
+    printf("\n\n");
+    printQueue("%6i", intQueue);
+    printf("\n\n");
+    printQueue("%9.1f", floatQueue);
+    printf("\n\n");
+    printQueue("%10.2lf", doubleQueue);
+    printf("\n\n");
+    printQueue("%16p", ptrQueue);
+    printf("\n\n\n");
+
+    deleteHeadFromQueue(byteQueue);
+    deleteHeadFromQueue(charQueue);
+    deleteHeadFromQueue(intQueue);
+    deleteHeadFromQueue(floatQueue);
+    deleteHeadFromQueue(doubleQueue);
+    deleteHeadFromQueue(ptrQueue);
+    printf("Testing deleteHeadFromQueue()\n");
+    printQueue("%4hi", byteQueue);
+    printf("\n\n");
+    printQueue("%2c", charQueue);
+    printf("\n\n");
+    printQueue("%6i", intQueue);
+    printf("\n\n");
+    printQueue("%9.1f", floatQueue);
+    printf("\n\n");
+    printQueue("%10.2lf", doubleQueue);
+    printf("\n\n");
+    printQueue("%16p", ptrQueue);
+    printf("\n\n\n");
+
+    printf("Testing isInQueue()\n");
+    for (int i = 0; i < 8; i++) {
+        getHeadDataFromQueue(byteQueue, &myByteForQueue);
+        printf("%3i", isInQueue(byteQueue, myByteForQueue));
+    }
+    printf("%3i", isInQueue(byteQueue, -128));
+    printf("\n");
+    for (int i = 0; i < 8; i++) {
+        getHeadDataFromQueue(charQueue, &myCharForQueue);
+        printf("%3i", isInQueue(charQueue, myCharForQueue));
+    }
+    printf("%3i", isInQueue(charQueue, '\0'));
+    printf("\n");
+    for (int i = 0; i < 8; i++) {
+        getHeadDataFromQueue(intQueue, &myIntForQueue);
+        printf("%3i", isInQueue(intQueue, myIntForQueue));
+    }
+    printf("%3i", isInQueue(intQueue, -65536));
+    printf("\n");
+    for (int i = 0; i < 8; i++) {
+        getHeadDataFromQueue(ptrQueue, &myPtrForQueue);
+        printf("%3i", isInQueue(ptrQueue, myPtrForQueue));
+    }
+    printf("%3i", isInQueue(ptrQueue, NULL));
+    printf("\n\n\n");
+
+    deleteQueue(byteQueue);
+    deleteQueue(charQueue);
+    deleteQueue(intQueue);
+    deleteQueue(floatQueue);
+    deleteQueue(doubleQueue);
+    deleteQueue(ptrQueue);
+
+#endif
 
 #ifdef TEST_STACK
 

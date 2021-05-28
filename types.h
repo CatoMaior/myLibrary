@@ -104,4 +104,30 @@ typedef struct {
     Node head;
 } *Stack;
 
+/**
+ * @brief ::Queue type
+ * @note All the parameters in this structure must be intended as read-only. Manually modifying them can cause unknown and unwanted behavior
+ */
+typedef struct {
+    /**
+     * @brief The type of the elements contained by the ::Queue. Refer to ::spec_t
+     */
+    spec_t type;
+
+    /**
+     * @brief Head of the ::Queue
+     */
+    Node head;
+
+    /**
+     * @brief Tail of the ::Queue
+     */
+    Node tail;
+
+    /**
+     * @brief The number of elements contained by the ::Queue
+     */
+    unsigned int size;
+} *Queue;
+
 #endif
