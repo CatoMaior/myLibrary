@@ -10,6 +10,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// TODO Remove size in LinkedList and add getLLSize(), use printLinked()
+
 LinkedList newLL(const spec_t spec) {
     funcThrowIf(!spec, NULL_POINTER_GIVEN);
     funcThrowIf(!isTypeSupported(spec), UNSUPPORTED_SPECIFIER);

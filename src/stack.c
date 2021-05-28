@@ -7,6 +7,8 @@
 #include <stdarg.h>
 #include <string.h>
 
+// TODO add getStackSize() and remove isStackEmpty(), use printLinked()
+
 Stack newStack(const spec_t spec) {
     funcThrowIf(!spec, NULL_POINTER_GIVEN);
     Stack stack = saferMalloc(sizeof(*stack));

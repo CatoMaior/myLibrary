@@ -61,15 +61,16 @@ void deleteStack(Stack stack);
 /**
  * @brief Get the item at the head of a ::Stack without popping it
  * @param stack The ::Stack you want to get the item
- * @param dest he address of the variable you want to store the item in
+ * @param dest The address of the variable you want to store the item in
  */
 void getHeadDataFromStack(Stack stack, void *dest);
 
 /**
- * @brief Detect if an element is inside a ::Stack
+ * @brief Detect if an item is inside a ::Stack
  * @param stack The ::Stack you want search in
  * @param ... The element you want to search
- * @note Even though inserting zero more than one item for single call does not throw a compiler nor runtime error, only searching one item is supported. Other items are ignored. If you don't specify any item to be searched, still no errors occur but the return value of the function can be unpredictable
+ * @note This function does not support float and double ::Stack types
+ * @note Even though specifying zero or more than one item for single call does not throw a compiler nor runtime error, only searching one item is supported. Other items are ignored. If you don't specify any item to be searched, still no errors occur but the return value of the function can be unpredictable
  * @retval TRUE Given element is contained in `stack`
  * @retval FALSE Given element is not contained in `stack`
  */
