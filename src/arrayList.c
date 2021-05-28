@@ -275,7 +275,7 @@ ArrayList newALFromDoubleArray(const double list[], unsigned int size) {
     return newArray;
 }
 
-ArrayList newALFromPtrArray(const void *list, unsigned int size) {
+ArrayList newALFromPtrArray(const void **list, unsigned int size) {
     throwIf(!list, NULL_AL_GIVEN, __func__);
     ArrayList newArray = saferMalloc(sizeof(*newArray));
     spec_t spec = "%p";
