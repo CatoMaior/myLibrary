@@ -314,3 +314,8 @@ int linearSearchAL(ArrayList list, ...) {
     int index = chooseLinearSearch(list->type, list->body, list->size, key);
     return index;
 }
+
+unsigned int getALSize(const ArrayList list) {
+    funcThrowIf(!list, NULL_AL_GIVEN);
+    return list->size;
+}

@@ -201,4 +201,11 @@ ArrayList newALFromDoubleArray(const double list[], unsigned int size);
  */
 ArrayList newALFromPtrArray(const void **list, unsigned int size);
 
+/**
+ * @brief Get the size of an ::ArrayList
+ * @param list The ::ArrayList you want to evaluate
+ * @return The number of elements in `list`
+ */
+unsigned int getALSize(const ArrayList list);
+
 #endif
