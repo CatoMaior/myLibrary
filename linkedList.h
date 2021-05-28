@@ -4,8 +4,8 @@
  * @brief Functions for working with ::LinkedList type
  */
 
-#ifndef __SEEN_LINKEDLIST
-#define __SEEN_LINKEDLIST
+#ifndef SEEN_LINKEDLIST
+#define SEEN_LINKEDLIST
 
 #include "types.h"
 

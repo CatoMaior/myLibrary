@@ -4,8 +4,8 @@
  * @brief Common tasks with strings
  */
 
-#ifndef __SEEN_STRINGS
-#define __SEEN_STRINGS
+#ifndef SEEN_STRINGS
+#define SEEN_STRINGS
 
 #include "types.h"
 

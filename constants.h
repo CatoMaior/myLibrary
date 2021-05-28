@@ -4,8 +4,8 @@
  * @brief Definition of symbolic constants used by the library
  */
 
-#ifndef __SEEN_CONSTANTS
-#define __SEEN_CONSTANTS
+#ifndef SEEN_CONSTANTS
+#define SEEN_CONSTANTS
 
 /**
  * @brief Returned by <i>type</i>Cmp() functions when first argument is grater than the second

@@ -1,5 +1,5 @@
-#ifndef __SEEN_UTILITY_INTERNAL
-#define __SEEN_UTILITY_INTERNAL
+#ifndef SEEN_UTILITY_INTERNAL
+#define SEEN_UTILITY_INTERNAL
 
 #include <stdarg.h>
 #include "../types.h"

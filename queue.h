@@ -4,8 +4,8 @@
  * @brief Functions for working with ::Queue type
  */
 
-#ifndef __SEEN_QUEUE
-#define __SEEN_QUEUE
+#ifndef SEEN_QUEUE
+#define SEEN_QUEUE
 
 #include "types.h"
 

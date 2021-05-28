@@ -4,8 +4,8 @@
  * @brief Common tasks with arrays: sorting, searching, printing etc
  */
 
-#ifndef __SEEN_ARRAYS
-#define __SEEN_ARRAYS
+#ifndef SEEN_ARRAYS
+#define SEEN_ARRAYS
 
 #include "types.h"
 

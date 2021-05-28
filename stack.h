@@ -4,8 +4,8 @@
  * @brief Functions for working with ::Stack type
  */
 
-#ifndef __SEEN_STACK
-#define __SEEN_STACK
+#ifndef SEEN_STACK
+#define SEEN_STACK
 
 #include "types.h"
 

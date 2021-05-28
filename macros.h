@@ -6,8 +6,8 @@
  * @note In some development environments, for example Vscode, calls to these macros can be reported as errors even if they are correct. If you use Vscode you have to set `"C_Cpp.default.cStandard": "c17"` in your `settings.json` file in order to avoid these error reportings
  */
 
-#ifndef __SEEN_MACROS
-#define __SEEN_MACROS
+#ifndef SEEN_MACROS
+#define SEEN_MACROS
 
 #include "types.h"
 

@@ -4,8 +4,8 @@
  * @brief Common tasks such as comparing variables, allocate memory
  */
 
-#ifndef __SEEN_UTILITY
-#define __SEEN_UTILITY
+#ifndef SEEN_UTILITY
+#define SEEN_UTILITY
 
 #include "types.h"
 

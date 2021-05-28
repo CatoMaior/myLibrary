@@ -4,8 +4,8 @@
  * @brief Functions and macros for working with ::ArrayList type
  */
 
-#ifndef __SEEN_ARRAYLIST
-#define __SEEN_ARRAYLIST
+#ifndef SEEN_ARRAYLIST
+#define SEEN_ARRAYLIST
 
 #include "types.h"
 
