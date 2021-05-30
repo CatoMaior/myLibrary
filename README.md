@@ -6,7 +6,7 @@ Project in active development, check [here](https://catomaior.github.io/myLibrar
 ## How to import
 ### On Linux
 Download the build for Linux, unzip it and place it somewhere. Consider the following code:
-
+```c
     #include "myLibrary.h"
 
     int main() {
@@ -14,6 +14,7 @@ Download the build for Linux, unzip it and place it somewhere. Consider the foll
         printMatrix("%3hi", myMatrix, 2, 2);
         return 0;
     }
+```
 
 Assuming it is saved in a file named `myFile.c` and you want to compile it using `gcc`, the correct command for compilation is:
 
