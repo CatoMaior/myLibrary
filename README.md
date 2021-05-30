@@ -17,8 +17,9 @@ int main() {
 ```
 
 Assuming it is saved in a file named `myFile.c` and you want to compile it using `gcc`, the correct command for compilation is:
-
-    gcc path/to/myFile.c -o path/to/myFileExecutable -I path/to/folder/with/myLibrary path/to/folder/with/myLibrary/build/myLibrary_Linux.lib
+```bash
+gcc path/to/myFile.c -o path/to/myFileExecutable -I path/to/folder/with/myLibrary path/to/folder/with/myLibrary/build/myLibrary_Linux.lib
+```
 
 Where:
  - `path/to/myFile.c` is the relative or absolute path to myFile.c
@@ -30,11 +31,11 @@ Where:
 Download the build for Windows, unzip it and place it somewhere. Steps to import:
  - Open the solution where you want to use myLibrary
  - Ensure the source file where you want to import myLibrary has `.c` extension. If its extension is `.cpp`, change it to `.c`
- - Go to Project > myProject Properties
+ - Go to "Project" > "myProject Properties"
  - In "Configuration" choose "All Configurations"
  - In "Platform" choose "x64"
- - Go to Configuration Properties > C/C++ > General. In "Additional Include Directories" add the path of the myLibrary folder you extracted before
- - Go to Configuration Properties > Linker > General. In "Additional Library Directories" add the path of the "build" folder inside the myLibrary folder you extracted before
- - Go to Configuration Properties > Linker > Input. In "Additional Dependencies" add "myLibrary_Windows.lib;legacy_stdio_definitions.lib;legacy_stdio_wide_specifiers.lib;"
+ - Go to "Configuration Properties" > "C/C++" > "General". In "Additional Include Directories" add the path of the myLibrary folder you extracted before
+ - Go to "Configuration Properties" > "Linker" > "General". In "Additional Library Directories" add the path of the "build" folder inside the myLibrary folder you extracted before
+ - Go to "Configuration Properties" > "Linker" > "Input". In "Additional Dependencies" add `myLibrary_Windows.lib;legacy_stdio_definitions.lib;legacy_stdio_wide_specifiers.lib`;
  - Click on "Ok" at the bottom of the window
- - Near to "Local Windows Debugger" choose "x64". Now you are ready to `#include "myLibrary.h"` and compile and run your code
+ - Near to "Local Windows Debugger" choose "x64". Now you are ready to `#include "myLibrary.h"`{:.c} and compile and run your code
