@@ -38,4 +38,4 @@ Download the build for Windows, unzip it and place it somewhere. Steps to import
  - Go to "Configuration Properties" > "Linker" > "General". In "Additional Library Directories" add the path of the "build" folder inside the myLibrary folder you extracted before
  - Go to "Configuration Properties" > "Linker" > "Input". In "Additional Dependencies" add `myLibrary_Windows.lib;legacy_stdio_definitions.lib;legacy_stdio_wide_specifiers.lib`;
  - Click on "Ok" at the bottom of the window
- - Near to "Local Windows Debugger" choose "x64". Now you are ready to `#include "myLibrary.h"`{:.c} and compile and run your code
+ - Near to "Local Windows Debugger" choose "x64". Now you are ready to `#include "myLibrary.h"`{.c} and compile and run your code
