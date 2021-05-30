@@ -18,7 +18,8 @@ int main() {
 
 Assuming it is saved in a file named `myFile.c` and you want to compile it using `gcc`, the correct command for compilation is:
 ```bash
-gcc path/to/myFile.c -o path/to/myFileExecutable -I path/to/folder/with/myLibrary path/to/folder/with/myLibrary/build/myLibrary_Linux.lib
+gcc path/to/myFile.c -o path/to/myFileExecutable -I path/to/folder/with/myLibrary \
+    path/to/folder/with/myLibrary/build/myLibrary_Linux.lib
 ```
 
 Where:
