@@ -1,7 +1,13 @@
 # myLibrary
 
-C library with common tasks or types. I know the name is not the best but I have no imagination for names\
+C library with some common tasks and data structures. I know the name is not the best but I have no imagination for names\
 Project in active development, check [here](https://catomaior.github.io/myLibrary/) for the documentation and [here](https://github.com/CatoMaior/myLibrary/releases/tag/latest) to download latest build (64 bits only, but you can compile from source in order to support other architectures). 
+
+## Table of contents
+ - [How to import](#how-to-import) 
+    - [On Linux](#on-linux)
+    - [On Visual Studio for Windows](#on-visual-studio-for-windows)
+ - [How to compile from source](#how-to-compile-from-source)
 
 ## How to import
 
@@ -40,6 +46,20 @@ Download the build for Windows, unzip it and place it somewhere. Steps to import
  - In "Platform" choose "x64"
  - Go to "Configuration Properties" > "C/C++" > "General". In "Additional Include Directories" add the path of the myLibrary folder you extracted before
  - Go to "Configuration Properties" > "Linker" > "General". In "Additional Library Directories" add the path of the "build" folder inside the myLibrary folder you extracted before
- - Go to "Configuration Properties" > "Linker" > "Input". In "Additional Dependencies" add `myLibrary_Windows.lib;legacy_stdio_definitions.lib;legacy_stdio_wide_specifiers.lib`;
+ - Go to "Configuration Properties" > "Linker" > "Input". In "Additional Dependencies" add `myLibrary_Windows.lib;legacy_stdio_definitions.lib;legacy_stdio_wide_specifiers.lib;`
  - Click on "Ok" at the bottom of the window
  - Near to "Local Windows Debugger" choose "x64". Now you are ready to `#include "myLibrary.h"` and compile and run your code
+
+## How to compile from source
+
+Compilation from source is currently supported only on Linux. The only dependency is `gcc`. Run:
+```bash
+git clone https://github.com/CatoMaior/myLibrary.git
+cd myLibrary
+make lib
+```
+The compiled binaries are `myLibrary_Linux.lib` and `myLibrary_Windows.lib` in the `build` folder. If you want a pdf version of the docs too run:
+```bash
+make docs
+```
+The pdf is now in the `docs` folder
