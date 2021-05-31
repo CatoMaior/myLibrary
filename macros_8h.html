@@ -72,13 +72,15 @@ $(function() {
 <p>Macros for emulated overloading.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="types_8h_source.html">types.h</a>&quot;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for macros.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="macros_8h__incl.png" border="0" usemap="#amacros_8h" alt=""/></div>
 <map name="amacros_8h" id="amacros_8h">
-<area shape="rect" title="Macros for emulated overloading." alt="" coords="5,5,80,32"/>
-<area shape="rect" href="types_8h.html" title="Collection of useful types." alt="" coords="11,80,74,107"/>
+<area shape="rect" title="Macros for emulated overloading." alt="" coords="43,5,118,32"/>
+<area shape="rect" href="types_8h.html" title="Collection of useful types." alt="" coords="5,80,68,107"/>
+<area shape="rect" title=" " alt="" coords="93,80,157,107"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -95,23 +97,179 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a1b05108c96f945dd618c13cd835d2b8d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.html#a1b05108c96f945dd618c13cd835d2b8d">cmpVal</a>(a,  b)&#160;&#160;&#160;_Generic((a, b), char: <a class="el" href="utility_8h.html#a6617abe8dcee554e16d01965050c6011">charCmp</a>, int: <a class="el" href="utility_8h.html#aebc7b095cdd90551a58295a17ce16dfd">intCmp</a>, float: <a class="el" href="utility_8h.html#a55042291f308fda752817077c2aab57f">floatCmp</a>, double: <a class="el" href="utility_8h.html#af0fc0c42b6a41f593a63535ca5352309">doubleCmp</a>, void *: <a class="el" href="utility_8h.html#a3a26e3c3ede0beca95ea69c8372bbda5">ptrCmp</a>)(&amp;a, &amp;b)</td></tr>
-<tr class="memdesc:a1b05108c96f945dd618c13cd835d2b8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare two values. Calls the right <em>type</em>Cmp() function.  <a href="macros_8h.html#a1b05108c96f945dd618c13cd835d2b8d">More...</a><br /></td></tr>
+<tr class="memitem:a1b05108c96f945dd618c13cd835d2b8d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.html#a1b05108c96f945dd618c13cd835d2b8d">cmpVal</a>(a,  b)</td></tr>
+<tr class="memdesc:a1b05108c96f945dd618c13cd835d2b8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare two values.  <a href="macros_8h.html#a1b05108c96f945dd618c13cd835d2b8d">More...</a><br /></td></tr>
 <tr class="separator:a1b05108c96f945dd618c13cd835d2b8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a753ecd1bbb75072521bd11fbe78f681a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.html#a753ecd1bbb75072521bd11fbe78f681a">bubbleSortArr</a>(arr,  size)&#160;&#160;&#160;_Generic(arr, char *: <a class="el" href="arrays_8h.html#aba45688581551369e2806b7d0230d34c">charBubbleSort</a>, int *: <a class="el" href="arrays_8h.html#a114783f8a2beed66f15d55a6c49c678d">intBubbleSort</a>, float *:<a class="el" href="arrays_8h.html#a9015e98d89b08ad1dbf78c1813d84ac2">floatBubbleSort</a>, double *: <a class="el" href="arrays_8h.html#a61a8cae710b612db52c21140d70c0d4f">doubleBubbleSort</a>, void **: <a class="el" href="arrays_8h.html#a4c4dac17d159dcca9c913c135c3438b2">ptrBubbleSort</a>)(arr, size)</td></tr>
+<tr class="memitem:a753ecd1bbb75072521bd11fbe78f681a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.html#a753ecd1bbb75072521bd11fbe78f681a">bubbleSortArr</a>(arr,  size)</td></tr>
 <tr class="memdesc:a753ecd1bbb75072521bd11fbe78f681a"><td class="mdescLeft">&#160;</td><td class="mdescRight">BubbleSort for arrays.  <a href="macros_8h.html#a753ecd1bbb75072521bd11fbe78f681a">More...</a><br /></td></tr>
 <tr class="separator:a753ecd1bbb75072521bd11fbe78f681a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec219b045ff7f2d2ad276430d2d720e9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.html#aec219b045ff7f2d2ad276430d2d720e9">quickSortArr</a>(arr,  size)&#160;&#160;&#160;_Generic(arr, char *: <a class="el" href="arrays_8h.html#a9758264988a926b34f15d6229c1bd6b8">charQuickSort</a>, int *: <a class="el" href="arrays_8h.html#a677a34cb7719b2d787fd9b2dbb028067">intQuickSort</a>, float *:<a class="el" href="arrays_8h.html#a087ff5cf198c9a61e3d0d07efcf1b43f">floatQuickSort</a>, double *: <a class="el" href="arrays_8h.html#a5064edfb438f414c94f0bc426ccb32fc">doubleQuickSort</a>, void **: <a class="el" href="arrays_8h.html#aba91ad30b79259e5a8790b49e01d1918">ptrQuickSort</a>)(arr, size)</td></tr>
+<tr class="memitem:aec219b045ff7f2d2ad276430d2d720e9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.html#aec219b045ff7f2d2ad276430d2d720e9">quickSortArr</a>(arr,  size)</td></tr>
 <tr class="memdesc:aec219b045ff7f2d2ad276430d2d720e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Quicksort for arrays.  <a href="macros_8h.html#aec219b045ff7f2d2ad276430d2d720e9">More...</a><br /></td></tr>
 <tr class="separator:aec219b045ff7f2d2ad276430d2d720e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8028636e4addb1d2a10468e7305308b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.html#ad8028636e4addb1d2a10468e7305308b">newALFromArray</a>(arr,  size)</td></tr>
+<tr class="memdesc:ad8028636e4addb1d2a10468e7305308b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a> from a static array.  <a href="macros_8h.html#ad8028636e4addb1d2a10468e7305308b">More...</a><br /></td></tr>
+<tr class="separator:ad8028636e4addb1d2a10468e7305308b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac2d0a150c7ae79a7b61b6f28ab81996"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.html#aac2d0a150c7ae79a7b61b6f28ab81996">newLLFromArray</a>(arr,  size)</td></tr>
+<tr class="memdesc:aac2d0a150c7ae79a7b61b6f28ab81996"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a <a class="el" href="structLinkedList.html" title="LinkedList type">LinkedList</a> from a static array.  <a href="macros_8h.html#aac2d0a150c7ae79a7b61b6f28ab81996">More...</a><br /></td></tr>
+<tr class="separator:aac2d0a150c7ae79a7b61b6f28ab81996"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c635ee03e8dc00d9aedeffa281ea8dd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.html#a2c635ee03e8dc00d9aedeffa281ea8dd">newStackFromArray</a>(arr,  size)</td></tr>
+<tr class="memdesc:a2c635ee03e8dc00d9aedeffa281ea8dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a <a class="el" href="structStack.html" title="Stack type">Stack</a> from a static array.  <a href="macros_8h.html#a2c635ee03e8dc00d9aedeffa281ea8dd">More...</a><br /></td></tr>
+<tr class="separator:a2c635ee03e8dc00d9aedeffa281ea8dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f47290a25b6ab9d83c2aa75d7f4580b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.html#a7f47290a25b6ab9d83c2aa75d7f4580b">newQueueFromArray</a>(arr,  size)</td></tr>
+<tr class="memdesc:a7f47290a25b6ab9d83c2aa75d7f4580b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a <a class="el" href="structQueue.html" title="Queue type">Queue</a> from a static array.  <a href="macros_8h.html#a7f47290a25b6ab9d83c2aa75d7f4580b">More...</a><br /></td></tr>
+<tr class="separator:a7f47290a25b6ab9d83c2aa75d7f4580b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c635ee03e8dc00d9aedeffa281ea8dd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.html#a2c635ee03e8dc00d9aedeffa281ea8dd">newStackFromArray</a>(arr,  size)</td></tr>
+<tr class="memdesc:a2c635ee03e8dc00d9aedeffa281ea8dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a <a class="el" href="structStack.html" title="Stack type">Stack</a> from a static array.  <a href="macros_8h.html#a2c635ee03e8dc00d9aedeffa281ea8dd">More...</a><br /></td></tr>
+<tr class="separator:a2c635ee03e8dc00d9aedeffa281ea8dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a382e2b8499aa2e224aaf79253c6c1db9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.html#a382e2b8499aa2e224aaf79253c6c1db9">print</a>(spec,  collection)</td></tr>
+<tr class="memdesc:a382e2b8499aa2e224aaf79253c6c1db9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print contents from an <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a>, <a class="el" href="structLinkedList.html" title="LinkedList type">LinkedList</a>, <a class="el" href="structStack.html" title="Stack type">Stack</a> or <a class="el" href="structQueue.html" title="Queue type">Queue</a>.  <a href="macros_8h.html#a382e2b8499aa2e224aaf79253c6c1db9">More...</a><br /></td></tr>
+<tr class="separator:a382e2b8499aa2e224aaf79253c6c1db9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab945b421fda9b45e42d98bcb58c6b5cb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.html#ab945b421fda9b45e42d98bcb58c6b5cb">areEqual</a>(collection1,  collection2)</td></tr>
+<tr class="memdesc:ab945b421fda9b45e42d98bcb58c6b5cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare two <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a>, <a class="el" href="structLinkedList.html" title="LinkedList type">LinkedList</a>, <a class="el" href="structStack.html" title="Stack type">Stack</a> or <a class="el" href="structQueue.html" title="Queue type">Queue</a>.  <a href="macros_8h.html#ab945b421fda9b45e42d98bcb58c6b5cb">More...</a><br /></td></tr>
+<tr class="separator:ab945b421fda9b45e42d98bcb58c6b5cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab42544e4b0f248615bcc93467cef93d4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.html#ab42544e4b0f248615bcc93467cef93d4">append</a>(list,  item)</td></tr>
+<tr class="memdesc:ab42544e4b0f248615bcc93467cef93d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert an item at the end of an <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a> or <a class="el" href="structLinkedList.html" title="LinkedList type">LinkedList</a>.  <a href="macros_8h.html#ab42544e4b0f248615bcc93467cef93d4">More...</a><br /></td></tr>
+<tr class="separator:ab42544e4b0f248615bcc93467cef93d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af284a3a741a956507dceebf3876f15f4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.html#af284a3a741a956507dceebf3876f15f4">insert</a>(list,  index,  item)</td></tr>
+<tr class="memdesc:af284a3a741a956507dceebf3876f15f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert an element at a specified position of an <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a> or <a class="el" href="structLinkedList.html" title="LinkedList type">LinkedList</a>.  <a href="macros_8h.html#af284a3a741a956507dceebf3876f15f4">More...</a><br /></td></tr>
+<tr class="separator:af284a3a741a956507dceebf3876f15f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1da46291de0cc4531bdd947388b5cc85"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.html#a1da46291de0cc4531bdd947388b5cc85">set</a>(list,  index,  newItem)</td></tr>
+<tr class="memdesc:a1da46291de0cc4531bdd947388b5cc85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set value of an element of an <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a> or <a class="el" href="structLinkedList.html" title="LinkedList type">LinkedList</a>.  <a href="macros_8h.html#a1da46291de0cc4531bdd947388b5cc85">More...</a><br /></td></tr>
+<tr class="separator:a1da46291de0cc4531bdd947388b5cc85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fb870e43e6a95d0d7cd5f505fd19225"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.html#a4fb870e43e6a95d0d7cd5f505fd19225">merge</a>(list1,  list2)</td></tr>
+<tr class="memdesc:a4fb870e43e6a95d0d7cd5f505fd19225"><td class="mdescLeft">&#160;</td><td class="mdescRight">Merge two <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a> or <a class="el" href="structLinkedList.html" title="LinkedList type">LinkedList</a>.  <a href="macros_8h.html#a4fb870e43e6a95d0d7cd5f505fd19225">More...</a><br /></td></tr>
+<tr class="separator:a4fb870e43e6a95d0d7cd5f505fd19225"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a486078141f2256bd12828b1eb26b9c9e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.html#a486078141f2256bd12828b1eb26b9c9e">slice</a>(list,  begin,  end)</td></tr>
+<tr class="memdesc:a486078141f2256bd12828b1eb26b9c9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Slice an <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a> or <a class="el" href="structLinkedList.html" title="LinkedList type">LinkedList</a>.  <a href="macros_8h.html#a486078141f2256bd12828b1eb26b9c9e">More...</a><br /></td></tr>
+<tr class="separator:a486078141f2256bd12828b1eb26b9c9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65d369bb9ea75cc2a506498bb5e469f2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.html#a65d369bb9ea75cc2a506498bb5e469f2">removeItem</a>(list,  index)</td></tr>
+<tr class="memdesc:a65d369bb9ea75cc2a506498bb5e469f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove an item from an <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a> or <a class="el" href="structLinkedList.html" title="LinkedList type">LinkedList</a>.  <a href="macros_8h.html#a65d369bb9ea75cc2a506498bb5e469f2">More...</a><br /></td></tr>
+<tr class="separator:a65d369bb9ea75cc2a506498bb5e469f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa95f3da0ea5a7a03e4693cd23edcbe29"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.html#aa95f3da0ea5a7a03e4693cd23edcbe29">getItem</a>(list,  index,  dest)</td></tr>
+<tr class="memdesc:aa95f3da0ea5a7a03e4693cd23edcbe29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get an item from an <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a> or <a class="el" href="structLinkedList.html" title="LinkedList type">LinkedList</a>.  <a href="macros_8h.html#aa95f3da0ea5a7a03e4693cd23edcbe29">More...</a><br /></td></tr>
+<tr class="separator:aa95f3da0ea5a7a03e4693cd23edcbe29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75a089997e376f68e75af8d0612fe281"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.html#a75a089997e376f68e75af8d0612fe281">delete</a>(collection)</td></tr>
+<tr class="memdesc:a75a089997e376f68e75af8d0612fe281"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete an <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a>, <a class="el" href="structLinkedList.html" title="LinkedList type">LinkedList</a>, <a class="el" href="structStack.html" title="Stack type">Stack</a> or <a class="el" href="structQueue.html" title="Queue type">Queue</a>.  <a href="macros_8h.html#a75a089997e376f68e75af8d0612fe281">More...</a><br /></td></tr>
+<tr class="separator:a75a089997e376f68e75af8d0612fe281"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a318a0db3e24c77c85373ad2c2b1b89c2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.html#a318a0db3e24c77c85373ad2c2b1b89c2">isIn</a>(collection,  item)</td></tr>
+<tr class="memdesc:a318a0db3e24c77c85373ad2c2b1b89c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detect if an item is inside an <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a>, <a class="el" href="structLinkedList.html" title="LinkedList type">LinkedList</a>, <a class="el" href="structStack.html" title="Stack type">Stack</a> or <a class="el" href="structQueue.html" title="Queue type">Queue</a>.  <a href="macros_8h.html#a318a0db3e24c77c85373ad2c2b1b89c2">More...</a><br /></td></tr>
+<tr class="separator:a318a0db3e24c77c85373ad2c2b1b89c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0022062557de19aaac7afc584ec5d7c3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.html#a0022062557de19aaac7afc584ec5d7c3">getLength</a>(collection)</td></tr>
+<tr class="memdesc:a0022062557de19aaac7afc584ec5d7c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of elements in an <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a>, <a class="el" href="structLinkedList.html" title="LinkedList type">LinkedList</a>, <a class="el" href="structStack.html" title="Stack type">Stack</a>, <a class="el" href="structQueue.html" title="Queue type">Queue</a> or <a class="el" href="types_8h.html#a4505c08c065b48840a30eedd9845cce2" title="Alias for char *, used when an array of char is actually used as a string.">string</a>.  <a href="macros_8h.html#a0022062557de19aaac7afc584ec5d7c3">More...</a><br /></td></tr>
+<tr class="separator:a0022062557de19aaac7afc584ec5d7c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefabac72e4aac4fd70e74f10155b5814"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.html#aefabac72e4aac4fd70e74f10155b5814">linearSearch</a>(list,  key)</td></tr>
+<tr class="memdesc:aefabac72e4aac4fd70e74f10155b5814"><td class="mdescLeft">&#160;</td><td class="mdescRight">Linear search for an <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a> or <a class="el" href="structLinkedList.html" title="LinkedList type">LinkedList</a>.  <a href="macros_8h.html#aefabac72e4aac4fd70e74f10155b5814">More...</a><br /></td></tr>
+<tr class="separator:aefabac72e4aac4fd70e74f10155b5814"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a495ecb23bbab8a9d1dce9befa8c8f0ed"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.html#a495ecb23bbab8a9d1dce9befa8c8f0ed">deleteHead</a>(collection)</td></tr>
+<tr class="memdesc:a495ecb23bbab8a9d1dce9befa8c8f0ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete current <a class="el" href="structStack.html" title="Stack type">Stack</a> or <a class="el" href="structQueue.html" title="Queue type">Queue</a> head.  <a href="macros_8h.html#a495ecb23bbab8a9d1dce9befa8c8f0ed">More...</a><br /></td></tr>
+<tr class="separator:a495ecb23bbab8a9d1dce9befa8c8f0ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a675fb861d72498b7b6fc419e4b96e040"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.html#a675fb861d72498b7b6fc419e4b96e040">isEmpty</a>(collection)</td></tr>
+<tr class="memdesc:a675fb861d72498b7b6fc419e4b96e040"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if an <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a>, <a class="el" href="structLinkedList.html" title="LinkedList type">LinkedList</a>, <a class="el" href="structStack.html" title="Stack type">Stack</a> or <a class="el" href="structQueue.html" title="Queue type">Queue</a> is empty.  <a href="macros_8h.html#a675fb861d72498b7b6fc419e4b96e040">More...</a><br /></td></tr>
+<tr class="separator:a675fb861d72498b7b6fc419e4b96e040"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2bb04bcf04a3ae009824243824b8a46"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.html#af2bb04bcf04a3ae009824243824b8a46">getHeadData</a>(collection,  dest)</td></tr>
+<tr class="memdesc:af2bb04bcf04a3ae009824243824b8a46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the item at the head of a <a class="el" href="structStack.html" title="Stack type">Stack</a> or <a class="el" href="structQueue.html" title="Queue type">Queue</a> without popping/dequeueing it.  <a href="macros_8h.html#af2bb04bcf04a3ae009824243824b8a46">More...</a><br /></td></tr>
+<tr class="separator:af2bb04bcf04a3ae009824243824b8a46"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Macros for emulated overloading. </p>
 <dl class="section author"><dt>Author</dt><dd>Pietro Firpo (<a href="#" onclick="location.href='mai'+'lto:'+'pie'+'tr'+'o.f'+'ir'+'po@'+'pm'+'.me'; return false;">pietr<span style="display: none;">.nosp@m.</span>o.fi<span style="display: none;">.nosp@m.</span>rpo@p<span style="display: none;">.nosp@m.</span>m.me</a>) </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>Many of these macros work on C11 or newer compilers only. If they are not supported by your compiler you have to use the function the macro expands to in your case. For example, if you want to bubblesort an array of floats and the macro bubbleSort() is not supported by your compiler, you have to call <a class="el" href="arrays_8h.html#a9015e98d89b08ad1dbf78c1813d84ac2" title="Bubblesort for arrays of floats.">floatBubbleSort()</a> or <a class="el" href="arrays_8h.html#a261dbf080f89266b313adf68de9575a2" title="Bubble sort for arrays.">chooseBubbleSortArr()</a> </dd>
 <dd>
-In some development environments, for example Vscode, calls to these macros can be reported as errors even if they are correct. If you use Vscode you have to set <code>"C_Cpp.default.cStandard": "c17"</code> in your <code>settings.json</code> file in order to avoid this error reportings </dd></dl>
+In some development environments, for example Vscode, calls to these macros can be reported as errors even if they are correct. If you use Vscode you have to set <code>"C_Cpp.default.cStandard": "c17"</code> in your <code>settings.json</code> file in order to avoid these error reportings </dd></dl>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="ab42544e4b0f248615bcc93467cef93d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab42544e4b0f248615bcc93467cef93d4">&#9670;&nbsp;</a></span>append</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define append</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">list, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">item&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">                                    _Generic(list, <a class="code" href="structArrayList.html">ArrayList</a>          \</div>
+<div class="line">                                    : <a class="code" href="arrayList_8h.html#a71d34193d85e39ce93d97ee7206a3ef3">appendToAL</a>, <a class="code" href="structLinkedList.html">LinkedList</a> \</div>
+<div class="line">                                    : <a class="code" href="linkedList_8h.html#aabebc904105a4c4d6a9f7ae9618e9468">appendToLL</a>)(list, item)</div>
+<div class="ttc" id="aarrayList_8h_html_a71d34193d85e39ce93d97ee7206a3ef3"><div class="ttname"><a href="arrayList_8h.html#a71d34193d85e39ce93d97ee7206a3ef3">appendToAL</a></div><div class="ttdeci">void appendToAL(ArrayList list,...)</div><div class="ttdoc">Insert an item at the end of an ArrayList.</div></div>
+<div class="ttc" id="alinkedList_8h_html_aabebc904105a4c4d6a9f7ae9618e9468"><div class="ttname"><a href="linkedList_8h.html#aabebc904105a4c4d6a9f7ae9618e9468">appendToLL</a></div><div class="ttdeci">void appendToLL(LinkedList list,...)</div><div class="ttdoc">Insert an item at the end of a LinkedList.</div></div>
+<div class="ttc" id="astructArrayList_html"><div class="ttname"><a href="structArrayList.html">ArrayList</a></div><div class="ttdoc">ArrayList type</div><div class="ttdef"><b>Definition:</b> types.h:31</div></div>
+<div class="ttc" id="astructLinkedList_html"><div class="ttname"><a href="structLinkedList.html">LinkedList</a></div><div class="ttdoc">LinkedList type</div><div class="ttdef"><b>Definition:</b> types.h:69</div></div>
+</div><!-- fragment -->
+<p>Insert an item at the end of an <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a> or <a class="el" href="structLinkedList.html" title="LinkedList type">LinkedList</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">list</td><td>The list you want to append an item to </td></tr>
+    <tr><td class="paramname">item</td><td>The item you want to append to <code>list</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab945b421fda9b45e42d98bcb58c6b5cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab945b421fda9b45e42d98bcb58c6b5cb">&#9670;&nbsp;</a></span>areEqual</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define areEqual</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">collection1, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">collection2&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">                                        _Generic(collection1, <a class="code" href="structArrayList.html">ArrayList</a>         \</div>
+<div class="line">                                        : <a class="code" href="arrayList_8h.html#a43db0a134b0ff1b67407d3d6089fd5e9">areALEqual</a>, <a class="code" href="structLinkedList.html">LinkedList</a> \</div>
+<div class="line">                                        : <a class="code" href="linkedList_8h.html#ad3e0ede5bfad2104f814e7c10a09fb77">areLLEqual</a>, <a class="code" href="structStack.html">Stack</a>      \</div>
+<div class="line">                                        : <a class="code" href="stack_8h.html#a5584f29e6949a56a8d313fd2010ebb35">areStacksEqual</a>, <a class="code" href="structQueue.html">Queue</a>  \</div>
+<div class="line">                                        : <a class="code" href="queue_8h.html#a67a3d52fd58e1f10b245925677a94936">areQueuesEqual</a>)(collection1, collection2)</div>
+<div class="ttc" id="aarrayList_8h_html_a43db0a134b0ff1b67407d3d6089fd5e9"><div class="ttname"><a href="arrayList_8h.html#a43db0a134b0ff1b67407d3d6089fd5e9">areALEqual</a></div><div class="ttdeci">byte areALEqual(const ArrayList list1, const ArrayList list2)</div><div class="ttdoc">Compare two ArrayList.</div></div>
+<div class="ttc" id="alinkedList_8h_html_ad3e0ede5bfad2104f814e7c10a09fb77"><div class="ttname"><a href="linkedList_8h.html#ad3e0ede5bfad2104f814e7c10a09fb77">areLLEqual</a></div><div class="ttdeci">byte areLLEqual(const LinkedList list1, const LinkedList list2)</div><div class="ttdoc">Compare two LinkedList.</div></div>
+<div class="ttc" id="aqueue_8h_html_a67a3d52fd58e1f10b245925677a94936"><div class="ttname"><a href="queue_8h.html#a67a3d52fd58e1f10b245925677a94936">areQueuesEqual</a></div><div class="ttdeci">byte areQueuesEqual(const Queue queue1, const Queue queue2)</div><div class="ttdoc">Compare two Queue.</div></div>
+<div class="ttc" id="astack_8h_html_a5584f29e6949a56a8d313fd2010ebb35"><div class="ttname"><a href="stack_8h.html#a5584f29e6949a56a8d313fd2010ebb35">areStacksEqual</a></div><div class="ttdeci">byte areStacksEqual(const Stack stack1, const Stack stack2)</div><div class="ttdoc">Compare two Stack.</div></div>
+<div class="ttc" id="astructQueue_html"><div class="ttname"><a href="structQueue.html">Queue</a></div><div class="ttdoc">Queue type</div><div class="ttdef"><b>Definition:</b> types.h:111</div></div>
+<div class="ttc" id="astructStack_html"><div class="ttname"><a href="structStack.html">Stack</a></div><div class="ttdoc">Stack type</div><div class="ttdef"><b>Definition:</b> types.h:95</div></div>
+</div><!-- fragment -->
+<p>Compare two <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a>, <a class="el" href="structLinkedList.html" title="LinkedList type">LinkedList</a>, <a class="el" href="structStack.html" title="Stack type">Stack</a> or <a class="el" href="structQueue.html" title="Queue type">Queue</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">collection1</td><td>The first <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a>, <a class="el" href="structLinkedList.html" title="LinkedList type">LinkedList</a>, <a class="el" href="structStack.html" title="Stack type">Stack</a> or <a class="el" href="structQueue.html" title="Queue type">Queue</a> you want to compare </td></tr>
+    <tr><td class="paramname">collection2</td><td>The second <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a>, <a class="el" href="structLinkedList.html" title="LinkedList type">LinkedList</a>, <a class="el" href="structStack.html" title="Stack type">Stack</a> or <a class="el" href="structQueue.html" title="Queue type">Queue</a> you want to compare </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Passing two different types (for example, an <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a> and a <a class="el" href="structStack.html" title="Stack type">Stack</a>) does not throw errors but does not work and the result can be unpredictable </dd></dl>
+
+</div>
+</div>
 <a id="a753ecd1bbb75072521bd11fbe78f681a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a753ecd1bbb75072521bd11fbe78f681a">&#9670;&nbsp;</a></span>bubbleSortArr</h2>
 
@@ -133,11 +291,22 @@ In some development environments, for example Vscode, calls to these macros can 
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;_Generic(arr, char *: <a class="el" href="arrays_8h.html#aba45688581551369e2806b7d0230d34c">charBubbleSort</a>, int *: <a class="el" href="arrays_8h.html#a114783f8a2beed66f15d55a6c49c678d">intBubbleSort</a>, float *:<a class="el" href="arrays_8h.html#a9015e98d89b08ad1dbf78c1813d84ac2">floatBubbleSort</a>, double *: <a class="el" href="arrays_8h.html#a61a8cae710b612db52c21140d70c0d4f">doubleBubbleSort</a>, void **: <a class="el" href="arrays_8h.html#a4c4dac17d159dcca9c913c135c3438b2">ptrBubbleSort</a>)(arr, size)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<b>Value:</b><div class="fragment"><div class="line">                                          _Generic(arr, <span class="keywordtype">char</span> *                 \</div>
+<div class="line">                                          : <a class="code" href="arrays_8h.html#aba45688581551369e2806b7d0230d34c">charBubbleSort</a>, <span class="keywordtype">int</span> *     \</div>
+<div class="line">                                          : <a class="code" href="arrays_8h.html#a114783f8a2beed66f15d55a6c49c678d">intBubbleSort</a>, <span class="keywordtype">float</span> *    \</div>
+<div class="line">                                          : <a class="code" href="arrays_8h.html#a9015e98d89b08ad1dbf78c1813d84ac2">floatBubbleSort</a>, <span class="keywordtype">double</span> * \</div>
+<div class="line">                                          : <a class="code" href="arrays_8h.html#a61a8cae710b612db52c21140d70c0d4f">doubleBubbleSort</a>, <span class="keywordtype">void</span> ** \</div>
+<div class="line">                                          : <a class="code" href="arrays_8h.html#a4c4dac17d159dcca9c913c135c3438b2">ptrBubbleSort</a>)(arr, size)</div>
+<div class="ttc" id="aarrays_8h_html_a114783f8a2beed66f15d55a6c49c678d"><div class="ttname"><a href="arrays_8h.html#a114783f8a2beed66f15d55a6c49c678d">intBubbleSort</a></div><div class="ttdeci">void intBubbleSort(int *arr, unsigned int size)</div><div class="ttdoc">Bubblesort for arrays of ints.</div></div>
+<div class="ttc" id="aarrays_8h_html_a4c4dac17d159dcca9c913c135c3438b2"><div class="ttname"><a href="arrays_8h.html#a4c4dac17d159dcca9c913c135c3438b2">ptrBubbleSort</a></div><div class="ttdeci">void ptrBubbleSort(void **arr, unsigned int size)</div><div class="ttdoc">Bubblesort for arrays of pointers.</div></div>
+<div class="ttc" id="aarrays_8h_html_a61a8cae710b612db52c21140d70c0d4f"><div class="ttname"><a href="arrays_8h.html#a61a8cae710b612db52c21140d70c0d4f">doubleBubbleSort</a></div><div class="ttdeci">void doubleBubbleSort(double *arr, unsigned int size)</div><div class="ttdoc">Bubblesort for arrays of doubles.</div></div>
+<div class="ttc" id="aarrays_8h_html_a9015e98d89b08ad1dbf78c1813d84ac2"><div class="ttname"><a href="arrays_8h.html#a9015e98d89b08ad1dbf78c1813d84ac2">floatBubbleSort</a></div><div class="ttdeci">void floatBubbleSort(float *arr, unsigned int size)</div><div class="ttdoc">Bubblesort for arrays of floats.</div></div>
+<div class="ttc" id="aarrays_8h_html_aba45688581551369e2806b7d0230d34c"><div class="ttname"><a href="arrays_8h.html#aba45688581551369e2806b7d0230d34c">charBubbleSort</a></div><div class="ttdeci">void charBubbleSort(char *arr, unsigned int size)</div><div class="ttdoc">Bubblesort for arrays of chars.</div></div>
+</div><!-- fragment -->
 <p>BubbleSort for arrays. </p>
 <dl class="section return"><dt>Returns</dt><dd>The return code of the function called </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -171,17 +340,27 @@ In some development environments, for example Vscode, calls to these macros can 
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;_Generic((a, b), char: <a class="el" href="utility_8h.html#a6617abe8dcee554e16d01965050c6011">charCmp</a>, int: <a class="el" href="utility_8h.html#aebc7b095cdd90551a58295a17ce16dfd">intCmp</a>, float: <a class="el" href="utility_8h.html#a55042291f308fda752817077c2aab57f">floatCmp</a>, double: <a class="el" href="utility_8h.html#af0fc0c42b6a41f593a63535ca5352309">doubleCmp</a>, void *: <a class="el" href="utility_8h.html#a3a26e3c3ede0beca95ea69c8372bbda5">ptrCmp</a>)(&amp;a, &amp;b)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Compare two values. Calls the right <em>type</em>Cmp() function. </p>
-<dl class="section note"><dt>Note</dt><dd>This macro must be called on variables. For example, <code><a class="el" href="macros_8h.html#a1b05108c96f945dd618c13cd835d2b8d" title="Compare two values. Calls the right typeCmp() function.">cmpVal(2, 3)</a></code> is not supported </dd></dl>
+<b>Value:</b><div class="fragment"><div class="line">                              _Generic((a, b), <span class="keywordtype">char</span> *       \</div>
+<div class="line">                              : <a class="code" href="utility_8h.html#a6617abe8dcee554e16d01965050c6011">charCmp</a>, <span class="keywordtype">int</span> *     \</div>
+<div class="line">                              : <a class="code" href="utility_8h.html#aebc7b095cdd90551a58295a17ce16dfd">intCmp</a>, <span class="keywordtype">float</span> *    \</div>
+<div class="line">                              : <a class="code" href="utility_8h.html#a55042291f308fda752817077c2aab57f">floatCmp</a>, <span class="keywordtype">double</span> * \</div>
+<div class="line">                              : <a class="code" href="utility_8h.html#af0fc0c42b6a41f593a63535ca5352309">doubleCmp</a>, <span class="keywordtype">void</span> ** \</div>
+<div class="line">                              : <a class="code" href="utility_8h.html#a3a26e3c3ede0beca95ea69c8372bbda5">ptrCmp</a>)(a, b)</div>
+<div class="ttc" id="autility_8h_html_a3a26e3c3ede0beca95ea69c8372bbda5"><div class="ttname"><a href="utility_8h.html#a3a26e3c3ede0beca95ea69c8372bbda5">ptrCmp</a></div><div class="ttdeci">byte ptrCmp(const void *a, const void *b)</div><div class="ttdoc">Compare two pointers.</div></div>
+<div class="ttc" id="autility_8h_html_a55042291f308fda752817077c2aab57f"><div class="ttname"><a href="utility_8h.html#a55042291f308fda752817077c2aab57f">floatCmp</a></div><div class="ttdeci">byte floatCmp(const void *a, const void *b)</div><div class="ttdoc">Compare two floats.</div></div>
+<div class="ttc" id="autility_8h_html_a6617abe8dcee554e16d01965050c6011"><div class="ttname"><a href="utility_8h.html#a6617abe8dcee554e16d01965050c6011">charCmp</a></div><div class="ttdeci">byte charCmp(const void *a, const void *b)</div><div class="ttdoc">Compare two chars.</div></div>
+<div class="ttc" id="autility_8h_html_aebc7b095cdd90551a58295a17ce16dfd"><div class="ttname"><a href="utility_8h.html#aebc7b095cdd90551a58295a17ce16dfd">intCmp</a></div><div class="ttdeci">byte intCmp(const void *a, const void *b)</div><div class="ttdoc">Compare two ints.</div></div>
+<div class="ttc" id="autility_8h_html_af0fc0c42b6a41f593a63535ca5352309"><div class="ttname"><a href="utility_8h.html#af0fc0c42b6a41f593a63535ca5352309">doubleCmp</a></div><div class="ttdeci">byte doubleCmp(const void *a, const void *b)</div><div class="ttdoc">Compare two doubles.</div></div>
+</div><!-- fragment -->
+<p>Compare two values. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">a</td><td>First value to be compared </td></tr>
-    <tr><td class="paramname">b</td><td>Second value to be compared </td></tr>
+    <tr><td class="paramname">a</td><td>Pointer to the first value to be compared </td></tr>
+    <tr><td class="paramname">b</td><td>Pointer to the second value to be compared </td></tr>
   </table>
   </dd>
 </dl>
@@ -191,6 +370,740 @@ In some development environments, for example Vscode, calls to these macros can 
     <tr><td class="paramname">GREATER</td><td>First element is grater than the second </td></tr>
     <tr><td class="paramname">EQUAL</td><td>First element is equal to the second </td></tr>
     <tr><td class="paramname">SMALLER</td><td>First element is smaller than the second </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a75a089997e376f68e75af8d0612fe281"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75a089997e376f68e75af8d0612fe281">&#9670;&nbsp;</a></span>delete</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define delete</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">collection</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">                               _Generic(collection, <a class="code" href="structArrayList.html">ArrayList</a>         \</div>
+<div class="line">                               : <a class="code" href="arrayList_8h.html#a3aed7cdf275de87ede5e3fc07f10c5e4">deleteAL</a>, <a class="code" href="structLinkedList.html">LinkedList</a> \</div>
+<div class="line">                               : <a class="code" href="linkedList_8h.html#a329c337f6df66254fed92b66ec3609e1">deleteLL</a>, <a class="code" href="structStack.html">Stack</a>      \</div>
+<div class="line">                               : <a class="code" href="stack_8h.html#acc7c17f5b00ead4cebeb1305604f3ca8">deleteStack</a>, <a class="code" href="structQueue.html">Queue</a>   \</div>
+<div class="line">                               : <a class="code" href="queue_8h.html#a0c868793376dad282c6485d83d6ce03c">deleteQueue</a>)(collection)</div>
+<div class="ttc" id="aarrayList_8h_html_a3aed7cdf275de87ede5e3fc07f10c5e4"><div class="ttname"><a href="arrayList_8h.html#a3aed7cdf275de87ede5e3fc07f10c5e4">deleteAL</a></div><div class="ttdeci">void deleteAL(ArrayList list)</div><div class="ttdoc">Delete an ArrayList.</div></div>
+<div class="ttc" id="alinkedList_8h_html_a329c337f6df66254fed92b66ec3609e1"><div class="ttname"><a href="linkedList_8h.html#a329c337f6df66254fed92b66ec3609e1">deleteLL</a></div><div class="ttdeci">void deleteLL(LinkedList list)</div><div class="ttdoc">Delete a LinkedList.</div></div>
+<div class="ttc" id="aqueue_8h_html_a0c868793376dad282c6485d83d6ce03c"><div class="ttname"><a href="queue_8h.html#a0c868793376dad282c6485d83d6ce03c">deleteQueue</a></div><div class="ttdeci">void deleteQueue(Queue queue)</div><div class="ttdoc">Delete a Queue.</div></div>
+<div class="ttc" id="astack_8h_html_acc7c17f5b00ead4cebeb1305604f3ca8"><div class="ttname"><a href="stack_8h.html#acc7c17f5b00ead4cebeb1305604f3ca8">deleteStack</a></div><div class="ttdeci">void deleteStack(Stack stack)</div><div class="ttdoc">Delete a Stack.</div></div>
+</div><!-- fragment -->
+<p>Delete an <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a>, <a class="el" href="structLinkedList.html" title="LinkedList type">LinkedList</a>, <a class="el" href="structStack.html" title="Stack type">Stack</a> or <a class="el" href="structQueue.html" title="Queue type">Queue</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">collection</td><td>The <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a>, <a class="el" href="structLinkedList.html" title="LinkedList type">LinkedList</a>, <a class="el" href="structStack.html" title="Stack type">Stack</a> or <a class="el" href="structQueue.html" title="Queue type">Queue</a> you want to delete </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a495ecb23bbab8a9d1dce9befa8c8f0ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a495ecb23bbab8a9d1dce9befa8c8f0ed">&#9670;&nbsp;</a></span>deleteHead</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define deleteHead</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">collection</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">                                  _Generic(list, <a class="code" href="structStack.html">Stack</a>                  \</div>
+<div class="line">                                  : <a class="code" href="stack_8h.html#ac3eb05d2430644be9a713d5bdbbe82e4">deleteHeadFromStack</a>, <a class="code" href="structQueue.html">Queue</a> \</div>
+<div class="line">                                  : <a class="code" href="queue_8h.html#a233e15d2bdee45574cd2db816a6cc94d">deleteHeadFromQueue</a>)(collection)</div>
+<div class="ttc" id="aqueue_8h_html_a233e15d2bdee45574cd2db816a6cc94d"><div class="ttname"><a href="queue_8h.html#a233e15d2bdee45574cd2db816a6cc94d">deleteHeadFromQueue</a></div><div class="ttdeci">void deleteHeadFromQueue(Queue queue)</div><div class="ttdoc">Delete current Queue head.</div></div>
+<div class="ttc" id="astack_8h_html_ac3eb05d2430644be9a713d5bdbbe82e4"><div class="ttname"><a href="stack_8h.html#ac3eb05d2430644be9a713d5bdbbe82e4">deleteHeadFromStack</a></div><div class="ttdeci">void deleteHeadFromStack(Stack stack)</div><div class="ttdoc">Delete current Stack head.</div></div>
+</div><!-- fragment -->
+<p>Delete current <a class="el" href="structStack.html" title="Stack type">Stack</a> or <a class="el" href="structQueue.html" title="Queue type">Queue</a> head. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stack</td><td>The <a class="el" href="structStack.html" title="Stack type">Stack</a> or <a class="el" href="structQueue.html" title="Queue type">Queue</a> you want to delete the head from </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af2bb04bcf04a3ae009824243824b8a46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2bb04bcf04a3ae009824243824b8a46">&#9670;&nbsp;</a></span>getHeadData</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define getHeadData</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">collection, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">dest&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">                                         _Generic(list, <a class="code" href="structStack.html">Stack</a>                   \</div>
+<div class="line">                                         : <a class="code" href="stack_8h.html#ab25c934d47dc01c3b439bb732656816a">getHeadDataFromStack</a>, <a class="code" href="structQueue.html">Queue</a> \</div>
+<div class="line">                                         : <a class="code" href="queue_8h.html#a54bb329abe233ac2a324dd094ede793e">getHeadDataFromQueue</a>)(collection)</div>
+<div class="ttc" id="aqueue_8h_html_a54bb329abe233ac2a324dd094ede793e"><div class="ttname"><a href="queue_8h.html#a54bb329abe233ac2a324dd094ede793e">getHeadDataFromQueue</a></div><div class="ttdeci">void getHeadDataFromQueue(const Queue queue, void *dest)</div><div class="ttdoc">Get the item in the head of a Queue without dequeueing it.</div></div>
+<div class="ttc" id="astack_8h_html_ab25c934d47dc01c3b439bb732656816a"><div class="ttname"><a href="stack_8h.html#ab25c934d47dc01c3b439bb732656816a">getHeadDataFromStack</a></div><div class="ttdeci">void getHeadDataFromStack(Stack stack, void *dest)</div><div class="ttdoc">Get the item at the head of a Stack without popping it.</div></div>
+</div><!-- fragment -->
+<p>Get the item at the head of a <a class="el" href="structStack.html" title="Stack type">Stack</a> or <a class="el" href="structQueue.html" title="Queue type">Queue</a> without popping/dequeueing it. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">collection</td><td>The <a class="el" href="structStack.html" title="Stack type">Stack</a> or <a class="el" href="structQueue.html" title="Queue type">Queue</a> you want to get the item from </td></tr>
+    <tr><td class="paramname">dest</td><td>The address of the variable you want to store the item in </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa95f3da0ea5a7a03e4693cd23edcbe29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa95f3da0ea5a7a03e4693cd23edcbe29">&#9670;&nbsp;</a></span>getItem</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define getItem</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">list, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">index, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">dest&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">                                            _Generic(list, <a class="code" href="structArrayList.html">ArrayList</a>         \</div>
+<div class="line">                                            : <a class="code" href="arrayList_8h.html#a477e37d4bb105a7af744f446706e09ae">getFromAL</a>, <a class="code" href="structLinkedList.html">LinkedList</a> \</div>
+<div class="line">                                            : <a class="code" href="linkedList_8h.html#aa8a3df40d19edef6a7bb4f564c7da853">getFromLL</a>)(list, index, dest)</div>
+<div class="ttc" id="aarrayList_8h_html_a477e37d4bb105a7af744f446706e09ae"><div class="ttname"><a href="arrayList_8h.html#a477e37d4bb105a7af744f446706e09ae">getFromAL</a></div><div class="ttdeci">void getFromAL(const ArrayList list, unsigned int index, void *dest)</div><div class="ttdoc">Get an item from an ArrayList.</div></div>
+<div class="ttc" id="alinkedList_8h_html_aa8a3df40d19edef6a7bb4f564c7da853"><div class="ttname"><a href="linkedList_8h.html#aa8a3df40d19edef6a7bb4f564c7da853">getFromLL</a></div><div class="ttdeci">void getFromLL(LinkedList list, unsigned int index, void *dest)</div><div class="ttdoc">Get an item from a LinkedList.</div></div>
+</div><!-- fragment -->
+<p>Get an item from an <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a> or <a class="el" href="structLinkedList.html" title="LinkedList type">LinkedList</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">list</td><td>The list you want to get an item from </td></tr>
+    <tr><td class="paramname">index</td><td>The index of the item you want to get </td></tr>
+    <tr><td class="paramname">dest</td><td>The address of the variable you want to store the item in </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0022062557de19aaac7afc584ec5d7c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0022062557de19aaac7afc584ec5d7c3">&#9670;&nbsp;</a></span>getLength</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define getLength</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">collection</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">                                 _Generic(collection, <a class="code" href="structArrayList.html">ArrayList</a>           \</div>
+<div class="line">                                 : <a class="code" href="arrayList_8h.html#ad5d26facc124e8fa4260311c892145f7">getALLength</a>, <a class="code" href="structLinkedList.html">LinkedList</a> \</div>
+<div class="line">                                 : <a class="code" href="linkedList_8h.html#ad4c03f8c5378e6dad1de4704355ec598">getLLLength</a>, <a class="code" href="structStack.html">Stack</a>      \</div>
+<div class="line">                                 : <a class="code" href="stack_8h.html#accb59b04d6beb35ac16ec945ae6f5229">getStackLength</a>, <a class="code" href="structQueue.html">Queue</a>   \</div>
+<div class="line">                                 : <a class="code" href="queue_8h.html#aaec4724bd3c9961229028056bae99d7e">getQueueLength</a>, <span class="keywordtype">string</span>  \</div>
+<div class="line">                                 : strlen)(collection)</div>
+<div class="ttc" id="aarrayList_8h_html_ad5d26facc124e8fa4260311c892145f7"><div class="ttname"><a href="arrayList_8h.html#ad5d26facc124e8fa4260311c892145f7">getALLength</a></div><div class="ttdeci">unsigned int getALLength(const ArrayList list)</div><div class="ttdoc">Get the size of an ArrayList.</div></div>
+<div class="ttc" id="alinkedList_8h_html_ad4c03f8c5378e6dad1de4704355ec598"><div class="ttname"><a href="linkedList_8h.html#ad4c03f8c5378e6dad1de4704355ec598">getLLLength</a></div><div class="ttdeci">unsigned int getLLLength(const LinkedList list)</div><div class="ttdoc">Get the size of a LinkedList.</div></div>
+<div class="ttc" id="aqueue_8h_html_aaec4724bd3c9961229028056bae99d7e"><div class="ttname"><a href="queue_8h.html#aaec4724bd3c9961229028056bae99d7e">getQueueLength</a></div><div class="ttdeci">unsigned int getQueueLength(const Queue queue)</div><div class="ttdoc">Get the size of a Queue.</div></div>
+<div class="ttc" id="astack_8h_html_accb59b04d6beb35ac16ec945ae6f5229"><div class="ttname"><a href="stack_8h.html#accb59b04d6beb35ac16ec945ae6f5229">getStackLength</a></div><div class="ttdeci">unsigned int getStackLength(const Stack stack)</div><div class="ttdoc">Get the size of a Stack.</div></div>
+</div><!-- fragment -->
+<p>Get the number of elements in an <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a>, <a class="el" href="structLinkedList.html" title="LinkedList type">LinkedList</a>, <a class="el" href="structStack.html" title="Stack type">Stack</a>, <a class="el" href="structQueue.html" title="Queue type">Queue</a> or <a class="el" href="types_8h.html#a4505c08c065b48840a30eedd9845cce2" title="Alias for char *, used when an array of char is actually used as a string.">string</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">collection</td><td>The <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a>, <a class="el" href="structLinkedList.html" title="LinkedList type">LinkedList</a>, <a class="el" href="structStack.html" title="Stack type">Stack</a>, <a class="el" href="structQueue.html" title="Queue type">Queue</a> or <a class="el" href="types_8h.html#a4505c08c065b48840a30eedd9845cce2" title="Alias for char *, used when an array of char is actually used as a string.">string</a> you want to evaluate </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The number of elements in <code>collection</code> </dd></dl>
+
+</div>
+</div>
+<a id="af284a3a741a956507dceebf3876f15f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af284a3a741a956507dceebf3876f15f4">&#9670;&nbsp;</a></span>insert</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define insert</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">list, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">index, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">item&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">                                           _Generic(list, <a class="code" href="structArrayList.html">ArrayList</a>          \</div>
+<div class="line">                                           : <a class="code" href="arrayList_8h.html#ad9c63d93e864545f831046d5f6daa1cc">insertToAL</a>, <a class="code" href="structLinkedList.html">LinkedList</a> \</div>
+<div class="line">                                           : <a class="code" href="linkedList_8h.html#a320872311309478fbb9303c243118439">insertToLL</a>)(list, index, item)</div>
+<div class="ttc" id="aarrayList_8h_html_ad9c63d93e864545f831046d5f6daa1cc"><div class="ttname"><a href="arrayList_8h.html#ad9c63d93e864545f831046d5f6daa1cc">insertToAL</a></div><div class="ttdeci">void insertToAL(ArrayList list, unsigned int index,...)</div><div class="ttdoc">Insert an item at a specified position of an ArrayList.</div></div>
+<div class="ttc" id="alinkedList_8h_html_a320872311309478fbb9303c243118439"><div class="ttname"><a href="linkedList_8h.html#a320872311309478fbb9303c243118439">insertToLL</a></div><div class="ttdeci">void insertToLL(LinkedList list, unsigned int index,...)</div><div class="ttdoc">Insert an element at a specified position of a LinkedList.</div></div>
+</div><!-- fragment -->
+<p>Insert an element at a specified position of an <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a> or <a class="el" href="structLinkedList.html" title="LinkedList type">LinkedList</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">list</td><td>The list you want to insert an element into </td></tr>
+    <tr><td class="paramname">index</td><td>The position you want to insert an item at </td></tr>
+    <tr><td class="paramname">item</td><td>The item you want to insert into <code>list</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a675fb861d72498b7b6fc419e4b96e040"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a675fb861d72498b7b6fc419e4b96e040">&#9670;&nbsp;</a></span>isEmpty</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define isEmpty</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">collection</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">                               _Generic(collection, <a class="code" href="structArrayList.html">ArrayList</a>         \</div>
+<div class="line">                               : <a class="code" href="arrayList_8h.html#a9114f17260811b5852d33c9c05903367">isALEmpty</a>, <a class="code" href="structLinkedList.html">LinkedList</a> \</div>
+<div class="line">                               : <a class="code" href="linkedList_8h.html#a84ea06d361ffec2fa326e44ebcdeb4eb">isLLEmpty</a>, <a class="code" href="structStack.html">Stack</a>      \</div>
+<div class="line">                               : <a class="code" href="stack_8h.html#a7cc4b2706dcc4e54afabd77b4a79e904">isStackEmpty</a>, <a class="code" href="structQueue.html">Queue</a>   \</div>
+<div class="line">                               : <a class="code" href="queue_8h.html#af55455f7686bfb8f4104de8e3fb5bee0">isQueueEmpty</a>)(collection, item)</div>
+<div class="ttc" id="aarrayList_8h_html_a9114f17260811b5852d33c9c05903367"><div class="ttname"><a href="arrayList_8h.html#a9114f17260811b5852d33c9c05903367">isALEmpty</a></div><div class="ttdeci">byte isALEmpty(ArrayList list)</div><div class="ttdoc">Check if ArrayList is empty.</div></div>
+<div class="ttc" id="alinkedList_8h_html_a84ea06d361ffec2fa326e44ebcdeb4eb"><div class="ttname"><a href="linkedList_8h.html#a84ea06d361ffec2fa326e44ebcdeb4eb">isLLEmpty</a></div><div class="ttdeci">byte isLLEmpty(LinkedList list)</div><div class="ttdoc">Check if LinkedList is empty.</div></div>
+<div class="ttc" id="aqueue_8h_html_af55455f7686bfb8f4104de8e3fb5bee0"><div class="ttname"><a href="queue_8h.html#af55455f7686bfb8f4104de8e3fb5bee0">isQueueEmpty</a></div><div class="ttdeci">byte isQueueEmpty(Stack stack)</div><div class="ttdoc">Check if Queue is empty.</div></div>
+<div class="ttc" id="astack_8h_html_a7cc4b2706dcc4e54afabd77b4a79e904"><div class="ttname"><a href="stack_8h.html#a7cc4b2706dcc4e54afabd77b4a79e904">isStackEmpty</a></div><div class="ttdeci">byte isStackEmpty(Stack stack)</div><div class="ttdoc">Check if Stack is empty.</div></div>
+</div><!-- fragment -->
+<p>Check if an <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a>, <a class="el" href="structLinkedList.html" title="LinkedList type">LinkedList</a>, <a class="el" href="structStack.html" title="Stack type">Stack</a> or <a class="el" href="structQueue.html" title="Queue type">Queue</a> is empty. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">collection</td><td>The <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a>, <a class="el" href="structLinkedList.html" title="LinkedList type">LinkedList</a>, <a class="el" href="structStack.html" title="Stack type">Stack</a> or <a class="el" href="structQueue.html" title="Queue type">Queue</a> to be checked </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">TRUE</td><td><code>collection</code> is empty </td></tr>
+    <tr><td class="paramname">FALSE</td><td><code>collection</code> is not empty </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a318a0db3e24c77c85373ad2c2b1b89c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a318a0db3e24c77c85373ad2c2b1b89c2">&#9670;&nbsp;</a></span>isIn</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define isIn</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">collection, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">item&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">                                  _Generic(collection, <a class="code" href="structArrayList.html">ArrayList</a>      \</div>
+<div class="line">                                  : <a class="code" href="arrayList_8h.html#a6da3e6651c424fcd315276be094d5984">isInAL</a>, <a class="code" href="structLinkedList.html">LinkedList</a> \</div>
+<div class="line">                                  : <a class="code" href="linkedList_8h.html#a56b44c3c46c8eead0d3b15074294c675">isInLL</a>, <a class="code" href="structStack.html">Stack</a>      \</div>
+<div class="line">                                  : <a class="code" href="stack_8h.html#a1ccca7cdcf5fe6369c825b1b0a7370ec">isInStack</a>, <a class="code" href="structQueue.html">Queue</a>   \</div>
+<div class="line">                                  : <a class="code" href="queue_8h.html#a8225d47fadb15b7b9a83a7024d83ec04">isInQueue</a>)(collection, item)</div>
+<div class="ttc" id="aarrayList_8h_html_a6da3e6651c424fcd315276be094d5984"><div class="ttname"><a href="arrayList_8h.html#a6da3e6651c424fcd315276be094d5984">isInAL</a></div><div class="ttdeci">byte isInAL(ArrayList list,...)</div><div class="ttdoc">Detect if an item is inside an ArrayList.</div></div>
+<div class="ttc" id="alinkedList_8h_html_a56b44c3c46c8eead0d3b15074294c675"><div class="ttname"><a href="linkedList_8h.html#a56b44c3c46c8eead0d3b15074294c675">isInLL</a></div><div class="ttdeci">byte isInLL(LinkedList list,...)</div><div class="ttdoc">Detect if an element is inside a LinkedList.</div></div>
+<div class="ttc" id="aqueue_8h_html_a8225d47fadb15b7b9a83a7024d83ec04"><div class="ttname"><a href="queue_8h.html#a8225d47fadb15b7b9a83a7024d83ec04">isInQueue</a></div><div class="ttdeci">byte isInQueue(Queue queue,...)</div><div class="ttdoc">Detect if an item is inside a Queue.</div></div>
+<div class="ttc" id="astack_8h_html_a1ccca7cdcf5fe6369c825b1b0a7370ec"><div class="ttname"><a href="stack_8h.html#a1ccca7cdcf5fe6369c825b1b0a7370ec">isInStack</a></div><div class="ttdeci">byte isInStack(Stack stack,...)</div><div class="ttdoc">Detect if an item is inside a Stack.</div></div>
+</div><!-- fragment -->
+<p>Detect if an item is inside an <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a>, <a class="el" href="structLinkedList.html" title="LinkedList type">LinkedList</a>, <a class="el" href="structStack.html" title="Stack type">Stack</a> or <a class="el" href="structQueue.html" title="Queue type">Queue</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">collection</td><td>The <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a>, <a class="el" href="structLinkedList.html" title="LinkedList type">LinkedList</a>, <a class="el" href="structStack.html" title="Stack type">Stack</a> or <a class="el" href="structQueue.html" title="Queue type">Queue</a> you want search in </td></tr>
+    <tr><td class="paramname">item</td><td>The item you want to search </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Passing float or double <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a>, <a class="el" href="structLinkedList.html" title="LinkedList type">LinkedList</a>, <a class="el" href="structStack.html" title="Stack type">Stack</a> or <a class="el" href="structQueue.html" title="Queue type">Queue</a> is not supported </dd></dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">TRUE</td><td>Given item is contained in <code>collection</code> </td></tr>
+    <tr><td class="paramname">FALSE</td><td>Given item is not contained in <code>collection</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aefabac72e4aac4fd70e74f10155b5814"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefabac72e4aac4fd70e74f10155b5814">&#9670;&nbsp;</a></span>linearSearch</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define linearSearch</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">list, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">key&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">                                         _Generic(list, <a class="code" href="structArrayList.html">ArrayList</a>              \</div>
+<div class="line">                                         : <a class="code" href="arrayList_8h.html#adab95082150bb3dd8eb55eaacbda4269">linearSearchAL</a>, <a class="code" href="structLinkedList.html">LinkedList</a> \</div>
+<div class="line">                                         : <a class="code" href="linkedList_8h.html#a26904a75582aeb61130b6c790186900e">linearSearchLL</a>)(list, key)</div>
+<div class="ttc" id="aarrayList_8h_html_adab95082150bb3dd8eb55eaacbda4269"><div class="ttname"><a href="arrayList_8h.html#adab95082150bb3dd8eb55eaacbda4269">linearSearchAL</a></div><div class="ttdeci">int linearSearchAL(ArrayList list,...)</div><div class="ttdoc">Linear search for ArrayList.</div></div>
+<div class="ttc" id="alinkedList_8h_html_a26904a75582aeb61130b6c790186900e"><div class="ttname"><a href="linkedList_8h.html#a26904a75582aeb61130b6c790186900e">linearSearchLL</a></div><div class="ttdeci">int linearSearchLL(LinkedList list,...)</div><div class="ttdoc">Linear search for LinkedList.</div></div>
+</div><!-- fragment -->
+<p>Linear search for an <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a> or <a class="el" href="structLinkedList.html" title="LinkedList type">LinkedList</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">list</td><td>The <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a> or <a class="el" href="structLinkedList.html" title="LinkedList type">LinkedList</a> to be inspected </td></tr>
+    <tr><td class="paramname">ley</td><td>The key to be searched </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This function does not support float and double <a class="el" href="structLinkedList.html" title="LinkedList type">LinkedList</a> or <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a> types </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The index of the first occurence of the key in the list or the return code of the function called </dd></dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">KEY_NOT_FOUND</td><td>The key was not found </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4fb870e43e6a95d0d7cd5f505fd19225"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fb870e43e6a95d0d7cd5f505fd19225">&#9670;&nbsp;</a></span>merge</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define merge</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">list1, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">list2&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">                                     _Generic(list1, <a class="code" href="structArrayList.html">ArrayList</a>      \</div>
+<div class="line">                                     : <a class="code" href="arrayList_8h.html#a62ba0e7f589a6e8a293ba719dc40b829">mergeAL</a>, <a class="code" href="structLinkedList.html">LinkedList</a> \</div>
+<div class="line">                                     : <a class="code" href="linkedList_8h.html#a6496383714472c8b301c462551fae0cd">mergeLL</a>)(list1, list2)</div>
+<div class="ttc" id="aarrayList_8h_html_a62ba0e7f589a6e8a293ba719dc40b829"><div class="ttname"><a href="arrayList_8h.html#a62ba0e7f589a6e8a293ba719dc40b829">mergeAL</a></div><div class="ttdeci">void mergeAL(ArrayList list1, const ArrayList list2)</div><div class="ttdoc">Merge two ArrayList.</div></div>
+<div class="ttc" id="alinkedList_8h_html_a6496383714472c8b301c462551fae0cd"><div class="ttname"><a href="linkedList_8h.html#a6496383714472c8b301c462551fae0cd">mergeLL</a></div><div class="ttdeci">void mergeLL(LinkedList list1, const LinkedList list2)</div><div class="ttdoc">Merge two LinkedList.</div></div>
+</div><!-- fragment -->
+<p>Merge two <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a> or <a class="el" href="structLinkedList.html" title="LinkedList type">LinkedList</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">list1</td><td>The first list to be merged, where the merged list is saved </td></tr>
+    <tr><td class="paramname">list2</td><td>The second list to be merged </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Passing an <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a> and a <a class="el" href="structLinkedList.html" title="LinkedList type">LinkedList</a> does not throw errors but does not work and <code>list1</code> is messed up </dd></dl>
+
+</div>
+</div>
+<a id="ad8028636e4addb1d2a10468e7305308b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8028636e4addb1d2a10468e7305308b">&#9670;&nbsp;</a></span>newALFromArray</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define newALFromArray</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">arr, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">size&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">                                           _Generic(arr, <span class="keywordtype">char</span> *                     \</div>
+<div class="line">                                           : <a class="code" href="arrayList_8h.html#a197eae76a84384bd91a9be1e51e3e711">newALFromCharArray</a>, <span class="keywordtype">int</span> *     \</div>
+<div class="line">                                           : <a class="code" href="arrayList_8h.html#aa9b102f91a0a79b7e7a963e923fa5c22">newALFromIntArray</a>, <span class="keywordtype">float</span> *    \</div>
+<div class="line">                                           : <a class="code" href="arrayList_8h.html#a16be09f590258c337be02fcd079d8ed7">newALFromFloatArray</a>, <span class="keywordtype">double</span> * \</div>
+<div class="line">                                           : <a class="code" href="arrayList_8h.html#ae0c68807b92d285ecc5fd09636ca85e4">newALFromDoubleArray</a>, <span class="keywordtype">void</span> ** \</div>
+<div class="line">                                           : <a class="code" href="arrayList_8h.html#ae27e57c6a7433ff6854d707eb339665f">newALFromPtrArray</a>)(arr, size)</div>
+<div class="ttc" id="aarrayList_8h_html_a16be09f590258c337be02fcd079d8ed7"><div class="ttname"><a href="arrayList_8h.html#a16be09f590258c337be02fcd079d8ed7">newALFromFloatArray</a></div><div class="ttdeci">ArrayList newALFromFloatArray(const float list[], unsigned int size)</div><div class="ttdoc">Create ArrayList from a list of floats.</div></div>
+<div class="ttc" id="aarrayList_8h_html_a197eae76a84384bd91a9be1e51e3e711"><div class="ttname"><a href="arrayList_8h.html#a197eae76a84384bd91a9be1e51e3e711">newALFromCharArray</a></div><div class="ttdeci">ArrayList newALFromCharArray(const char list[], unsigned int size)</div><div class="ttdoc">Create ArrayList from a list of chars.</div></div>
+<div class="ttc" id="aarrayList_8h_html_aa9b102f91a0a79b7e7a963e923fa5c22"><div class="ttname"><a href="arrayList_8h.html#aa9b102f91a0a79b7e7a963e923fa5c22">newALFromIntArray</a></div><div class="ttdeci">ArrayList newALFromIntArray(const int list[], unsigned int size)</div><div class="ttdoc">Create ArrayList from a list of ints.</div></div>
+<div class="ttc" id="aarrayList_8h_html_ae0c68807b92d285ecc5fd09636ca85e4"><div class="ttname"><a href="arrayList_8h.html#ae0c68807b92d285ecc5fd09636ca85e4">newALFromDoubleArray</a></div><div class="ttdeci">ArrayList newALFromDoubleArray(const double list[], unsigned int size)</div><div class="ttdoc">Create ArrayList from an list of doubles.</div></div>
+<div class="ttc" id="aarrayList_8h_html_ae27e57c6a7433ff6854d707eb339665f"><div class="ttname"><a href="arrayList_8h.html#ae27e57c6a7433ff6854d707eb339665f">newALFromPtrArray</a></div><div class="ttdeci">ArrayList newALFromPtrArray(const void *list, unsigned int size)</div><div class="ttdoc">Create ArrayList from an list of pointers.</div></div>
+</div><!-- fragment -->
+<p>Create an <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a> from a static array. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">arr</td><td>The array you want to create an <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a> from </td></tr>
+    <tr><td class="paramname">size</td><td>The size of <code>arr</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a> containing all the elements of <code>arr</code> </dd></dl>
+
+</div>
+</div>
+<a id="aac2d0a150c7ae79a7b61b6f28ab81996"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac2d0a150c7ae79a7b61b6f28ab81996">&#9670;&nbsp;</a></span>newLLFromArray</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define newLLFromArray</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">arr, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">size&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">                                           _Generic(arr, <span class="keywordtype">char</span> *                     \</div>
+<div class="line">                                           : <a class="code" href="linkedList_8h.html#ae3a675ae70e14fb6f14cfd9ac1b0a46a">newLLFromCharArray</a>, <span class="keywordtype">int</span> *     \</div>
+<div class="line">                                           : <a class="code" href="linkedList_8h.html#a38d0fe2e26a94a4315b2789cc09e7a95">newLLFromIntArray</a>, <span class="keywordtype">float</span> *    \</div>
+<div class="line">                                           : <a class="code" href="linkedList_8h.html#a8f1d1e507680f3b3c82c824b5c77d5b5">newLLFromFloatArray</a>, <span class="keywordtype">double</span> * \</div>
+<div class="line">                                           : <a class="code" href="linkedList_8h.html#a67320573910be1a142316b504af3bcf6">newLLFromDoubleArray</a>, <span class="keywordtype">void</span> ** \</div>
+<div class="line">                                           : <a class="code" href="linkedList_8h.html#af6c712845ee6b68412f9c8530225bc35">newLLFromPtrArray</a>)(arr, size)</div>
+<div class="ttc" id="alinkedList_8h_html_a38d0fe2e26a94a4315b2789cc09e7a95"><div class="ttname"><a href="linkedList_8h.html#a38d0fe2e26a94a4315b2789cc09e7a95">newLLFromIntArray</a></div><div class="ttdeci">LinkedList newLLFromIntArray(const int arr[], unsigned int size)</div><div class="ttdoc">Create a LinkedList from a array of ints.</div></div>
+<div class="ttc" id="alinkedList_8h_html_a67320573910be1a142316b504af3bcf6"><div class="ttname"><a href="linkedList_8h.html#a67320573910be1a142316b504af3bcf6">newLLFromDoubleArray</a></div><div class="ttdeci">LinkedList newLLFromDoubleArray(const double arr[], unsigned int size)</div><div class="ttdoc">Create a LinkedList from an array of doubles.</div></div>
+<div class="ttc" id="alinkedList_8h_html_a8f1d1e507680f3b3c82c824b5c77d5b5"><div class="ttname"><a href="linkedList_8h.html#a8f1d1e507680f3b3c82c824b5c77d5b5">newLLFromFloatArray</a></div><div class="ttdeci">LinkedList newLLFromFloatArray(const float arr[], unsigned int size)</div><div class="ttdoc">Create a LinkedList from a array of floats.</div></div>
+<div class="ttc" id="alinkedList_8h_html_ae3a675ae70e14fb6f14cfd9ac1b0a46a"><div class="ttname"><a href="linkedList_8h.html#ae3a675ae70e14fb6f14cfd9ac1b0a46a">newLLFromCharArray</a></div><div class="ttdeci">LinkedList newLLFromCharArray(const char arr[], unsigned int size)</div><div class="ttdoc">Create a LinkedList from a array of chars.</div></div>
+<div class="ttc" id="alinkedList_8h_html_af6c712845ee6b68412f9c8530225bc35"><div class="ttname"><a href="linkedList_8h.html#af6c712845ee6b68412f9c8530225bc35">newLLFromPtrArray</a></div><div class="ttdeci">LinkedList newLLFromPtrArray(const void *arr, unsigned int size)</div><div class="ttdoc">Create a LinkedList from an array of pointers.</div></div>
+</div><!-- fragment -->
+<p>Create a <a class="el" href="structLinkedList.html" title="LinkedList type">LinkedList</a> from a static array. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">arr</td><td>The array you want to create a <a class="el" href="structLinkedList.html" title="LinkedList type">LinkedList</a> from </td></tr>
+    <tr><td class="paramname">size</td><td>The size of <code>arr</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="structLinkedList.html" title="LinkedList type">LinkedList</a> containing all the elements of <code>arr</code> in the same order </dd></dl>
+
+</div>
+</div>
+<a id="a7f47290a25b6ab9d83c2aa75d7f4580b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f47290a25b6ab9d83c2aa75d7f4580b">&#9670;&nbsp;</a></span>newQueueFromArray</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define newQueueFromArray</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">arr, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">size&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">                                              _Generic(arr, <span class="keywordtype">char</span> *                        \</div>
+<div class="line">                                              : <a class="code" href="queue_8h.html#a8acbc168e00e22e792f7dd8c0baade22">newQueueFromCharArray</a>, <span class="keywordtype">int</span> *     \</div>
+<div class="line">                                              : <a class="code" href="queue_8h.html#a292c872aae5f94953292a5152bc541fd">newQueueFromIntArray</a>, <span class="keywordtype">float</span> *    \</div>
+<div class="line">                                              : <a class="code" href="queue_8h.html#a5fbd37798cbe862fd5ae66cc4ce7dac1">newQueueFromFloatArray</a>, <span class="keywordtype">double</span> * \</div>
+<div class="line">                                              : <a class="code" href="queue_8h.html#a81ca7ba1869fda64139ffeb7d65ad1b7">newQueueFromDoubleArray</a>, <span class="keywordtype">void</span> ** \</div>
+<div class="line">                                              : <a class="code" href="queue_8h.html#a5f1ae91d3e8114361b5a633b2e894c6d">newQueueFromPtrArray</a>)(arr, size)</div>
+<div class="ttc" id="aqueue_8h_html_a292c872aae5f94953292a5152bc541fd"><div class="ttname"><a href="queue_8h.html#a292c872aae5f94953292a5152bc541fd">newQueueFromIntArray</a></div><div class="ttdeci">Queue newQueueFromIntArray(const int arr[], unsigned int size)</div><div class="ttdoc">Create a Queue from an array of integers.</div></div>
+<div class="ttc" id="aqueue_8h_html_a5f1ae91d3e8114361b5a633b2e894c6d"><div class="ttname"><a href="queue_8h.html#a5f1ae91d3e8114361b5a633b2e894c6d">newQueueFromPtrArray</a></div><div class="ttdeci">Queue newQueueFromPtrArray(const void *arr, unsigned int size)</div><div class="ttdoc">Create a Queue from an array of pointers.</div></div>
+<div class="ttc" id="aqueue_8h_html_a5fbd37798cbe862fd5ae66cc4ce7dac1"><div class="ttname"><a href="queue_8h.html#a5fbd37798cbe862fd5ae66cc4ce7dac1">newQueueFromFloatArray</a></div><div class="ttdeci">Queue newQueueFromFloatArray(const float arr[], unsigned int size)</div><div class="ttdoc">Create a Queue from an array of floats.</div></div>
+<div class="ttc" id="aqueue_8h_html_a81ca7ba1869fda64139ffeb7d65ad1b7"><div class="ttname"><a href="queue_8h.html#a81ca7ba1869fda64139ffeb7d65ad1b7">newQueueFromDoubleArray</a></div><div class="ttdeci">Queue newQueueFromDoubleArray(const double arr[], unsigned int size)</div><div class="ttdoc">Create a Queue from an array of doubles.</div></div>
+<div class="ttc" id="aqueue_8h_html_a8acbc168e00e22e792f7dd8c0baade22"><div class="ttname"><a href="queue_8h.html#a8acbc168e00e22e792f7dd8c0baade22">newQueueFromCharArray</a></div><div class="ttdeci">Queue newQueueFromCharArray(const char arr[], unsigned int size)</div><div class="ttdoc">Create a Queue from an array of chars.</div></div>
+</div><!-- fragment -->
+<p>Create a <a class="el" href="structQueue.html" title="Queue type">Queue</a> from a static array. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">arr</td><td>The array you want to create a <a class="el" href="structQueue.html" title="Queue type">Queue</a> from </td></tr>
+    <tr><td class="paramname">size</td><td>The size of <code>arr</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="structQueue.html" title="Queue type">Queue</a> containing all the elements of <code>arr</code> with the first element of <code>arr</code> as head </dd></dl>
+
+</div>
+</div>
+<a id="a2c635ee03e8dc00d9aedeffa281ea8dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c635ee03e8dc00d9aedeffa281ea8dd">&#9670;&nbsp;</a></span>newStackFromArray <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define newStackFromArray</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">arr, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">size&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">                                              _Generic(arr, <span class="keywordtype">char</span> *                        \</div>
+<div class="line">                                              : <a class="code" href="stack_8h.html#a6d1c06da7b5c607825f765a3df7e90c4">newStackFromCharArray</a>, <span class="keywordtype">int</span> *     \</div>
+<div class="line">                                              : <a class="code" href="stack_8h.html#a86fc4be4910f6e7b2c290ababd07f00c">newStackFromIntArray</a>, <span class="keywordtype">float</span> *    \</div>
+<div class="line">                                              : <a class="code" href="stack_8h.html#a05c15b03d27be827e4e00bf4752dca8c">newStackFromFloatArray</a>, <span class="keywordtype">double</span> * \</div>
+<div class="line">                                              : <a class="code" href="stack_8h.html#aae9f35312a8c401549e5f9ba4cea3ce1">newStackFromDoubleArray</a>, <span class="keywordtype">void</span> ** \</div>
+<div class="line">                                              : <a class="code" href="stack_8h.html#a85f52635635f018d6d1060210004dae1">newStackFromPtrArray</a>)(arr, size)</div>
+<div class="ttc" id="astack_8h_html_a05c15b03d27be827e4e00bf4752dca8c"><div class="ttname"><a href="stack_8h.html#a05c15b03d27be827e4e00bf4752dca8c">newStackFromFloatArray</a></div><div class="ttdeci">Stack newStackFromFloatArray(const float arr[], unsigned int size)</div><div class="ttdoc">Create a Stack from an array of floats.</div></div>
+<div class="ttc" id="astack_8h_html_a6d1c06da7b5c607825f765a3df7e90c4"><div class="ttname"><a href="stack_8h.html#a6d1c06da7b5c607825f765a3df7e90c4">newStackFromCharArray</a></div><div class="ttdeci">Stack newStackFromCharArray(const char arr[], unsigned int size)</div><div class="ttdoc">Create a Stack from an array of chars.</div></div>
+<div class="ttc" id="astack_8h_html_a85f52635635f018d6d1060210004dae1"><div class="ttname"><a href="stack_8h.html#a85f52635635f018d6d1060210004dae1">newStackFromPtrArray</a></div><div class="ttdeci">Stack newStackFromPtrArray(const void *arr, unsigned int size)</div><div class="ttdoc">Create a Stack from an array of pointers.</div></div>
+<div class="ttc" id="astack_8h_html_a86fc4be4910f6e7b2c290ababd07f00c"><div class="ttname"><a href="stack_8h.html#a86fc4be4910f6e7b2c290ababd07f00c">newStackFromIntArray</a></div><div class="ttdeci">Stack newStackFromIntArray(const int arr[], unsigned int size)</div><div class="ttdoc">Create a Stack from an array of integers.</div></div>
+<div class="ttc" id="astack_8h_html_aae9f35312a8c401549e5f9ba4cea3ce1"><div class="ttname"><a href="stack_8h.html#aae9f35312a8c401549e5f9ba4cea3ce1">newStackFromDoubleArray</a></div><div class="ttdeci">Stack newStackFromDoubleArray(const double arr[], unsigned int size)</div><div class="ttdoc">Create a Stack from an array of doubles.</div></div>
+</div><!-- fragment -->
+<p>Create a <a class="el" href="structStack.html" title="Stack type">Stack</a> from a static array. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">arr</td><td>The array you want to create a <a class="el" href="structStack.html" title="Stack type">Stack</a> from </td></tr>
+    <tr><td class="paramname">size</td><td>The size of <code>arr</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="structStack.html" title="Stack type">Stack</a> containing all the elements of <code>arr</code> with the last element of <code>arr</code> as head</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">arr</td><td>The array you want to create a <a class="el" href="structStack.html" title="Stack type">Stack</a> from </td></tr>
+    <tr><td class="paramname">size</td><td>The size of <code>arr</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="structStack.html" title="Stack type">Stack</a> containing all the elements of <code>arr</code> with the first element of <code>arr</code> as head </dd></dl>
+
+</div>
+</div>
+<a id="a2c635ee03e8dc00d9aedeffa281ea8dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c635ee03e8dc00d9aedeffa281ea8dd">&#9670;&nbsp;</a></span>newStackFromArray <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define newStackFromArray</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">arr, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">size&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">                                              _Generic(arr, <span class="keywordtype">char</span> *                        \</div>
+<div class="line">                                              : <a class="code" href="stack_8h.html#a6d1c06da7b5c607825f765a3df7e90c4">newStackFromCharArray</a>, <span class="keywordtype">int</span> *     \</div>
+<div class="line">                                              : <a class="code" href="stack_8h.html#a86fc4be4910f6e7b2c290ababd07f00c">newStackFromIntArray</a>, <span class="keywordtype">float</span> *    \</div>
+<div class="line">                                              : <a class="code" href="stack_8h.html#a05c15b03d27be827e4e00bf4752dca8c">newStackFromFloatArray</a>, <span class="keywordtype">double</span> * \</div>
+<div class="line">                                              : <a class="code" href="stack_8h.html#aae9f35312a8c401549e5f9ba4cea3ce1">newStackFromDoubleArray</a>, <span class="keywordtype">void</span> ** \</div>
+<div class="line">                                              : <a class="code" href="stack_8h.html#a85f52635635f018d6d1060210004dae1">newStackFromPtrArray</a>)(arr, size)</div>
+</div><!-- fragment -->
+<p>Create a <a class="el" href="structStack.html" title="Stack type">Stack</a> from a static array. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">arr</td><td>The array you want to create a <a class="el" href="structStack.html" title="Stack type">Stack</a> from </td></tr>
+    <tr><td class="paramname">size</td><td>The size of <code>arr</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="structStack.html" title="Stack type">Stack</a> containing all the elements of <code>arr</code> with the last element of <code>arr</code> as head</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">arr</td><td>The array you want to create a <a class="el" href="structStack.html" title="Stack type">Stack</a> from </td></tr>
+    <tr><td class="paramname">size</td><td>The size of <code>arr</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="structStack.html" title="Stack type">Stack</a> containing all the elements of <code>arr</code> with the first element of <code>arr</code> as head </dd></dl>
+
+</div>
+</div>
+<a id="a382e2b8499aa2e224aaf79253c6c1db9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a382e2b8499aa2e224aaf79253c6c1db9">&#9670;&nbsp;</a></span>print</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define print</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">spec, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">collection&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">                                   _Generic(collection, <a class="code" href="structArrayList.html">ArrayList</a>       \</div>
+<div class="line">                                   : <a class="code" href="arrayList_8h.html#af52c8418bb6fc5c8d53b55aff425a913">printAL</a>, <a class="code" href="structLinkedList.html">LinkedList</a> \</div>
+<div class="line">                                   : <a class="code" href="linkedList_8h.html#afa67f12fad430c4817e9cdb6bfcc0468">printLL</a>, <a class="code" href="structStack.html">Stack</a>      \</div>
+<div class="line">                                   : <a class="code" href="stack_8h.html#af7dc8178a0018003e0087aacc87688e2">printStack</a>, <a class="code" href="structQueue.html">Queue</a>   \</div>
+<div class="line">                                   : <a class="code" href="queue_8h.html#a9b6dee3f87839fc42c86975831639b53">printQueue</a>)(spec, collection)</div>
+<div class="ttc" id="aarrayList_8h_html_af52c8418bb6fc5c8d53b55aff425a913"><div class="ttname"><a href="arrayList_8h.html#af52c8418bb6fc5c8d53b55aff425a913">printAL</a></div><div class="ttdeci">void printAL(const spec_t spec, const ArrayList list)</div><div class="ttdoc">Print contents from an ArrayList.</div></div>
+<div class="ttc" id="alinkedList_8h_html_afa67f12fad430c4817e9cdb6bfcc0468"><div class="ttname"><a href="linkedList_8h.html#afa67f12fad430c4817e9cdb6bfcc0468">printLL</a></div><div class="ttdeci">void printLL(const spec_t spec, const LinkedList list)</div><div class="ttdoc">Print contents from a LinkedList.</div></div>
+<div class="ttc" id="aqueue_8h_html_a9b6dee3f87839fc42c86975831639b53"><div class="ttname"><a href="queue_8h.html#a9b6dee3f87839fc42c86975831639b53">printQueue</a></div><div class="ttdeci">void printQueue(const spec_t spec, const Queue queue)</div><div class="ttdoc">Print contents from a Queue.</div></div>
+<div class="ttc" id="astack_8h_html_af7dc8178a0018003e0087aacc87688e2"><div class="ttname"><a href="stack_8h.html#af7dc8178a0018003e0087aacc87688e2">printStack</a></div><div class="ttdeci">void printStack(const spec_t spec, const Stack stack)</div><div class="ttdoc">Print contents from a Stack.</div></div>
+</div><!-- fragment -->
+<p>Print contents from an <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a>, <a class="el" href="structLinkedList.html" title="LinkedList type">LinkedList</a>, <a class="el" href="structStack.html" title="Stack type">Stack</a> or <a class="el" href="structQueue.html" title="Queue type">Queue</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">spec</td><td>The type and format specifier you want to use to print the single element. Use the <code>printf()</code> conventions </td></tr>
+    <tr><td class="paramname">collection</td><td>The <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a>, <a class="el" href="structLinkedList.html" title="LinkedList type">LinkedList</a>, <a class="el" href="structStack.html" title="Stack type">Stack</a> or <a class="el" href="structQueue.html" title="Queue type">Queue</a> you want to print </td></tr>
   </table>
   </dd>
 </dl>
@@ -218,17 +1131,168 @@ In some development environments, for example Vscode, calls to these macros can 
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;_Generic(arr, char *: <a class="el" href="arrays_8h.html#a9758264988a926b34f15d6229c1bd6b8">charQuickSort</a>, int *: <a class="el" href="arrays_8h.html#a677a34cb7719b2d787fd9b2dbb028067">intQuickSort</a>, float *:<a class="el" href="arrays_8h.html#a087ff5cf198c9a61e3d0d07efcf1b43f">floatQuickSort</a>, double *: <a class="el" href="arrays_8h.html#a5064edfb438f414c94f0bc426ccb32fc">doubleQuickSort</a>, void **: <a class="el" href="arrays_8h.html#aba91ad30b79259e5a8790b49e01d1918">ptrQuickSort</a>)(arr, size)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<b>Value:</b><div class="fragment"><div class="line">                                         _Generic(arr, <span class="keywordtype">char</span> *                \</div>
+<div class="line">                                         : <a class="code" href="arrays_8h.html#a9758264988a926b34f15d6229c1bd6b8">charQuickSort</a>, <span class="keywordtype">int</span> *     \</div>
+<div class="line">                                         : <a class="code" href="arrays_8h.html#a677a34cb7719b2d787fd9b2dbb028067">intQuickSort</a>, <span class="keywordtype">float</span> *    \</div>
+<div class="line">                                         : <a class="code" href="arrays_8h.html#a087ff5cf198c9a61e3d0d07efcf1b43f">floatQuickSort</a>, <span class="keywordtype">double</span> * \</div>
+<div class="line">                                         : <a class="code" href="arrays_8h.html#a5064edfb438f414c94f0bc426ccb32fc">doubleQuickSort</a>, <span class="keywordtype">void</span> ** \</div>
+<div class="line">                                         : <a class="code" href="arrays_8h.html#aba91ad30b79259e5a8790b49e01d1918">ptrQuickSort</a>)(arr, size)</div>
+<div class="ttc" id="aarrays_8h_html_a087ff5cf198c9a61e3d0d07efcf1b43f"><div class="ttname"><a href="arrays_8h.html#a087ff5cf198c9a61e3d0d07efcf1b43f">floatQuickSort</a></div><div class="ttdeci">void floatQuickSort(float *arr, int size)</div><div class="ttdoc">Quicksort for arrays of floats.</div></div>
+<div class="ttc" id="aarrays_8h_html_a5064edfb438f414c94f0bc426ccb32fc"><div class="ttname"><a href="arrays_8h.html#a5064edfb438f414c94f0bc426ccb32fc">doubleQuickSort</a></div><div class="ttdeci">void doubleQuickSort(double *arr, int size)</div><div class="ttdoc">Quicksort for arrays of doubles.</div></div>
+<div class="ttc" id="aarrays_8h_html_a677a34cb7719b2d787fd9b2dbb028067"><div class="ttname"><a href="arrays_8h.html#a677a34cb7719b2d787fd9b2dbb028067">intQuickSort</a></div><div class="ttdeci">void intQuickSort(int *arr, int size)</div><div class="ttdoc">Quicksort for arrays of ints.</div></div>
+<div class="ttc" id="aarrays_8h_html_a9758264988a926b34f15d6229c1bd6b8"><div class="ttname"><a href="arrays_8h.html#a9758264988a926b34f15d6229c1bd6b8">charQuickSort</a></div><div class="ttdeci">void charQuickSort(char *arr, int size)</div><div class="ttdoc">Quicksort for arrays of chars.</div></div>
+<div class="ttc" id="aarrays_8h_html_aba91ad30b79259e5a8790b49e01d1918"><div class="ttname"><a href="arrays_8h.html#aba91ad30b79259e5a8790b49e01d1918">ptrQuickSort</a></div><div class="ttdeci">void ptrQuickSort(void **arr, int size)</div><div class="ttdoc">Quicksort for arrays of pointers.</div></div>
+</div><!-- fragment -->
 <p>Quicksort for arrays. </p>
 <dl class="section return"><dt>Returns</dt><dd>The return code of the function called </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">arr</td><td>Pointer to the array to be sorted </td></tr>
     <tr><td class="paramname">size</td><td>Number of elements in the array to be sorted </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a65d369bb9ea75cc2a506498bb5e469f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65d369bb9ea75cc2a506498bb5e469f2">&#9670;&nbsp;</a></span>removeItem</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define removeItem</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">list, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">index&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">                                         _Generic(list, <a class="code" href="structArrayList.html">ArrayList</a>            \</div>
+<div class="line">                                         : <a class="code" href="arrayList_8h.html#ae6c6a26e093c7f79f6c5131765b8a0a5">removeFromAL</a>, <a class="code" href="structLinkedList.html">LinkedList</a> \</div>
+<div class="line">                                         : <a class="code" href="linkedList_8h.html#ac4923433b974c36ad8a72816d020dcad">removeFromLL</a>)(list, index)</div>
+<div class="ttc" id="aarrayList_8h_html_ae6c6a26e093c7f79f6c5131765b8a0a5"><div class="ttname"><a href="arrayList_8h.html#ae6c6a26e093c7f79f6c5131765b8a0a5">removeFromAL</a></div><div class="ttdeci">void removeFromAL(ArrayList list, unsigned int index)</div><div class="ttdoc">Remove an item from an ArrayList.</div></div>
+<div class="ttc" id="alinkedList_8h_html_ac4923433b974c36ad8a72816d020dcad"><div class="ttname"><a href="linkedList_8h.html#ac4923433b974c36ad8a72816d020dcad">removeFromLL</a></div><div class="ttdeci">void removeFromLL(LinkedList list, unsigned int index)</div><div class="ttdoc">Remove an item from a LinkedList.</div></div>
+</div><!-- fragment -->
+<p>Remove an item from an <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a> or <a class="el" href="structLinkedList.html" title="LinkedList type">LinkedList</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">list</td><td>The list you want to delete an item from </td></tr>
+    <tr><td class="paramname">index</td><td>The index of the item you want to delete </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1da46291de0cc4531bdd947388b5cc85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1da46291de0cc4531bdd947388b5cc85">&#9670;&nbsp;</a></span>set</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define set</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">list, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">index, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">newItem&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">                                           _Generic(list, <a class="code" href="structArrayList.html">ArrayList</a>         \</div>
+<div class="line">                                           : <a class="code" href="arrayList_8h.html#adf44f922ee54d068849b244a9e32085d">setALItem</a>, <a class="code" href="structLinkedList.html">LinkedList</a> \</div>
+<div class="line">                                           : <a class="code" href="linkedList_8h.html#a8fa20e1616472647b39fbac98998dca2">setLLItem</a>)(list, index, newItem)</div>
+<div class="ttc" id="aarrayList_8h_html_adf44f922ee54d068849b244a9e32085d"><div class="ttname"><a href="arrayList_8h.html#adf44f922ee54d068849b244a9e32085d">setALItem</a></div><div class="ttdeci">void setALItem(ArrayList list, unsigned int index,...)</div><div class="ttdoc">Set value of an item of an ArrayList.</div></div>
+<div class="ttc" id="alinkedList_8h_html_a8fa20e1616472647b39fbac98998dca2"><div class="ttname"><a href="linkedList_8h.html#a8fa20e1616472647b39fbac98998dca2">setLLItem</a></div><div class="ttdeci">void setLLItem(LinkedList list, unsigned int index,...)</div><div class="ttdoc">Set value of an element of a LinkedList.</div></div>
+</div><!-- fragment -->
+<p>Set value of an element of an <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a> or <a class="el" href="structLinkedList.html" title="LinkedList type">LinkedList</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">list</td><td>The list you want to edit </td></tr>
+    <tr><td class="paramname">index</td><td>The index of the item you want to change </td></tr>
+    <tr><td class="paramname">newItem</td><td>The item you want to set the index-th element of <code>list</code> to </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a486078141f2256bd12828b1eb26b9c9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a486078141f2256bd12828b1eb26b9c9e">&#9670;&nbsp;</a></span>slice</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define slice</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">list, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">begin, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">end&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">                                         _Generic(list, <a class="code" href="structArrayList.html">ArrayList</a>       \</div>
+<div class="line">                                         : <a class="code" href="arrayList_8h.html#a64d772ff44a9ad27acadb1829bfe5550">sliceAL</a>, <a class="code" href="structLinkedList.html">LinkedList</a> \</div>
+<div class="line">                                         : <a class="code" href="linkedList_8h.html#a8edd6cbe452fec4163794713e06abaa9">sliceLL</a>)(list, begin, end)</div>
+<div class="ttc" id="aarrayList_8h_html_a64d772ff44a9ad27acadb1829bfe5550"><div class="ttname"><a href="arrayList_8h.html#a64d772ff44a9ad27acadb1829bfe5550">sliceAL</a></div><div class="ttdeci">void sliceAL(ArrayList list, unsigned int begin, unsigned int end)</div><div class="ttdoc">Slice an ArrayList.</div></div>
+<div class="ttc" id="alinkedList_8h_html_a8edd6cbe452fec4163794713e06abaa9"><div class="ttname"><a href="linkedList_8h.html#a8edd6cbe452fec4163794713e06abaa9">sliceLL</a></div><div class="ttdeci">void sliceLL(LinkedList list, unsigned int begin, unsigned int end)</div><div class="ttdoc">Slice a LinkedList.</div></div>
+</div><!-- fragment -->
+<p>Slice an <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a> or <a class="el" href="structLinkedList.html" title="LinkedList type">LinkedList</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">list</td><td>The list you want to slice, where the sliced list is saved </td></tr>
+    <tr><td class="paramname">begin</td><td>The index of the beginning of the slice </td></tr>
+    <tr><td class="paramname">end</td><td>The index of the end of the slice </td></tr>
   </table>
   </dd>
 </dl>

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['bubblesortarr_221',['bubbleSortArr',['../macros_8h.html#a753ecd1bbb75072521bd11fbe78f681a',1,'macros.h']]]
+  ['append_320',['append',['../macros_8h.html#ab42544e4b0f248615bcc93467cef93d4',1,'macros.h']]],
+  ['areequal_321',['areEqual',['../macros_8h.html#ab945b421fda9b45e42d98bcb58c6b5cb',1,'macros.h']]]
 ];

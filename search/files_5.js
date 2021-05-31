@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['types_2eh_128',['types.h',['../types_8h.html',1,'']]]
+  ['stack_2eh_187',['stack.h',['../stack_8h.html',1,'']]],
+  ['strings_2eh_188',['strings.h',['../strings_8h.html',1,'']]]
 ];

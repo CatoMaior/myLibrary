@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['endswith_35',['endsWith',['../strings_8h.html#a5e0b2c5b1074d1556bf7e3268667b49d',1,'strings.h']]],
-  ['equal_36',['EQUAL',['../constants_8h.html#a214c717b2e51e1993a749ac99df7de58',1,'constants.h']]]
+  ['endswith_47',['endsWith',['../strings_8h.html#a5e0b2c5b1074d1556bf7e3268667b49d',1,'strings.h']]],
+  ['enqueue_48',['enqueue',['../queue_8h.html#aff3b3154758d03d6dd3c63c3041526e2',1,'queue.h']]],
+  ['enqueuefromptr_49',['enqueueFromPtr',['../queue_8h.html#a4ef8d2b9b71fd9707ec59a97675773a8',1,'queue.h']]],
+  ['equal_50',['EQUAL',['../constants_8h.html#a214c717b2e51e1993a749ac99df7de58',1,'constants.h']]]
 ];

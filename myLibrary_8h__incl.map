@@ -1,12 +1,14 @@
 <map id="myLibrary.h" name="myLibrary.h">
-<area shape="rect" id="node1" title="Includes all other headers. Useful for rapid import." alt="" coords="354,5,442,32"/>
+<area shape="rect" id="node1" title="Includes all other headers. Useful for rapid import." alt="" coords="393,5,481,32"/>
 <area shape="rect" id="node2" href="$constants_8h.html" title="Definition of symbolic constants used by the library." alt="" coords="5,80,95,107"/>
-<area shape="rect" id="node3" href="$macros_8h.html" title="Macros for emulated overloading." alt="" coords="119,80,194,107"/>
-<area shape="rect" id="node4" href="$types_8h.html" title="Collection of useful types." alt="" coords="411,155,473,181"/>
-<area shape="rect" id="node5" href="$strings_8h.html" title="Common tasks with strings." alt="" coords="269,80,340,107"/>
-<area shape="rect" id="node6" href="$arrays_8h.html" title="Common tasks with arrays: sorting, searching, printing etc." alt="" coords="365,80,431,107"/>
-<area shape="rect" id="node7" href="$utility_8h.html" title="Common tasks such as comparing variables, allocate memory." alt="" coords="456,80,519,107"/>
-<area shape="rect" id="node8" href="$arrayList_8h.html" title="Functions and macros for working with ArrayList type." alt="" coords="543,80,626,107"/>
-<area shape="rect" id="node9" href="$linkedList_8h.html" title="Functions for working with LinkedList type." alt="" coords="650,80,738,107"/>
-<area shape="rect" id="node10" href="$stack_8h.html" title="Functions for working with Stack type." alt="" coords="762,80,826,107"/>
+<area shape="rect" id="node3" href="$macros_8h.html" title="Macros for emulated overloading." alt="" coords="842,80,917,107"/>
+<area shape="rect" id="node4" href="$types_8h.html" title="Collection of useful types." alt="" coords="455,155,517,181"/>
+<area shape="rect" id="node6" href="$strings_8h.html" title="Common tasks with strings." alt="" coords="171,80,241,107"/>
+<area shape="rect" id="node7" href="$arrays_8h.html" title="Common tasks with arrays: sorting, searching, printing etc." alt="" coords="266,80,333,107"/>
+<area shape="rect" id="node8" href="$utility_8h.html" title="Common tasks such as comparing variables, allocate memory." alt="" coords="357,80,420,107"/>
+<area shape="rect" id="node9" href="$arrayList_8h.html" title="Functions for working with ArrayList type." alt="" coords="445,80,527,107"/>
+<area shape="rect" id="node10" href="$linkedList_8h.html" title="Functions for working with LinkedList type." alt="" coords="551,80,639,107"/>
+<area shape="rect" id="node11" href="$stack_8h.html" title="Functions for working with Stack type." alt="" coords="663,80,727,107"/>
+<area shape="rect" id="node12" href="$queue_8h.html" title="Functions for working with Queue type." alt="" coords="751,80,818,107"/>
+<area shape="rect" id="node5" title=" " alt="" coords="847,155,911,181"/>
 </map>

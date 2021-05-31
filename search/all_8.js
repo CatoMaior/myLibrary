@@ -1,12 +1,20 @@
 var searchData=
 [
-  ['inserttoal_48',['insertToAL',['../arrayList_8h.html#ad9c63d93e864545f831046d5f6daa1cc',1,'arrayList.h']]],
-  ['inserttoll_49',['insertToLL',['../linkedList_8h.html#a320872311309478fbb9303c243118439',1,'linkedList.h']]],
-  ['intbubblesort_50',['intBubbleSort',['../arrays_8h.html#a114783f8a2beed66f15d55a6c49c678d',1,'arrays.h']]],
-  ['intcmp_51',['intCmp',['../utility_8h.html#aebc7b095cdd90551a58295a17ce16dfd',1,'utility.h']]],
-  ['intquicksort_52',['intQuickSort',['../arrays_8h.html#a677a34cb7719b2d787fd9b2dbb028067',1,'arrays.h']]],
-  ['isinal_53',['isInAL',['../arrayList_8h.html#a6da3e6651c424fcd315276be094d5984',1,'arrayList.h']]],
-  ['isinll_54',['isInLL',['../linkedList_8h.html#a56b44c3c46c8eead0d3b15074294c675',1,'linkedList.h']]],
-  ['isinstack_55',['isInStack',['../stack_8h.html#a1ccca7cdcf5fe6369c825b1b0a7370ec',1,'stack.h']]],
-  ['isstackempty_56',['isStackEmpty',['../stack_8h.html#a7cc4b2706dcc4e54afabd77b4a79e904',1,'stack.h']]]
+  ['insert_70',['insert',['../macros_8h.html#af284a3a741a956507dceebf3876f15f4',1,'macros.h']]],
+  ['inserttoal_71',['insertToAL',['../arrayList_8h.html#ad9c63d93e864545f831046d5f6daa1cc',1,'arrayList.h']]],
+  ['inserttoll_72',['insertToLL',['../linkedList_8h.html#a320872311309478fbb9303c243118439',1,'linkedList.h']]],
+  ['intbubblesort_73',['intBubbleSort',['../arrays_8h.html#a114783f8a2beed66f15d55a6c49c678d',1,'arrays.h']]],
+  ['intcmp_74',['intCmp',['../utility_8h.html#aebc7b095cdd90551a58295a17ce16dfd',1,'utility.h']]],
+  ['intlinearsearch_75',['intLinearSearch',['../arrays_8h.html#abeb6ecdc09fc24543791150841349f2f',1,'arrays.h']]],
+  ['intquicksort_76',['intQuickSort',['../arrays_8h.html#a677a34cb7719b2d787fd9b2dbb028067',1,'arrays.h']]],
+  ['isalempty_77',['isALEmpty',['../arrayList_8h.html#a9114f17260811b5852d33c9c05903367',1,'arrayList.h']]],
+  ['isempty_78',['isEmpty',['../macros_8h.html#a675fb861d72498b7b6fc419e4b96e040',1,'macros.h']]],
+  ['isin_79',['isIn',['../macros_8h.html#a318a0db3e24c77c85373ad2c2b1b89c2',1,'macros.h']]],
+  ['isinal_80',['isInAL',['../arrayList_8h.html#a6da3e6651c424fcd315276be094d5984',1,'arrayList.h']]],
+  ['isinll_81',['isInLL',['../linkedList_8h.html#a56b44c3c46c8eead0d3b15074294c675',1,'linkedList.h']]],
+  ['isinqueue_82',['isInQueue',['../queue_8h.html#a8225d47fadb15b7b9a83a7024d83ec04',1,'queue.h']]],
+  ['isinstack_83',['isInStack',['../stack_8h.html#a1ccca7cdcf5fe6369c825b1b0a7370ec',1,'stack.h']]],
+  ['isllempty_84',['isLLEmpty',['../linkedList_8h.html#a84ea06d361ffec2fa326e44ebcdeb4eb',1,'linkedList.h']]],
+  ['isqueueempty_85',['isQueueEmpty',['../queue_8h.html#af55455f7686bfb8f4104de8e3fb5bee0',1,'queue.h']]],
+  ['isstackempty_86',['isStackEmpty',['../stack_8h.html#a7cc4b2706dcc4e54afabd77b4a79e904',1,'stack.h']]]
 ];
