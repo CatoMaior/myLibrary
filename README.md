@@ -52,14 +52,14 @@ Download the build for Windows, unzip it and place it somewhere. Steps to import
 
 ## How to compile from source
 
-Compilation from source is currently supported only on Linux. The only dependency is `gcc`. Run:
-```bash
+Compilation from source is currently supported only on Linux. The only dependencies are `gcc` and `make`. Run:
+```
 git clone https://github.com/CatoMaior/myLibrary.git
 cd myLibrary
 make lib
 ```
 The compiled binaries are `myLibrary_Linux.lib` and `myLibrary_Windows.lib` in the `build` folder. If you want a pdf version of the docs too run:
-```bash
+```
 make docs
 ```
 The pdf is now in the `docs` folder
