@@ -62,13 +62,13 @@ void appendToLLFromPtr(LinkedList list, const void *element) {
     list->size++;
 }
 
-LinkedList chooseNewLLFromArray(const spec_t spec, const void *arr, unsigned int size) {
-    funcThrowIf(!spec || !arr, NULL_POINTER_GIVEN);
+LinkedList chooseNewLLFromArray(const spec_t spec, const void *list, unsigned int size) {
+    funcThrowIf(!spec || !list, NULL_POINTER_GIVEN);
     funcThrowIf(!isTypeSupported(spec), UNSUPPORTED_SPECIFIER);
-    LinkedList list = newLL(spec);
+    LinkedList newList = newLL(spec);
     for (unsigned int i = 0; i < size; i++)
-        appendToLLFromPtr(list, arr + i * getTypeSize(spec));
-    return list;
+        appendToLLFromPtr(newList, list + i * getTypeSize(spec));
+    return newList;
 }
 
 void deleteLL(LinkedList list) {
@@ -290,4 +290,34 @@ byte isInLL(LinkedList list, ...) {
 unsigned int getLLLength(const LinkedList list) {
     funcThrowIf(!list, NULL_LL_GIVEN);
     return list->size;
+}
+
+LinkedList newLLFromCharArray(const char arr[], unsigned int size) {
+    funcThrowIf(!arr, NULL_POINTER_GIVEN);
+    return chooseNewLLFromArray("%c", arr, size);
+}
+
+LinkedList newLLFromIntArray(const int arr[], unsigned int size) {
+    funcThrowIf(!arr, NULL_POINTER_GIVEN);
+    return chooseNewLLFromArray("%i", arr, size);
+}
+
+LinkedList newLLFromFloatArray(const float arr[], unsigned int size) {
+    funcThrowIf(!arr, NULL_POINTER_GIVEN);
+    return chooseNewLLFromArray("%f", arr, size);
+}
+
+LinkedList newLLFromDoubleArray(const double arr[], unsigned int size) {
+    funcThrowIf(!arr, NULL_POINTER_GIVEN);
+    return chooseNewLLFromArray("%lf", arr, size);
+}
+
+LinkedList newLLFromPtrArray(const void *arr, unsigned int size) {
+    funcThrowIf(!arr, NULL_POINTER_GIVEN);
+    return chooseNewLLFromArray("%p", arr, size);
+}
+
+byte isLLEmpty(LinkedList list) {
+    funcThrowIf(!list, NULL_LL_GIVEN);
+    return list->size == 0 ? TRUE : FALSE;
 }

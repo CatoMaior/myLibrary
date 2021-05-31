@@ -99,4 +99,44 @@ void enqueueFromPtr(Queue queue, const void *element);
  */
 byte isQueueEmpty(Stack stack);
 
+/**
+ * @brief Create a ::Queue from an array of chars
+ * @details Equivalent to `chooseNewQueueFromArray("%c", arr, size)`. Refer to chooseNewQueueFromArray()
+ */
+Queue newQueueFromCharArray(const char arr[], unsigned int size);
+
+/**
+ * @brief Create a ::Queue from an array of integers
+ * @details Equivalent to `chooseNewQueueFromArray("%i", arr, size)`. Refer to chooseNewQueueFromArray()
+ */
+Queue newQueueFromIntArray(const int arr[], unsigned int size);
+
+/**
+ * @brief Create a ::Queue from an array of floats
+ * @details Equivalent to `chooseNewQueueFromArray("%f", arr, size)`. Refer to chooseNewQueueFromArray()
+ */
+Queue newQueueFromFloatArray(const float arr[], unsigned int size);
+
+/**
+ * @brief Create a ::Queue from an array of doubles
+ * @details Equivalent to `chooseNewQueueFromArray("%lf", arr, size)`. Refer to chooseNewQueueFromArray()
+ */
+Queue newQueueFromDoubleArray(const double arr[], unsigned int size);
+
+/**
+ * @brief Create a ::Queue from an array of pointers
+ * @details Equivalent to `chooseNewQueueFromArray("%p", arr, size)`. Refer to chooseNewQueueFromArray()
+ */
+Queue newQueueFromPtrArray(const void *arr, unsigned int size);
+
+/**
+ * @brief Compare two ::Queue
+ * @param queue1 The first ::Queue you want to compare
+ * @param queue2 The second ::Queue you want to compare
+ * @return The result of the comparison
+ * @retval TRUE `Queue1` and `Queue2` have equal type and equal contents
+ * @retval FALSE `Queue1` and `Queue2` do not have equal type or equal contents
+ */
+byte areQueuesEqual(const Queue queue1, const Queue queue2);
+
 #endif

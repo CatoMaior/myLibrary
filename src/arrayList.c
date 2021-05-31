@@ -275,7 +275,7 @@ ArrayList newALFromDoubleArray(const double list[], unsigned int size) {
     return newArray;
 }
 
-ArrayList newALFromPtrArray(const void **list, unsigned int size) {
+ArrayList newALFromPtrArray(const void *list, unsigned int size) {
     throwIf(!list, NULL_AL_GIVEN, __func__);
     ArrayList newArray = saferMalloc(sizeof(*newArray));
     spec_t spec = "%p";
@@ -318,4 +318,9 @@ int linearSearchAL(ArrayList list, ...) {
 unsigned int getALLength(const ArrayList list) {
     funcThrowIf(!list, NULL_AL_GIVEN);
     return list->size;
+}
+
+byte isALEmpty(ArrayList list) {
+    funcThrowIf(!list, NULL_AL_GIVEN);
+    return list->size == 0 ? TRUE : FALSE;
 }

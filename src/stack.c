@@ -21,7 +21,7 @@ void printStack(const spec_t spec, const Stack stack) {
     printLinked(spec, stack);
 }
 
-void pushToStack(Stack stack, ...) {
+void push(Stack stack, ...) {
     funcThrowIf(!stack, NULL_STACK_GIVEN);
     funcThrowIf(!stack->type, NULL_STACK_TYPE);
     Node newNode = saferMalloc(sizeof(*newNode));
@@ -45,7 +45,7 @@ void getHeadDataFromStack(Stack stack, void *dest) {
     memcpy(dest, stack->head->data, getTypeSize(stack->type));
 }
 
-void popFromStack(Stack stack, void *dest) {
+void pop(Stack stack, void *dest) {
     funcThrowIf(!stack, NULL_STACK_GIVEN);
     funcThrowIf(!stack->type, NULL_STACK_TYPE);
     funcThrowIf(!stack->head, NULL_STACK_HEAD);
@@ -97,11 +97,11 @@ Stack chooseNewStackFromArray(const spec_t spec, const void *arr, unsigned int s
     funcThrowIf(!isTypeSupported(spec), UNSUPPORTED_SPECIFIER);
     Stack stack = newStack(spec);
     for (unsigned int i = 0; i < size; i++)
-        pushToStackFromPtr(stack, arr + i * getTypeSize(spec));
+        pushFromPtr(stack, arr + i * getTypeSize(spec));
     return stack;
 }
 
-void pushToStackFromPtr(Stack stack, const void *element) {
+void pushFromPtr(Stack stack, const void *element) {
     funcThrowIf(!stack, NULL_STACK_GIVEN);
     funcThrowIf(!stack->type, NULL_STACK_TYPE);
     Node newNode = saferMalloc(sizeof(*newNode));
@@ -119,4 +119,47 @@ unsigned int getStackLength(const Stack stack) {
     for (Node currNode = stack->head; currNode; currNode = currNode->linked)
         length++;
     return length;
+}
+
+Stack newStackFromCharArray(const char arr[], unsigned int size) {
+    funcThrowIf(!arr, NULL_POINTER_GIVEN);
+    return chooseNewStackFromArray("%c", arr, size);
+}
+
+Stack newStackFromIntArray(const int arr[], unsigned int size) {
+    funcThrowIf(!arr, NULL_POINTER_GIVEN);
+    return chooseNewStackFromArray("%i", arr, size);
+}
+
+Stack newStackFromFloatArray(const float arr[], unsigned int size) {
+    funcThrowIf(!arr, NULL_POINTER_GIVEN);
+    return chooseNewStackFromArray("%f", arr, size);
+}
+
+Stack newStackFromDoubleArray(const double arr[], unsigned int size) {
+    funcThrowIf(!arr, NULL_POINTER_GIVEN);
+    return chooseNewStackFromArray("%lf", arr, size);
+}
+
+Stack newStackFromPtrArray(const void **arr, unsigned int size) {
+    funcThrowIf(!arr, NULL_POINTER_GIVEN);
+    return chooseNewStackFromArray("%p", arr, size);
+}
+
+byte areStacksEqual(const Stack stack1, const Stack stack2) {
+    funcThrowIf(!stack1 || !stack2, NULL_STACK_GIVEN);
+    funcThrowIf(!stack1->type || !stack2->type, NULL_STACK_TYPE);
+    if (strcmp(stack1->type, stack2->type) != 0)
+        return FALSE;
+    Node head1 = stack1->head, head2 = stack2->head;
+    byte typeSize = getTypeSize(stack1->type);
+    while (head1 && head2) {
+        if (memcmp(head1->data, head2->data, typeSize) != 0)
+            return FALSE;
+        head1 = head1->linked;
+        head2 = head2->linked;
+    }
+    if (head1 == head2)
+        return TRUE;
+    return FALSE;
 }

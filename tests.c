@@ -69,7 +69,6 @@ int main() {
     printf("\n\n");
     printQueue("%16p", ptrQueue);
     printf("\n\n\n");
-    ;
 
     byte myByteForQueue;
     char myCharForQueue;
@@ -144,12 +143,33 @@ int main() {
     printf("%3i", isInQueue(ptrQueue, NULL));
     printf("\n\n\n");
 
+    Queue byteQueue2 = chooseNewQueueFromArray("%c", byteArrForQueue, 7);
+    Queue charQueue2 = chooseNewQueueFromArray("%c", charArrForQueue, 7);
+    Queue intQueue2 = chooseNewQueueFromArray("%i", intArrForQueue, 7);
+    Queue floatQueue2 = chooseNewQueueFromArray("%f", floatArrForQueue, 7);
+    Queue doubleQueue2 = chooseNewQueueFromArray("%lf", doubleArrForQueue, 7);
+    Queue ptrQueue2 = chooseNewQueueFromArray("%p", ptrArrForQueue, 7);
+
+    printf("Testing areQueuesEqual()\n");
+    printf("%hi %hi\n", areQueuesEqual(byteQueue, byteQueue), areQueuesEqual(byteQueue, byteQueue2));
+    printf("%hi %hi\n", areQueuesEqual(charQueue, charQueue), areQueuesEqual(charQueue, charQueue2));
+    printf("%hi %hi\n", areQueuesEqual(intQueue, intQueue), areQueuesEqual(intQueue, intQueue2));
+    printf("%hi %hi\n", areQueuesEqual(floatQueue, floatQueue), areQueuesEqual(floatQueue, floatQueue2));
+    printf("%hi %hi\n", areQueuesEqual(doubleQueue, doubleQueue), areQueuesEqual(doubleQueue, doubleQueue2));
+    printf("%hi %hi\n", areQueuesEqual(ptrQueue, ptrQueue), areQueuesEqual(ptrQueue, ptrQueue2));
+
     deleteQueue(byteQueue);
     deleteQueue(charQueue);
     deleteQueue(intQueue);
     deleteQueue(floatQueue);
     deleteQueue(doubleQueue);
     deleteQueue(ptrQueue);
+    deleteQueue(byteQueue2);
+    deleteQueue(charQueue2);
+    deleteQueue(intQueue2);
+    deleteQueue(floatQueue2);
+    deleteQueue(doubleQueue2);
+    deleteQueue(ptrQueue2);
 
 #endif
 
@@ -219,12 +239,12 @@ int main() {
     double myDoubleForStack;
     void *myPtrForStack;
 
-    pushToStack(byteStack, 42);
-    pushToStack(charStack, 'a');
-    pushToStack(intStack, 422);
-    pushToStack(floatStack, -2.2);
-    pushToStack(doubleStack, -2.21);
-    pushToStack(ptrStack, &myDoubleForStack);
+    push(byteStack, 42);
+    push(charStack, 'a');
+    push(intStack, 422);
+    push(floatStack, -2.2);
+    push(doubleStack, -2.21);
+    push(ptrStack, &myDoubleForStack);
     printf("Testing pushToStack()\n");
     printStack("%4hi", byteStack);
     printf("\n\n");
@@ -246,6 +266,26 @@ int main() {
     deleteHeadFromStack(doubleStack);
     deleteHeadFromStack(ptrStack);
     printf("Testing deleteHeadFromStack()\n");
+    printStack("%4hi", byteStack);
+    printf("\n\n");
+    printStack("%2c", charStack);
+    printf("\n\n");
+    printStack("%6i", intStack);
+    printf("\n\n");
+    printStack("%9.1f", floatStack);
+    printf("\n\n");
+    printStack("%10.2lf", doubleStack);
+    printf("\n\n");
+    printStack("%16p", ptrStack);
+    printf("\n\n\n");
+
+    pop(byteStack, &myByteForStack);
+    pop(charStack, &myCharForStack);
+    pop(intStack, &myIntForStack);
+    pop(floatStack, &myFloatForStack);
+    pop(doubleStack, &myDoubleForStack);
+    pop(ptrStack, &myPtrForStack);
+    printf("Testing popFromStack()\n");
     printStack("%4hi", byteStack);
     printf("\n\n");
     printStack("%2c", charStack);
@@ -285,12 +325,33 @@ int main() {
     printf("%3i", isInStack(ptrStack, NULL));
     printf("\n\n\n");
 
+    Stack byteStack2 = chooseNewStackFromArray("%c", byteArrForStack, 7);
+    Stack charStack2 = chooseNewStackFromArray("%c", charArrForStack, 7);
+    Stack intStack2 = chooseNewStackFromArray("%i", intArrForStack, 7);
+    Stack floatStack2 = chooseNewStackFromArray("%f", floatArrForStack, 7);
+    Stack doubleStack2 = chooseNewStackFromArray("%lf", doubleArrForStack, 7);
+    Stack ptrStack2 = chooseNewStackFromArray("%p", ptrArrForStack, 7);
+
+    printf("Testing areStacksEqual()\n");
+    printf("%hi %hi\n", areStacksEqual(byteStack, byteStack), areStacksEqual(byteStack, byteStack2));
+    printf("%hi %hi\n", areStacksEqual(charStack, charStack), areStacksEqual(charStack, charStack2));
+    printf("%hi %hi\n", areStacksEqual(intStack, intStack), areStacksEqual(intStack, intStack2));
+    printf("%hi %hi\n", areStacksEqual(floatStack, floatStack), areStacksEqual(floatStack, floatStack2));
+    printf("%hi %hi\n", areStacksEqual(doubleStack, doubleStack), areStacksEqual(doubleStack, doubleStack2));
+    printf("%hi %hi\n", areStacksEqual(ptrStack, ptrStack), areStacksEqual(ptrStack, ptrStack2));
+
     deleteStack(byteStack);
     deleteStack(charStack);
     deleteStack(intStack);
     deleteStack(floatStack);
     deleteStack(doubleStack);
     deleteStack(ptrStack);
+    deleteStack(byteStack2);
+    deleteStack(charStack2);
+    deleteStack(intStack2);
+    deleteStack(floatStack2);
+    deleteStack(doubleStack2);
+    deleteStack(ptrStack2);
 
 #endif
 
@@ -1025,10 +1086,10 @@ int main() {
     printf("String: %s\n", myString);
     myString = changeLastCharacter(myString, 'X');
     printf("Changed string: %s\n", myString);
-    printf("Changed string length: %i\n", getLength(myString));
+    printf("Changed string length: %lu\n", getLength(myString));
     myString = changeLastCharacter(myString, '\0');
     printf("Shrinked string: %s\n", myString);
-    printf("Shrinked string length: %i\n", getLength(myString));
+    printf("Shrinked string length: %lu\n", getLength(myString));
     printf("\n\n");
 
 #endif

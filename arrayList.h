@@ -1,26 +1,13 @@
 /**
  * @file arrayList.h
  * @author Pietro Firpo (pietro.firpo@pm.me)
- * @brief Functions and macros for working with ::ArrayList type
+ * @brief Functions for working with ::ArrayList type
  */
 
 #ifndef SEEN_ARRAYLIST
 #define SEEN_ARRAYLIST
 
 #include "types.h"
-
-/**
- * @brief Create an ::ArrayList from a static list
- * @param list The list you want to create an ::ArrayList from
- * @param size The size of `list`
- * @note Passing an list of pointers is not supported
- * @return An ::ArrayList containing all the elements of `list`
- */
-#define newALFromArray(list, size) _Generic(list, char *                     \
-                                           : newALFromCharArray, int *     \
-                                           : newALFromIntArray, float *    \
-                                           : newALFromFloatArray, double * \
-                                           : newALFromDoubleArray)(list, size)
 
 // TYPE INDIPENDENT FUNCTIONS
 /**
@@ -46,8 +33,8 @@ ArrayList newALFromAL(const ArrayList list);
 void appendToAL(ArrayList list, ...);
 
 /**
- * @brief Insert an element at a specified position of an ::ArrayList
- * @param list The ::ArrayList you want to insert an element into
+ * @brief Insert an item at a specified position of an ::ArrayList
+ * @param list The ::ArrayList you want to insert an item into
  * @param index The position you want to insert an item at
  * @param ... The item you want to insert into `list`
  * @note Even though inserting more than one item for single call does not throw a compiler nor runtime error, only inserting one item is supported. Other items are ignored and are not inserted into `list`. If you don't specify any item to be inserted, still no errors occur but the content of your ::ArrayList can be messed up
@@ -55,10 +42,10 @@ void appendToAL(ArrayList list, ...);
 void insertToAL(ArrayList list, unsigned int index, ...);
 
 /**
- * @brief Set value of an element of an ::ArrayList
+ * @brief Set value of an item of an ::ArrayList
  * @param list The ::ArrayList you want to edit
- * @param index The index of the element you want to change
- * @param ... The item you want to insert into `list`
+ * @param index The index of the item you want to change
+ * @param ... The item you want to set the index-th item of `list` to
  * @note Even though changing more than one item for single call does not throw a compiler nor runtime error, only setting one item is supported. Other items are ignored. If you don't specify any item to be inserted, still no errors occur but the content of your ::ArrayList can be messed up
  */
 void setALItem(ArrayList list, unsigned int index, ...);
@@ -80,7 +67,7 @@ void sliceAL(ArrayList list, unsigned int begin, unsigned int end);
 
 /**
  * @brief Print contents from an ::ArrayList
- * @param spec The type and format specifier you want to use to print the single element of the ::ArrayList. Use the `printf()` conventions
+ * @param spec The type and format specifier you want to use to print the single item of the ::ArrayList. Use the `printf()` conventions
  * @param list The ::ArrayList you want to print
  */
 void printAL(const spec_t spec, const ArrayList list);
@@ -135,12 +122,12 @@ void bubbleSortAL(ArrayList list);
 void quickSortAL(ArrayList list);
 
 /**
- * @brief Detect if an element is inside an ::ArrayList
+ * @brief Detect if an item is inside an ::ArrayList
  * @param list The ::ArrayList you want search in
- * @param ... The element you want to search
+ * @param ... The item you want to search
  * @note Even though searching more than one item for single call does not throw a compiler nor runtime error, only searching one item is supported. Other items are ignored. If you don't specify any item to be searched, still no errors occur but the return value of the function can be unpredictable
- * @retval TRUE Given element is contained in `list`
- * @retval FALSE Given element is not contained in `list`
+ * @retval TRUE Given item is contained in `list`
+ * @retval FALSE Given item is not contained in `list`
  */
 byte isInAL(ArrayList list, ...);
 
@@ -160,7 +147,7 @@ int linearSearchAL(ArrayList list, ...);
  * @param spec The type specifier of the array passed. Refer to spec_t
  * @param list The list you want to create the ::ArrayList from
  * @param size The number of items in `list`
- * @return An ::ArrayList containing the elements in `list` in the same order
+ * @return An ::ArrayList containing the items in `list` in the same order
  */
 ArrayList chooseNewALFromArray(const spec_t spec, const void *list, unsigned int size);
 
@@ -199,13 +186,21 @@ ArrayList newALFromDoubleArray(const double list[], unsigned int size);
  * @brief Create ::ArrayList from an list of pointers
  * @details Equivalent to `chooseNewALFromArray("%p", list, size)`. Refer to chooseNewALFromArray()
  */
-ArrayList newALFromPtrArray(const void **list, unsigned int size);
+ArrayList newALFromPtrArray(const void *list, unsigned int size);
 
 /**
  * @brief Get the size of an ::ArrayList
  * @param list The ::ArrayList you want to evaluate
- * @return The number of elements in `list`
+ * @return The number of items in `list`
  */
 unsigned int getALLength(const ArrayList list);
+
+/**
+ * @brief Check if ::ArrayList is empty
+ * @param list The ::ArrayList to be checked
+ * @retval TRUE `list` is empty
+ * @retval FALSE `list` is not empty
+ */
+byte isALEmpty(ArrayList list);
 
 #endif

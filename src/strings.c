@@ -29,14 +29,9 @@ byte endsWith(const string str, const string suffix) {
     return strncmp(str + lenstr - lensuffix, suffix, lensuffix) == 0 ? TRUE : FALSE;
 }
 
-unsigned int getLength(const string str) {
-    funcThrowIf(!str, NULL_POINTER_GIVEN);
-    return strlen(str);
-}
-
 string copyOf(const string src) {
     funcThrowIf(!src, NULL_POINTER_GIVEN);
-    char *dest = (char *)saferMalloc(getLength(src) * sizeof(char));
+    char *dest = (char *)saferMalloc(strlen(src) * sizeof(char));
     strcpy(dest, src);
     return dest;
 }
@@ -44,6 +39,6 @@ string copyOf(const string src) {
 string changeLastCharacter(const string str, char newCharacter) {
     funcThrowIf(!str, NULL_POINTER_GIVEN);
     string newString = copyOf(str);
-    *(newString + (getLength(str) - 1) * sizeof(char)) = newCharacter;
+    *(newString + (strlen(str) - 1) * sizeof(char)) = newCharacter;
     return newString;
 }

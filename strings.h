@@ -36,13 +36,6 @@ byte endsWith(const string str, const string suffix);
 string changeLastCharacter(const string str, char newCharacter);
 
 /**
- * @brief Get the lenght of a ::string (terminator EXCLUDED)
- * @param str The ::string to be evaluated
- * @return The lenght of the given ::string (terminator EXCLUDED)
- */
-unsigned int getLength(const string str);
-
-/**
  * @brief Get a copy of the given ::string
  * @param src The ::string to be copied
  * @return A pointer to the copy of the given ::string

@@ -22,7 +22,7 @@ Stack newStack(const spec_t spec);
  * @param ... The item you want to push into `stack`
  * @note Even though pushing more than one item for single call does not throw a compiler nor runtime error, only pushing one item is supported. Other items are ignored and are not pushed into `stack`. If you don't specify any item to be pushed, still no errors occur but the content of your ::Stack can be messed up
  */
-void pushToStack(Stack stack, ...);
+void push(Stack stack, ...);
 
 /**
  * @brief Print contents from a ::Stack
@@ -36,7 +36,7 @@ void printStack(const spec_t spec, const Stack stack);
  * @param stack The ::Stack you want to pop an item from
  * @param dest The address of the variable you want to store the popped item in
  */
-void popFromStack(Stack stack, void *dest);
+void pop(Stack stack, void *dest);
 
 /**
  * @brief Delete current ::Stack head
@@ -90,7 +90,7 @@ Stack chooseNewStackFromArray(const spec_t spec, const void *arr, unsigned int s
  * @param stack The ::Stack you want to push an item into
  * @param element Pointer to the item you want to push into `stack`
  */
-void pushToStackFromPtr(Stack stack, const void *element);
+void pushFromPtr(Stack stack, const void *element);
 
 /**
  * @brief Get the size of a ::Stack
@@ -98,5 +98,45 @@ void pushToStackFromPtr(Stack stack, const void *element);
  * @return The number of elements in `stack`
  */
 unsigned int getStackLength(const Stack stack);
+
+/**
+ * @brief Create a ::Stack from an array of chars
+ * @details Equivalent to `chooseNewStackFromArray("%c", arr, size)`. Refer to chooseNewStackFromArray()
+ */
+Stack newStackFromCharArray(const char arr[], unsigned int size);
+
+/**
+ * @brief Create a ::Stack from an array of integers
+ * @details Equivalent to `chooseNewStackFromArray("%i", arr, size)`. Refer to chooseNewStackFromArray()
+ */
+Stack newStackFromIntArray(const int arr[], unsigned int size);
+
+/**
+ * @brief Create a ::Stack from an array of floats
+ * @details Equivalent to `chooseNewStackFromArray("%f", arr, size)`. Refer to chooseNewStackFromArray()
+ */
+Stack newStackFromFloatArray(const float arr[], unsigned int size);
+
+/**
+ * @brief Create a ::Stack from an array of doubles
+ * @details Equivalent to `chooseNewStackFromArray("%lf", arr, size)`. Refer to chooseNewStackFromArray()
+ */
+Stack newStackFromDoubleArray(const double arr[], unsigned int size);
+
+/**
+ * @brief Create a ::Stack from an array of pointers
+ * @details Equivalent to `chooseNewStackFromArray("%p", arr, size)`. Refer to chooseNewStackFromArray()
+ */
+Stack newStackFromPtrArray(const void *arr, unsigned int size);
+
+/**
+ * @brief Compare two ::Stack
+ * @param stack1 The first ::Stack you want to compare
+ * @param stack2 The second ::Stack you want to compare
+ * @return The result of the comparison
+ * @retval TRUE `stack1` and `stack2` have equal type and equal contents
+ * @retval FALSE `stack1` and `stack2` do not have equal type or equal contents
+ */
+byte areStacksEqual(const Stack stack1, const Stack stack2);
 
 #endif

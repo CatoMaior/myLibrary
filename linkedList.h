@@ -74,7 +74,7 @@ void getFromLL(LinkedList list, unsigned int index, void *dest);
  * @brief Set value of an element of a ::LinkedList
  * @param list The ::LinkedList you want to edit
  * @param index The index of the element you want to change
- * @param ... The item you want to insert into `list`
+ * @param ... The item you want to set the index-th element of `list` to
  * @note Even though changing more than one item for single call does not throw a compiler nor runtime error, only setting one item is supported. Other items are ignored. If you don't specify any item to be inserted, still no errors occur but the content of your ::LinkedList can be messed up
  */
 void setLLItem(LinkedList list, unsigned int index, ...);
@@ -156,6 +156,44 @@ byte isInLL(LinkedList list, ...);
  * @return The number of elements in `list`
  */
 unsigned int getLLLength(const LinkedList list);
+
+/**
+ * @brief Create a ::LinkedList from a array of chars
+ * @details Equivalent to `chooseNewLLFromArray("%c", arr, size)`. Refer to chooseNewLLFromArray()
+ */
+LinkedList newLLFromCharArray(const char arr[], unsigned int size);
+
+/**
+ * @brief Create a ::LinkedList from a array of ints
+ * @details Equivalent to `chooseNewLLFromArray("%i", arr, size)`. Refer to chooseNewLLFromArray()
+ */
+LinkedList newLLFromIntArray(const int arr[], unsigned int size);
+
+/**
+ * @brief Create a ::LinkedList from a array of floats
+ * @details Equivalent to `chooseNewLLFromArray("%f", arr, size)`. Refer to chooseNewLLFromArray()
+ */
+LinkedList newLLFromFloatArray(const float arr[], unsigned int size);
+
+/**
+ * @brief Create a ::LinkedList from an array of doubles
+ * @details Equivalent to `chooseNewLLFromArray("%lf", arr, size)`. Refer to chooseNewLLFromArray()
+ */
+LinkedList newLLFromDoubleArray(const double arr[], unsigned int size);
+
+/**
+ * @brief Create a ::LinkedList from an array of pointers
+ * @details Equivalent to `chooseNewLLFromArray("%p", arr, size)`. Refer to chooseNewLLFromArray()
+ */
+LinkedList newLLFromPtrArray(const void *arr, unsigned int size);
+
+/**
+ * @brief Check if ::LinkedList is empty
+ * @param list The ::LinkedList to be checked
+ * @retval TRUE `list` is empty
+ * @retval FALSE `list` is not empty
+ */
+byte isLLEmpty(LinkedList list);
 
 // TODO Sorting algorithms, currently available only for ArrayList
 
