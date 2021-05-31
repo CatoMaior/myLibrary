@@ -1,10 +1,12 @@
 # myLibrary
-C library with common tasks or types. I know the name is not the best but I have no imagination for names
 
-Project in active development, check [here](https://catomaior.github.io/myLibrary/) for the documentation and [here](https://github.com/CatoMaior/myLibrary/releases/tag/latest) to download latest build.
+C library with common tasks or types. I know the name is not the best but I have no imagination for names\
+Project in active development, check [here](https://catomaior.github.io/myLibrary/) for the documentation and [here](https://github.com/CatoMaior/myLibrary/releases/tag/latest) to download latest build (64 bits only, but you can compile from source in order to support other architectures). 
 
 ## How to import
+
 ### On Linux
+
 Download the build for Linux, unzip it and place it somewhere. Consider the following code:
 ```c
 #include "myLibrary.h"
@@ -29,6 +31,7 @@ Where:
  - `path/to/folder/with/myLibrary/build/myLibrary_Linux.lib` is the path to the binary file of the library
 
 ### On Visual Studio for Windows
+
 Download the build for Windows, unzip it and place it somewhere. Steps to import:
  - Open the solution where you want to use myLibrary
  - Ensure the source file where you want to import myLibrary has `.c` extension. If its extension is `.cpp`, change it to `.c`
