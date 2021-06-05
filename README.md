@@ -8,16 +8,21 @@ Project in active development, check [here](https://catomaior.github.io/myLibrar
     - [ArrayLists](#arraylists)
     - [LinkedLists](#linkedlists)
     - [Stacks](#stacks)
+    - [Queues](#queues)
  - [How to import](#how-to-import) 
     - [On Linux](#on-linux)
     - [On Visual Studio for Windows](#on-visual-studio-for-windows)
  - [How to compile from source](#how-to-compile-from-source)
 
 ## Introduction and examples
-This library contains some useful data structure which are not supported by default in C, some frequently used functions and algorithms. As this library is written in C, almost every function needs you to specify as a function argument which type of data you are using it on through type and formatting specifiers. The convention used is the same used in standard C for `printf` and `scanf`. In order to make writing code a bit more lighter the library includes also some macros that automatically detect the type of arguments passed so you don't have to explicitly use format and type specifiers. However, these macros are supported only on C11 and newer compilers and using them in some development environments can cause warnings or errors reporting even though they are used correctly. See [macros.h](https://catomaior.github.io/myLibrary/macros_8h.html) in the docs for more. In order to be as inclusive as possibile, since this macros are not supported by every C compilers, in the following examples they are not used. The approach used by this library to handle errors with pointers is that every error is fatal: for example, when a pointer passed to a function is null and it should not be null, or some needed memory could not be allocated, the program prints where the error occurred and exits.
+This library contains some useful data structure which are not supported by default in C, some frequently used functions and algorithms.\
+As this library is written in C, almost every function needs you to specify as a function argument which type of data you are using it on through type and formatting specifiers. The convention used is the same used in standard C for `printf` and `scanf`. In order to make writing code a bit more lighter the library includes also some macros that automatically detect the type of arguments passed so you don't have to explicitly use format and type specifiers. However, these macros are supported only on C11 and newer compilers and using them in some development environments can cause warnings or errors reporting even though they are used correctly. See [macros.h](https://catomaior.github.io/myLibrary/macros_8h.html) in the docs for more. In order to be as inclusive as possibile, since this macros are not supported by every C compilers, in the following examples they are not used.\
+The approach used by this library to handle errors with pointers is that every error is fatal: for example, when a pointer passed to a function is null and it should not be null, or some needed memory could not be allocated, the program prints where the error occurred and exits.
 
 ### ArrayLists
-ArrayLists are dynamically growing and shrinking lists of data, which can be of `char`, `int`, `float`, `double` or pointer type. You can create an ArrayList from a C array or you can create a new empty ArrayList. You can append items at its end, insert items, change its items, get its items, sort it (only ascending order is currently supported), print it, merge it with another ArrayList and much more. See [arrayList.h](https://catomaior.github.io/myLibrary/arrayList_8h.html) in the docs for all the details. The difference with LinkedLists is in the implementation and hence in the time needed for accessing its item. For example, an ArrayList has constant time for accessing items, while a LinkedList takes linear time. If you are intrested in these topics I suggest you to search more information on the Internet, as LinkedList and ArrayList are very standard data structure and on the web you can find a lot of information. Here are some examples of ArrayList usage:
+ArrayLists are dynamically growing and shrinking lists of data, which can be of `char`, `int`, `float`, `double` or pointer type. You can create an ArrayList from a C array or you can create a new empty ArrayList. You can append items at its end, insert items, change its items, get its items, sort it (only ascending order is currently supported), print it, merge it with another ArrayList and much more. See [arrayList.h](https://catomaior.github.io/myLibrary/arrayList_8h.html) in the docs for all the details.\
+The difference with LinkedLists is in the implementation and hence in the time needed for accessing its item. For example, an ArrayList has constant time for accessing items, while a LinkedList takes linear time. If you are intrested in these topics I suggest you to search more information on the Internet, as LinkedList and ArrayList are very standard data structure and on the web you can find a lot of information.\
+Here are some examples of ArrayList usage:
 
 ```cpp
 #include "myLibrary.h"
@@ -42,7 +47,7 @@ int main() {
 
     // Change value of item at index 1 in list1
     setALItem(list1, 1, -2);
-    // Now the list1 contains: 3, -2, 4
+    // Now list1 contains: 3, -2, 4
 
     // Remove item at index 1 from list1
     removeFromAL(list1, 1);
@@ -98,7 +103,9 @@ int main() {
 ```
 
 ### LinkedLists
-LinkedLists are a quite standard implementation of linked lists, dynamically growing and shrinking lists of data, which can be of `char`, `int`, `float`, `double` or pointer type. You can create a LinkedList from a C array or you can create a new empty LinkedList. You can append items at its end, insert items, change its items, get its items, sort it (only ascending order is currently supported), print it, merge it with another LinkedList and much more. See [linkedList.h](https://catomaior.github.io/myLibrary/linkedList_8h.html) in the docs for all the details. The difference with ArrayLists is in the implementation and hence in the time needed for accessing its item. For example, a LinkedList has constant time for accessing items, while a LinkedList takes linear time. If you are intrested in these topics I suggest you to search more information on the Internet, as ArrayLists and LinkedList are very standard data structure and on the web you can find a lot of information. As for now, LinkedLists and ArrayLists have more or less the same functionalities except sorting and reversing, which are currently supported only on ArrayLists. Here are some examples of LinkedList usage:
+LinkedLists are a quite standard implementation of linked lists, dynamically growing and shrinking lists of data, which can be of `char`, `int`, `float`, `double` or pointer type. You can create a LinkedList from a C array or you can create a new empty LinkedList. You can append items at its end, insert items, change its items, get its items, sort it (only ascending order is currently supported), print it, merge it with another LinkedList and much more. See [linkedList.h](https://catomaior.github.io/myLibrary/linkedList_8h.html) in the docs for all the details.\
+The difference with ArrayLists is in the implementation and hence in the time needed for accessing its item. For example, a LinkedList has constant time for accessing items, while a LinkedList takes linear time. If you are intrested in these topics I suggest you to search more information on the Internet, as ArrayLists and LinkedList are very standard data structure and on the web you can find a lot of information. As for now, LinkedLists and ArrayLists have more or less the same functionalities except sorting and reversing, which are currently supported only on ArrayLists.\
+Here are some examples of LinkedList usage:
 
 ```cpp
 #include "myLibrary.h"
@@ -123,7 +130,7 @@ int main() {
 
     // Change value of item at index 1 in list1
     setLLItem(list1, 1, -2);
-    // Now the list1 contains: 3, -2, 4
+    // Now list1 contains: 3, -2, 4
 
     // Remove item at index 1 from list1
     removeFromLL(list1, 1);
@@ -171,7 +178,8 @@ int main() {
 ```
 
 ### Stacks
-Stacks are a quite standard implementation of LIFO stacks and can contain `char`, `int`, `float`, `double` or pointer data. You can create a Stack from a C array or you can create a new empty Stack. You can print its content, push items to its top, pop items from its top, peek from its top and much more. [stack.h](https://catomaior.github.io/myLibrary/stack_8h.html) in the docs for all the details. Here are some examples of Stack usage:
+Stacks are a quite standard implementation of LIFO stacks and can contain `char`, `int`, `float`, `double` or pointer data. You can create a Stack from a C array or you can create a new empty Stack. You can print its content, push items to its top, pop items from its top, peek from its top and much more. [stack.h](https://catomaior.github.io/myLibrary/stack_8h.html) in the docs for all the details.\
+Here are some examples of Stack usage:
 
 ```cpp
 #include "myLibrary.h"
@@ -195,7 +203,7 @@ int main() {
 
     // Pop the item on top from stack1 and save it into extracted
     pop(stack1, &extracted);
-    // stack1 contains: 4, 3; extracted is now -1
+    // Now stack1 contains: 4, 3; extracted is now -1
 
     // Peek the item on top from stack1 and save it into extracted
     peekStack(stack1, &extracted);
@@ -233,7 +241,8 @@ int main() {
 ```
 
 ### Queues
-Queues are a quite standard implementation of FIFO queues and can contain `char`, `int`, `float`, `double` or pointer data. You can create a Queue from a C array or you can create a new empty Queue. You can print its content, enqueue items to its end, dequeue items from its top, peek from its top and much more. [queue.h](https://catomaior.github.io/myLibrary/queue_8h.html) in the docs for all the details. Here are some examples of Queue usage:
+Queues are a quite standard implementation of FIFO queues and can contain `char`, `int`, `float`, `double` or pointer data. You can create a Queue from a C array or you can create a new empty Queue. You can print its content, enqueue items to its end, dequeue items from its top, peek from its top and much more. [queue.h](https://catomaior.github.io/myLibrary/queue_8h.html) in the docs for all the details.\
+Here are some examples of Queue usage:
 
 ```cpp
 #include "myLibrary.h"
