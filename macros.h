@@ -283,7 +283,7 @@
  * @param collection The ::Stack or ::Queue you want to get the item from
  * @param dest The address of the variable you want to store the item in
  */
-#define getHeadData(collection, dest) _Generic(list, Stack                   \
-                                         : getHeadDataFromStack, Queue \
-                                         : getHeadDataFromQueue)(collection)
+#define peek(collection, dest) _Generic(list, Stack                   \
+                                         : peekStack, Queue \
+                                         : peekQueue)(collection)
 #endif

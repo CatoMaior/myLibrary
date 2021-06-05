@@ -119,25 +119,25 @@ int main() {
 
     printf("Testing isInQueue()\n");
     for (int i = 0; i < 8; i++) {
-        getHeadDataFromQueue(byteQueue, &myByteForQueue);
+        peekQueue(byteQueue, &myByteForQueue);
         printf("%3i", isInQueue(byteQueue, myByteForQueue));
     }
     printf("%3i", isInQueue(byteQueue, -128));
     printf("\n");
     for (int i = 0; i < 8; i++) {
-        getHeadDataFromQueue(charQueue, &myCharForQueue);
+        peekQueue(charQueue, &myCharForQueue);
         printf("%3i", isInQueue(charQueue, myCharForQueue));
     }
     printf("%3i", isInQueue(charQueue, '\0'));
     printf("\n");
     for (int i = 0; i < 8; i++) {
-        getHeadDataFromQueue(intQueue, &myIntForQueue);
+        peekQueue(intQueue, &myIntForQueue);
         printf("%3i", isInQueue(intQueue, myIntForQueue));
     }
     printf("%3i", isInQueue(intQueue, -65536));
     printf("\n");
     for (int i = 0; i < 8; i++) {
-        getHeadDataFromQueue(ptrQueue, &myPtrForQueue);
+        peekQueue(ptrQueue, &myPtrForQueue);
         printf("%3i", isInQueue(ptrQueue, myPtrForQueue));
     }
     printf("%3i", isInQueue(ptrQueue, NULL));
@@ -301,25 +301,25 @@ int main() {
 
     printf("Testing isInStack()\n");
     for (int i = 0; i < 8; i++) {
-        getHeadDataFromStack(byteStack, &myByteForStack);
+        peekStack(byteStack, &myByteForStack);
         printf("%3i", isInStack(byteStack, myByteForStack));
     }
     printf("%3i", isInStack(byteStack, -128));
     printf("\n");
     for (int i = 0; i < 8; i++) {
-        getHeadDataFromStack(charStack, &myCharForStack);
+        peekStack(charStack, &myCharForStack);
         printf("%3i", isInStack(charStack, myCharForStack));
     }
     printf("%3i", isInStack(charStack, '\0'));
     printf("\n");
     for (int i = 0; i < 8; i++) {
-        getHeadDataFromStack(intStack, &myIntForStack);
+        peekStack(intStack, &myIntForStack);
         printf("%3i", isInStack(intStack, myIntForStack));
     }
     printf("%3i", isInStack(intStack, -65536));
     printf("\n");
     for (int i = 0; i < 8; i++) {
-        getHeadDataFromStack(ptrStack, &myPtrForStack);
+        peekStack(ptrStack, &myPtrForStack);
         printf("%3i", isInStack(ptrStack, myPtrForStack));
     }
     printf("%3i", isInStack(ptrStack, NULL));

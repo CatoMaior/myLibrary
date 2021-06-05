@@ -63,7 +63,7 @@ void deleteStack(Stack stack);
  * @param stack The ::Stack you want to get the item
  * @param dest The address of the variable you want to store the item in
  */
-void getHeadDataFromStack(Stack stack, void *dest);
+void peekStack(Stack stack, void *dest);
 
 /**
  * @brief Detect if an item is inside a ::Stack

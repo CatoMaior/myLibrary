@@ -38,7 +38,7 @@ void push(Stack stack, ...) {
     stack->head = newNode;
 }
 
-void getHeadDataFromStack(Stack stack, void *dest) {
+void peekStack(Stack stack, void *dest) {
     funcThrowIf(!stack, NULL_STACK_GIVEN);
     funcThrowIf(!stack->type, NULL_STACK_TYPE);
     funcThrowIf(!stack->head, NULL_STACK_HEAD);
@@ -49,7 +49,7 @@ void pop(Stack stack, void *dest) {
     funcThrowIf(!stack, NULL_STACK_GIVEN);
     funcThrowIf(!stack->type, NULL_STACK_TYPE);
     funcThrowIf(!stack->head, NULL_STACK_HEAD);
-    getHeadDataFromStack(stack, dest);
+    peekStack(stack, dest);
     deleteHeadFromStack(stack);
 }
 

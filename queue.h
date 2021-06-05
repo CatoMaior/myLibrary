@@ -56,7 +56,7 @@ void deleteHeadFromQueue(Queue queue);
  * @param queue The ::Queue you want to get the item in the head from
  * @param dest The address of the variable you want to store the item in
  */
-void getHeadDataFromQueue(const Queue queue, void *dest);
+void peekQueue(const Queue queue, void *dest);
 
 /**
  * @brief Delete a ::Queue

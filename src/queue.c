@@ -56,7 +56,7 @@ void deleteHeadFromQueue(Queue queue) {
     queue->head = newHead;
 }
 
-void getHeadDataFromQueue(const Queue queue, void *dest) {
+void peekQueue(const Queue queue, void *dest) {
     funcThrowIf(!queue, NULL_QUEUE_GIVEN);
     funcThrowIf(!queue->type, NULL_QUEUE_TYPE);
     funcThrowIf(!queue->head, NULL_QUEUE_HEAD);
@@ -67,7 +67,7 @@ void dequeue(Queue queue, void *dest) {
     funcThrowIf(!queue, NULL_QUEUE_GIVEN);
     funcThrowIf(!queue->type, NULL_QUEUE_TYPE);
     funcThrowIf(!queue->head, NULL_QUEUE_HEAD);
-    getHeadDataFromQueue(queue, dest);
+    peekQueue(queue, dest);
     deleteHeadFromQueue(queue);
 }
 
