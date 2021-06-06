@@ -249,7 +249,7 @@
 /**
  * @brief Linear search for an ::ArrayList or ::LinkedList
  * @param list The ::ArrayList or ::LinkedList to be inspected
- * @param ley The key to be searched
+ * @param key The key to be searched
  * @note This function does not support float and double ::LinkedList or ::ArrayList types
  * @return The index of the first occurence of the key in the list or the return code of the function called
  * @retval KEY_NOT_FOUND The key was not found
@@ -260,7 +260,7 @@
 
 /**
  * @brief Delete current ::Stack or ::Queue head
- * @param stack The ::Stack or ::Queue you want to delete the head from
+ * @param collection The ::Stack or ::Queue you want to delete the head from
  */
 #define deleteHead(collection) _Generic(list, Stack                  \
                                   : deleteHeadFromStack, Queue \
