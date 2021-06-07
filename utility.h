@@ -10,8 +10,8 @@
 #include "types.h"
 
 /**
- * @brief Compare two chars
- * @param spec Type specifier of the values to be sorted. Refer to ::spec_t for supported types.
+ * @brief Compare two values
+ * @param spec Type specifier of the values to be compared. Refer to ::spec_t for supported types.
  * @param a Pointer to the first element to be compared
  * @param b Pointer to the second element to be compared
  * @return Constant for the corresponding comparation result
