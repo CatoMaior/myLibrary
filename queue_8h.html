@@ -113,9 +113,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a233e15d2bdee45574cd2db816a6cc94d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="queue_8h.html#a233e15d2bdee45574cd2db816a6cc94d">deleteHeadFromQueue</a> (<a class="el" href="structQueue.html">Queue</a> queue)</td></tr>
 <tr class="memdesc:a233e15d2bdee45574cd2db816a6cc94d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete current <a class="el" href="structQueue.html" title="Queue type">Queue</a> head.  <a href="queue_8h.html#a233e15d2bdee45574cd2db816a6cc94d">More...</a><br /></td></tr>
 <tr class="separator:a233e15d2bdee45574cd2db816a6cc94d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a54bb329abe233ac2a324dd094ede793e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="queue_8h.html#a54bb329abe233ac2a324dd094ede793e">getHeadDataFromQueue</a> (const <a class="el" href="structQueue.html">Queue</a> queue, void *dest)</td></tr>
-<tr class="memdesc:a54bb329abe233ac2a324dd094ede793e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the item in the head of a <a class="el" href="structQueue.html" title="Queue type">Queue</a> without dequeueing it.  <a href="queue_8h.html#a54bb329abe233ac2a324dd094ede793e">More...</a><br /></td></tr>
-<tr class="separator:a54bb329abe233ac2a324dd094ede793e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16a87d2ed6bb164d346ffe32cebae6cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="queue_8h.html#a16a87d2ed6bb164d346ffe32cebae6cf">peekQueue</a> (const <a class="el" href="structQueue.html">Queue</a> queue, void *dest)</td></tr>
+<tr class="memdesc:a16a87d2ed6bb164d346ffe32cebae6cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the item in the head of a <a class="el" href="structQueue.html" title="Queue type">Queue</a> without dequeueing it.  <a href="queue_8h.html#a16a87d2ed6bb164d346ffe32cebae6cf">More...</a><br /></td></tr>
+<tr class="separator:a16a87d2ed6bb164d346ffe32cebae6cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c868793376dad282c6485d83d6ce03c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="queue_8h.html#a0c868793376dad282c6485d83d6ce03c">deleteQueue</a> (<a class="el" href="structQueue.html">Queue</a> queue)</td></tr>
 <tr class="memdesc:a0c868793376dad282c6485d83d6ce03c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete a <a class="el" href="structQueue.html" title="Queue type">Queue</a>.  <a href="queue_8h.html#a0c868793376dad282c6485d83d6ce03c">More...</a><br /></td></tr>
 <tr class="separator:a0c868793376dad282c6485d83d6ce03c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -408,43 +408,6 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a54bb329abe233ac2a324dd094ede793e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a54bb329abe233ac2a324dd094ede793e">&#9670;&nbsp;</a></span>getHeadDataFromQueue()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void getHeadDataFromQueue </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="structQueue.html">Queue</a>&#160;</td>
-          <td class="paramname"><em>queue</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>dest</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get the item in the head of a <a class="el" href="structQueue.html" title="Queue type">Queue</a> without dequeueing it. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">queue</td><td>The <a class="el" href="structQueue.html" title="Queue type">Queue</a> you want to get the item in the head from </td></tr>
-    <tr><td class="paramname">dest</td><td>The address of the variable you want to store the item in </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a id="aaec4724bd3c9961229028056bae99d7e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aaec4724bd3c9961229028056bae99d7e">&#9670;&nbsp;</a></span>getQueueLength()</h2>
 
@@ -731,6 +694,43 @@ Even though specifying more than one item for single call does not throw a compi
 
 <p>Create a <a class="el" href="structQueue.html" title="Queue type">Queue</a> from an array of pointers. </p>
 <p>Equivalent to <code>chooseNewQueueFromArray("%p", arr, size)</code>. Refer to <a class="el" href="queue_8h.html#a959c82cb201d623f0c0cb76f9243b774" title="Create a Queue from an array.">chooseNewQueueFromArray()</a> </p>
+
+</div>
+</div>
+<a id="a16a87d2ed6bb164d346ffe32cebae6cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16a87d2ed6bb164d346ffe32cebae6cf">&#9670;&nbsp;</a></span>peekQueue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void peekQueue </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structQueue.html">Queue</a>&#160;</td>
+          <td class="paramname"><em>queue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>dest</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the item in the head of a <a class="el" href="structQueue.html" title="Queue type">Queue</a> without dequeueing it. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">queue</td><td>The <a class="el" href="structQueue.html" title="Queue type">Queue</a> you want to get the item in the head from </td></tr>
+    <tr><td class="paramname">dest</td><td>The address of the variable you want to store the item in </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

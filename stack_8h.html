@@ -116,9 +116,9 @@ Functions</h2></td></tr>
 <tr class="memitem:acc7c17f5b00ead4cebeb1305604f3ca8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stack_8h.html#acc7c17f5b00ead4cebeb1305604f3ca8">deleteStack</a> (<a class="el" href="structStack.html">Stack</a> stack)</td></tr>
 <tr class="memdesc:acc7c17f5b00ead4cebeb1305604f3ca8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete a <a class="el" href="structStack.html" title="Stack type">Stack</a>.  <a href="stack_8h.html#acc7c17f5b00ead4cebeb1305604f3ca8">More...</a><br /></td></tr>
 <tr class="separator:acc7c17f5b00ead4cebeb1305604f3ca8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab25c934d47dc01c3b439bb732656816a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stack_8h.html#ab25c934d47dc01c3b439bb732656816a">getHeadDataFromStack</a> (<a class="el" href="structStack.html">Stack</a> stack, void *dest)</td></tr>
-<tr class="memdesc:ab25c934d47dc01c3b439bb732656816a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the item at the head of a <a class="el" href="structStack.html" title="Stack type">Stack</a> without popping it.  <a href="stack_8h.html#ab25c934d47dc01c3b439bb732656816a">More...</a><br /></td></tr>
-<tr class="separator:ab25c934d47dc01c3b439bb732656816a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade04248859bb3475a01a9c0787ef0816"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stack_8h.html#ade04248859bb3475a01a9c0787ef0816">peekStack</a> (<a class="el" href="structStack.html">Stack</a> stack, void *dest)</td></tr>
+<tr class="memdesc:ade04248859bb3475a01a9c0787ef0816"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the item at the head of a <a class="el" href="structStack.html" title="Stack type">Stack</a> without popping it.  <a href="stack_8h.html#ade04248859bb3475a01a9c0787ef0816">More...</a><br /></td></tr>
+<tr class="separator:ade04248859bb3475a01a9c0787ef0816"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1ccca7cdcf5fe6369c825b1b0a7370ec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#a2b7e7856b48ec3327148ac994ad95cd5">byte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stack_8h.html#a1ccca7cdcf5fe6369c825b1b0a7370ec">isInStack</a> (<a class="el" href="structStack.html">Stack</a> stack,...)</td></tr>
 <tr class="memdesc:a1ccca7cdcf5fe6369c825b1b0a7370ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detect if an item is inside a <a class="el" href="structStack.html" title="Stack type">Stack</a>.  <a href="stack_8h.html#a1ccca7cdcf5fe6369c825b1b0a7370ec">More...</a><br /></td></tr>
 <tr class="separator:a1ccca7cdcf5fe6369c825b1b0a7370ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -290,43 +290,6 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">stack</td><td>The <a class="el" href="structStack.html" title="Stack type">Stack</a> you want to delete </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="ab25c934d47dc01c3b439bb732656816a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab25c934d47dc01c3b439bb732656816a">&#9670;&nbsp;</a></span>getHeadDataFromStack()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void getHeadDataFromStack </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structStack.html">Stack</a>&#160;</td>
-          <td class="paramname"><em>stack</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>dest</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get the item at the head of a <a class="el" href="structStack.html" title="Stack type">Stack</a> without popping it. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">stack</td><td>The <a class="el" href="structStack.html" title="Stack type">Stack</a> you want to get the item </td></tr>
-    <tr><td class="paramname">dest</td><td>The address of the variable you want to store the item in </td></tr>
   </table>
   </dd>
 </dl>
@@ -619,6 +582,43 @@ Even though specifying more than one item for single call does not throw a compi
 
 <p>Create a <a class="el" href="structStack.html" title="Stack type">Stack</a> from an array of pointers. </p>
 <p>Equivalent to <code>chooseNewStackFromArray("%p", arr, size)</code>. Refer to <a class="el" href="stack_8h.html#aea505190fcfa100bdfce93008337fc63" title="Create a Stack from an array.">chooseNewStackFromArray()</a> </p>
+
+</div>
+</div>
+<a id="ade04248859bb3475a01a9c0787ef0816"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade04248859bb3475a01a9c0787ef0816">&#9670;&nbsp;</a></span>peekStack()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void peekStack </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structStack.html">Stack</a>&#160;</td>
+          <td class="paramname"><em>stack</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>dest</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the item at the head of a <a class="el" href="structStack.html" title="Stack type">Stack</a> without popping it. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stack</td><td>The <a class="el" href="structStack.html" title="Stack type">Stack</a> you want to get the item </td></tr>
+    <tr><td class="paramname">dest</td><td>The address of the variable you want to store the item in </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

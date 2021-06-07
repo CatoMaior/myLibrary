@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['byte_316',['byte',['../types_8h.html#a2b7e7856b48ec3327148ac994ad95cd5',1,'types.h']]]
+  ['byte_318',['byte',['../types_8h.html#a2b7e7856b48ec3327148ac994ad95cd5',1,'types.h']]]
 ];

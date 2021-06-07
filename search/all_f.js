@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['removefromal_151',['removeFromAL',['../arrayList_8h.html#ae6c6a26e093c7f79f6c5131765b8a0a5',1,'arrayList.h']]],
-  ['removefromll_152',['removeFromLL',['../linkedList_8h.html#ac4923433b974c36ad8a72816d020dcad',1,'linkedList.h']]],
-  ['removeitem_153',['removeItem',['../macros_8h.html#a65d369bb9ea75cc2a506498bb5e469f2',1,'macros.h']]],
-  ['reverseal_154',['reverseAL',['../arrayList_8h.html#a22bd85a44b3008bf552e9f22d8fb39d5',1,'arrayList.h']]]
+  ['removefromal_152',['removeFromAL',['../arrayList_8h.html#ae6c6a26e093c7f79f6c5131765b8a0a5',1,'arrayList.h']]],
+  ['removefromll_153',['removeFromLL',['../linkedList_8h.html#ac4923433b974c36ad8a72816d020dcad',1,'linkedList.h']]],
+  ['removeitem_154',['removeItem',['../macros_8h.html#a65d369bb9ea75cc2a506498bb5e469f2',1,'macros.h']]],
+  ['reverseal_155',['reverseAL',['../arrayList_8h.html#a22bd85a44b3008bf552e9f22d8fb39d5',1,'arrayList.h']]]
 ];

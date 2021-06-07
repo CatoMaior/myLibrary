@@ -166,9 +166,9 @@ Macros</h2></td></tr>
 <tr class="memitem:a675fb861d72498b7b6fc419e4b96e040"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.html#a675fb861d72498b7b6fc419e4b96e040">isEmpty</a>(collection)</td></tr>
 <tr class="memdesc:a675fb861d72498b7b6fc419e4b96e040"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if an <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a>, <a class="el" href="structLinkedList.html" title="LinkedList type">LinkedList</a>, <a class="el" href="structStack.html" title="Stack type">Stack</a> or <a class="el" href="structQueue.html" title="Queue type">Queue</a> is empty.  <a href="macros_8h.html#a675fb861d72498b7b6fc419e4b96e040">More...</a><br /></td></tr>
 <tr class="separator:a675fb861d72498b7b6fc419e4b96e040"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2bb04bcf04a3ae009824243824b8a46"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.html#af2bb04bcf04a3ae009824243824b8a46">getHeadData</a>(collection,  dest)</td></tr>
-<tr class="memdesc:af2bb04bcf04a3ae009824243824b8a46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the item at the head of a <a class="el" href="structStack.html" title="Stack type">Stack</a> or <a class="el" href="structQueue.html" title="Queue type">Queue</a> without popping/dequeueing it.  <a href="macros_8h.html#af2bb04bcf04a3ae009824243824b8a46">More...</a><br /></td></tr>
-<tr class="separator:af2bb04bcf04a3ae009824243824b8a46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab745865d005f7bd3be542651c5565cf9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.html#ab745865d005f7bd3be542651c5565cf9">peek</a>(collection,  dest)</td></tr>
+<tr class="memdesc:ab745865d005f7bd3be542651c5565cf9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the item at the head of a <a class="el" href="structStack.html" title="Stack type">Stack</a> or <a class="el" href="structQueue.html" title="Queue type">Queue</a> without popping/dequeueing it.  <a href="macros_8h.html#ab745865d005f7bd3be542651c5565cf9">More...</a><br /></td></tr>
+<tr class="separator:ab745865d005f7bd3be542651c5565cf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Macros for emulated overloading. </p>
@@ -435,49 +435,7 @@ In some development environments, for example Vscode, calls to these macros can 
 <p>Delete current <a class="el" href="structStack.html" title="Stack type">Stack</a> or <a class="el" href="structQueue.html" title="Queue type">Queue</a> head. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">stack</td><td>The <a class="el" href="structStack.html" title="Stack type">Stack</a> or <a class="el" href="structQueue.html" title="Queue type">Queue</a> you want to delete the head from </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="af2bb04bcf04a3ae009824243824b8a46"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af2bb04bcf04a3ae009824243824b8a46">&#9670;&nbsp;</a></span>getHeadData</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define getHeadData</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">collection, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">dest&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">                                         _Generic(list, <a class="code" href="structStack.html">Stack</a>                   \</div>
-<div class="line">                                         : <a class="code" href="stack_8h.html#ab25c934d47dc01c3b439bb732656816a">getHeadDataFromStack</a>, <a class="code" href="structQueue.html">Queue</a> \</div>
-<div class="line">                                         : <a class="code" href="queue_8h.html#a54bb329abe233ac2a324dd094ede793e">getHeadDataFromQueue</a>)(collection)</div>
-<div class="ttc" id="aqueue_8h_html_a54bb329abe233ac2a324dd094ede793e"><div class="ttname"><a href="queue_8h.html#a54bb329abe233ac2a324dd094ede793e">getHeadDataFromQueue</a></div><div class="ttdeci">void getHeadDataFromQueue(const Queue queue, void *dest)</div><div class="ttdoc">Get the item in the head of a Queue without dequeueing it.</div></div>
-<div class="ttc" id="astack_8h_html_ab25c934d47dc01c3b439bb732656816a"><div class="ttname"><a href="stack_8h.html#ab25c934d47dc01c3b439bb732656816a">getHeadDataFromStack</a></div><div class="ttdeci">void getHeadDataFromStack(Stack stack, void *dest)</div><div class="ttdoc">Get the item at the head of a Stack without popping it.</div></div>
-</div><!-- fragment -->
-<p>Get the item at the head of a <a class="el" href="structStack.html" title="Stack type">Stack</a> or <a class="el" href="structQueue.html" title="Queue type">Queue</a> without popping/dequeueing it. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">collection</td><td>The <a class="el" href="structStack.html" title="Stack type">Stack</a> or <a class="el" href="structQueue.html" title="Queue type">Queue</a> you want to get the item from </td></tr>
-    <tr><td class="paramname">dest</td><td>The address of the variable you want to store the item in </td></tr>
+    <tr><td class="paramname">collection</td><td>The <a class="el" href="structStack.html" title="Stack type">Stack</a> or <a class="el" href="structQueue.html" title="Queue type">Queue</a> you want to delete the head from </td></tr>
   </table>
   </dd>
 </dl>
@@ -750,7 +708,7 @@ In some development environments, for example Vscode, calls to these macros can 
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">list</td><td>The <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a> or <a class="el" href="structLinkedList.html" title="LinkedList type">LinkedList</a> to be inspected </td></tr>
-    <tr><td class="paramname">ley</td><td>The key to be searched </td></tr>
+    <tr><td class="paramname">key</td><td>The key to be searched </td></tr>
   </table>
   </dd>
 </dl>
@@ -1061,6 +1019,48 @@ In some development environments, for example Vscode, calls to these macros can 
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="structStack.html" title="Stack type">Stack</a> containing all the elements of <code>arr</code> with the first element of <code>arr</code> as head </dd></dl>
+
+</div>
+</div>
+<a id="ab745865d005f7bd3be542651c5565cf9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab745865d005f7bd3be542651c5565cf9">&#9670;&nbsp;</a></span>peek</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define peek</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">collection, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">dest&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">                                         _Generic(list, <a class="code" href="structStack.html">Stack</a>                   \</div>
+<div class="line">                                         : <a class="code" href="stack_8h.html#ade04248859bb3475a01a9c0787ef0816">peekStack</a>, <a class="code" href="structQueue.html">Queue</a> \</div>
+<div class="line">                                         : <a class="code" href="queue_8h.html#a16a87d2ed6bb164d346ffe32cebae6cf">peekQueue</a>)(collection)</div>
+<div class="ttc" id="aqueue_8h_html_a16a87d2ed6bb164d346ffe32cebae6cf"><div class="ttname"><a href="queue_8h.html#a16a87d2ed6bb164d346ffe32cebae6cf">peekQueue</a></div><div class="ttdeci">void peekQueue(const Queue queue, void *dest)</div><div class="ttdoc">Get the item in the head of a Queue without dequeueing it.</div></div>
+<div class="ttc" id="astack_8h_html_ade04248859bb3475a01a9c0787ef0816"><div class="ttname"><a href="stack_8h.html#ade04248859bb3475a01a9c0787ef0816">peekStack</a></div><div class="ttdeci">void peekStack(Stack stack, void *dest)</div><div class="ttdoc">Get the item at the head of a Stack without popping it.</div></div>
+</div><!-- fragment -->
+<p>Get the item at the head of a <a class="el" href="structStack.html" title="Stack type">Stack</a> or <a class="el" href="structQueue.html" title="Queue type">Queue</a> without popping/dequeueing it. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">collection</td><td>The <a class="el" href="structStack.html" title="Stack type">Stack</a> or <a class="el" href="structQueue.html" title="Queue type">Queue</a> you want to get the item from </td></tr>
+    <tr><td class="paramname">dest</td><td>The address of the variable you want to store the item in </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

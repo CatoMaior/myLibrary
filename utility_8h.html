@@ -96,7 +96,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ac3769c644736b102babde740e8c03acf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#a2b7e7856b48ec3327148ac994ad95cd5">byte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utility_8h.html#ac3769c644736b102babde740e8c03acf">chooseCmp</a> (const <a class="el" href="types_8h.html#a12a67a7129240fa955c096deb10cdd6e">spec_t</a> spec, const void *a, const void *b)</td></tr>
-<tr class="memdesc:ac3769c644736b102babde740e8c03acf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare two chars.  <a href="utility_8h.html#ac3769c644736b102babde740e8c03acf">More...</a><br /></td></tr>
+<tr class="memdesc:ac3769c644736b102babde740e8c03acf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare two values.  <a href="utility_8h.html#ac3769c644736b102babde740e8c03acf">More...</a><br /></td></tr>
 <tr class="separator:ac3769c644736b102babde740e8c03acf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6617abe8dcee554e16d01965050c6011"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#a2b7e7856b48ec3327148ac994ad95cd5">byte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utility_8h.html#a6617abe8dcee554e16d01965050c6011">charCmp</a> (const void *a, const void *b)</td></tr>
 <tr class="memdesc:a6617abe8dcee554e16d01965050c6011"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare two chars.  <a href="utility_8h.html#a6617abe8dcee554e16d01965050c6011">More...</a><br /></td></tr>
@@ -185,7 +185,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Compare two chars. </p>
-<p>Equivalent to <code>chooseCmp("%c", a, b)</code>. Refer to <a class="el" href="utility_8h.html#ac3769c644736b102babde740e8c03acf" title="Compare two chars.">chooseCmp()</a> </p>
+<p>Equivalent to <code>chooseCmp("%c", a, b)</code>. Refer to <a class="el" href="utility_8h.html#ac3769c644736b102babde740e8c03acf" title="Compare two values.">chooseCmp()</a> </p>
 
 </div>
 </div>
@@ -221,10 +221,10 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Compare two chars. </p>
+<p>Compare two values. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">spec</td><td>Type specifier of the values to be sorted. Refer to <a class="el" href="types_8h.html#a12a67a7129240fa955c096deb10cdd6e" title="Used to specify type of argument passed in functions that require a type specifier.">spec_t</a> for supported types. </td></tr>
+    <tr><td class="paramname">spec</td><td>Type specifier of the values to be compared. Refer to <a class="el" href="types_8h.html#a12a67a7129240fa955c096deb10cdd6e" title="Used to specify type of argument passed in functions that require a type specifier.">spec_t</a> for supported types. </td></tr>
     <tr><td class="paramname">a</td><td>Pointer to the first element to be compared </td></tr>
     <tr><td class="paramname">b</td><td>Pointer to the second element to be compared </td></tr>
   </table>
@@ -269,7 +269,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Compare two doubles. </p>
-<p>Equivalent to <code>chooseCmp("%lf", a, b)</code>. Refer to <a class="el" href="utility_8h.html#ac3769c644736b102babde740e8c03acf" title="Compare two chars.">chooseCmp()</a> </p>
+<p>Equivalent to <code>chooseCmp("%lf", a, b)</code>. Refer to <a class="el" href="utility_8h.html#ac3769c644736b102babde740e8c03acf" title="Compare two values.">chooseCmp()</a> </p>
 
 </div>
 </div>
@@ -300,7 +300,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Compare two floats. </p>
-<p>Equivalent to <code>chooseCmp("%f", a, b)</code>. Refer to <a class="el" href="utility_8h.html#ac3769c644736b102babde740e8c03acf" title="Compare two chars.">chooseCmp()</a> </p>
+<p>Equivalent to <code>chooseCmp("%f", a, b)</code>. Refer to <a class="el" href="utility_8h.html#ac3769c644736b102babde740e8c03acf" title="Compare two values.">chooseCmp()</a> </p>
 
 </div>
 </div>
@@ -331,7 +331,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Compare two ints. </p>
-<p>Equivalent to <code>chooseCmp("%i", a, b)</code>. Refer to <a class="el" href="utility_8h.html#ac3769c644736b102babde740e8c03acf" title="Compare two chars.">chooseCmp()</a> </p>
+<p>Equivalent to <code>chooseCmp("%i", a, b)</code>. Refer to <a class="el" href="utility_8h.html#ac3769c644736b102babde740e8c03acf" title="Compare two values.">chooseCmp()</a> </p>
 
 </div>
 </div>
@@ -362,7 +362,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Compare two pointers. </p>
-<p>Equivalent to <code>chooseCmp("%p", a, b)</code>. Refer to <a class="el" href="utility_8h.html#ac3769c644736b102babde740e8c03acf" title="Compare two chars.">chooseCmp()</a> </p>
+<p>Equivalent to <code>chooseCmp("%p", a, b)</code>. Refer to <a class="el" href="utility_8h.html#ac3769c644736b102babde740e8c03acf" title="Compare two values.">chooseCmp()</a> </p>
 
 </div>
 </div>
