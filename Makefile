@@ -41,7 +41,7 @@ $(LIB): $(OBJS)
 $(WLIB): $(WOBJS)
 	ar rcs $@ $(WOBJS)
 
-$(DOCS_HTML): $(HEADS) Doxyfile
+$(DOCS_HTML): $(HEADS) Doxyfile mainPage.md
 	doxygen
 
 $(DOCS_PDF): $(HEADS)
