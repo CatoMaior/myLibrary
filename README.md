@@ -1,6 +1,6 @@
 # myLibrary
 
-C library with some common tasks and data structures. I know the name is not the best but I have no imagination for names\
+C library with some common tasks and data structures. I know the name is not the best but I have no imagination for names.\
 Project in active development, check [here](https://catomaior.github.io/myLibrary/) for the documentation and [here](https://github.com/CatoMaior/myLibrary/releases/tag/latest) to download latest build (64 bits only, but you can compile from source in order to support other architectures). 
 
 ## Table of contents
@@ -9,19 +9,23 @@ Project in active development, check [here](https://catomaior.github.io/myLibrar
     - [LinkedLists](#linkedlists)
     - [Stacks](#stacks)
     - [Queues](#queues)
+    - [Array algorithms](#array-algorithms)
+    - [Strings](#strings)
+    - [Miscellaneous](#miscellaneous)
  - [How to import](#how-to-import) 
     - [On Linux](#on-linux)
     - [On Visual Studio for Windows](#on-visual-studio-for-windows)
  - [How to compile from source](#how-to-compile-from-source)
 
 ## Introduction and examples
-This library contains some useful data structure which are not supported by default in C, some frequently used functions and algorithms.\
-As this library is written in C, almost every function needs you to specify as a function argument which type of data you are using it on through type and formatting specifiers. The convention used is the same used in standard C for `printf` and `scanf`. In order to make writing code a bit more lighter the library includes also some macros that automatically detect the type of arguments passed so you don't have to explicitly use format and type specifiers. However, these macros are supported only on C11 and newer compilers and using them in some development environments can cause warnings or errors reporting even though they are used correctly. See [macros.h](https://catomaior.github.io/myLibrary/macros_8h.html) in the docs for more. In order to be as inclusive as possibile, since this macros are not supported by every C compilers, in the following examples they are not used.\
+This library contains some useful data structures which are not supported by default in C and some frequently used functions and algorithms.\
+As this library is written in C, almost every function needs you to specify as a function argument which type of data you are using it on through type and formatting specifiers. The convention used is the same used in standard C for `printf` and `scanf`.\
+In order to make writing code a bit more lighter the library includes also some macros that automatically detect the type of arguments passed so you don't have to explicitly use format and type specifiers. However, these macros are supported on C11 and newer compilers only and using them in some development environments can cause warnings or error reportings even though they are used correctly. See [macros.h](https://catomaior.github.io/myLibrary/macros_8h.html) in the docs for more. In order to be as inclusive as possibile, since this macros are not supported by every C compilers, in the following examples they are not used.\
 The approach used by this library to handle errors with pointers is that every error is fatal: for example, when a pointer passed to a function is null and it should not be null, or some needed memory could not be allocated, the program prints where the error occurred and exits.
 
 ### ArrayLists
 ArrayLists are dynamically growing and shrinking lists of data, which can be of `char`, `int`, `float`, `double` or pointer type. You can create an ArrayList from a C array or you can create a new empty ArrayList. You can append items at its end, insert items, change its items, get its items, sort it (only ascending order is currently supported), print it, merge it with another ArrayList and much more. See [arrayList.h](https://catomaior.github.io/myLibrary/arrayList_8h.html) in the docs for all the details.\
-The difference with LinkedLists is in the implementation and hence in the time needed for accessing its item. For example, an ArrayList has constant time for accessing items, while a LinkedList takes linear time. If you are intrested in these topics I suggest you to search more information on the Internet, as LinkedList and ArrayList are very standard data structure and on the web you can find a lot of information.\
+The difference with LinkedLists is in the implementation and hence in the time needed for accessing its item. For example, an ArrayList has constant time for accessing items, while a LinkedList takes linear time. If you are intrested in these topics I suggest you to search more information on the Internet, as LinkedList and ArrayList are very standard data structures and on the web you can find a lot of information.\
 Here are some examples of ArrayList usage:
 
 ```cpp
@@ -83,7 +87,7 @@ int main() {
 
     // Check if list1 and list2 have equal contents
     byte areEqual = areALEqual(list1, list2);
-    // areListsEqual is now FALSE (See [macros.h](https://catomaior.github.io/myLibrary/macros_8h.html) docs for its numeric value)
+    // areListsEqual is now FALSE (See [constants.h](https://catomaior.github.io/myLibrary/constants_8h.html) docs for its numeric value)
 
     // Merge list1 and list2
     mergeAL(list1, list2);
@@ -103,8 +107,8 @@ int main() {
 ```
 
 ### LinkedLists
-LinkedLists are a quite standard implementation of linked lists, dynamically growing and shrinking lists of data, which can be of `char`, `int`, `float`, `double` or pointer type. You can create a LinkedList from a C array or you can create a new empty LinkedList. You can append items at its end, insert items, change its items, get its items, sort it (only ascending order is currently supported), print it, merge it with another LinkedList and much more. See [linkedList.h](https://catomaior.github.io/myLibrary/linkedList_8h.html) in the docs for all the details.\
-The difference with ArrayLists is in the implementation and hence in the time needed for accessing its item. For example, a LinkedList has constant time for accessing items, while a LinkedList takes linear time. If you are intrested in these topics I suggest you to search more information on the Internet, as ArrayLists and LinkedList are very standard data structure and on the web you can find a lot of information. As for now, LinkedLists and ArrayLists have more or less the same functionalities except sorting and reversing, which are currently supported only on ArrayLists.\
+LinkedLists are a quite standard implementation of linked lists, dynamically growing and shrinking lists of data, which can be of `char`, `int`, `float`, `double` or pointer type. You can create a LinkedList from a C array or you can create a new empty LinkedList. You can append items at its end, insert items, change its items, get its items, print it, merge it with another LinkedList and much more. See [linkedList.h](https://catomaior.github.io/myLibrary/linkedList_8h.html) in the docs for all the details.\
+The difference with ArrayLists is in the implementation and hence in the time needed for accessing its item. For example, a LinkedList has constant time for accessing items, while a LinkedList takes linear time. If you are intrested in these topics I suggest you to search more information on the Internet, as ArrayLists and LinkedLists are very standard data structures and on the web you can find a lot of information. As for now, LinkedLists and ArrayLists have more or less the same functionalities except sorting and reversing, which are currently supported only on ArrayLists.\
 Here are some examples of LinkedList usage:
 
 ```cpp
@@ -158,7 +162,7 @@ int main() {
 
     // Check if list1 and list2 have equal contents
     byte areEqual = areLLEqual(list1, list2);
-    // areListsEqual is now FALSE (See [macros.h](https://catomaior.github.io/myLibrary/macros_8h.html) docs for its numeric value)
+    // areListsEqual is now FALSE (See [constants.h](https://catomaior.github.io/myLibrary/constants_8h.html) docs for its numeric value)
 
     // Merge list1 and list2
     mergeLL(list1, list2);
@@ -178,7 +182,7 @@ int main() {
 ```
 
 ### Stacks
-Stacks are a quite standard implementation of LIFO stacks and can contain `char`, `int`, `float`, `double` or pointer data. You can create a Stack from a C array or you can create a new empty Stack. You can print its content, push items to its top, pop items from its top, peek from its top and much more. [stack.h](https://catomaior.github.io/myLibrary/stack_8h.html) in the docs for all the details.\
+Stacks are a quite standard implementation of LIFO stacks and can contain `char`, `int`, `float`, `double` or pointer data. You can create a Stack from a C array or you can create a new empty Stack. You can print its content, push items to its top, pop items from its top, peek from its top and much more. See [stack.h](https://catomaior.github.io/myLibrary/stack_8h.html) in the docs for all the details.\
 Here are some examples of Stack usage:
 
 ```cpp
@@ -193,7 +197,7 @@ int main() {
     // Output:
     // Empty
 
-    // Push two items to stack1
+    // Push three items to stack1
     push(stack1, 3);
     push(stack1, 4);
     push(stack1, -1);
@@ -221,15 +225,15 @@ int main() {
 
     // Check if stack1 and stack2 have equal contents
     byte areEqual = areStacksEqual(stack1, stack2);
-    // areListsEqual is now FALSE (See [macros.h](https://catomaior.github.io/myLibrary/macros_8h.html) docs for its numeric value)
+    // areListsEqual is now FALSE (See [constants.h](https://catomaior.github.io/myLibrary/constants_8h.html) docs for its numeric value)
 
     // Delete an item from the top of stack2 without saving it
     deleteHeadFromStack(stack2);
     // Now stack2 contains: -5, 65, 4, 23
 
-    // Get stack1 length
+    // Get stack2 length
     unsigned int stack2Length = getStackLength(stack2);
-    // stack1Length is now 4
+    // stack2Length is now 4
 
     // Delete stack1 and stack2
     deleteStack(stack1);
@@ -241,7 +245,7 @@ int main() {
 ```
 
 ### Queues
-Queues are a quite standard implementation of FIFO queues and can contain `char`, `int`, `float`, `double` or pointer data. You can create a Queue from a C array or you can create a new empty Queue. You can print its content, enqueue items to its end, dequeue items from its top, peek from its top and much more. [queue.h](https://catomaior.github.io/myLibrary/queue_8h.html) in the docs for all the details.\
+Queues are a quite standard implementation of FIFO queues and can contain `char`, `int`, `float`, `double` or pointer data. You can create a Queue from a C array or you can create a new empty Queue. You can print its content, enqueue items to its end, dequeue items from its top, peek from its top and much more. See [queue.h](https://catomaior.github.io/myLibrary/queue_8h.html) in the docs for all the details.\
 Here are some examples of Queue usage:
 
 ```cpp
@@ -256,7 +260,7 @@ int main() {
     // Output:
     // Empty
 
-    // Enqueue two items in queue1
+    // Enqueue three items in queue1
     enqueue(queue1, 3);
     enqueue(queue1, 4);
     enqueue(queue1, -1);
@@ -284,15 +288,15 @@ int main() {
 
     // Check if queue1 and queue2 have equal contents
     byte areEqual = areQueuesEqual(queue1, queue2);
-    // areListsEqual is now FALSE (See [macros.h](https://catomaior.github.io/myLibrary/macros_8h.html) docs for its numeric value)
+    // areListsEqual is now FALSE (See [constants.h](https://catomaior.github.io/myLibrary/constants_8h.html) docs for its numeric value)
 
     // Delete an item from the top of queue2 without saving it
     deleteHeadFromQueue(queue2);
     // Now queue2 contains: 4, 65, -5, 12
 
-    // Get queue1 length
+    // Get queue2 length
     unsigned int queue2Length = getQueueLength(queue2);
-    // queue1Length is now 4
+    // queue2Length is now 4
 
     // Delete queue1 and queue2
     deleteQueue(queue1);
@@ -303,6 +307,95 @@ int main() {
 }
 ```
 
+### Array algorithms
+This library contains some basic functions that implement some commonly used algorithms for arrays and matrix, such as linear searching or sorting. These functions are massively used inside the library itself, but they can be useful out of that context too.\
+Since these functions work with standard C static arrays, they always have its size and its type, specified using the `printf` convention, as parameters.\
+See [arrays.h](https://catomaior.github.io/myLibrary/arrays_8h.html) in the docs for all the details.\
+Here are some examples of their usage:
+
+```cpp
+#include "myLibrary.h"
+
+int main() {
+    int myArray[] = {23, 45, 11, -23, -43, 43};
+
+    // Sort myArray (which contains 6 items) using a bubbleSort algorithm
+    chooseBubbleSortArr("%i", myArray, 6);
+    // myArray now contains: -43, -23, 11, 23, 43, 45
+
+    // Find the index of an item inside an array
+    int index = chooseLinearSearch("%i", myArray, 6, 11);
+    // index is now 2
+
+    int myMatrix[][6] = {{23, 45, 11, -23, -43, 43},
+                          {23, 45, 11, -23, -43, 43}};
+    
+    // Print myMatrix
+    printMatrix("%4i", myMatrix, 2, 6);
+    // Output is:
+    //  23  45  11 -23 -43  43
+    //  23  45  11 -23 -43  43
+}
+```
+
+### Strings
+This library contains some basic functions for working with strings, such as getting a string of arbitrary size and saving it in memory, checking if it ends with a given substring, changing its last characters and getting a copy of it.\
+See [strings.h](https://catomaior.github.io/myLibrary/strings_8h.html) in the docs for all the details.\
+Here are some examples of their usage:
+
+```cpp
+#include "myLibrary.h"
+
+int main() {
+    // Get a string from command line and save it in myString (See [types.h](https://catomaior.github.io/myLibrary/types_8h.html) for details about string type)
+    string myString = getString();
+    // Assuming the user Typed "Test" and pressed enter, myString now is: "Test"
+
+    // Check if myString ends with "st"
+    int endsWithST = endsWith(myString, "st");
+    // endsWithST is now TRUE (See [constants.h](https://catomaior.github.io/myLibrary/constants_8h.html) docs for its numeric value)
+
+    // Create a new string with different last character from myString
+    string newString = changeLastCharacter(myString, "T");
+    // newString is now: "TesT"
+
+    // Create a copy of newString
+    string otherString = copyOf(newString);
+    // newString is now: "TesT"
+}
+```
+
+### Miscellaneous
+This library contains also standard comparing functions for `char`, `int`, `float`, `double` and pointer type and also two functions that try to allocate or reallocate memory. These functions are massively used inside the library itself, but they can be useful out of that context too.\
+See [utility.h](https://catomaior.github.io/myLibrary/utility_8h.html) in the docs for all the details.\
+Here are some examples of their usage:
+
+```cpp
+#include "myLibrary.h"
+
+int main() {
+
+    int a = 0, b = 1;
+
+    // Compare a and b as integer values
+    byte compare = chooseCmp("%i", &a, &b);
+    // compare is now SMALLER (See [constants.h](https://catomaior.github.io/myLibrary/constants_8h.html) docs for its numeric value)
+
+    // Get a pointer to a dynamically allocated buffer of 1 byte
+    void *ptr = saferMalloc(1);
+    // ptr is now a pointer to a 1 byte buffer. If memory cannot be allocated the program prints the following and exits:
+    // An errorr occured in function saferMalloc:
+    // Could not allocate memory
+    // Exiting
+
+    // Resize an already allocated buffer
+    ptr = saferRealloc(ptr, 2);
+    // ptr is now a pointer to a 2 byte buffer. If memory cannot be reallocated the program prints the following and exits:
+    // An errorr occured in function saferRealloc:
+    // Could not reallocate memory
+    // Exiting
+}
+```
 
 ## How to import
 
