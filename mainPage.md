@@ -324,7 +324,7 @@ int main() {
     // myArray now contains: -43, -23, 11, 23, 43, 45
 
     // Find the index of an item inside an array
-    int index = chooseLinearSearch("%i", myArray, 6, 11);
+    int index = chooseLinearSearchArr("%i", myArray, 6, 11);
     // index is now 2
 
     int myMatrix[][6] = {{23, 45, 11, -23, -43, 43},
