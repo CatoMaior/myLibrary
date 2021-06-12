@@ -10,7 +10,7 @@
 
 void throwIf(const byte condition, const string errorString, const char* funcName) {
     if (condition) {
-        printf("\nAn errorr occured in function %s:\n%s\nExiting\n", funcName, errorString);
+        printf("\nAn error occured in function %s:\n%s\nExiting\n", funcName, errorString);
         exit(1);
     }
 }
