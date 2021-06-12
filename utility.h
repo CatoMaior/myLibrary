@@ -19,43 +19,43 @@
  * @retval EQUAL First element is equal to the second
  * @retval SMALLER First element is smaller than the second
  */
-byte chooseCmp(const spec_t spec, const void *a, const void *b);
+int chooseCmp(const spec_t spec, const void *a, const void *b);
 
 /**
  * @brief Compare two chars
  * @details Equivalent to `chooseCmp("%c", a, b)`. Refer to chooseCmp()
  */
-byte charCmp(const void *a, const void *b);
+int charCmp(const void *a, const void *b);
 
 /**
  * @brief Compare two bytes
  * @details Equivalent to `charCmp(a, b)`. Refer to charCmp(). 
  */
-byte byteCmp(const void *a, const void *b);
+int byteCmp(const void *a, const void *b);
 
 /**
  * @brief Compare two ints
  * @details Equivalent to `chooseCmp("%i", a, b)`. Refer to chooseCmp()
  */
-byte intCmp(const void *a, const void *b);
+int intCmp(const void *a, const void *b);
 
 /**
  * @brief Compare two floats
  * @details Equivalent to `chooseCmp("%f", a, b)`. Refer to chooseCmp()
  */
-byte floatCmp(const void *a, const void *b);
+int floatCmp(const void *a, const void *b);
 
 /**
  * @brief Compare two doubles
  * @details Equivalent to `chooseCmp("%lf", a, b)`. Refer to chooseCmp()
  */
-byte doubleCmp(const void *a, const void *b);
+int doubleCmp(const void *a, const void *b);
 
 /**
  * @brief Compare two pointers
  * @details Equivalent to `chooseCmp("%p", a, b)`. Refer to chooseCmp()
  */
-byte ptrCmp(const void *a, const void *b);
+int ptrCmp(const void *a, const void *b);
 
 /**
  * @brief Return a pointer to a space in memory of specified size

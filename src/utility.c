@@ -8,42 +8,42 @@
 #include "errors.h"
 #include "utilityInternal.h"
 
-byte chooseCmp(const spec_t spec, const void *a, const void *b) {
+int chooseCmp(const spec_t spec, const void *a, const void *b) {
     funcThrowIf(!spec || !a || !b, NULL_POINTER_GIVEN);
     char (*cmpFun)(const void *a, const void *b) = getCmp(spec);
     return (*cmpFun)(a, b);
 }
 
-byte charCmp(const void *a, const void *b) {
+int charCmp(const void *a, const void *b) {
     funcThrowIf(!a || !b, NULL_POINTER_GIVEN);
     byte diff = *((char *)a) - *((char *)b);
     return (diff == 0) ? EQUAL : ((diff > 0) ? GREATER : SMALLER);
 }
 
-byte byteCmp(const void *a, const void *b) {
+int byteCmp(const void *a, const void *b) {
     funcThrowIf(!a || !b, NULL_POINTER_GIVEN);
     return charCmp(a, b);
 }
 
-byte intCmp(const void *a, const void *b) {
+int intCmp(const void *a, const void *b) {
     funcThrowIf(!a || !b, NULL_POINTER_GIVEN);
     int diff = *((int *)a) - *((int *)b);
     return (diff == 0) ? EQUAL : ((diff > 0) ? GREATER : SMALLER);
 }
 
-byte floatCmp(const void *a, const void *b) {
+int floatCmp(const void *a, const void *b) {
     funcThrowIf(!a || !b, NULL_POINTER_GIVEN);
     float diff = *((float *)a) - *((float *)b);
     return (diff == 0) ? EQUAL : ((diff > 0) ? GREATER : SMALLER);
 }
 
-byte doubleCmp(const void *a, const void *b) {
+int doubleCmp(const void *a, const void *b) {
     funcThrowIf(!a || !b, NULL_POINTER_GIVEN);
     double diff = *((double *)a) - *((double *)b);
     return (diff == 0) ? EQUAL : ((diff > 0) ? GREATER : SMALLER);
 }
 
-byte ptrCmp(const void *a, const void *b) {
+int ptrCmp(const void *a, const void *b) {
     funcThrowIf(!a || !b, NULL_POINTER_GIVEN);
     if (sizeof(void *) == 8) {
         long long int diff = *((unsigned long long *)a) - *((unsigned long long *)b);
