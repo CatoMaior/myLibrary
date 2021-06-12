@@ -125,20 +125,41 @@ void getFromAL(const ArrayList list, unsigned int index, void *dest) {
     memcpy(dest, list->body + index * typeSize, typeSize);
 }
 
-byte areALEqual(const ArrayList list1, const ArrayList list2) {
+byte areALEqual(const ArrayList list1, const ArrayList list2, ...) {
     funcThrowIf(!list1 || !list2, NULL_AL_GIVEN);
     funcThrowIf(!list1->type || !list2->type, NULL_AL_TYPE);
     funcThrowIf(!list2->body || !list2->body, NULL_AL_BODY);
     if (strcmp(list1->type, list2->type) != 0 || list1->size != list2->size)
         return FALSE;
-    byte typeSize = getTypeSize(list1->type);
-    if (memcmp(list1->body, list2->body, list1->size * typeSize) == 0)
-        return TRUE;
-    return FALSE;
+    if (strcmp(list1->type, "%p") == 0) {
+        va_list argList;
+        va_start(argList, list2);
+        int (*cmpFunc)(const void *a, const void *b) = va_arg(argList, void *);
+        va_end(argList);
+        void **body1 = list1->body;
+        void **body2 = list2->body;
+        for (unsigned int i = 0; i < list1->size; i++)
+            if (cmpFunc(body1[i], body2[i]) != EQUAL)
+                return FALSE;
+    } else {
+        byte typeSize = getTypeSize(list1->type);
+        if (memcmp(list1->body, list2->body, list1->size * typeSize) != 0)
+            return FALSE;
+    }
+    return TRUE;
 }
 
-void deleteAL(ArrayList list) {
+void deleteAL(ArrayList list, ...) {
     funcThrowIf(!list, NULL_AL_GIVEN);
+    if (strcmp(list->type, "%p") == 0) {
+        va_list argList;
+        va_start(argList, list);
+        int (*freeFunc)(void *a) = va_arg(argList, void *);
+        va_end(argList);
+        void **castedBody = list->body;
+        for (unsigned int i = 0; i < list->size; i++) 
+            freeFunc(castedBody[i]);
+    }
     if (list->body)
         free(list->body);
     free(list->type);
@@ -157,18 +178,32 @@ void reverseAL(ArrayList list) {
     list->body = newBody;
 }
 
-void bubbleSortAL(ArrayList list) {
+void bubbleSortAL(ArrayList list, ...) {
     funcThrowIf(!list, NULL_AL_GIVEN);
     funcThrowIf(!list->type, NULL_AL_TYPE);
     funcThrowIf(!list->body, NULL_AL_BODY);
-    chooseBubbleSortArr(list->type, list->body, list->size);
+    int (*cmpFunc)(const void *a, const void *b);
+    if (strcmp(list->type, "%p") == 0) {
+        va_list argList;
+        va_start(argList, list);
+        cmpFunc = va_arg(argList, void *);
+        va_end(argList);
+    } else
+        chooseBubbleSortArr(list->type, list->body, list->size, cmpFunc);
 }
 
-void quickSortAL(ArrayList list) {
+void quickSortAL(ArrayList list, ...) {
     funcThrowIf(!list, NULL_AL_GIVEN);
     funcThrowIf(!list->type, NULL_AL_TYPE);
     funcThrowIf(!list->body, NULL_AL_BODY);
-    chooseQuickSortArr(list->type, list->body, list->size);
+    int (*cmpFunc)(const void *a, const void *b);
+    if (strcmp(list->type, "%p") == 0) {
+        va_list argList;
+        va_start(argList, list);
+        cmpFunc = va_arg(argList, void *);
+        va_end(argList);
+    }
+    chooseQuickSortArr(list->type, list->body, list->size, cmpFunc);
 }
 
 void appendToAL(ArrayList list, ...) {
@@ -295,6 +330,14 @@ byte isInAL(ArrayList list, ...) {
     va_start(argList, list);
     varData data;
     getDataFromArgList(list->type, argList, &data);
+    if (strcmp(list->type, "%p") == 0) {
+        int (*cmpFunc)(const void *a, const void *b) = va_arg(argList, void *);
+        va_end(argList);
+        for (unsigned i = 0; i < list->size; i++)
+            if (cmpFunc(&data, list->body + i * typeSize) == 0)
+                return TRUE;
+        return FALSE;
+    }
     va_end(argList);
     for (unsigned i = 0; i < list->size; i++) 
         if (memcmp(list->body + i * typeSize, &data, typeSize) == 0)
@@ -305,13 +348,16 @@ byte isInAL(ArrayList list, ...) {
 int linearSearchAL(ArrayList list, ...) {
     funcThrowIf(!list, NULL_AL_GIVEN);
     funcThrowIf(!list->type, NULL_AL_TYPE);
-    funcThrowIf(endsWith(list->type, "f"), UNSUPPORTED_SPECIFIER);
     va_list argList;
     va_start(argList, list);
     varData key;
+    int index;
+    int (*cmpFunc)(const void *a, const void *b);
     getDataFromArgList(list->type, argList, &key);
+    if (strcmp(list->type, "%p") == 0)
+        cmpFunc = va_arg(argList, void *);
     va_end(argList);
-    int index = chooseLinearSearch(list->type, list->body, list->size, key);
+    index = chooseLinearSearchArr(list->type, list->body, list->size, key, cmpFunc);
     return index;
 }
 

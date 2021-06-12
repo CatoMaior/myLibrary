@@ -9,7 +9,7 @@
 
 #include "types.h"
 
-// TYPE INDIPENDENT FUNCTIONS
+// TYPE INDEPENDENT FUNCTIONS
 /**
  * @brief Allocate a new ::ArrayList of specified type
  * @param spec Type specifier of the ::ArrayList you want to create
@@ -20,6 +20,7 @@ ArrayList newAL(const spec_t spec);
 /**
  * @brief Get a copy of an ::ArrayList
  * @param list The ::ArrayList you want to copy
+ * @note When creating an ::ArrayList from a pointer ::ArrayList type the pointers in `list` are inserted into the ::ArrayList, not what they point to
  * @return A copy of `list`
  */
 ArrayList newALFromAL(const ArrayList list);
@@ -90,18 +91,21 @@ void getFromAL(const ArrayList list, unsigned int index, void *dest);
 /**
  * @brief Delete an ::ArrayList
  * @param list The ::ArrayList you want to delete
+ * @param ... The function used to free memory pointed by every pointer of the ::ArrayList. Must be a function that takes a pointer as argument. Necessary only for pointer ::ArrayList type, ignored otherwise. When deleting a pointer ::ArrayList type if no free function is passed no compiler errors are thrown but you may cause severe memory leaks
  */
-void deleteAL(ArrayList list);
+void deleteAL(ArrayList list, ...);
 
 /**
  * @brief Compare two ::ArrayList
  * @param list1 The first ::ArrayList you want to compare
  * @param list2 The second ::ArrayList you want to compare
+ * @param ... The comparison function needed to compare items inside given lists. This parameter is necessary only for pointer ::ArrayList type and is ignored otherwise. Must be a function that takes two pointers as argument and returns a positive int if the item pointed by the first argument is greater than the item pointed by the second argument, a negative int if the item pointed by the first argument is is smaller than the item pointed by second, a zero int if the item pointed by first and second arguments are equal
+ * @note If comparing two pointer ::ArrayList type and the comparing function is not given a compiler nor runtime error is given, but the result of the comparison is unpredictable
  * @return The result of the comparison
  * @retval TRUE `list1` and `list2` have equal type, equal length and equal contents
  * @retval FALSE `list1` and `list2` do not have equal type, equal length or equal contents
  */
-byte areALEqual(const ArrayList list1, const ArrayList list2);
+byte areALEqual(const ArrayList list1, const ArrayList list2, ...);
 
 /**
  * @brief Reverse an ::ArrayList
@@ -112,20 +116,24 @@ void reverseAL(ArrayList list);
 /**
  * @brief Bubble sort for ::ArrayList
  * @param list The ::ArrayList you want to bubble sort
+ * @param ... The comparison function needed to compare items inside given lists. This parameter is necessary only for pointer ::ArrayList type and is ignored otherwise. Must be a function that takes two pointers as argument and returns a positive int if the item pointed by the first argument is greater than the item pointed by the second argument, a negative int if the item pointed by the first argument is is smaller than the item pointed by second, a zero int if the item pointed by first and second arguments are equal
+ * @note If sorting an ::ArrayList type and the comparing function is not passed a compiler error is not given, but the ::ArrayList will be messed up
  */
-void bubbleSortAL(ArrayList list);
+void bubbleSortAL(ArrayList list, ...);
 
 /**
  * @brief Quicksort for ::ArrayList
  * @param list The ::ArrayList you want to quicksort
+ * @param ... The comparison function needed to compare items inside given lists. This parameter is necessary only for pointer ::ArrayList type and is ignored otherwise. Must be a function that takes two pointers as argument and returns a positive int if the item pointed by the first argument is greater than the item pointed by the second argument, a negative int if the item pointed by the first argument is is smaller than the item pointed by second, a zero int if the item pointed by first and second arguments are equal
+ * @note If sorting a pointer ::ArrayList type and the comparing function is not passed a compiler error is not given, but the ::ArrayList will be messed up
  */
-void quickSortAL(ArrayList list);
+void quickSortAL(ArrayList list, ...);
 
 /**
  * @brief Detect if an item is inside an ::ArrayList
  * @param list The ::ArrayList you want search in
- * @param ... The item you want to search
- * @note Even though searching more than one item for single call does not throw a compiler nor runtime error, only searching one item is supported. Other items are ignored. If you don't specify any item to be searched, still no errors occur but the return value of the function can be unpredictable
+ * @param ... The item you want to search. If searaching in a pointer ::ArrayList type, after the item you want so search, you must provide the comparison function needed to compare the item you want to search and the items in the ::ArrayList. Must be a function that takes two pointers as argument and returns a zero int only if the item pointed by first and second arguments are equal
+ * @note Even though searching more than one item for single call does not throw a compiler nor runtime error, only searching one item is supported. Other items are ignored. If you don't specify any item to be searched, still no errors occur but the return value of the function can be unpredictable. If searching in a pointer ::ArrayList type and the comparing function is not passed a compiler error is not given either, but the return value of the function can be unpredictable
  * @retval TRUE Given item is contained in `list`
  * @retval FALSE Given item is not contained in `list`
  */
@@ -134,9 +142,8 @@ byte isInAL(ArrayList list, ...);
 /**
  * @brief Linear search for ::ArrayList
  * @param list The ::ArrayList to be inspected
- * @param ... The key to be searched
- * @note This function does not support float and double ::ArrayList types
- * @note Even though passing more than one key does not throw a compiler nor runtime error, only searching one key is supported. Other items are ignored. If you don't specify any item to be searched, still no errors occur but the return value of the function can be unpredictable
+ * @param ... The key to be searched. If searaching in a pointer ::ArrayList type, after the item you want so search, you must provide the comparison function needed to compare the item you want to search and the items in the ::ArrayList. Must be a function that takes two pointers as argument and returns a zero int only if the item pointed by first and second arguments are equal
+ * @note Even though passing more than one key does not throw a compiler nor runtime error, only searching one key is supported. Other items are ignored. If you don't specify any item to be searched, still no errors occur but the return value of the function can be unpredictable. If searching in a pointer ::ArrayList type and the comparing function is not passed a compiler or runtime error is not given either, but the return value of the function can be unpredictable
  * @return The index of the first occurence of the key in the list or the return code of the function
  * @retval KEY_NOT_FOUND The key was not found
  */
@@ -147,11 +154,12 @@ int linearSearchAL(ArrayList list, ...);
  * @param spec The type specifier of the array passed. Refer to spec_t
  * @param list The list you want to create the ::ArrayList from
  * @param size The number of items in `list`
+ * @note When creating an ::ArrayList from a pointer array the pointers are inserted into the ::ArrayList, not what they point to
  * @return An ::ArrayList containing the items in `list` in the same order
  */
 ArrayList chooseNewALFromArray(const spec_t spec, const void *list, unsigned int size);
 
-// TYPE DIPENDENT FUNCTIONS
+// TYPE DEPENDENT FUNCTIONS
 /**
  * @brief Create ::ArrayList from a list of chars
  * @details Equivalent to `chooseNewALFromArray("%c", list, size)`. Refer to chooseNewALFromArray()
