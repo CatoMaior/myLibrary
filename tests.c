@@ -1129,7 +1129,7 @@ int main() {
     chooseQuickSortArr("%i", intMatrix[0], 8);
     chooseQuickSortArr("%f", floatMatrix[0], 8);
     chooseQuickSortArr("%lf", doubleMatrix[0], 8);
-    chooseQuickSortArr("%p", ptrMatrix[0], 8);
+    chooseQuickSortArr("%p", ptrMatrix[0], 8, ptrCmp);
 
     printf("Testing chooseQuickSortArr()\n");
     printMatrix("%4hi", byteMatrix, 1, 8);
@@ -1137,16 +1137,14 @@ int main() {
     printMatrix("%6i", intMatrix, 1, 8);
     printMatrix("%10.2f", floatMatrix, 1, 8);
     printMatrix("%10.2lf", doubleMatrix, 1, 8);
-    for (int i = 0; i < 8; i++)
-        printf("%16p", ptrMatrix[0][i]);
-    printf("\n\n");
+    printMatrix("%16p", ptrMatrix, 2, 8);
 
     chooseBubbleSortArr("%c", byteMatrix[1], 8);
     chooseBubbleSortArr("%c", charMatrix[1], 8);
     chooseBubbleSortArr("%i", intMatrix[1], 8);
     chooseBubbleSortArr("%f", floatMatrix[1], 8);
     chooseBubbleSortArr("%lf", doubleMatrix[1], 8);
-    chooseBubbleSortArr("%p", ptrMatrix[1], 8);
+    chooseBubbleSortArr("%p", ptrMatrix[1], 8, ptrCmp);
 
     printf("Testing chooseBubbleSortArr()\n");
     printMatrix("%4hi", byteMatrix[1], 1, 8);
@@ -1154,27 +1152,27 @@ int main() {
     printMatrix("%6i", intMatrix[1], 1, 8);
     printMatrix("%10.2f", floatMatrix[1], 1, 8);
     printMatrix("%10.2lf", doubleMatrix[1], 1, 8);
-    printMatrix("%16p", ptrMatrix, 2, 8);
+    printMatrix("%16p", ptrMatrix[1], 1, 8);
     printf("\n\n");
 
-    printf("Testing chooseLinearSearch()\n");
+    printf("Testing chooseLinearSearchArr()\n");
     for (int i = 0; i < 8; i++)
-        printf("%2i", chooseLinearSearch("%c", byteMatrix, 8, byteMatrix[0][i]));
+        printf("%2i", chooseLinearSearchArr("%c", byteMatrix, 8, byteMatrix[0][i]));
     printf("\n");
     for (int i = 0; i < 8; i++)
-        printf("%2i", chooseLinearSearch("%c", charMatrix, 8, charMatrix[0][i]));
+        printf("%2i", chooseLinearSearchArr("%c", charMatrix, 8, charMatrix[0][i]));
     printf("\n");
     for (int i = 0; i < 8; i++)
-        printf("%2i", chooseLinearSearch("%i", intMatrix, 8, intMatrix[0][i]));
+        printf("%2i", chooseLinearSearchArr("%i", intMatrix, 8, intMatrix[0][i]));
     printf("\n");
     for (int i = 0; i < 8; i++)
-        printf("%2i", chooseLinearSearch("%f", floatMatrix, 8, floatMatrix[0][i]));
+        printf("%2i", chooseLinearSearchArr("%f", floatMatrix, 8, floatMatrix[0][i]));
     printf("\n");
     for (int i = 0; i < 8; i++)
-        printf("%2i", chooseLinearSearch("%lf", doubleMatrix, 8, doubleMatrix[0][i]));
+        printf("%2i", chooseLinearSearchArr("%lf", doubleMatrix, 8, doubleMatrix[0][i]));
     printf("\n");
     for (int i = 0; i < 8; i++)
-        printf("%2i", chooseLinearSearch("%p", ptrMatrix, 8, ptrMatrix[0][i]));
+        printf("%2i", chooseLinearSearchArr("%p", ptrMatrix, 8, ptrMatrix[0][i], ptrCmp));
     printf("\n");
 
     for (int i = 0; i < 2; i++)
