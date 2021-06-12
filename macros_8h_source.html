@@ -81,18 +81,18 @@ $(function() {
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">                              : ptrCmp)(a, b)</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
 <div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="macros_8h.html#a753ecd1bbb75072521bd11fbe78f681a">   37</a></span>&#160;<span class="preprocessor">#define bubbleSortArr(arr, size) _Generic(arr, char *                 \</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">                                          : charBubbleSort, int *     \</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">                                          : intBubbleSort, float *    \</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">                                          : floatBubbleSort, double * \</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">                                          : doubleBubbleSort, void ** \</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">                                          : ptrBubbleSort)(arr, size)</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">                                          : charBubbleSortArr, int *     \</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">                                          : intBubbleSortArr, float *    \</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">                                          : floatBubbleSortArr, double * \</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">                                          : doubleBubbleSortArr, void ** \</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">                                          : ptrBubbleSortArr)(arr, size)</span></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="macros_8h.html#aec219b045ff7f2d2ad276430d2d720e9">   50</a></span>&#160;<span class="preprocessor">#define quickSortArr(arr, size) _Generic(arr, char *                \</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">                                         : charQuickSort, int *     \</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">                                         : intQuickSort, float *    \</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">                                         : floatQuickSort, double * \</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">                                         : doubleQuickSort, void ** \</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">                                         : ptrQuickSort)(arr, size)</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="macros_8h.html#a20553e37c6eab57419c4eb0923d3a606">   50</a></span>&#160;<span class="preprocessor">#define quickSortArr(arr, size, ...) _Generic(arr, char *                \</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">                                         : charQuickSortArr, int *     \</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">                                         : intQuickSortArr, float *    \</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">                                         : floatQuickSortArr, double * \</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">                                         : doubleQuickSortArr, void ** \</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">                                         : ptrQuickSortArr)(arr, size, ...)</span></div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
 <div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="macros_8h.html#ad8028636e4addb1d2a10468e7305308b">   63</a></span>&#160;<span class="preprocessor">#define newALFromArray(arr, size) _Generic(arr, char *                     \</span></div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor">                                           : newALFromCharArray, int *     \</span></div>

@@ -103,9 +103,9 @@ Macros</h2></td></tr>
 <tr class="memitem:a753ecd1bbb75072521bd11fbe78f681a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.html#a753ecd1bbb75072521bd11fbe78f681a">bubbleSortArr</a>(arr,  size)</td></tr>
 <tr class="memdesc:a753ecd1bbb75072521bd11fbe78f681a"><td class="mdescLeft">&#160;</td><td class="mdescRight">BubbleSort for arrays.  <a href="macros_8h.html#a753ecd1bbb75072521bd11fbe78f681a">More...</a><br /></td></tr>
 <tr class="separator:a753ecd1bbb75072521bd11fbe78f681a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec219b045ff7f2d2ad276430d2d720e9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.html#aec219b045ff7f2d2ad276430d2d720e9">quickSortArr</a>(arr,  size)</td></tr>
-<tr class="memdesc:aec219b045ff7f2d2ad276430d2d720e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Quicksort for arrays.  <a href="macros_8h.html#aec219b045ff7f2d2ad276430d2d720e9">More...</a><br /></td></tr>
-<tr class="separator:aec219b045ff7f2d2ad276430d2d720e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20553e37c6eab57419c4eb0923d3a606"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.html#a20553e37c6eab57419c4eb0923d3a606">quickSortArr</a>(arr,  size, ...)</td></tr>
+<tr class="memdesc:a20553e37c6eab57419c4eb0923d3a606"><td class="mdescLeft">&#160;</td><td class="mdescRight">Quicksort for arrays.  <a href="macros_8h.html#a20553e37c6eab57419c4eb0923d3a606">More...</a><br /></td></tr>
+<tr class="separator:a20553e37c6eab57419c4eb0923d3a606"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad8028636e4addb1d2a10468e7305308b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macros_8h.html#ad8028636e4addb1d2a10468e7305308b">newALFromArray</a>(arr,  size)</td></tr>
 <tr class="memdesc:ad8028636e4addb1d2a10468e7305308b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a> from a static array.  <a href="macros_8h.html#ad8028636e4addb1d2a10468e7305308b">More...</a><br /></td></tr>
 <tr class="separator:ad8028636e4addb1d2a10468e7305308b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -173,7 +173,7 @@ Macros</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Macros for emulated overloading. </p>
 <dl class="section author"><dt>Author</dt><dd>Pietro Firpo (<a href="#" onclick="location.href='mai'+'lto:'+'pie'+'tr'+'o.f'+'ir'+'po@'+'pm'+'.me'; return false;">pietr<span style="display: none;">.nosp@m.</span>o.fi<span style="display: none;">.nosp@m.</span>rpo@p<span style="display: none;">.nosp@m.</span>m.me</a>) </dd></dl>
-<dl class="section note"><dt>Note</dt><dd>Many of these macros work on C11 or newer compilers only. If they are not supported by your compiler you have to use the function the macro expands to in your case. For example, if you want to bubblesort an array of floats and the macro bubbleSort() is not supported by your compiler, you have to call <a class="el" href="arrays_8h.html#a9015e98d89b08ad1dbf78c1813d84ac2" title="Bubblesort for arrays of floats.">floatBubbleSort()</a> or <a class="el" href="arrays_8h.html#a261dbf080f89266b313adf68de9575a2" title="Bubble sort for arrays.">chooseBubbleSortArr()</a> </dd>
+<dl class="section note"><dt>Note</dt><dd>Many of these macros work on C11 or newer compilers only. If they are not supported by your compiler you have to use the function the macro expands to in your case. For example, if you want to bubblesort an array of floats and the macro bubbleSort() is not supported by your compiler, you have to call <a class="el" href="arrays_8h.html#a6144e56767bb15487d254992ea7c8bdc" title="Bubblesort for arrays of floats.">floatBubbleSortArr()</a> or <a class="el" href="arrays_8h.html#a68d82aeb44c4a02999176a56f741cf68" title="Bubble sort for arrays.">chooseBubbleSortArr()</a>. Moreover, these macros don't work with pointer arrays, <a class="el" href="structArrayList.html" title="ArrayList type">ArrayList</a>, <a class="el" href="structLinkedList.html" title="LinkedList type">LinkedList</a>, <a class="el" href="structStack.html" title="Stack type">Stack</a> or <a class="el" href="structQueue.html" title="Queue type">Queue</a> type </dd>
 <dd>
 In some development environments, for example Vscode, calls to these macros can be reported as errors even if they are correct. If you use Vscode you have to set <code>"C_Cpp.default.cStandard": "c17"</code> in your <code>settings.json</code> file in order to avoid these error reportings </dd></dl>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
@@ -247,11 +247,11 @@ In some development environments, for example Vscode, calls to these macros can 
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">                                        _Generic(collection1, <a class="code" href="structArrayList.html">ArrayList</a>         \</div>
-<div class="line">                                        : <a class="code" href="arrayList_8h.html#a43db0a134b0ff1b67407d3d6089fd5e9">areALEqual</a>, <a class="code" href="structLinkedList.html">LinkedList</a> \</div>
+<div class="line">                                        : <a class="code" href="arrayList_8h.html#ad3686917be808e3000d3c0f8c7e6a5ef">areALEqual</a>, <a class="code" href="structLinkedList.html">LinkedList</a> \</div>
 <div class="line">                                        : <a class="code" href="linkedList_8h.html#ad3e0ede5bfad2104f814e7c10a09fb77">areLLEqual</a>, <a class="code" href="structStack.html">Stack</a>      \</div>
 <div class="line">                                        : <a class="code" href="stack_8h.html#a5584f29e6949a56a8d313fd2010ebb35">areStacksEqual</a>, <a class="code" href="structQueue.html">Queue</a>  \</div>
 <div class="line">                                        : <a class="code" href="queue_8h.html#a67a3d52fd58e1f10b245925677a94936">areQueuesEqual</a>)(collection1, collection2)</div>
-<div class="ttc" id="aarrayList_8h_html_a43db0a134b0ff1b67407d3d6089fd5e9"><div class="ttname"><a href="arrayList_8h.html#a43db0a134b0ff1b67407d3d6089fd5e9">areALEqual</a></div><div class="ttdeci">byte areALEqual(const ArrayList list1, const ArrayList list2)</div><div class="ttdoc">Compare two ArrayList.</div></div>
+<div class="ttc" id="aarrayList_8h_html_ad3686917be808e3000d3c0f8c7e6a5ef"><div class="ttname"><a href="arrayList_8h.html#ad3686917be808e3000d3c0f8c7e6a5ef">areALEqual</a></div><div class="ttdeci">byte areALEqual(const ArrayList list1, const ArrayList list2,...)</div><div class="ttdoc">Compare two ArrayList.</div></div>
 <div class="ttc" id="alinkedList_8h_html_ad3e0ede5bfad2104f814e7c10a09fb77"><div class="ttname"><a href="linkedList_8h.html#ad3e0ede5bfad2104f814e7c10a09fb77">areLLEqual</a></div><div class="ttdeci">byte areLLEqual(const LinkedList list1, const LinkedList list2)</div><div class="ttdoc">Compare two LinkedList.</div></div>
 <div class="ttc" id="aqueue_8h_html_a67a3d52fd58e1f10b245925677a94936"><div class="ttname"><a href="queue_8h.html#a67a3d52fd58e1f10b245925677a94936">areQueuesEqual</a></div><div class="ttdeci">byte areQueuesEqual(const Queue queue1, const Queue queue2)</div><div class="ttdoc">Compare two Queue.</div></div>
 <div class="ttc" id="astack_8h_html_a5584f29e6949a56a8d313fd2010ebb35"><div class="ttname"><a href="stack_8h.html#a5584f29e6949a56a8d313fd2010ebb35">areStacksEqual</a></div><div class="ttdeci">byte areStacksEqual(const Stack stack1, const Stack stack2)</div><div class="ttdoc">Compare two Stack.</div></div>
@@ -296,16 +296,16 @@ In some development environments, for example Vscode, calls to these macros can 
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">                                          _Generic(arr, <span class="keywordtype">char</span> *                 \</div>
-<div class="line">                                          : <a class="code" href="arrays_8h.html#aba45688581551369e2806b7d0230d34c">charBubbleSort</a>, <span class="keywordtype">int</span> *     \</div>
-<div class="line">                                          : <a class="code" href="arrays_8h.html#a114783f8a2beed66f15d55a6c49c678d">intBubbleSort</a>, <span class="keywordtype">float</span> *    \</div>
-<div class="line">                                          : <a class="code" href="arrays_8h.html#a9015e98d89b08ad1dbf78c1813d84ac2">floatBubbleSort</a>, <span class="keywordtype">double</span> * \</div>
-<div class="line">                                          : <a class="code" href="arrays_8h.html#a61a8cae710b612db52c21140d70c0d4f">doubleBubbleSort</a>, <span class="keywordtype">void</span> ** \</div>
-<div class="line">                                          : <a class="code" href="arrays_8h.html#a4c4dac17d159dcca9c913c135c3438b2">ptrBubbleSort</a>)(arr, size)</div>
-<div class="ttc" id="aarrays_8h_html_a114783f8a2beed66f15d55a6c49c678d"><div class="ttname"><a href="arrays_8h.html#a114783f8a2beed66f15d55a6c49c678d">intBubbleSort</a></div><div class="ttdeci">void intBubbleSort(int *arr, unsigned int size)</div><div class="ttdoc">Bubblesort for arrays of ints.</div></div>
-<div class="ttc" id="aarrays_8h_html_a4c4dac17d159dcca9c913c135c3438b2"><div class="ttname"><a href="arrays_8h.html#a4c4dac17d159dcca9c913c135c3438b2">ptrBubbleSort</a></div><div class="ttdeci">void ptrBubbleSort(void **arr, unsigned int size)</div><div class="ttdoc">Bubblesort for arrays of pointers.</div></div>
-<div class="ttc" id="aarrays_8h_html_a61a8cae710b612db52c21140d70c0d4f"><div class="ttname"><a href="arrays_8h.html#a61a8cae710b612db52c21140d70c0d4f">doubleBubbleSort</a></div><div class="ttdeci">void doubleBubbleSort(double *arr, unsigned int size)</div><div class="ttdoc">Bubblesort for arrays of doubles.</div></div>
-<div class="ttc" id="aarrays_8h_html_a9015e98d89b08ad1dbf78c1813d84ac2"><div class="ttname"><a href="arrays_8h.html#a9015e98d89b08ad1dbf78c1813d84ac2">floatBubbleSort</a></div><div class="ttdeci">void floatBubbleSort(float *arr, unsigned int size)</div><div class="ttdoc">Bubblesort for arrays of floats.</div></div>
-<div class="ttc" id="aarrays_8h_html_aba45688581551369e2806b7d0230d34c"><div class="ttname"><a href="arrays_8h.html#aba45688581551369e2806b7d0230d34c">charBubbleSort</a></div><div class="ttdeci">void charBubbleSort(char *arr, unsigned int size)</div><div class="ttdoc">Bubblesort for arrays of chars.</div></div>
+<div class="line">                                          : <a class="code" href="arrays_8h.html#aedbe71d09cf4f31e766faf8e0a1b263e">charBubbleSortArr</a>, <span class="keywordtype">int</span> *     \</div>
+<div class="line">                                          : <a class="code" href="arrays_8h.html#a366e3edaaa24eef31c7d69ec2ee0789e">intBubbleSortArr</a>, <span class="keywordtype">float</span> *    \</div>
+<div class="line">                                          : <a class="code" href="arrays_8h.html#a6144e56767bb15487d254992ea7c8bdc">floatBubbleSortArr</a>, <span class="keywordtype">double</span> * \</div>
+<div class="line">                                          : <a class="code" href="arrays_8h.html#a8bf858198d461f2fdb760ccc33073425">doubleBubbleSortArr</a>, <span class="keywordtype">void</span> ** \</div>
+<div class="line">                                          : <a class="code" href="arrays_8h.html#a877c8daaeeffd4af08996dd051837b13">ptrBubbleSortArr</a>)(arr, size)</div>
+<div class="ttc" id="aarrays_8h_html_a366e3edaaa24eef31c7d69ec2ee0789e"><div class="ttname"><a href="arrays_8h.html#a366e3edaaa24eef31c7d69ec2ee0789e">intBubbleSortArr</a></div><div class="ttdeci">void intBubbleSortArr(int *arr, unsigned int size)</div><div class="ttdoc">Bubblesort for arrays of ints.</div></div>
+<div class="ttc" id="aarrays_8h_html_a6144e56767bb15487d254992ea7c8bdc"><div class="ttname"><a href="arrays_8h.html#a6144e56767bb15487d254992ea7c8bdc">floatBubbleSortArr</a></div><div class="ttdeci">void floatBubbleSortArr(float *arr, unsigned int size)</div><div class="ttdoc">Bubblesort for arrays of floats.</div></div>
+<div class="ttc" id="aarrays_8h_html_a877c8daaeeffd4af08996dd051837b13"><div class="ttname"><a href="arrays_8h.html#a877c8daaeeffd4af08996dd051837b13">ptrBubbleSortArr</a></div><div class="ttdeci">void ptrBubbleSortArr(void **arr, unsigned int size, int(*cmpFunc)(const void *a, const void *b))</div><div class="ttdoc">Bubblesort for arrays of pointers.</div></div>
+<div class="ttc" id="aarrays_8h_html_a8bf858198d461f2fdb760ccc33073425"><div class="ttname"><a href="arrays_8h.html#a8bf858198d461f2fdb760ccc33073425">doubleBubbleSortArr</a></div><div class="ttdeci">void doubleBubbleSortArr(double *arr, unsigned int size)</div><div class="ttdoc">Bubblesort for arrays of doubles.</div></div>
+<div class="ttc" id="aarrays_8h_html_aedbe71d09cf4f31e766faf8e0a1b263e"><div class="ttname"><a href="arrays_8h.html#aedbe71d09cf4f31e766faf8e0a1b263e">charBubbleSortArr</a></div><div class="ttdeci">void charBubbleSortArr(char *arr, unsigned int size)</div><div class="ttdoc">Bubblesort for arrays of chars.</div></div>
 </div><!-- fragment -->
 <p>BubbleSort for arrays. </p>
 <dl class="section return"><dt>Returns</dt><dd>The return code of the function called </dd></dl>
@@ -345,16 +345,16 @@ In some development environments, for example Vscode, calls to these macros can 
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">                              _Generic((a, b), <span class="keywordtype">char</span> *       \</div>
-<div class="line">                              : <a class="code" href="utility_8h.html#a6617abe8dcee554e16d01965050c6011">charCmp</a>, <span class="keywordtype">int</span> *     \</div>
-<div class="line">                              : <a class="code" href="utility_8h.html#aebc7b095cdd90551a58295a17ce16dfd">intCmp</a>, <span class="keywordtype">float</span> *    \</div>
-<div class="line">                              : <a class="code" href="utility_8h.html#a55042291f308fda752817077c2aab57f">floatCmp</a>, <span class="keywordtype">double</span> * \</div>
-<div class="line">                              : <a class="code" href="utility_8h.html#af0fc0c42b6a41f593a63535ca5352309">doubleCmp</a>, <span class="keywordtype">void</span> ** \</div>
-<div class="line">                              : <a class="code" href="utility_8h.html#a3a26e3c3ede0beca95ea69c8372bbda5">ptrCmp</a>)(a, b)</div>
-<div class="ttc" id="autility_8h_html_a3a26e3c3ede0beca95ea69c8372bbda5"><div class="ttname"><a href="utility_8h.html#a3a26e3c3ede0beca95ea69c8372bbda5">ptrCmp</a></div><div class="ttdeci">byte ptrCmp(const void *a, const void *b)</div><div class="ttdoc">Compare two pointers.</div></div>
-<div class="ttc" id="autility_8h_html_a55042291f308fda752817077c2aab57f"><div class="ttname"><a href="utility_8h.html#a55042291f308fda752817077c2aab57f">floatCmp</a></div><div class="ttdeci">byte floatCmp(const void *a, const void *b)</div><div class="ttdoc">Compare two floats.</div></div>
-<div class="ttc" id="autility_8h_html_a6617abe8dcee554e16d01965050c6011"><div class="ttname"><a href="utility_8h.html#a6617abe8dcee554e16d01965050c6011">charCmp</a></div><div class="ttdeci">byte charCmp(const void *a, const void *b)</div><div class="ttdoc">Compare two chars.</div></div>
-<div class="ttc" id="autility_8h_html_aebc7b095cdd90551a58295a17ce16dfd"><div class="ttname"><a href="utility_8h.html#aebc7b095cdd90551a58295a17ce16dfd">intCmp</a></div><div class="ttdeci">byte intCmp(const void *a, const void *b)</div><div class="ttdoc">Compare two ints.</div></div>
-<div class="ttc" id="autility_8h_html_af0fc0c42b6a41f593a63535ca5352309"><div class="ttname"><a href="utility_8h.html#af0fc0c42b6a41f593a63535ca5352309">doubleCmp</a></div><div class="ttdeci">byte doubleCmp(const void *a, const void *b)</div><div class="ttdoc">Compare two doubles.</div></div>
+<div class="line">                              : <a class="code" href="utility_8h.html#acf0c602710e6e39b6c4eb810c192bb38">charCmp</a>, <span class="keywordtype">int</span> *     \</div>
+<div class="line">                              : <a class="code" href="utility_8h.html#ad6a0baaa6bb31357f4b4b30f20d2b88c">intCmp</a>, <span class="keywordtype">float</span> *    \</div>
+<div class="line">                              : <a class="code" href="utility_8h.html#a71957641b81742481c292bbc47025425">floatCmp</a>, <span class="keywordtype">double</span> * \</div>
+<div class="line">                              : <a class="code" href="utility_8h.html#a184797879e9b4712b6e834935fcc3d57">doubleCmp</a>, <span class="keywordtype">void</span> ** \</div>
+<div class="line">                              : <a class="code" href="utility_8h.html#adfe2b49ce70a8fd3928f3ee5a3fc3236">ptrCmp</a>)(a, b)</div>
+<div class="ttc" id="autility_8h_html_a184797879e9b4712b6e834935fcc3d57"><div class="ttname"><a href="utility_8h.html#a184797879e9b4712b6e834935fcc3d57">doubleCmp</a></div><div class="ttdeci">int doubleCmp(const void *a, const void *b)</div><div class="ttdoc">Compare two doubles.</div></div>
+<div class="ttc" id="autility_8h_html_a71957641b81742481c292bbc47025425"><div class="ttname"><a href="utility_8h.html#a71957641b81742481c292bbc47025425">floatCmp</a></div><div class="ttdeci">int floatCmp(const void *a, const void *b)</div><div class="ttdoc">Compare two floats.</div></div>
+<div class="ttc" id="autility_8h_html_acf0c602710e6e39b6c4eb810c192bb38"><div class="ttname"><a href="utility_8h.html#acf0c602710e6e39b6c4eb810c192bb38">charCmp</a></div><div class="ttdeci">int charCmp(const void *a, const void *b)</div><div class="ttdoc">Compare two chars.</div></div>
+<div class="ttc" id="autility_8h_html_ad6a0baaa6bb31357f4b4b30f20d2b88c"><div class="ttname"><a href="utility_8h.html#ad6a0baaa6bb31357f4b4b30f20d2b88c">intCmp</a></div><div class="ttdeci">int intCmp(const void *a, const void *b)</div><div class="ttdoc">Compare two ints.</div></div>
+<div class="ttc" id="autility_8h_html_adfe2b49ce70a8fd3928f3ee5a3fc3236"><div class="ttname"><a href="utility_8h.html#adfe2b49ce70a8fd3928f3ee5a3fc3236">ptrCmp</a></div><div class="ttdeci">int ptrCmp(const void *a, const void *b)</div><div class="ttdoc">Compare two pointers.</div></div>
 </div><!-- fragment -->
 <p>Compare two values. </p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -392,11 +392,11 @@ In some development environments, for example Vscode, calls to these macros can 
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">                               _Generic(collection, <a class="code" href="structArrayList.html">ArrayList</a>         \</div>
-<div class="line">                               : <a class="code" href="arrayList_8h.html#a3aed7cdf275de87ede5e3fc07f10c5e4">deleteAL</a>, <a class="code" href="structLinkedList.html">LinkedList</a> \</div>
+<div class="line">                               : <a class="code" href="arrayList_8h.html#ab663e0f6f06d1772627c7659da59dcbb">deleteAL</a>, <a class="code" href="structLinkedList.html">LinkedList</a> \</div>
 <div class="line">                               : <a class="code" href="linkedList_8h.html#a329c337f6df66254fed92b66ec3609e1">deleteLL</a>, <a class="code" href="structStack.html">Stack</a>      \</div>
 <div class="line">                               : <a class="code" href="stack_8h.html#acc7c17f5b00ead4cebeb1305604f3ca8">deleteStack</a>, <a class="code" href="structQueue.html">Queue</a>   \</div>
 <div class="line">                               : <a class="code" href="queue_8h.html#a0c868793376dad282c6485d83d6ce03c">deleteQueue</a>)(collection)</div>
-<div class="ttc" id="aarrayList_8h_html_a3aed7cdf275de87ede5e3fc07f10c5e4"><div class="ttname"><a href="arrayList_8h.html#a3aed7cdf275de87ede5e3fc07f10c5e4">deleteAL</a></div><div class="ttdeci">void deleteAL(ArrayList list)</div><div class="ttdoc">Delete an ArrayList.</div></div>
+<div class="ttc" id="aarrayList_8h_html_ab663e0f6f06d1772627c7659da59dcbb"><div class="ttname"><a href="arrayList_8h.html#ab663e0f6f06d1772627c7659da59dcbb">deleteAL</a></div><div class="ttdeci">void deleteAL(ArrayList list,...)</div><div class="ttdoc">Delete an ArrayList.</div></div>
 <div class="ttc" id="alinkedList_8h_html_a329c337f6df66254fed92b66ec3609e1"><div class="ttname"><a href="linkedList_8h.html#a329c337f6df66254fed92b66ec3609e1">deleteLL</a></div><div class="ttdeci">void deleteLL(LinkedList list)</div><div class="ttdoc">Delete a LinkedList.</div></div>
 <div class="ttc" id="aqueue_8h_html_a0c868793376dad282c6485d83d6ce03c"><div class="ttname"><a href="queue_8h.html#a0c868793376dad282c6485d83d6ce03c">deleteQueue</a></div><div class="ttdeci">void deleteQueue(Queue queue)</div><div class="ttdoc">Delete a Queue.</div></div>
 <div class="ttc" id="astack_8h_html_acc7c17f5b00ead4cebeb1305604f3ca8"><div class="ttname"><a href="stack_8h.html#acc7c17f5b00ead4cebeb1305604f3ca8">deleteStack</a></div><div class="ttdeci">void deleteStack(Stack stack)</div><div class="ttdoc">Delete a Stack.</div></div>
@@ -1110,8 +1110,8 @@ In some development environments, for example Vscode, calls to these macros can 
 
 </div>
 </div>
-<a id="aec219b045ff7f2d2ad276430d2d720e9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aec219b045ff7f2d2ad276430d2d720e9">&#9670;&nbsp;</a></span>quickSortArr</h2>
+<a id="a20553e37c6eab57419c4eb0923d3a606"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20553e37c6eab57419c4eb0923d3a606">&#9670;&nbsp;</a></span>quickSortArr</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1126,7 +1126,13 @@ In some development environments, for example Vscode, calls to these macros can 
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname">size&#160;</td>
+          <td class="paramname">size, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1136,16 +1142,16 @@ In some development environments, for example Vscode, calls to these macros can 
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">                                         _Generic(arr, <span class="keywordtype">char</span> *                \</div>
-<div class="line">                                         : <a class="code" href="arrays_8h.html#a9758264988a926b34f15d6229c1bd6b8">charQuickSort</a>, <span class="keywordtype">int</span> *     \</div>
-<div class="line">                                         : <a class="code" href="arrays_8h.html#a677a34cb7719b2d787fd9b2dbb028067">intQuickSort</a>, <span class="keywordtype">float</span> *    \</div>
-<div class="line">                                         : <a class="code" href="arrays_8h.html#a087ff5cf198c9a61e3d0d07efcf1b43f">floatQuickSort</a>, <span class="keywordtype">double</span> * \</div>
-<div class="line">                                         : <a class="code" href="arrays_8h.html#a5064edfb438f414c94f0bc426ccb32fc">doubleQuickSort</a>, <span class="keywordtype">void</span> ** \</div>
-<div class="line">                                         : <a class="code" href="arrays_8h.html#aba91ad30b79259e5a8790b49e01d1918">ptrQuickSort</a>)(arr, size)</div>
-<div class="ttc" id="aarrays_8h_html_a087ff5cf198c9a61e3d0d07efcf1b43f"><div class="ttname"><a href="arrays_8h.html#a087ff5cf198c9a61e3d0d07efcf1b43f">floatQuickSort</a></div><div class="ttdeci">void floatQuickSort(float *arr, int size)</div><div class="ttdoc">Quicksort for arrays of floats.</div></div>
-<div class="ttc" id="aarrays_8h_html_a5064edfb438f414c94f0bc426ccb32fc"><div class="ttname"><a href="arrays_8h.html#a5064edfb438f414c94f0bc426ccb32fc">doubleQuickSort</a></div><div class="ttdeci">void doubleQuickSort(double *arr, int size)</div><div class="ttdoc">Quicksort for arrays of doubles.</div></div>
-<div class="ttc" id="aarrays_8h_html_a677a34cb7719b2d787fd9b2dbb028067"><div class="ttname"><a href="arrays_8h.html#a677a34cb7719b2d787fd9b2dbb028067">intQuickSort</a></div><div class="ttdeci">void intQuickSort(int *arr, int size)</div><div class="ttdoc">Quicksort for arrays of ints.</div></div>
-<div class="ttc" id="aarrays_8h_html_a9758264988a926b34f15d6229c1bd6b8"><div class="ttname"><a href="arrays_8h.html#a9758264988a926b34f15d6229c1bd6b8">charQuickSort</a></div><div class="ttdeci">void charQuickSort(char *arr, int size)</div><div class="ttdoc">Quicksort for arrays of chars.</div></div>
-<div class="ttc" id="aarrays_8h_html_aba91ad30b79259e5a8790b49e01d1918"><div class="ttname"><a href="arrays_8h.html#aba91ad30b79259e5a8790b49e01d1918">ptrQuickSort</a></div><div class="ttdeci">void ptrQuickSort(void **arr, int size)</div><div class="ttdoc">Quicksort for arrays of pointers.</div></div>
+<div class="line">                                         : <a class="code" href="arrays_8h.html#a709c6c4891ba512e6c95e4f7e4d09b1f">charQuickSortArr</a>, <span class="keywordtype">int</span> *     \</div>
+<div class="line">                                         : <a class="code" href="arrays_8h.html#a79691edb83d3888ab894860e12ca7b66">intQuickSortArr</a>, <span class="keywordtype">float</span> *    \</div>
+<div class="line">                                         : <a class="code" href="arrays_8h.html#a1157f373b9ec1f2f8391e4276b32e52f">floatQuickSortArr</a>, <span class="keywordtype">double</span> * \</div>
+<div class="line">                                         : <a class="code" href="arrays_8h.html#ab81fc1b10fddf9e1b0638958d41da147">doubleQuickSortArr</a>, <span class="keywordtype">void</span> ** \</div>
+<div class="line">                                         : <a class="code" href="arrays_8h.html#a827df7a3028cd2ee4d70abb33351718d">ptrQuickSortArr</a>)(arr, size, ...)</div>
+<div class="ttc" id="aarrays_8h_html_a1157f373b9ec1f2f8391e4276b32e52f"><div class="ttname"><a href="arrays_8h.html#a1157f373b9ec1f2f8391e4276b32e52f">floatQuickSortArr</a></div><div class="ttdeci">void floatQuickSortArr(float *arr, int size)</div><div class="ttdoc">Quicksort for arrays of floats.</div></div>
+<div class="ttc" id="aarrays_8h_html_a709c6c4891ba512e6c95e4f7e4d09b1f"><div class="ttname"><a href="arrays_8h.html#a709c6c4891ba512e6c95e4f7e4d09b1f">charQuickSortArr</a></div><div class="ttdeci">void charQuickSortArr(char *arr, int size)</div><div class="ttdoc">Quicksort for arrays of chars.</div></div>
+<div class="ttc" id="aarrays_8h_html_a79691edb83d3888ab894860e12ca7b66"><div class="ttname"><a href="arrays_8h.html#a79691edb83d3888ab894860e12ca7b66">intQuickSortArr</a></div><div class="ttdeci">void intQuickSortArr(int *arr, int size)</div><div class="ttdoc">Quicksort for arrays of ints.</div></div>
+<div class="ttc" id="aarrays_8h_html_a827df7a3028cd2ee4d70abb33351718d"><div class="ttname"><a href="arrays_8h.html#a827df7a3028cd2ee4d70abb33351718d">ptrQuickSortArr</a></div><div class="ttdeci">void ptrQuickSortArr(void *arr, int size, int(*cmpFunc)(const void *a, const void *b))</div><div class="ttdoc">Quicksort for arrays of pointers.</div></div>
+<div class="ttc" id="aarrays_8h_html_ab81fc1b10fddf9e1b0638958d41da147"><div class="ttname"><a href="arrays_8h.html#ab81fc1b10fddf9e1b0638958d41da147">doubleQuickSortArr</a></div><div class="ttdeci">void doubleQuickSortArr(double *arr, int size)</div><div class="ttdoc">Quicksort for arrays of doubles.</div></div>
 </div><!-- fragment -->
 <p>Quicksort for arrays. </p>
 <dl class="section return"><dt>Returns</dt><dd>The return code of the function called </dd></dl>

@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['floatbubblesort_230',['floatBubbleSort',['../arrays_8h.html#a9015e98d89b08ad1dbf78c1813d84ac2',1,'arrays.h']]],
-  ['floatcmp_231',['floatCmp',['../utility_8h.html#a55042291f308fda752817077c2aab57f',1,'utility.h']]],
-  ['floatlinearsearch_232',['floatLinearSearch',['../arrays_8h.html#abfef4a54e9005cc907b4a01a76392070',1,'arrays.h']]],
-  ['floatquicksort_233',['floatQuickSort',['../arrays_8h.html#a087ff5cf198c9a61e3d0d07efcf1b43f',1,'arrays.h']]]
+  ['floatbubblesortarr_230',['floatBubbleSortArr',['../arrays_8h.html#a6144e56767bb15487d254992ea7c8bdc',1,'arrays.h']]],
+  ['floatcmp_231',['floatCmp',['../utility_8h.html#a71957641b81742481c292bbc47025425',1,'utility.h']]],
+  ['floatlinearsearcharr_232',['floatLinearSearchArr',['../arrays_8h.html#a33b03533651a3c90cdef089590645b44',1,'arrays.h']]],
+  ['floatquicksortarr_233',['floatQuickSortArr',['../arrays_8h.html#a1157f373b9ec1f2f8391e4276b32e52f',1,'arrays.h']]]
 ];

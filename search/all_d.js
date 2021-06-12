@@ -10,10 +10,10 @@ var searchData=
   ['printmatrix_139',['printMatrix',['../arrays_8h.html#ab620d2c7265e41a8928042c7c0ea269e',1,'arrays.h']]],
   ['printqueue_140',['printQueue',['../queue_8h.html#a9b6dee3f87839fc42c86975831639b53',1,'queue.h']]],
   ['printstack_141',['printStack',['../stack_8h.html#af7dc8178a0018003e0087aacc87688e2',1,'stack.h']]],
-  ['ptrbubblesort_142',['ptrBubbleSort',['../arrays_8h.html#a4c4dac17d159dcca9c913c135c3438b2',1,'arrays.h']]],
-  ['ptrcmp_143',['ptrCmp',['../utility_8h.html#a3a26e3c3ede0beca95ea69c8372bbda5',1,'utility.h']]],
-  ['ptrlinearsearch_144',['ptrLinearSearch',['../arrays_8h.html#af7023e3d81b38bf6fbd7bb1fa0bafe9f',1,'arrays.h']]],
-  ['ptrquicksort_145',['ptrQuickSort',['../arrays_8h.html#aba91ad30b79259e5a8790b49e01d1918',1,'arrays.h']]],
+  ['ptrbubblesortarr_142',['ptrBubbleSortArr',['../arrays_8h.html#a877c8daaeeffd4af08996dd051837b13',1,'arrays.h']]],
+  ['ptrcmp_143',['ptrCmp',['../utility_8h.html#adfe2b49ce70a8fd3928f3ee5a3fc3236',1,'utility.h']]],
+  ['ptrlinearsearcharr_144',['ptrLinearSearchArr',['../arrays_8h.html#ac648219d129c7d4a50533548a34dcfae',1,'arrays.h']]],
+  ['ptrquicksortarr_145',['ptrQuickSortArr',['../arrays_8h.html#a827df7a3028cd2ee4d70abb33351718d',1,'arrays.h']]],
   ['push_146',['push',['../stack_8h.html#aeeb546f13d57ce40d5e8b8cb20d4aa00',1,'stack.h']]],
   ['pushfromptr_147',['pushFromPtr',['../stack_8h.html#a2b3c3a95240663ce4a5f209603e337f5',1,'stack.h']]]
 ];
