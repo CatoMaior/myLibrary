@@ -2,7 +2,7 @@
  * @file macros.h
  * @author Pietro Firpo (pietro.firpo@pm.me)
  * @brief Macros for emulated overloading
- * @note Many of these macros work on C11 or newer compilers only. If they are not supported by your compiler you have to use the function the macro expands to in your case. For example, if you want to bubblesort an array of floats and the macro bubbleSort() is not supported by your compiler, you have to call floatBubbleSort() or chooseBubbleSortArr()
+ * @note Many of these macros work on C11 or newer compilers only. If they are not supported by your compiler you have to use the function the macro expands to in your case. For example, if you want to bubblesort an array of floats and the macro bubbleSort() is not supported by your compiler, you have to call floatBubbleSortArr() or chooseBubbleSortArr(). Moreover, these macros don't work with pointer arrays, ::ArrayList, ::LinkedList, ::Stack or ::Queue type
  * @note In some development environments, for example Vscode, calls to these macros can be reported as errors even if they are correct. If you use Vscode you have to set `"C_Cpp.default.cStandard": "c17"` in your `settings.json` file in order to avoid these error reportings
  */
 
@@ -35,11 +35,11 @@
  * @param size Number of elements in the array to be sorted
  */
 #define bubbleSortArr(arr, size) _Generic(arr, char *                 \
-                                          : charBubbleSort, int *     \
-                                          : intBubbleSort, float *    \
-                                          : floatBubbleSort, double * \
-                                          : doubleBubbleSort, void ** \
-                                          : ptrBubbleSort)(arr, size)
+                                          : charBubbleSortArr, int *     \
+                                          : intBubbleSortArr, float *    \
+                                          : floatBubbleSortArr, double * \
+                                          : doubleBubbleSortArr, void ** \
+                                          : ptrBubbleSortArr)(arr, size)
 
 /**
  * @brief Quicksort for arrays
@@ -47,12 +47,12 @@
  * @param arr Pointer to the array to be sorted
  * @param size Number of elements in the array to be sorted
  */
-#define quickSortArr(arr, size) _Generic(arr, char *                \
-                                         : charQuickSort, int *     \
-                                         : intQuickSort, float *    \
-                                         : floatQuickSort, double * \
-                                         : doubleQuickSort, void ** \
-                                         : ptrQuickSort)(arr, size)
+#define quickSortArr(arr, size, ...) _Generic(arr, char *                \
+                                         : charQuickSortArr, int *     \
+                                         : intQuickSortArr, float *    \
+                                         : floatQuickSortArr, double * \
+                                         : doubleQuickSortArr, void ** \
+                                         : ptrQuickSortArr)(arr, size, ...)
 
 /**
  * @brief Create an ::ArrayList from a static array
