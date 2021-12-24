@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['linkedlist_177',['LinkedList',['../structLinkedList.html',1,'']]]
+  ['linkedlist_0',['LinkedList',['../structLinkedList.html',1,'']]]
 ];

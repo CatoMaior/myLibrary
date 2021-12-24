@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['mergeal_258',['mergeAL',['../arrayList_8h.html#a62ba0e7f589a6e8a293ba719dc40b829',1,'arrayList.h']]],
-  ['mergell_259',['mergeLL',['../linkedList_8h.html#a6496383714472c8b301c462551fae0cd',1,'linkedList.h']]]
+  ['mergeal_0',['mergeAL',['../arrayList_8h.html#a62ba0e7f589a6e8a293ba719dc40b829',1,'arrayList.h']]],
+  ['mergell_1',['mergeLL',['../linkedList_8h.html#a6496383714472c8b301c462551fae0cd',1,'linkedList.h']]]
 ];
