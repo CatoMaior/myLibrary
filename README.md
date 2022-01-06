@@ -1,7 +1,7 @@
 # myLibrary
 
 C library with some common tasks and data structures. I know the name is not the best but I have no imagination for names.\
-Check [here](https://catomaior.github.io/myLibrary/) for the documentation and [here](https://github.com/CatoMaior/myLibrary/releases/tag/latest) to download latest build (64 bits only, but you can compile from source in order to support other architectures). 
+Check [here](https://catomaior.github.io/myLibrary/) for the documentation and [here](https://github.com/CatoMaior/myLibrary/releases/tag/latest) to download latest build (for x86-64 only, but you can compile from source in order to support other architectures). 
 
 ## Table of contents
  - [Introduction and examples](#introduction-and-examples)
