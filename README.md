@@ -1,6 +1,6 @@
 # myLibrary
 
-C library with some common tasks and data structures. I know the name is not the best but I have no imagination for names.\
+C library with some common tasks and data structures. I know the name is not the best but I have no imagination for names. Created as a self-training project for a C programming university course.\
 Check [here](https://catomaior.github.io/myLibrary/) for the documentation and [here](https://github.com/CatoMaior/myLibrary/releases/tag/latest) to download latest build (for x86-64 only, but you can compile from source in order to support other architectures). 
 
 ## Table of contents
